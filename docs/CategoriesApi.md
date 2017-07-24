@@ -24,7 +24,7 @@ Create a new category
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -75,7 +75,7 @@ Templates define a type of category and the properties they have
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -124,7 +124,7 @@ Delete an existing category
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -174,7 +174,7 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -224,7 +224,7 @@ List and search categories with optional filters
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -278,7 +278,7 @@ Get a single category
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -324,7 +324,7 @@ Get a single category template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -373,7 +373,7 @@ List and search category templates
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -426,7 +426,7 @@ List all trivia tags in the system
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -474,7 +474,7 @@ Update an existing category
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -525,7 +525,7 @@ Update a category template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

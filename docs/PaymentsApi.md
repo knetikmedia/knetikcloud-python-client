@@ -20,7 +20,7 @@ Create a new payment method for a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -71,7 +71,7 @@ Delete an existing payment method for a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -121,7 +121,7 @@ Get a single payment method for a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -166,13 +166,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_payment_methods**
-> list[PaymentMethodResource] get_payment_methods(user_id, size=size, page=page, order=order)
+> list[PaymentMethodResource] get_payment_methods(user_id, filter_name=filter_name, filter_payment_type=filter_payment_type, filter_payment_method_type_id=filter_payment_method_type_id, filter_payment_method_type_name=filter_payment_method_type_name, size=size, page=page, order=order)
 
 Get all payment methods for a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -184,13 +184,17 @@ knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = knetik_cloud.PaymentsApi()
 user_id = 56 # int | ID of the user for whom the payment methods are being retrieved
+filter_name = 'filter_name_example' # str | Filter for payment methods whose name starts with a given string (optional)
+filter_payment_type = 'filter_payment_type_example' # str | Filter for payment methods with a specific payment type (optional)
+filter_payment_method_type_id = 56 # int | Filter for payment methods with a specific payment method type by id (optional)
+filter_payment_method_type_name = 'filter_payment_method_type_name_example' # str | Filter for payment methods whose payment method type name starts with a given string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
 
 try: 
     # Get all payment methods for a user
-    api_response = api_instance.get_payment_methods(user_id, size=size, page=page, order=order)
+    api_response = api_instance.get_payment_methods(user_id, filter_name=filter_name, filter_payment_type=filter_payment_type, filter_payment_method_type_id=filter_payment_method_type_id, filter_payment_method_type_name=filter_payment_method_type_name, size=size, page=page, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentsApi->get_payment_methods: %s\n" % e)
@@ -201,6 +205,10 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| ID of the user for whom the payment methods are being retrieved | 
+ **filter_name** | **str**| Filter for payment methods whose name starts with a given string | [optional] 
+ **filter_payment_type** | **str**| Filter for payment methods with a specific payment type | [optional] 
+ **filter_payment_method_type_id** | **int**| Filter for payment methods with a specific payment method type by id | [optional] 
+ **filter_payment_method_type_name** | **str**| Filter for payment methods whose payment method type name starts with a given string | [optional] 
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **str**| a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
@@ -227,7 +235,7 @@ Authorize payment of an invoice for later capture
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -276,7 +284,7 @@ Capture an existing invoice payment authorization
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -324,7 +332,7 @@ Update an existing payment method for a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

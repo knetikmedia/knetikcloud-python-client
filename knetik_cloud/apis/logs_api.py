@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -105,7 +105,7 @@ class LogsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -211,7 +211,7 @@ class LogsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -320,19 +320,19 @@ class LogsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_start_date' in params:
-            query_params['filter_start_date'] = params['filter_start_date']
+            query_params.append(('filter_start_date', params['filter_start_date']))
         if 'filter_event_name' in params:
-            query_params['filter_event_name'] = params['filter_event_name']
+            query_params.append(('filter_event_name', params['filter_event_name']))
         if 'filter_event_id' in params:
-            query_params['filter_event_id'] = params['filter_event_id']
+            query_params.append(('filter_event_id', params['filter_event_id']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -436,7 +436,7 @@ class LogsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -545,19 +545,19 @@ class LogsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_start_date' in params:
-            query_params['filter_start_date'] = params['filter_start_date']
+            query_params.append(('filter_start_date', params['filter_start_date']))
         if 'filter_end_date' in params:
-            query_params['filter_end_date'] = params['filter_end_date']
+            query_params.append(('filter_end_date', params['filter_end_date']))
         if 'filter_status_code' in params:
-            query_params['filter_status_code'] = params['filter_status_code']
+            query_params.append(('filter_status_code', params['filter_status_code']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -661,7 +661,7 @@ class LogsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -768,17 +768,17 @@ class LogsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_user' in params:
-            query_params['filter_user'] = params['filter_user']
+            query_params.append(('filter_user', params['filter_user']))
         if 'filter_action_name' in params:
-            query_params['filter_action_name'] = params['filter_action_name']
+            query_params.append(('filter_action_name', params['filter_action_name']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 

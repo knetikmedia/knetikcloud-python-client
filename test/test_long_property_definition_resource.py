@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -35,7 +35,9 @@ class TestLongPropertyDefinitionResource(unittest.TestCase):
         """
         Test LongPropertyDefinitionResource
         """
-        model = knetik_cloud.models.long_property_definition_resource.LongPropertyDefinitionResource()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.long_property_definition_resource.LongPropertyDefinitionResource()
+        pass
 
 
 if __name__ == '__main__':

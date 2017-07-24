@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -35,7 +35,9 @@ class TestPageResourceAggregateInvoiceReportResource(unittest.TestCase):
         """
         Test PageResourceAggregateInvoiceReportResource
         """
-        model = knetik_cloud.models.page_resource_aggregate_invoice_report_resource.PageResourceAggregateInvoiceReportResource()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.page_resource_aggregate_invoice_report_resource.PageResourceAggregateInvoiceReportResource()
+        pass
 
 
 if __name__ == '__main__':

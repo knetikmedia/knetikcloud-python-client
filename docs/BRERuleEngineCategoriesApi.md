@@ -23,7 +23,7 @@ Templates define a type of BRE category and the properties they have
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -74,7 +74,7 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -124,7 +124,7 @@ List categories
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -175,7 +175,7 @@ Get a single category
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -224,7 +224,7 @@ Get a single BRE category template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -273,7 +273,7 @@ List and search BRE category templates
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -326,7 +326,7 @@ Update a category
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -377,7 +377,7 @@ Update a BRE category template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

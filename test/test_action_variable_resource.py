@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -35,7 +35,9 @@ class TestActionVariableResource(unittest.TestCase):
         """
         Test ActionVariableResource
         """
-        model = knetik_cloud.models.action_variable_resource.ActionVariableResource()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.action_variable_resource.ActionVariableResource()
+        pass
 
 
 if __name__ == '__main__':

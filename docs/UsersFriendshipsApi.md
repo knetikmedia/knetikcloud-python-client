@@ -21,7 +21,7 @@ As a user, either creates or confirm a pending request. As an admin, call this e
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -71,7 +71,7 @@ Get friends list
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -126,7 +126,7 @@ This is a unique invite token that allows direct connection to the request user.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -177,7 +177,7 @@ Invites that the specified user received
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -232,7 +232,7 @@ Immediately connects the requested user with the user mapped by the provided inv
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -282,7 +282,7 @@ Remove or decline a friend
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

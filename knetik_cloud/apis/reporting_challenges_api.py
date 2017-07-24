@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -113,15 +113,15 @@ class ReportingChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_event' in params:
-            query_params['filter_event'] = params['filter_event']
+            query_params.append(('filter_event', params['filter_event']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -228,15 +228,15 @@ class ReportingChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_event' in params:
-            query_params['filter_event'] = params['filter_event']
+            query_params.append(('filter_event', params['filter_event']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 

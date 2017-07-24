@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -107,7 +107,7 @@ class BRERuleEngineTriggersApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -215,7 +215,7 @@ class BRERuleEngineTriggersApi(object):
         if 'event_name' in params:
             path_params['event_name'] = params['event_name']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -319,7 +319,7 @@ class BRERuleEngineTriggersApi(object):
         if 'event_name' in params:
             path_params['event_name'] = params['event_name']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -430,21 +430,21 @@ class BRERuleEngineTriggersApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_system' in params:
-            query_params['filter_system'] = params['filter_system']
+            query_params.append(('filter_system', params['filter_system']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_tags' in params:
-            query_params['filter_tags'] = params['filter_tags']
+            query_params.append(('filter_tags', params['filter_tags']))
         if 'filter_name' in params:
-            query_params['filter_name'] = params['filter_name']
+            query_params.append(('filter_name', params['filter_name']))
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -552,7 +552,7 @@ class BRERuleEngineTriggersApi(object):
         if 'event_name' in params:
             path_params['event_name'] = params['event_name']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

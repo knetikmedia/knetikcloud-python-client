@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -114,7 +114,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -215,7 +215,7 @@ class MediaVideosApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -323,7 +323,7 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -431,7 +431,7 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -539,7 +539,7 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -647,7 +647,7 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -755,7 +755,7 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -861,7 +861,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -972,7 +972,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1076,7 +1076,7 @@ class MediaVideosApi(object):
         if 'disposition_id' in params:
             path_params['disposition_id'] = params['disposition_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1180,7 +1180,7 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1291,7 +1291,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1401,13 +1401,13 @@ class MediaVideosApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
         if 'exclude_flagged' in params:
-            query_params['exclude_flagged'] = params['exclude_flagged']
+            query_params.append(('exclude_flagged', params['exclude_flagged']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -1511,7 +1511,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1619,11 +1619,11 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -1731,11 +1731,11 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -1843,11 +1843,11 @@ class MediaVideosApi(object):
         if 'video_id' in params:
             path_params['video_id'] = params['video_id']
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -1895,12 +1895,12 @@ class MediaVideosApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param bool exclude_flagged: Skip videos that have been flagged by the current user
-        :param Object filter_videos_by_uploader: Filter for videos by uploader id
+        :param int filter_videos_by_uploader: Filter for videos by uploader id
         :param str filter_category: Filter for videos from a specific category by id
         :param str filter_tagset: Filter for videos with specified tags (separated by comma)
         :param str filter_videos_by_name: Filter for videos which name *STARTS* with the given string
-        :param Object filter_videos_by_contributor: Filter for videos with contribution from the artist specified by ID
-        :param Object filter_videos_by_author: Filter for videos with an artist as author specified by ID
+        :param int filter_videos_by_contributor: Filter for videos with contribution from the artist specified by ID
+        :param int filter_videos_by_author: Filter for videos with an artist as author specified by ID
         :param bool filter_has_author: Filter for videos that have an author set if true, or that have no author if false
         :param bool filter_has_uploader: Filter for videos that have an uploader set if true, or that have no uploader if false
         :param str filter_related_to: Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well
@@ -1934,12 +1934,12 @@ class MediaVideosApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param bool exclude_flagged: Skip videos that have been flagged by the current user
-        :param Object filter_videos_by_uploader: Filter for videos by uploader id
+        :param int filter_videos_by_uploader: Filter for videos by uploader id
         :param str filter_category: Filter for videos from a specific category by id
         :param str filter_tagset: Filter for videos with specified tags (separated by comma)
         :param str filter_videos_by_name: Filter for videos which name *STARTS* with the given string
-        :param Object filter_videos_by_contributor: Filter for videos with contribution from the artist specified by ID
-        :param Object filter_videos_by_author: Filter for videos with an artist as author specified by ID
+        :param int filter_videos_by_contributor: Filter for videos with contribution from the artist specified by ID
+        :param int filter_videos_by_author: Filter for videos with an artist as author specified by ID
         :param bool filter_has_author: Filter for videos that have an author set if true, or that have no author if false
         :param bool filter_has_uploader: Filter for videos that have an uploader set if true, or that have no uploader if false
         :param str filter_related_to: Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well
@@ -1974,37 +1974,37 @@ class MediaVideosApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'exclude_flagged' in params:
-            query_params['exclude_flagged'] = params['exclude_flagged']
+            query_params.append(('exclude_flagged', params['exclude_flagged']))
         if 'filter_videos_by_uploader' in params:
-            query_params['filter_videos_by_uploader'] = params['filter_videos_by_uploader']
+            query_params.append(('filter_videos_by_uploader', params['filter_videos_by_uploader']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_tagset' in params:
-            query_params['filter_tagset'] = params['filter_tagset']
+            query_params.append(('filter_tagset', params['filter_tagset']))
         if 'filter_videos_by_name' in params:
-            query_params['filter_videos_by_name'] = params['filter_videos_by_name']
+            query_params.append(('filter_videos_by_name', params['filter_videos_by_name']))
         if 'filter_videos_by_contributor' in params:
-            query_params['filter_videos_by_contributor'] = params['filter_videos_by_contributor']
+            query_params.append(('filter_videos_by_contributor', params['filter_videos_by_contributor']))
         if 'filter_videos_by_author' in params:
-            query_params['filter_videos_by_author'] = params['filter_videos_by_author']
+            query_params.append(('filter_videos_by_author', params['filter_videos_by_author']))
         if 'filter_has_author' in params:
-            query_params['filter_has_author'] = params['filter_has_author']
+            query_params.append(('filter_has_author', params['filter_has_author']))
         if 'filter_has_uploader' in params:
-            query_params['filter_has_uploader'] = params['filter_has_uploader']
+            query_params.append(('filter_has_uploader', params['filter_has_uploader']))
         if 'filter_related_to' in params:
-            query_params['filter_related_to'] = params['filter_related_to']
+            query_params.append(('filter_related_to', params['filter_related_to']))
         if 'filter_friends' in params:
-            query_params['filter_friends'] = params['filter_friends']
+            query_params.append(('filter_friends', params['filter_friends']))
         if 'filter_disposition' in params:
-            query_params['filter_disposition'] = params['filter_disposition']
+            query_params.append(('filter_disposition', params['filter_disposition']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -2117,7 +2117,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2228,7 +2228,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2334,7 +2334,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2449,7 +2449,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2564,7 +2564,7 @@ class MediaVideosApi(object):
         if 'relationship_id' in params:
             path_params['relationship_id'] = params['relationship_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2670,7 +2670,7 @@ class MediaVideosApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

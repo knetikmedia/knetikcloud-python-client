@@ -16,7 +16,7 @@ Requires the file name and file content type (i.e., 'video/mpeg')
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

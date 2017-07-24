@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -35,7 +35,9 @@ class TestUsageInfo(unittest.TestCase):
         """
         Test UsageInfo
         """
-        model = knetik_cloud.models.usage_info.UsageInfo()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.usage_info.UsageInfo()
+        pass
 
 
 if __name__ == '__main__':

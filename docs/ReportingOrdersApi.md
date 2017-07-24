@@ -14,7 +14,7 @@ Retrieve invoice counts aggregated by time ranges
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

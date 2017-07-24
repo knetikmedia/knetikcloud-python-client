@@ -4,19 +4,19 @@ All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**link_accounts1**](SocialGoogleApi.md#link_accounts1) | **POST** /social/google/users | Link facebook account
+[**link_accounts1**](SocialGoogleApi.md#link_accounts1) | **POST** /social/google/users | Link google account
 
 
 # **link_accounts1**
-> link_accounts1(facebook_token=facebook_token)
+> link_accounts1(google_token=google_token)
 
-Link facebook account
+Link google account
 
-Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -27,11 +27,11 @@ knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = knetik_cloud.SocialGoogleApi()
-facebook_token = knetik_cloud.GoogleToken() # GoogleToken | The token from facebook (optional)
+google_token = knetik_cloud.GoogleToken() # GoogleToken | The token from google (optional)
 
 try: 
-    # Link facebook account
-    api_instance.link_accounts1(facebook_token=facebook_token)
+    # Link google account
+    api_instance.link_accounts1(google_token=google_token)
 except ApiException as e:
     print("Exception when calling SocialGoogleApi->link_accounts1: %s\n" % e)
 ```
@@ -40,7 +40,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **facebook_token** | [**GoogleToken**](GoogleToken.md)| The token from facebook | [optional] 
+ **google_token** | [**GoogleToken**](GoogleToken.md)| The token from google | [optional] 
 
 ### Return type
 

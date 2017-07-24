@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -53,8 +53,8 @@ class ActivitiesApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc activity_resource: The activity resource object
-        :return: RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+        :param ActivityResource activity_resource: The activity resource object
+        :return: ActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -78,8 +78,8 @@ class ActivitiesApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc activity_resource: The activity resource object
-        :return: RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+        :param ActivityResource activity_resource: The activity resource object
+        :return: ActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -105,7 +105,7 @@ class ActivitiesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -133,7 +133,7 @@ class ActivitiesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc',
+                                        response_type='ActivityResource',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -156,8 +156,8 @@ class ActivitiesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param bool test: if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings
-        :param AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings activity_occurrence_resource: The activity occurrence object
-        :return: AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings
+        :param ActivityOccurrenceResource activity_occurrence_resource: The activity occurrence object
+        :return: ActivityOccurrenceResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -183,8 +183,8 @@ class ActivitiesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param bool test: if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings
-        :param AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings activity_occurrence_resource: The activity occurrence object
-        :return: AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings
+        :param ActivityOccurrenceResource activity_occurrence_resource: The activity occurrence object
+        :return: ActivityOccurrenceResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -210,9 +210,9 @@ class ActivitiesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'test' in params:
-            query_params['test'] = params['test']
+            query_params.append(('test', params['test']))
 
         header_params = {}
 
@@ -240,7 +240,7 @@ class ActivitiesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings',
+                                        response_type='ActivityOccurrenceResource',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -315,7 +315,7 @@ class ActivitiesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -421,7 +421,7 @@ class ActivitiesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -529,9 +529,9 @@ class ActivitiesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -580,7 +580,7 @@ class ActivitiesApi(object):
             for asynchronous request. (optional)
         :param bool filter_template: Filter for activities that are templates, or specifically not if false
         :param str filter_name: Filter for activities that have a name starting with specified string
-        :param Object filter_id: Filter for activities with an id in the given comma separated list of ids
+        :param str filter_id: Filter for activities with an id in the given comma separated list of ids
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -610,7 +610,7 @@ class ActivitiesApi(object):
             for asynchronous request. (optional)
         :param bool filter_template: Filter for activities that are templates, or specifically not if false
         :param str filter_name: Filter for activities that have a name starting with specified string
-        :param Object filter_id: Filter for activities with an id in the given comma separated list of ids
+        :param str filter_id: Filter for activities with an id in the given comma separated list of ids
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -640,19 +640,19 @@ class ActivitiesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_template' in params:
-            query_params['filter_template'] = params['filter_template']
+            query_params.append(('filter_template', params['filter_template']))
         if 'filter_name' in params:
-            query_params['filter_name'] = params['filter_name']
+            query_params.append(('filter_name', params['filter_name']))
         if 'filter_id' in params:
-            query_params['filter_id'] = params['filter_id']
+            query_params.append(('filter_id', params['filter_id']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -700,7 +700,7 @@ class ActivitiesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int id: The id of the activity (required)
-        :return: RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+        :return: ActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -725,7 +725,7 @@ class ActivitiesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int id: The id of the activity (required)
-        :return: RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+        :return: ActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -756,7 +756,7 @@ class ActivitiesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -782,7 +782,7 @@ class ActivitiesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc',
+                                        response_type='ActivityResource',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -860,7 +860,7 @@ class ActivitiesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -963,13 +963,13 @@ class ActivitiesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1017,7 +1017,7 @@ class ActivitiesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int activity_occurrence_id: The id of the activity occurrence (required)
-        :param ActivityOccurrenceResults activity_occurrence_results: The activity occurrence object
+        :param ActivityOccurrenceResultsResource activity_occurrence_results: The activity occurrence object
         :return: ActivityOccurrenceResults
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1043,7 +1043,7 @@ class ActivitiesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int activity_occurrence_id: The id of the activity occurrence (required)
-        :param ActivityOccurrenceResults activity_occurrence_results: The activity occurrence object
+        :param ActivityOccurrenceResultsResource activity_occurrence_results: The activity occurrence object
         :return: ActivityOccurrenceResults
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1075,7 +1075,7 @@ class ActivitiesApi(object):
         if 'activity_occurrence_id' in params:
             path_params['activity_occurrence_id'] = params['activity_occurrence_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1125,8 +1125,8 @@ class ActivitiesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int id: The id of the activity (required)
-        :param RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc activity_resource: The activity resource object
-        :return: RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+        :param ActivityResource activity_resource: The activity resource object
+        :return: ActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1151,8 +1151,8 @@ class ActivitiesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int id: The id of the activity (required)
-        :param RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc activity_resource: The activity resource object
-        :return: RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+        :param ActivityResource activity_resource: The activity resource object
+        :return: ActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1183,7 +1183,7 @@ class ActivitiesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1211,7 +1211,7 @@ class ActivitiesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc',
+                                        response_type='ActivityResource',
                                         auth_settings=auth_settings,
                                         callback=params.get('callback'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1293,7 +1293,7 @@ class ActivitiesApi(object):
         if 'activity_occurrence_id' in params:
             path_params['activity_occurrence_id'] = params['activity_occurrence_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1401,7 +1401,7 @@ class ActivitiesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

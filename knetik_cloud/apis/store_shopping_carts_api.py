@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -112,7 +112,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -220,7 +220,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -330,7 +330,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -435,11 +435,11 @@ class StoreShoppingCartsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'owner' in params:
-            query_params['owner'] = params['owner']
+            query_params.append(('owner', params['owner']))
         if 'currency_code' in params:
-            query_params['currency_code'] = params['currency_code']
+            query_params.append(('currency_code', params['currency_code']))
 
         header_params = {}
 
@@ -543,7 +543,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -648,15 +648,15 @@ class StoreShoppingCartsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_owner_id' in params:
-            query_params['filter_owner_id'] = params['filter_owner_id']
+            query_params.append(('filter_owner_id', params['filter_owner_id']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -760,7 +760,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -866,7 +866,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -977,7 +977,7 @@ class StoreShoppingCartsApi(object):
         if 'code' in params:
             path_params['code'] = params['code']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1085,7 +1085,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1193,7 +1193,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1303,7 +1303,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1411,7 +1411,7 @@ class StoreShoppingCartsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

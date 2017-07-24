@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**client_id** | **str** |  | [optional] 
 **roles** | **list[str]** |  | [optional] 
 **user_id** | **int** |  | [optional] 
 

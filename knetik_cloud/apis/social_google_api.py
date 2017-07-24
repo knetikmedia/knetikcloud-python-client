@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -42,8 +42,8 @@ class SocialGoogleApi(object):
 
     def link_accounts1(self, **kwargs):
         """
-        Link facebook account
-        Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+        Link google account
+        Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -54,7 +54,7 @@ class SocialGoogleApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GoogleToken facebook_token: The token from facebook
+        :param GoogleToken google_token: The token from google
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -68,8 +68,8 @@ class SocialGoogleApi(object):
 
     def link_accounts1_with_http_info(self, **kwargs):
         """
-        Link facebook account
-        Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+        Link google account
+        Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
@@ -80,13 +80,13 @@ class SocialGoogleApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param GoogleToken facebook_token: The token from facebook
+        :param GoogleToken google_token: The token from google
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['facebook_token']
+        all_params = ['google_token']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -107,7 +107,7 @@ class SocialGoogleApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -115,8 +115,8 @@ class SocialGoogleApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'facebook_token' in params:
-            body_params = params['facebook_token']
+        if 'google_token' in params:
+            body_params = params['google_token']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])

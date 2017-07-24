@@ -20,7 +20,7 @@ Mainly intended for internal use.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -74,7 +74,7 @@ Add a new type mapping to connect data from one index to another, or discover an
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -124,7 +124,7 @@ Mainly intended for internal use. Requires SEARCH_ADMIN.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -176,7 +176,7 @@ Mainly intended for internal use
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -226,7 +226,7 @@ The body is an ElasticSearch query in JSON format. Please see their <a href='htt
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

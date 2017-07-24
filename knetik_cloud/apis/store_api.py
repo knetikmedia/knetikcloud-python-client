@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -107,7 +107,7 @@ class StoreApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -212,9 +212,9 @@ class StoreApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -322,9 +322,9 @@ class StoreApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -428,7 +428,7 @@ class StoreApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -524,7 +524,7 @@ class StoreApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -630,7 +630,7 @@ class StoreApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -733,13 +733,13 @@ class StoreApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -848,17 +848,17 @@ class StoreApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'limit' in params:
-            query_params['limit'] = params['limit']
+            query_params.append(('limit', params['limit']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'use_catalog' in params:
-            query_params['use_catalog'] = params['use_catalog']
+            query_params.append(('use_catalog', params['use_catalog']))
         if 'ignore_location' in params:
-            query_params['ignore_location'] = params['ignore_location']
+            query_params.append(('ignore_location', params['ignore_location']))
         if 'in_stock_only' in params:
-            query_params['in_stock_only'] = params['in_stock_only']
+            query_params.append(('in_stock_only', params['in_stock_only']))
 
         header_params = {}
 
@@ -962,7 +962,7 @@ class StoreApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1093,41 +1093,41 @@ class StoreApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_name_search' in params:
-            query_params['filter_name_search'] = params['filter_name_search']
+            query_params.append(('filter_name_search', params['filter_name_search']))
         if 'filter_unique_key' in params:
-            query_params['filter_unique_key'] = params['filter_unique_key']
+            query_params.append(('filter_unique_key', params['filter_unique_key']))
         if 'filter_published' in params:
-            query_params['filter_published'] = params['filter_published']
+            query_params.append(('filter_published', params['filter_published']))
         if 'filter_displayable' in params:
-            query_params['filter_displayable'] = params['filter_displayable']
+            query_params.append(('filter_displayable', params['filter_displayable']))
         if 'filter_start' in params:
-            query_params['filter_start'] = params['filter_start']
+            query_params.append(('filter_start', params['filter_start']))
         if 'filter_end' in params:
-            query_params['filter_end'] = params['filter_end']
+            query_params.append(('filter_end', params['filter_end']))
         if 'filter_start_date' in params:
-            query_params['filter_start_date'] = params['filter_start_date']
+            query_params.append(('filter_start_date', params['filter_start_date']))
         if 'filter_stop_date' in params:
-            query_params['filter_stop_date'] = params['filter_stop_date']
+            query_params.append(('filter_stop_date', params['filter_stop_date']))
         if 'filter_sku' in params:
-            query_params['filter_sku'] = params['filter_sku']
+            query_params.append(('filter_sku', params['filter_sku']))
         if 'filter_price' in params:
-            query_params['filter_price'] = params['filter_price']
+            query_params.append(('filter_price', params['filter_price']))
         if 'filter_tag' in params:
-            query_params['filter_tag'] = params['filter_tag']
+            query_params.append(('filter_tag', params['filter_tag']))
         if 'filter_items_by_type' in params:
-            query_params['filter_items_by_type'] = params['filter_items_by_type']
+            query_params.append(('filter_items_by_type', params['filter_items_by_type']))
         if 'filter_bundled_skus' in params:
-            query_params['filter_bundled_skus'] = params['filter_bundled_skus']
+            query_params.append(('filter_bundled_skus', params['filter_bundled_skus']))
         if 'filter_vendor' in params:
-            query_params['filter_vendor'] = params['filter_vendor']
+            query_params.append(('filter_vendor', params['filter_vendor']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1233,7 +1233,7 @@ class StoreApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1343,9 +1343,9 @@ class StoreApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 

@@ -18,7 +18,7 @@ The context type identifies the type of entity (i.e., 'activity') being tracked 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -74,7 +74,7 @@ The context type identifies the type of entity (i.e., 'activity') being tracked 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -127,7 +127,7 @@ Get a list of available leaderboard strategy names
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

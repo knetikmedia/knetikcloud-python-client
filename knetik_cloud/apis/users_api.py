@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -115,7 +115,7 @@ class UsersApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -218,7 +218,7 @@ class UsersApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -328,9 +328,9 @@ class UsersApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -436,7 +436,7 @@ class UsersApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -540,7 +540,7 @@ class UsersApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -644,7 +644,7 @@ class UsersApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -747,13 +747,13 @@ class UsersApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -878,33 +878,33 @@ class UsersApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_displayname' in params:
-            query_params['filter_displayname'] = params['filter_displayname']
+            query_params.append(('filter_displayname', params['filter_displayname']))
         if 'filter_email' in params:
-            query_params['filter_email'] = params['filter_email']
+            query_params.append(('filter_email', params['filter_email']))
         if 'filter_firstname' in params:
-            query_params['filter_firstname'] = params['filter_firstname']
+            query_params.append(('filter_firstname', params['filter_firstname']))
         if 'filter_fullname' in params:
-            query_params['filter_fullname'] = params['filter_fullname']
+            query_params.append(('filter_fullname', params['filter_fullname']))
         if 'filter_lastname' in params:
-            query_params['filter_lastname'] = params['filter_lastname']
+            query_params.append(('filter_lastname', params['filter_lastname']))
         if 'filter_username' in params:
-            query_params['filter_username'] = params['filter_username']
+            query_params.append(('filter_username', params['filter_username']))
         if 'filter_tag' in params:
-            query_params['filter_tag'] = params['filter_tag']
+            query_params.append(('filter_tag', params['filter_tag']))
         if 'filter_group' in params:
-            query_params['filter_group'] = params['filter_group']
+            query_params.append(('filter_group', params['filter_group']))
         if 'filter_role' in params:
-            query_params['filter_role'] = params['filter_role']
+            query_params.append(('filter_role', params['filter_role']))
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1012,7 +1012,7 @@ class UsersApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1115,7 +1115,7 @@ class UsersApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1228,7 +1228,7 @@ class UsersApi(object):
         if 'tag' in params:
             path_params['tag'] = params['tag']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1336,7 +1336,7 @@ class UsersApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1444,7 +1444,7 @@ class UsersApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1492,7 +1492,7 @@ class UsersApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param ARequestToResetAUsersPasswordByUsingAKnownUserProperty password_reset: An object containing one of three methods to look up a user
+        :param PasswordResetRequest password_reset: An object containing one of three methods to look up a user
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1518,7 +1518,7 @@ class UsersApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param ARequestToResetAUsersPasswordByUsingAKnownUserProperty password_reset: An object containing one of three methods to look up a user
+        :param PasswordResetRequest password_reset: An object containing one of three methods to look up a user
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1545,7 +1545,7 @@ class UsersApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1655,7 +1655,7 @@ class UsersApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1763,7 +1763,7 @@ class UsersApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

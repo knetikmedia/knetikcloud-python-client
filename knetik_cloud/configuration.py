@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -91,6 +91,8 @@ class Configuration(object):
 
         # Proxy URL
         self.proxy = None
+        # Safe chars for path_param
+        self.safe_chars_for_path_param = ''
 
     @property
     def logger_file(self):

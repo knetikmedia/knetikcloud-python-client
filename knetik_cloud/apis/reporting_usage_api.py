@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -123,21 +123,21 @@ class ReportingUsageApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'start_date' in params:
-            query_params['start_date'] = params['start_date']
+            query_params.append(('start_date', params['start_date']))
         if 'end_date' in params:
-            query_params['end_date'] = params['end_date']
+            query_params.append(('end_date', params['end_date']))
         if 'combine_endpoints' in params:
-            query_params['combine_endpoints'] = params['combine_endpoints']
+            query_params.append(('combine_endpoints', params['combine_endpoints']))
         if 'method' in params:
-            query_params['method'] = params['method']
+            query_params.append(('method', params['method']))
         if 'url' in params:
-            query_params['url'] = params['url']
+            query_params.append(('url', params['url']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -254,21 +254,21 @@ class ReportingUsageApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'start_date' in params:
-            query_params['start_date'] = params['start_date']
+            query_params.append(('start_date', params['start_date']))
         if 'end_date' in params:
-            query_params['end_date'] = params['end_date']
+            query_params.append(('end_date', params['end_date']))
         if 'combine_endpoints' in params:
-            query_params['combine_endpoints'] = params['combine_endpoints']
+            query_params.append(('combine_endpoints', params['combine_endpoints']))
         if 'method' in params:
-            query_params['method'] = params['method']
+            query_params.append(('method', params['method']))
         if 'url' in params:
-            query_params['url'] = params['url']
+            query_params.append(('url', params['url']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -385,21 +385,21 @@ class ReportingUsageApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'start_date' in params:
-            query_params['start_date'] = params['start_date']
+            query_params.append(('start_date', params['start_date']))
         if 'end_date' in params:
-            query_params['end_date'] = params['end_date']
+            query_params.append(('end_date', params['end_date']))
         if 'combine_endpoints' in params:
-            query_params['combine_endpoints'] = params['combine_endpoints']
+            query_params.append(('combine_endpoints', params['combine_endpoints']))
         if 'method' in params:
-            query_params['method'] = params['method']
+            query_params.append(('method', params['method']))
         if 'url' in params:
-            query_params['url'] = params['url']
+            query_params.append(('url', params['url']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -516,21 +516,21 @@ class ReportingUsageApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'start_date' in params:
-            query_params['start_date'] = params['start_date']
+            query_params.append(('start_date', params['start_date']))
         if 'end_date' in params:
-            query_params['end_date'] = params['end_date']
+            query_params.append(('end_date', params['end_date']))
         if 'combine_endpoints' in params:
-            query_params['combine_endpoints'] = params['combine_endpoints']
+            query_params.append(('combine_endpoints', params['combine_endpoints']))
         if 'method' in params:
-            query_params['method'] = params['method']
+            query_params.append(('method', params['method']))
         if 'url' in params:
-            query_params['url'] = params['url']
+            query_params.append(('url', params['url']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -647,21 +647,21 @@ class ReportingUsageApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'start_date' in params:
-            query_params['start_date'] = params['start_date']
+            query_params.append(('start_date', params['start_date']))
         if 'end_date' in params:
-            query_params['end_date'] = params['end_date']
+            query_params.append(('end_date', params['end_date']))
         if 'combine_endpoints' in params:
-            query_params['combine_endpoints'] = params['combine_endpoints']
+            query_params.append(('combine_endpoints', params['combine_endpoints']))
         if 'method' in params:
-            query_params['method'] = params['method']
+            query_params.append(('method', params['method']))
         if 'url' in params:
-            query_params['url'] = params['url']
+            query_params.append(('url', params['url']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -768,11 +768,11 @@ class ReportingUsageApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'start_date' in params:
-            query_params['start_date'] = params['start_date']
+            query_params.append(('start_date', params['start_date']))
         if 'end_date' in params:
-            query_params['end_date'] = params['end_date']
+            query_params.append(('end_date', params['end_date']))
 
         header_params = {}
 

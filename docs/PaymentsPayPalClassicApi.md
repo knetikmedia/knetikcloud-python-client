@@ -19,7 +19,7 @@ Returns the token that should be used to forward the user to PayPal so they can 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -70,7 +70,7 @@ Returns the token that should be used to forward the user to PayPal so they can 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -121,7 +121,7 @@ Returns the ID of the new payment method created for the user for the billing ag
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -172,7 +172,7 @@ The invoice will be marked paid/failed by asynchronous IPN callback.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

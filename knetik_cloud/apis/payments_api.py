@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -112,7 +112,7 @@ class PaymentsApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -225,7 +225,7 @@ class PaymentsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -336,7 +336,7 @@ class PaymentsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -384,6 +384,10 @@ class PaymentsApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: ID of the user for whom the payment methods are being retrieved (required)
+        :param str filter_name: Filter for payment methods whose name starts with a given string
+        :param str filter_payment_type: Filter for payment methods with a specific payment type
+        :param int filter_payment_method_type_id: Filter for payment methods with a specific payment method type by id
+        :param str filter_payment_method_type_name: Filter for payment methods whose payment method type name starts with a given string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -412,6 +416,10 @@ class PaymentsApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param int user_id: ID of the user for whom the payment methods are being retrieved (required)
+        :param str filter_name: Filter for payment methods whose name starts with a given string
+        :param str filter_payment_type: Filter for payment methods with a specific payment type
+        :param int filter_payment_method_type_id: Filter for payment methods with a specific payment method type by id
+        :param str filter_payment_method_type_name: Filter for payment methods whose payment method type name starts with a given string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -420,7 +428,7 @@ class PaymentsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'size', 'page', 'order']
+        all_params = ['user_id', 'filter_name', 'filter_payment_type', 'filter_payment_method_type_id', 'filter_payment_method_type_name', 'size', 'page', 'order']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -446,13 +454,21 @@ class PaymentsApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
+        if 'filter_name' in params:
+            query_params.append(('filter_name', params['filter_name']))
+        if 'filter_payment_type' in params:
+            query_params.append(('filter_payment_type', params['filter_payment_type']))
+        if 'filter_payment_method_type_id' in params:
+            query_params.append(('filter_payment_method_type_id', params['filter_payment_method_type_id']))
+        if 'filter_payment_method_type_name' in params:
+            query_params.append(('filter_payment_method_type_name', params['filter_payment_method_type_name']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -551,7 +567,7 @@ class PaymentsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -657,7 +673,7 @@ class PaymentsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -770,7 +786,7 @@ class PaymentsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

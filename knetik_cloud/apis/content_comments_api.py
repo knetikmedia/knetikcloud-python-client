@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -105,7 +105,7 @@ class ContentCommentsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -211,7 +211,7 @@ class ContentCommentsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -315,7 +315,7 @@ class ContentCommentsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -426,15 +426,15 @@ class ContentCommentsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'context' in params:
-            query_params['context'] = params['context']
+            query_params.append(('context', params['context']))
         if 'context_id' in params:
-            query_params['context_id'] = params['context_id']
+            query_params.append(('context_id', params['context_id']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -539,11 +539,11 @@ class ContentCommentsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -651,7 +651,7 @@ class ContentCommentsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

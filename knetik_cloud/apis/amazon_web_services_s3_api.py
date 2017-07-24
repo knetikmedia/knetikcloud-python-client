@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -109,11 +109,11 @@ class AmazonWebServicesS3Api(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filename' in params:
-            query_params['filename'] = params['filename']
+            query_params.append(('filename', params['filename']))
         if 'content_type' in params:
-            query_params['content_type'] = params['content_type']
+            query_params.append(('content_type', params['content_type']))
 
         header_params = {}
 

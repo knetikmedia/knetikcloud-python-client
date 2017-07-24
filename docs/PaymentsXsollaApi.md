@@ -15,7 +15,7 @@ Create a payment token that should be used to forward the user to Xsolla so they
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -66,7 +66,7 @@ Only used by Xsolla to call back to JSAPI after processing user payment action
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

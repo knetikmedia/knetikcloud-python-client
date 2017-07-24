@@ -16,7 +16,7 @@ Get a flag report
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -67,7 +67,7 @@ Context can be either a free-form string or a pre-defined context name
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -124,7 +124,7 @@ Lets you set the resolution of a report. Resolution types is {banned,ignore} in 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

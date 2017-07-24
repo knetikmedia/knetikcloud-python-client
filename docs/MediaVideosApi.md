@@ -39,7 +39,7 @@ Whitelisted users can view video regardless of privacy setting.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -89,7 +89,7 @@ Adds a new video in the system
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -138,7 +138,7 @@ Add a new video comment
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -189,7 +189,7 @@ Adds a contributor to a video
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -239,7 +239,7 @@ Add a new flag
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -290,7 +290,7 @@ Adds one or more existing videos as related to this one
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -341,7 +341,7 @@ Create a video disposition
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -392,7 +392,7 @@ Deletes a video from the system if no resources are attached to it
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -440,7 +440,7 @@ Delete a video comment
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -490,7 +490,7 @@ Delete a video disposition
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -538,7 +538,7 @@ Delete a flag
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -586,7 +586,7 @@ Delete a video's relationship
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -636,7 +636,7 @@ Get user videos
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -691,7 +691,7 @@ Loads a specific video details
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -740,7 +740,7 @@ Returns a page of comments for a video
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -790,7 +790,7 @@ Returns a page of dispositions for a video
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -840,7 +840,7 @@ Returns a page of video relationships
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -890,7 +890,7 @@ Search videos using the documented filters
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -899,12 +899,12 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = knetik_cloud.MediaVideosApi()
 exclude_flagged = true # bool | Skip videos that have been flagged by the current user (optional) (default to true)
-filter_videos_by_uploader = knetik_cloud.Object() # Object | Filter for videos by uploader id (optional)
+filter_videos_by_uploader = 56 # int | Filter for videos by uploader id (optional)
 filter_category = 'filter_category_example' # str | Filter for videos from a specific category by id (optional)
 filter_tagset = 'filter_tagset_example' # str | Filter for videos with specified tags (separated by comma) (optional)
 filter_videos_by_name = 'filter_videos_by_name_example' # str | Filter for videos which name *STARTS* with the given string (optional)
-filter_videos_by_contributor = knetik_cloud.Object() # Object | Filter for videos with contribution from the artist specified by ID (optional)
-filter_videos_by_author = knetik_cloud.Object() # Object | Filter for videos with an artist as author specified by ID (optional)
+filter_videos_by_contributor = 56 # int | Filter for videos with contribution from the artist specified by ID (optional)
+filter_videos_by_author = 56 # int | Filter for videos with an artist as author specified by ID (optional)
 filter_has_author = true # bool | Filter for videos that have an author set if true, or that have no author if false (optional)
 filter_has_uploader = true # bool | Filter for videos that have an uploader set if true, or that have no uploader if false (optional)
 filter_related_to = 'filter_related_to_example' # str | Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well (optional)
@@ -927,12 +927,12 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **exclude_flagged** | **bool**| Skip videos that have been flagged by the current user | [optional] [default to true]
- **filter_videos_by_uploader** | [**Object**](.md)| Filter for videos by uploader id | [optional] 
+ **filter_videos_by_uploader** | **int**| Filter for videos by uploader id | [optional] 
  **filter_category** | **str**| Filter for videos from a specific category by id | [optional] 
  **filter_tagset** | **str**| Filter for videos with specified tags (separated by comma) | [optional] 
  **filter_videos_by_name** | **str**| Filter for videos which name *STARTS* with the given string | [optional] 
- **filter_videos_by_contributor** | [**Object**](.md)| Filter for videos with contribution from the artist specified by ID | [optional] 
- **filter_videos_by_author** | [**Object**](.md)| Filter for videos with an artist as author specified by ID | [optional] 
+ **filter_videos_by_contributor** | **int**| Filter for videos with contribution from the artist specified by ID | [optional] 
+ **filter_videos_by_author** | **int**| Filter for videos with an artist as author specified by ID | [optional] 
  **filter_has_author** | **bool**| Filter for videos that have an author set if true, or that have no author if false | [optional] 
  **filter_has_uploader** | **bool**| Filter for videos that have an uploader set if true, or that have no uploader if false | [optional] 
  **filter_related_to** | **str**| Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well | [optional] 
@@ -966,7 +966,7 @@ Remove the user with the id given in the path from the whitelist of users that c
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1016,7 +1016,7 @@ Removes a contributor from a video
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1066,7 +1066,7 @@ Modifies a video's details
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1116,7 +1116,7 @@ Update a video comment
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1168,7 +1168,7 @@ Update a video's relationship details
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1220,7 +1220,7 @@ Increment a video's view count
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

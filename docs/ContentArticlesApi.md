@@ -25,7 +25,7 @@ Articles are blobs of text with titles, a category and assets. Formatting and di
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -76,7 +76,7 @@ Article Templates define a type of article and the properties they have
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -125,7 +125,7 @@ Delete an existing article
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -175,7 +175,7 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -225,7 +225,7 @@ Get a single article
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -271,7 +271,7 @@ Get a single article template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -320,7 +320,7 @@ List and search article templates
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_articles**
-> PageResourceArticleResource get_articles(filter_category=filter_category, filter_tagset=filter_tagset, filter_title=filter_title, size=size, page=page, order=order)
+> PageResourceArticleResource get_articles(filter_category=filter_category, filter_tagset=filter_tagset, filter_tag_intersection=filter_tag_intersection, filter_tag_exclusion=filter_tag_exclusion, filter_title=filter_title, size=size, page=page, order=order)
 
 List and search articles
 
@@ -375,7 +375,7 @@ Get a list of articles with optional filtering. Assets will not be filled in on 
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -384,7 +384,9 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = knetik_cloud.ContentArticlesApi()
 filter_category = 'filter_category_example' # str | Filter for articles from a specific category by id (optional)
-filter_tagset = 'filter_tagset_example' # str | Filter for articles with specified tags (separated by comma) (optional)
+filter_tagset = 'filter_tagset_example' # str | Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
+filter_tag_intersection = 'filter_tag_intersection_example' # str | Filter for articles with all of a specified set of tags (separated by comma) (optional)
+filter_tag_exclusion = 'filter_tag_exclusion_example' # str | Filter for articles with none of a specified set of tags (separated by comma) (optional)
 filter_title = 'filter_title_example' # str | Filter for articles whose title contains a string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
@@ -392,7 +394,7 @@ order = 'id:ASC' # str | A comma separated list of sorting requirements in prior
 
 try: 
     # List and search articles
-    api_response = api_instance.get_articles(filter_category=filter_category, filter_tagset=filter_tagset, filter_title=filter_title, size=size, page=page, order=order)
+    api_response = api_instance.get_articles(filter_category=filter_category, filter_tagset=filter_tagset, filter_tag_intersection=filter_tag_intersection, filter_tag_exclusion=filter_tag_exclusion, filter_title=filter_title, size=size, page=page, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ContentArticlesApi->get_articles: %s\n" % e)
@@ -403,7 +405,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter_category** | **str**| Filter for articles from a specific category by id | [optional] 
- **filter_tagset** | **str**| Filter for articles with specified tags (separated by comma) | [optional] 
+ **filter_tagset** | **str**| Filter for articles with at least one of a specified set of tags (separated by comma) | [optional] 
+ **filter_tag_intersection** | **str**| Filter for articles with all of a specified set of tags (separated by comma) | [optional] 
+ **filter_tag_exclusion** | **str**| Filter for articles with none of a specified set of tags (separated by comma) | [optional] 
  **filter_title** | **str**| Filter for articles whose title contains a string | [optional] 
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
@@ -431,7 +435,7 @@ Update an existing article
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -482,7 +486,7 @@ Update an article template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

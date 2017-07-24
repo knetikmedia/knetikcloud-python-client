@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -111,15 +111,15 @@ class BRERuleEngineActionsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_name' in params:
-            query_params['filter_name'] = params['filter_name']
+            query_params.append(('filter_name', params['filter_name']))
         if 'filter_tags' in params:
-            query_params['filter_tags'] = params['filter_tags']
+            query_params.append(('filter_tags', params['filter_tags']))
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
 
         header_params = {}
 

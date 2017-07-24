@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -114,7 +114,7 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -231,9 +231,9 @@ class UsersInventoryApi(object):
         if 'item_id' in params:
             path_params['item_id'] = params['item_id']
 
-        query_params = {}
+        query_params = []
         if 'sku' in params:
-            query_params['sku'] = params['sku']
+            query_params.append(('sku', params['sku']))
 
         header_params = {}
 
@@ -334,9 +334,9 @@ class UsersInventoryApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -439,7 +439,7 @@ class UsersInventoryApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -545,7 +545,7 @@ class UsersInventoryApi(object):
         if 'entitlement_id' in params:
             path_params['entitlement_id'] = params['entitlement_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -653,9 +653,9 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -759,7 +759,7 @@ class UsersInventoryApi(object):
         if 'entitlement_id' in params:
             path_params['entitlement_id'] = params['entitlement_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -862,13 +862,13 @@ class UsersInventoryApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -972,7 +972,7 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1075,13 +1075,13 @@ class UsersInventoryApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1201,23 +1201,23 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'inactive' in params:
-            query_params['inactive'] = params['inactive']
+            query_params.append(('inactive', params['inactive']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'filter_item_name' in params:
-            query_params['filter_item_name'] = params['filter_item_name']
+            query_params.append(('filter_item_name', params['filter_item_name']))
         if 'filter_item_id' in params:
-            query_params['filter_item_id'] = params['filter_item_id']
+            query_params.append(('filter_item_id', params['filter_item_id']))
         if 'filter_username' in params:
-            query_params['filter_username'] = params['filter_username']
+            query_params.append(('filter_username', params['filter_username']))
         if 'filter_group' in params:
-            query_params['filter_group'] = params['filter_group']
+            query_params.append(('filter_group', params['filter_group']))
         if 'filter_date' in params:
-            query_params['filter_date'] = params['filter_date']
+            query_params.append(('filter_date', params['filter_date']))
 
         header_params = {}
 
@@ -1328,7 +1328,7 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1443,11 +1443,11 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -1560,23 +1560,23 @@ class UsersInventoryApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'inactive' in params:
-            query_params['inactive'] = params['inactive']
+            query_params.append(('inactive', params['inactive']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'filter_item_name' in params:
-            query_params['filter_item_name'] = params['filter_item_name']
+            query_params.append(('filter_item_name', params['filter_item_name']))
         if 'filter_item_id' in params:
-            query_params['filter_item_id'] = params['filter_item_id']
+            query_params.append(('filter_item_id', params['filter_item_id']))
         if 'filter_username' in params:
-            query_params['filter_username'] = params['filter_username']
+            query_params.append(('filter_username', params['filter_username']))
         if 'filter_group' in params:
-            query_params['filter_group'] = params['filter_group']
+            query_params.append(('filter_group', params['filter_group']))
         if 'filter_date' in params:
-            query_params['filter_date'] = params['filter_date']
+            query_params.append(('filter_date', params['filter_date']))
 
         header_params = {}
 
@@ -1685,7 +1685,7 @@ class UsersInventoryApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1795,9 +1795,9 @@ class UsersInventoryApi(object):
         if 'entitlement_id' in params:
             path_params['entitlement_id'] = params['entitlement_id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -1905,7 +1905,7 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2020,7 +2020,7 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2137,7 +2137,7 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2252,7 +2252,7 @@ class UsersInventoryApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2369,11 +2369,11 @@ class UsersInventoryApi(object):
         if 'item_id' in params:
             path_params['item_id'] = params['item_id']
 
-        query_params = {}
+        query_params = []
         if 'sku' in params:
-            query_params['sku'] = params['sku']
+            query_params.append(('sku', params['sku']))
         if 'info' in params:
-            query_params['info'] = params['info']
+            query_params.append(('info', params['info']))
 
         header_params = {}
 

@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -117,7 +117,7 @@ class PaymentsWalletsApi(object):
         if 'currency_code' in params:
             path_params['currency_code'] = params['currency_code']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -242,21 +242,21 @@ class PaymentsWalletsApi(object):
         if 'currency_code' in params:
             path_params['currency_code'] = params['currency_code']
 
-        query_params = {}
+        query_params = []
         if 'filter_type' in params:
-            query_params['filter_type'] = params['filter_type']
+            query_params.append(('filter_type', params['filter_type']))
         if 'filter_max_date' in params:
-            query_params['filter_max_date'] = params['filter_max_date']
+            query_params.append(('filter_max_date', params['filter_max_date']))
         if 'filter_min_date' in params:
-            query_params['filter_min_date'] = params['filter_min_date']
+            query_params.append(('filter_min_date', params['filter_min_date']))
         if 'filter_sign' in params:
-            query_params['filter_sign'] = params['filter_sign']
+            query_params.append(('filter_sign', params['filter_sign']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -360,7 +360,7 @@ class PaymentsWalletsApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -456,7 +456,7 @@ class PaymentsWalletsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -575,29 +575,29 @@ class PaymentsWalletsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_invoice' in params:
-            query_params['filter_invoice'] = params['filter_invoice']
+            query_params.append(('filter_invoice', params['filter_invoice']))
         if 'filter_type' in params:
-            query_params['filter_type'] = params['filter_type']
+            query_params.append(('filter_type', params['filter_type']))
         if 'filter_date' in params:
-            query_params['filter_date'] = params['filter_date']
+            query_params.append(('filter_date', params['filter_date']))
         if 'filter_sign' in params:
-            query_params['filter_sign'] = params['filter_sign']
+            query_params.append(('filter_sign', params['filter_sign']))
         if 'filter_user_id' in params:
-            query_params['filter_user_id'] = params['filter_user_id']
+            query_params.append(('filter_user_id', params['filter_user_id']))
         if 'filter_username' in params:
-            query_params['filter_username'] = params['filter_username']
+            query_params.append(('filter_username', params['filter_username']))
         if 'filter_details' in params:
-            query_params['filter_details'] = params['filter_details']
+            query_params.append(('filter_details', params['filter_details']))
         if 'filter_currency_code' in params:
-            query_params['filter_currency_code'] = params['filter_currency_code']
+            query_params.append(('filter_currency_code', params['filter_currency_code']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -700,13 +700,13 @@ class PaymentsWalletsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -819,7 +819,7 @@ class PaymentsWalletsApi(object):
         if 'currency_code' in params:
             path_params['currency_code'] = params['currency_code']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

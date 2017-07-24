@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -107,7 +107,7 @@ class InvoicesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -205,7 +205,7 @@ class InvoicesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -309,7 +309,7 @@ class InvoicesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -417,11 +417,11 @@ class InvoicesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -476,7 +476,7 @@ class InvoicesApi(object):
         :param str filter_item_name: Filters invoices by item name containing the given string
         :param str filter_external_ref: Filters invoices by external reference.
         :param str filter_created_date: Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date=GT,1452154258,LT,1554254874
-        :param Object filter_vendor_ids: Filters invoices for ones from one of the vendors whose id is in the given comma separated list
+        :param str filter_vendor_ids: Filters invoices for ones from one of the vendors whose id is in the given comma separated list
         :param str filter_currency: Filters invoices by currency. ISO3 currency code
         :param str filter_shipping_state_name: Filters invoices by shipping address: Exact match state name
         :param str filter_shipping_country_name: Filters invoices by shipping address: Exact match country name
@@ -518,7 +518,7 @@ class InvoicesApi(object):
         :param str filter_item_name: Filters invoices by item name containing the given string
         :param str filter_external_ref: Filters invoices by external reference.
         :param str filter_created_date: Filters invoices by creation date. Multiple values possible for range search. Format: filter_created_date=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ) and ts is a unix timestamp in seconds. Ex: filter_created_date=GT,1452154258,LT,1554254874
-        :param Object filter_vendor_ids: Filters invoices for ones from one of the vendors whose id is in the given comma separated list
+        :param str filter_vendor_ids: Filters invoices for ones from one of the vendors whose id is in the given comma separated list
         :param str filter_currency: Filters invoices by currency. ISO3 currency code
         :param str filter_shipping_state_name: Filters invoices by shipping address: Exact match state name
         :param str filter_shipping_country_name: Filters invoices by shipping address: Exact match country name
@@ -554,41 +554,41 @@ class InvoicesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_user' in params:
-            query_params['filter_user'] = params['filter_user']
+            query_params.append(('filter_user', params['filter_user']))
         if 'filter_email' in params:
-            query_params['filter_email'] = params['filter_email']
+            query_params.append(('filter_email', params['filter_email']))
         if 'filter_fulfillment_status' in params:
-            query_params['filter_fulfillment_status'] = params['filter_fulfillment_status']
+            query_params.append(('filter_fulfillment_status', params['filter_fulfillment_status']))
         if 'filter_payment_status' in params:
-            query_params['filter_payment_status'] = params['filter_payment_status']
+            query_params.append(('filter_payment_status', params['filter_payment_status']))
         if 'filter_item_name' in params:
-            query_params['filter_item_name'] = params['filter_item_name']
+            query_params.append(('filter_item_name', params['filter_item_name']))
         if 'filter_external_ref' in params:
-            query_params['filter_external_ref'] = params['filter_external_ref']
+            query_params.append(('filter_external_ref', params['filter_external_ref']))
         if 'filter_created_date' in params:
-            query_params['filter_created_date'] = params['filter_created_date']
+            query_params.append(('filter_created_date', params['filter_created_date']))
         if 'filter_vendor_ids' in params:
-            query_params['filter_vendor_ids'] = params['filter_vendor_ids']
+            query_params.append(('filter_vendor_ids', params['filter_vendor_ids']))
         if 'filter_currency' in params:
-            query_params['filter_currency'] = params['filter_currency']
+            query_params.append(('filter_currency', params['filter_currency']))
         if 'filter_shipping_state_name' in params:
-            query_params['filter_shipping_state_name'] = params['filter_shipping_state_name']
+            query_params.append(('filter_shipping_state_name', params['filter_shipping_state_name']))
         if 'filter_shipping_country_name' in params:
-            query_params['filter_shipping_country_name'] = params['filter_shipping_country_name']
+            query_params.append(('filter_shipping_country_name', params['filter_shipping_country_name']))
         if 'filter_shipping' in params:
-            query_params['filter_shipping'] = params['filter_shipping']
+            query_params.append(('filter_shipping', params['filter_shipping']))
         if 'filter_vendor_name' in params:
-            query_params['filter_vendor_name'] = params['filter_vendor_name']
+            query_params.append(('filter_vendor_name', params['filter_vendor_name']))
         if 'filter_sku' in params:
-            query_params['filter_sku'] = params['filter_sku']
+            query_params.append(('filter_sku', params['filter_sku']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -684,7 +684,7 @@ class InvoicesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -790,7 +790,7 @@ class InvoicesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -812,6 +812,133 @@ class InvoicesApi(object):
         auth_settings = ['OAuth2']
 
         return self.api_client.call_api('/invoices/{id}/payments', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def set_bundled_invoice_item_fulfillment_status(self, id, bundle_sku, sku, status, **kwargs):
+        """
+        Set the fulfillment status of a bundled invoice item
+        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.set_bundled_invoice_item_fulfillment_status(id, bundle_sku, sku, status, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int id: The id of the invoice (required)
+        :param str bundle_sku: The sku of the bundle in the invoice that contains the given target (required)
+        :param str sku: The sku of an item in the bundle in the invoice (required)
+        :param str status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.set_bundled_invoice_item_fulfillment_status_with_http_info(id, bundle_sku, sku, status, **kwargs)
+        else:
+            (data) = self.set_bundled_invoice_item_fulfillment_status_with_http_info(id, bundle_sku, sku, status, **kwargs)
+            return data
+
+    def set_bundled_invoice_item_fulfillment_status_with_http_info(self, id, bundle_sku, sku, status, **kwargs):
+        """
+        Set the fulfillment status of a bundled invoice item
+        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.set_bundled_invoice_item_fulfillment_status_with_http_info(id, bundle_sku, sku, status, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int id: The id of the invoice (required)
+        :param str bundle_sku: The sku of the bundle in the invoice that contains the given target (required)
+        :param str sku: The sku of an item in the bundle in the invoice (required)
+        :param str status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'bundle_sku', 'sku', 'status']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_bundled_invoice_item_fulfillment_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `set_bundled_invoice_item_fulfillment_status`")
+        # verify the required parameter 'bundle_sku' is set
+        if ('bundle_sku' not in params) or (params['bundle_sku'] is None):
+            raise ValueError("Missing the required parameter `bundle_sku` when calling `set_bundled_invoice_item_fulfillment_status`")
+        # verify the required parameter 'sku' is set
+        if ('sku' not in params) or (params['sku'] is None):
+            raise ValueError("Missing the required parameter `sku` when calling `set_bundled_invoice_item_fulfillment_status`")
+        # verify the required parameter 'status' is set
+        if ('status' not in params) or (params['status'] is None):
+            raise ValueError("Missing the required parameter `status` when calling `set_bundled_invoice_item_fulfillment_status`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+        if 'bundle_sku' in params:
+            path_params['bundleSku'] = params['bundle_sku']
+        if 'sku' in params:
+            path_params['sku'] = params['sku']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'status' in params:
+            body_params = params['status']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['OAuth2']
+
+        return self.api_client.call_api('/invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -898,7 +1025,7 @@ class InvoicesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1018,7 +1145,7 @@ class InvoicesApi(object):
         if 'sku' in params:
             path_params['sku'] = params['sku']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1126,7 +1253,7 @@ class InvoicesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1236,7 +1363,7 @@ class InvoicesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1344,7 +1471,7 @@ class InvoicesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

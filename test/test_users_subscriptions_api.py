@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -84,6 +84,14 @@ class TestUsersSubscriptionsApi(unittest.TestCase):
         Test case for set_user_subscription_plan
 
         Set a new subscription plan for a user
+        """
+        pass
+
+    def test_set_user_subscription_price(self):
+        """
+        Test case for set_user_subscription_price
+
+        Set a new subscription price for a user
         """
         pass
 

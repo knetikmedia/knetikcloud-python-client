@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -110,7 +110,7 @@ class TemplatesPropertiesApi(object):
         if 'type' in params:
             path_params['type'] = params['type']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -206,7 +206,7 @@ class TemplatesPropertiesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

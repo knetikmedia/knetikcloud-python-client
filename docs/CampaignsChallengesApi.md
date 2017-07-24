@@ -9,13 +9,13 @@ Method | HTTP request | Description
 [**create_challenge_activity_template**](CampaignsChallengesApi.md#create_challenge_activity_template) | **POST** /challenge-activities/templates | Create a challenge activity template
 [**create_challenge_template**](CampaignsChallengesApi.md#create_challenge_template) | **POST** /challenges/templates | Create a challenge template
 [**delete_challenge**](CampaignsChallengesApi.md#delete_challenge) | **DELETE** /challenges/{id} | Delete a challenge
-[**delete_challenge_activity**](CampaignsChallengesApi.md#delete_challenge_activity) | **DELETE** /challenges/{challenge_id}/activities/{activity_id} | Delete a challenge activity
+[**delete_challenge_activity**](CampaignsChallengesApi.md#delete_challenge_activity) | **DELETE** /challenges/{challenge_id}/activities/{id} | Delete a challenge activity
 [**delete_challenge_activity_template**](CampaignsChallengesApi.md#delete_challenge_activity_template) | **DELETE** /challenge-activities/templates/{id} | Delete a challenge activity template
 [**delete_challenge_event**](CampaignsChallengesApi.md#delete_challenge_event) | **DELETE** /challenges/events/{id} | Delete a challenge event
 [**delete_challenge_template**](CampaignsChallengesApi.md#delete_challenge_template) | **DELETE** /challenges/templates/{id} | Delete a challenge template
 [**get_challenge**](CampaignsChallengesApi.md#get_challenge) | **GET** /challenges/{id} | Retrieve a challenge
 [**get_challenge_activities**](CampaignsChallengesApi.md#get_challenge_activities) | **GET** /challenges/{challenge_id}/activities | List and search challenge activities
-[**get_challenge_activity**](CampaignsChallengesApi.md#get_challenge_activity) | **GET** /challenges/{challenge_id}/activities/{activity_id} | Get a single challenge activity
+[**get_challenge_activity**](CampaignsChallengesApi.md#get_challenge_activity) | **GET** /challenges/{challenge_id}/activities/{id} | Get a single challenge activity
 [**get_challenge_activity_template**](CampaignsChallengesApi.md#get_challenge_activity_template) | **GET** /challenge-activities/templates/{id} | Get a single challenge activity template
 [**get_challenge_activity_templates**](CampaignsChallengesApi.md#get_challenge_activity_templates) | **GET** /challenge-activities/templates | List and search challenge activity templates
 [**get_challenge_event**](CampaignsChallengesApi.md#get_challenge_event) | **GET** /challenges/events/{id} | Retrieve a single challenge event details
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**get_challenge_templates**](CampaignsChallengesApi.md#get_challenge_templates) | **GET** /challenges/templates | List and search challenge templates
 [**get_challenges**](CampaignsChallengesApi.md#get_challenges) | **GET** /challenges | Retrieve a list of challenges
 [**update_challenge**](CampaignsChallengesApi.md#update_challenge) | **PUT** /challenges/{id} | Update a challenge
-[**update_challenge_activity**](CampaignsChallengesApi.md#update_challenge_activity) | **PUT** /challenges/{challenge_id}/activities/{activity_id} | Update a challenge activity
+[**update_challenge_activity**](CampaignsChallengesApi.md#update_challenge_activity) | **PUT** /challenges/{challenge_id}/activities/{id} | Update a challenge activity
 [**update_challenge_activity_template**](CampaignsChallengesApi.md#update_challenge_activity_template) | **PUT** /challenge-activities/templates/{id} | Update an challenge activity template
 [**update_challenge_template**](CampaignsChallengesApi.md#update_challenge_template) | **PUT** /challenges/templates/{id} | Update a challenge template
 
@@ -38,7 +38,7 @@ Challenges do not run on their own.  They must be added to a campaign before eve
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -87,7 +87,7 @@ Create a challenge activity
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -142,7 +142,7 @@ Challenge Activity Templates define a type of challenge activity and the propert
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -193,7 +193,7 @@ Challenge Templates define a type of challenge and the properties they have
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -242,7 +242,7 @@ Delete a challenge
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -284,13 +284,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_challenge_activity**
-> delete_challenge_activity(activity_id, challenge_id)
+> delete_challenge_activity(id, challenge_id)
 
 Delete a challenge activity
 
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -301,12 +303,12 @@ knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = knetik_cloud.CampaignsChallengesApi()
-activity_id = 789 # int | The activity id
+id = 789 # int | The challenge_activity id
 challenge_id = 789 # int | The challenge id
 
 try: 
     # Delete a challenge activity
-    api_instance.delete_challenge_activity(activity_id, challenge_id)
+    api_instance.delete_challenge_activity(id, challenge_id)
 except ApiException as e:
     print("Exception when calling CampaignsChallengesApi->delete_challenge_activity: %s\n" % e)
 ```
@@ -315,7 +317,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activity_id** | **int**| The activity id | 
+ **id** | **int**| The challenge_activity id | 
  **challenge_id** | **int**| The challenge id | 
 
 ### Return type
@@ -342,7 +344,7 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -392,7 +394,7 @@ Delete a challenge event
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -442,7 +444,7 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -492,7 +494,7 @@ Retrieve a challenge
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -538,7 +540,7 @@ List and search challenge activities
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -584,13 +586,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_challenge_activity**
-> ChallengeActivityResource get_challenge_activity(activity_id)
+> ChallengeActivityResource get_challenge_activity(id, challenge_id)
 
 Get a single challenge activity
 
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -598,11 +602,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = knetik_cloud.CampaignsChallengesApi()
-activity_id = 789 # int | The activity id
+id = 789 # int | The challenge_activity id
+challenge_id = 789 # int | The challenge id
 
 try: 
     # Get a single challenge activity
-    api_response = api_instance.get_challenge_activity(activity_id)
+    api_response = api_instance.get_challenge_activity(id, challenge_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CampaignsChallengesApi->get_challenge_activity: %s\n" % e)
@@ -612,7 +617,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activity_id** | **int**| The activity id | 
+ **id** | **int**| The challenge_activity id | 
+ **challenge_id** | **int**| The challenge id | 
 
 ### Return type
 
@@ -636,7 +642,7 @@ Get a single challenge activity template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -685,7 +691,7 @@ List and search challenge activity templates
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -738,7 +744,7 @@ Retrieve a single challenge event details
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -784,7 +790,7 @@ Retrieve a list of challenge events
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -842,7 +848,7 @@ Get a single challenge template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -891,7 +897,7 @@ List and search challenge templates
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -944,7 +950,7 @@ Retrieve a list of challenges
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1004,7 +1010,7 @@ If the challenge is a copy, changes will propagate to all the related challenges
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1049,13 +1055,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_challenge_activity**
-> ChallengeActivityResource update_challenge_activity(activity_id, challenge_id, challenge_activity_resource=challenge_activity_resource)
+> ChallengeActivityResource update_challenge_activity(id, challenge_id, challenge_activity_resource=challenge_activity_resource)
 
 Update a challenge activity
 
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1066,13 +1074,13 @@ knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = knetik_cloud.CampaignsChallengesApi()
-activity_id = 789 # int | The activity id
+id = 789 # int | The challenge_activity id
 challenge_id = 789 # int | The challenge id
 challenge_activity_resource = knetik_cloud.ChallengeActivityResource() # ChallengeActivityResource | The challenge activity resource object (optional)
 
 try: 
     # Update a challenge activity
-    api_response = api_instance.update_challenge_activity(activity_id, challenge_id, challenge_activity_resource=challenge_activity_resource)
+    api_response = api_instance.update_challenge_activity(id, challenge_id, challenge_activity_resource=challenge_activity_resource)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CampaignsChallengesApi->update_challenge_activity: %s\n" % e)
@@ -1082,7 +1090,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activity_id** | **int**| The activity id | 
+ **id** | **int**| The challenge_activity id | 
  **challenge_id** | **int**| The challenge id | 
  **challenge_activity_resource** | [**ChallengeActivityResource**](ChallengeActivityResource.md)| The challenge activity resource object | [optional] 
 
@@ -1108,7 +1116,7 @@ Update an challenge activity template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -1159,7 +1167,7 @@ Update a challenge template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

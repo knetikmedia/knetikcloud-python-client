@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -117,7 +117,7 @@ class UsersSubscriptionsApi(object):
         if 'inventory_id' in params:
             path_params['inventory_id'] = params['inventory_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -221,7 +221,7 @@ class UsersSubscriptionsApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -334,7 +334,7 @@ class UsersSubscriptionsApi(object):
         if 'inventory_id' in params:
             path_params['inventory_id'] = params['inventory_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -452,7 +452,7 @@ class UsersSubscriptionsApi(object):
         if 'inventory_id' in params:
             path_params['inventory_id'] = params['inventory_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -569,7 +569,7 @@ class UsersSubscriptionsApi(object):
         if 'inventory_id' in params:
             path_params['inventory_id'] = params['inventory_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -689,7 +689,7 @@ class UsersSubscriptionsApi(object):
         if 'inventory_id' in params:
             path_params['inventory_id'] = params['inventory_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -804,7 +804,7 @@ class UsersSubscriptionsApi(object):
         if 'inventory_id' in params:
             path_params['inventory_id'] = params['inventory_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -826,6 +826,123 @@ class UsersSubscriptionsApi(object):
         auth_settings = ['OAuth2']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}/plan', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        callback=params.get('callback'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def set_user_subscription_price(self, user_id, inventory_id, **kwargs):
+        """
+        Set a new subscription price for a user
+        This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.set_user_subscription_price(user_id, inventory_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The id of the user (required)
+        :param int inventory_id: The id of the user's inventory (required)
+        :param SubscriptionPriceOverrideRequest the_override_details: override
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.set_user_subscription_price_with_http_info(user_id, inventory_id, **kwargs)
+        else:
+            (data) = self.set_user_subscription_price_with_http_info(user_id, inventory_id, **kwargs)
+            return data
+
+    def set_user_subscription_price_with_http_info(self, user_id, inventory_id, **kwargs):
+        """
+        Set a new subscription price for a user
+        This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.set_user_subscription_price_with_http_info(user_id, inventory_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int user_id: The id of the user (required)
+        :param int inventory_id: The id of the user's inventory (required)
+        :param SubscriptionPriceOverrideRequest the_override_details: override
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['user_id', 'inventory_id', 'the_override_details']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_user_subscription_price" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `set_user_subscription_price`")
+        # verify the required parameter 'inventory_id' is set
+        if ('inventory_id' not in params) or (params['inventory_id'] is None):
+            raise ValueError("Missing the required parameter `inventory_id` when calling `set_user_subscription_price`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+        if 'inventory_id' in params:
+            path_params['inventory_id'] = params['inventory_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'the_override_details' in params:
+            body_params = params['the_override_details']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['OAuth2']
+
+        return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}/price-override', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,

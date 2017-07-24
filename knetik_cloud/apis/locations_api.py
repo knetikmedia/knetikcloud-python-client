@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -102,7 +102,7 @@ class LocationsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -200,7 +200,7 @@ class LocationsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -304,7 +304,7 @@ class LocationsApi(object):
         if 'country_code_iso3' in params:
             path_params['country_code_iso3'] = params['country_code_iso3']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -402,7 +402,7 @@ class LocationsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

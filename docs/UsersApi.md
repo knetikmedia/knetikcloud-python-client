@@ -29,7 +29,7 @@ Add a tag to a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -81,7 +81,7 @@ User Templates define a type of user and the properties they have
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -132,7 +132,7 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -184,7 +184,7 @@ Additional private info is included as USERS_ADMIN
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -233,7 +233,7 @@ List tags for a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -282,7 +282,7 @@ Get a single user template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -331,7 +331,7 @@ List and search user templates
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -386,7 +386,7 @@ Additional private info is included as USERS_ADMIN
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -461,7 +461,7 @@ Finish resetting a user's password using the secret provided from the password-r
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -510,7 +510,7 @@ Password should be in plain text and will be encrypted on receipt. Use SSL for s
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -556,7 +556,7 @@ Remove a tag from a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -608,7 +608,7 @@ Password should be in plain text and will be encrypted on receipt. Use SSL for s
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -660,7 +660,7 @@ A reset code will be generated and a 'forgot_password' BRE event will be fired w
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -707,7 +707,7 @@ A reset code will be generated and a 'forgot_password' BRE event will be fired w
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -715,7 +715,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = knetik_cloud.UsersApi()
-password_reset = knetik_cloud.ARequestToResetAUsersPasswordByUsingAKnownUserProperty() # ARequestToResetAUsersPasswordByUsingAKnownUserProperty | An object containing one of three methods to look up a user (optional)
+password_reset = knetik_cloud.PasswordResetRequest() # PasswordResetRequest | An object containing one of three methods to look up a user (optional)
 
 try: 
     # Reset a user's password without user id
@@ -728,7 +728,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **password_reset** | [**ARequestToResetAUsersPasswordByUsingAKnownUserProperty**](ARequestToResetAUsersPasswordByUsingAKnownUserProperty.md)| An object containing one of three methods to look up a user | [optional] 
+ **password_reset** | [**PasswordResetRequest**](PasswordResetRequest.md)| An object containing one of three methods to look up a user | [optional] 
 
 ### Return type
 
@@ -754,7 +754,7 @@ Password will not be edited on this endpoint, use password specific endpoints.
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -804,7 +804,7 @@ Update a user template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

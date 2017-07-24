@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -35,7 +35,9 @@ class TestLookupResource(unittest.TestCase):
         """
         Test LookupResource
         """
-        model = knetik_cloud.models.lookup_resource.LookupResource()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.lookup_resource.LookupResource()
+        pass
 
 
 if __name__ == '__main__':

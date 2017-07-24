@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -35,7 +35,9 @@ class TestPageResourceUserBaseResource(unittest.TestCase):
         """
         Test PageResourceUserBaseResource
         """
-        model = knetik_cloud.models.page_resource_user_base_resource.PageResourceUserBaseResource()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.page_resource_user_base_resource.PageResourceUserBaseResource()
+        pass
 
 
 if __name__ == '__main__':

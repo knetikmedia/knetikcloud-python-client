@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -115,7 +115,7 @@ class UsersGroupsApi(object):
         if 'unique_name' in params:
             path_params['unique_name'] = params['unique_name']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -226,7 +226,7 @@ class UsersGroupsApi(object):
         if 'unique_name' in params:
             path_params['unique_name'] = params['unique_name']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -327,7 +327,7 @@ class UsersGroupsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -430,7 +430,7 @@ class UsersGroupsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -536,7 +536,7 @@ class UsersGroupsApi(object):
         if 'unique_name' in params:
             path_params['unique_name'] = params['unique_name']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -644,9 +644,9 @@ class UsersGroupsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -750,7 +750,7 @@ class UsersGroupsApi(object):
         if 'unique_name' in params:
             path_params['unique_name'] = params['unique_name']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -861,7 +861,7 @@ class UsersGroupsApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -971,13 +971,13 @@ class UsersGroupsApi(object):
         if 'unique_name' in params:
             path_params['unique_name'] = params['unique_name']
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1081,7 +1081,7 @@ class UsersGroupsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1184,13 +1184,13 @@ class UsersGroupsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1294,7 +1294,7 @@ class UsersGroupsApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1405,7 +1405,7 @@ class UsersGroupsApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1511,7 +1511,7 @@ class UsersGroupsApi(object):
         if 'unique_name' in params:
             path_params['unique_name'] = params['unique_name']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1629,7 +1629,7 @@ class UsersGroupsApi(object):
         if 'user_id' in params:
             path_params['user_id'] = params['user_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1737,7 +1737,7 @@ class UsersGroupsApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1854,25 +1854,25 @@ class UsersGroupsApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_template' in params:
-            query_params['filter_template'] = params['filter_template']
+            query_params.append(('filter_template', params['filter_template']))
         if 'filter_member_count' in params:
-            query_params['filter_member_count'] = params['filter_member_count']
+            query_params.append(('filter_member_count', params['filter_member_count']))
         if 'filter_name' in params:
-            query_params['filter_name'] = params['filter_name']
+            query_params.append(('filter_name', params['filter_name']))
         if 'filter_unique_name' in params:
-            query_params['filter_unique_name'] = params['filter_unique_name']
+            query_params.append(('filter_unique_name', params['filter_unique_name']))
         if 'filter_parent' in params:
-            query_params['filter_parent'] = params['filter_parent']
+            query_params.append(('filter_parent', params['filter_parent']))
         if 'filter_status' in params:
-            query_params['filter_status'] = params['filter_status']
+            query_params.append(('filter_status', params['filter_status']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 

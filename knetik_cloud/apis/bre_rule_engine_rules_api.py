@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -107,7 +107,7 @@ class BRERuleEngineRulesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -215,7 +215,7 @@ class BRERuleEngineRulesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -314,7 +314,7 @@ class BRERuleEngineRulesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -420,7 +420,7 @@ class BRERuleEngineRulesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -533,23 +533,23 @@ class BRERuleEngineRulesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_name' in params:
-            query_params['filter_name'] = params['filter_name']
+            query_params.append(('filter_name', params['filter_name']))
         if 'filter_enabled' in params:
-            query_params['filter_enabled'] = params['filter_enabled']
+            query_params.append(('filter_enabled', params['filter_enabled']))
         if 'filter_system' in params:
-            query_params['filter_system'] = params['filter_system']
+            query_params.append(('filter_system', params['filter_system']))
         if 'filter_trigger' in params:
-            query_params['filter_trigger'] = params['filter_trigger']
+            query_params.append(('filter_trigger', params['filter_trigger']))
         if 'filter_action' in params:
-            query_params['filter_action'] = params['filter_action']
+            query_params.append(('filter_action', params['filter_action']))
         if 'filter_condition' in params:
-            query_params['filter_condition'] = params['filter_condition']
+            query_params.append(('filter_condition', params['filter_condition']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -657,7 +657,7 @@ class BRERuleEngineRulesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -767,7 +767,7 @@ class BRERuleEngineRulesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

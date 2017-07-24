@@ -17,7 +17,7 @@ Lists all leaderboard entries with additional user details
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -74,7 +74,7 @@ Lists all user submitted scores sorted by value, including those that do not ape
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

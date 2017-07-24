@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -35,7 +35,9 @@ class TestTimePeriodUsable(unittest.TestCase):
         """
         Test TimePeriodUsable
         """
-        model = knetik_cloud.models.time_period_usable.TimePeriodUsable()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.time_period_usable.TimePeriodUsable()
+        pass
 
 
 if __name__ == '__main__':

@@ -20,7 +20,7 @@ Get basic info about revenue from sales of items and bundles (not subscriptions,
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -75,7 +75,7 @@ Get basic info about revenue loss from refunds (for all item types), summed up w
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -130,7 +130,7 @@ Get basic info about revenue from sales of all types, summed up within a time ra
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -189,7 +189,7 @@ Get basic info about revenue from sales of all types, summed up within a time ra
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -248,7 +248,7 @@ Get basic info about revenue from sales of new subscriptions as well as recurrin
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

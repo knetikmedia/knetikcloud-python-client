@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -105,7 +105,7 @@ class CurrenciesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -211,7 +211,7 @@ class CurrenciesApi(object):
         if 'code' in params:
             path_params['code'] = params['code']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -318,17 +318,17 @@ class CurrenciesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_enabled_currencies' in params:
-            query_params['filter_enabled_currencies'] = params['filter_enabled_currencies']
+            query_params.append(('filter_enabled_currencies', params['filter_enabled_currencies']))
         if 'filter_type' in params:
-            query_params['filter_type'] = params['filter_type']
+            query_params.append(('filter_type', params['filter_type']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -432,7 +432,7 @@ class CurrenciesApi(object):
         if 'code' in params:
             path_params['code'] = params['code']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -538,7 +538,7 @@ class CurrenciesApi(object):
         if 'code' in params:
             path_params['code'] = params['code']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

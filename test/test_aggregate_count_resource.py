@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -35,7 +35,9 @@ class TestAggregateCountResource(unittest.TestCase):
         """
         Test AggregateCountResource
         """
-        model = knetik_cloud.models.aggregate_count_resource.AggregateCountResource()
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.aggregate_count_resource.AggregateCountResource()
+        pass
 
 
 if __name__ == '__main__':

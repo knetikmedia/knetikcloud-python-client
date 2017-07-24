@@ -17,7 +17,7 @@ Types include integer, string, user and invoice. These are used to qualify trigg
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -64,7 +64,7 @@ Used to lookup users to fill in a user constant for example. Only types marked a
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

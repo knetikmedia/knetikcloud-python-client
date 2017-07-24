@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -107,7 +107,7 @@ class ContentArticlesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -210,7 +210,7 @@ class ContentArticlesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -316,7 +316,7 @@ class ContentArticlesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -424,9 +424,9 @@ class ContentArticlesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -530,7 +530,7 @@ class ContentArticlesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -634,7 +634,7 @@ class ContentArticlesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -737,13 +737,13 @@ class ContentArticlesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -792,7 +792,9 @@ class ContentArticlesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str filter_category: Filter for articles from a specific category by id
-        :param str filter_tagset: Filter for articles with specified tags (separated by comma)
+        :param str filter_tagset: Filter for articles with at least one of a specified set of tags (separated by comma)
+        :param str filter_tag_intersection: Filter for articles with all of a specified set of tags (separated by comma)
+        :param str filter_tag_exclusion: Filter for articles with none of a specified set of tags (separated by comma)
         :param str filter_title: Filter for articles whose title contains a string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -823,7 +825,9 @@ class ContentArticlesApi(object):
         :param callback function: The callback function
             for asynchronous request. (optional)
         :param str filter_category: Filter for articles from a specific category by id
-        :param str filter_tagset: Filter for articles with specified tags (separated by comma)
+        :param str filter_tagset: Filter for articles with at least one of a specified set of tags (separated by comma)
+        :param str filter_tag_intersection: Filter for articles with all of a specified set of tags (separated by comma)
+        :param str filter_tag_exclusion: Filter for articles with none of a specified set of tags (separated by comma)
         :param str filter_title: Filter for articles whose title contains a string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -833,7 +837,7 @@ class ContentArticlesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['filter_category', 'filter_tagset', 'filter_title', 'size', 'page', 'order']
+        all_params = ['filter_category', 'filter_tagset', 'filter_tag_intersection', 'filter_tag_exclusion', 'filter_title', 'size', 'page', 'order']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -854,19 +858,23 @@ class ContentArticlesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_tagset' in params:
-            query_params['filter_tagset'] = params['filter_tagset']
+            query_params.append(('filter_tagset', params['filter_tagset']))
+        if 'filter_tag_intersection' in params:
+            query_params.append(('filter_tag_intersection', params['filter_tag_intersection']))
+        if 'filter_tag_exclusion' in params:
+            query_params.append(('filter_tag_exclusion', params['filter_tag_exclusion']))
         if 'filter_title' in params:
-            query_params['filter_title'] = params['filter_title']
+            query_params.append(('filter_title', params['filter_title']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -972,7 +980,7 @@ class ContentArticlesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1080,7 +1088,7 @@ class ContentArticlesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

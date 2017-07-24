@@ -17,7 +17,7 @@ Tokens expire in 24 hours
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -65,7 +65,7 @@ Should the request take longer than one of the alloted timeout parameters, a tok
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

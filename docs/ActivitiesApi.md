@@ -20,13 +20,13 @@ Method | HTTP request | Description
 
 
 # **create_activity**
-> RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc create_activity(activity_resource=activity_resource)
+> ActivityResource create_activity(activity_resource=activity_resource)
 
 Create an activity
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -37,7 +37,7 @@ knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = knetik_cloud.ActivitiesApi()
-activity_resource = knetik_cloud.RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc() # RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc | The activity resource object (optional)
+activity_resource = knetik_cloud.ActivityResource() # ActivityResource | The activity resource object (optional)
 
 try: 
     # Create an activity
@@ -51,11 +51,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activity_resource** | [**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc.md)| The activity resource object | [optional] 
+ **activity_resource** | [**ActivityResource**](ActivityResource.md)| The activity resource object | [optional] 
 
 ### Return type
 
-[**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc.md)
+[**ActivityResource**](ActivityResource.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_activity_occurrence**
-> AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings create_activity_occurrence(test=test, activity_occurrence_resource=activity_occurrence_resource)
+> ActivityOccurrenceResource create_activity_occurrence(test=test, activity_occurrence_resource=activity_occurrence_resource)
 
 Create a new activity occurrence. Ex: start a game
 
@@ -77,7 +77,7 @@ Has to enforce extra rules if not used as an admin
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -89,7 +89,7 @@ knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = knetik_cloud.ActivitiesApi()
 test = false # bool | if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings (optional) (default to false)
-activity_occurrence_resource = knetik_cloud.AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings() # AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings | The activity occurrence object (optional)
+activity_occurrence_resource = knetik_cloud.ActivityOccurrenceResource() # ActivityOccurrenceResource | The activity occurrence object (optional)
 
 try: 
     # Create a new activity occurrence. Ex: start a game
@@ -104,11 +104,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test** | **bool**| if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings | [optional] [default to false]
- **activity_occurrence_resource** | [**AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings**](AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings.md)| The activity occurrence object | [optional] 
+ **activity_occurrence_resource** | [**ActivityOccurrenceResource**](ActivityOccurrenceResource.md)| The activity occurrence object | [optional] 
 
 ### Return type
 
-[**AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings**](AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings.md)
+[**ActivityOccurrenceResource**](ActivityOccurrenceResource.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ Activity Templates define a type of activity and the properties they have
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -179,7 +179,7 @@ Delete an activity
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -229,7 +229,7 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -279,7 +279,7 @@ List activity definitions
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -289,7 +289,7 @@ from pprint import pprint
 api_instance = knetik_cloud.ActivitiesApi()
 filter_template = true # bool | Filter for activities that are templates, or specifically not if false (optional)
 filter_name = 'filter_name_example' # str | Filter for activities that have a name starting with specified string (optional)
-filter_id = knetik_cloud.Object() # Object | Filter for activities with an id in the given comma separated list of ids (optional)
+filter_id = 'filter_id_example' # str | Filter for activities with an id in the given comma separated list of ids (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter_template** | **bool**| Filter for activities that are templates, or specifically not if false | [optional] 
  **filter_name** | **str**| Filter for activities that have a name starting with specified string | [optional] 
- **filter_id** | [**Object**](.md)| Filter for activities with an id in the given comma separated list of ids | [optional] 
+ **filter_id** | **str**| Filter for activities with an id in the given comma separated list of ids | [optional] 
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
@@ -329,13 +329,13 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_activity**
-> RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc get_activity(id)
+> ActivityResource get_activity(id)
 
 Get a single activity
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc.md)
+[**ActivityResource**](ActivityResource.md)
 
 ### Authorization
 
@@ -381,7 +381,7 @@ Get a single activity template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -430,7 +430,7 @@ List and search activity templates
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -483,7 +483,7 @@ Sets the status of an activity occurrence to FINISHED and logs metrics
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -495,7 +495,7 @@ knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = knetik_cloud.ActivitiesApi()
 activity_occurrence_id = 789 # int | The id of the activity occurrence
-activity_occurrence_results = knetik_cloud.ActivityOccurrenceResults() # ActivityOccurrenceResults | The activity occurrence object (optional)
+activity_occurrence_results = knetik_cloud.ActivityOccurrenceResultsResource() # ActivityOccurrenceResultsResource | The activity occurrence object (optional)
 
 try: 
     # Sets the status of an activity occurrence to FINISHED and logs metrics
@@ -510,7 +510,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activity_occurrence_id** | **int**| The id of the activity occurrence | 
- **activity_occurrence_results** | [**ActivityOccurrenceResults**](ActivityOccurrenceResults.md)| The activity occurrence object | [optional] 
+ **activity_occurrence_results** | [**ActivityOccurrenceResultsResource**](ActivityOccurrenceResultsResource.md)| The activity occurrence object | [optional] 
 
 ### Return type
 
@@ -528,13 +528,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_activity**
-> RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc update_activity(id, activity_resource=activity_resource)
+> ActivityResource update_activity(id, activity_resource=activity_resource)
 
 Update an activity
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -546,7 +546,7 @@ knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = knetik_cloud.ActivitiesApi()
 id = 789 # int | The id of the activity
-activity_resource = knetik_cloud.RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc() # RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc | The activity resource object (optional)
+activity_resource = knetik_cloud.ActivityResource() # ActivityResource | The activity resource object (optional)
 
 try: 
     # Update an activity
@@ -561,11 +561,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The id of the activity | 
- **activity_resource** | [**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc.md)| The activity resource object | [optional] 
+ **activity_resource** | [**ActivityResource**](ActivityResource.md)| The activity resource object | [optional] 
 
 ### Return type
 
-[**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc.md)
+[**ActivityResource**](ActivityResource.md)
 
 ### Authorization
 
@@ -587,7 +587,7 @@ If setting to 'FINISHED' you must POST to /results instead to record the metrics
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -637,7 +637,7 @@ Update an activity template
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException

@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -112,7 +112,7 @@ class GamificationTriviaApi(object):
         if 'question_id' in params:
             path_params['question_id'] = params['question_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -220,7 +220,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -339,23 +339,23 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
         if 'filter_idset' in params:
-            query_params['filter_idset'] = params['filter_idset']
+            query_params.append(('filter_idset', params['filter_idset']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_tag' in params:
-            query_params['filter_tag'] = params['filter_tag']
+            query_params.append(('filter_tag', params['filter_tag']))
         if 'filter_tagset' in params:
-            query_params['filter_tagset'] = params['filter_tagset']
+            query_params.append(('filter_tagset', params['filter_tagset']))
         if 'filter_type' in params:
-            query_params['filter_type'] = params['filter_type']
+            query_params.append(('filter_type', params['filter_type']))
         if 'filter_published' in params:
-            query_params['filter_published'] = params['filter_published']
+            query_params.append(('filter_published', params['filter_published']))
         if 'filter_import_id' in params:
-            query_params['filter_import_id'] = params['filter_import_id']
+            query_params.append(('filter_import_id', params['filter_import_id']))
 
         header_params = {}
 
@@ -458,7 +458,7 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -559,7 +559,7 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -662,7 +662,7 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -770,7 +770,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -874,7 +874,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -985,7 +985,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1093,9 +1093,9 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -1199,7 +1199,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1310,21 +1310,21 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_vendor' in params:
-            query_params['filter_vendor'] = params['filter_vendor']
+            query_params.append(('filter_vendor', params['filter_vendor']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_name' in params:
-            query_params['filter_name'] = params['filter_name']
+            query_params.append(('filter_name', params['filter_name']))
         if 'filter_status' in params:
-            query_params['filter_status'] = params['filter_status']
+            query_params.append(('filter_status', params['filter_status']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1428,7 +1428,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1539,7 +1539,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1643,7 +1643,7 @@ class GamificationTriviaApi(object):
         if 'question_id' in params:
             path_params['question_id'] = params['question_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1744,9 +1744,9 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'since' in params:
-            query_params['since'] = params['since']
+            query_params.append(('since', params['since']))
 
         header_params = {}
 
@@ -1850,7 +1850,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1954,7 +1954,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2057,13 +2057,13 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -2182,29 +2182,29 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
         if 'filter_idset' in params:
-            query_params['filter_idset'] = params['filter_idset']
+            query_params.append(('filter_idset', params['filter_idset']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_tagset' in params:
-            query_params['filter_tagset'] = params['filter_tagset']
+            query_params.append(('filter_tagset', params['filter_tagset']))
         if 'filter_tag' in params:
-            query_params['filter_tag'] = params['filter_tag']
+            query_params.append(('filter_tag', params['filter_tag']))
         if 'filter_type' in params:
-            query_params['filter_type'] = params['filter_type']
+            query_params.append(('filter_type', params['filter_type']))
         if 'filter_published' in params:
-            query_params['filter_published'] = params['filter_published']
+            query_params.append(('filter_published', params['filter_published']))
         if 'filter_import_id' in params:
-            query_params['filter_import_id'] = params['filter_import_id']
+            query_params.append(('filter_import_id', params['filter_import_id']))
 
         header_params = {}
 
@@ -2317,21 +2317,21 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
         if 'filter_idset' in params:
-            query_params['filter_idset'] = params['filter_idset']
+            query_params.append(('filter_idset', params['filter_idset']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_tag' in params:
-            query_params['filter_tag'] = params['filter_tag']
+            query_params.append(('filter_tag', params['filter_tag']))
         if 'filter_tagset' in params:
-            query_params['filter_tagset'] = params['filter_tagset']
+            query_params.append(('filter_tagset', params['filter_tagset']))
         if 'filter_type' in params:
-            query_params['filter_type'] = params['filter_type']
+            query_params.append(('filter_type', params['filter_type']))
         if 'filter_published' in params:
-            query_params['filter_published'] = params['filter_published']
+            query_params.append(('filter_published', params['filter_published']))
 
         header_params = {}
 
@@ -2442,9 +2442,9 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'publish_now' in params:
-            query_params['publish_now'] = params['publish_now']
+            query_params.append(('publish_now', params['publish_now']))
 
         header_params = {}
 
@@ -2555,7 +2555,7 @@ class GamificationTriviaApi(object):
         if 'tag' in params:
             path_params['tag'] = params['tag']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2677,23 +2677,23 @@ class GamificationTriviaApi(object):
         if 'tag' in params:
             path_params['tag'] = params['tag']
 
-        query_params = {}
+        query_params = []
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
         if 'filter_idset' in params:
-            query_params['filter_idset'] = params['filter_idset']
+            query_params.append(('filter_idset', params['filter_idset']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_tag' in params:
-            query_params['filter_tag'] = params['filter_tag']
+            query_params.append(('filter_tag', params['filter_tag']))
         if 'filter_tagset' in params:
-            query_params['filter_tagset'] = params['filter_tagset']
+            query_params.append(('filter_tagset', params['filter_tagset']))
         if 'filter_type' in params:
-            query_params['filter_type'] = params['filter_type']
+            query_params.append(('filter_type', params['filter_type']))
         if 'filter_published' in params:
-            query_params['filter_published'] = params['filter_published']
+            query_params.append(('filter_published', params['filter_published']))
         if 'filter_import_id' in params:
-            query_params['filter_import_id'] = params['filter_import_id']
+            query_params.append(('filter_import_id', params['filter_import_id']))
 
         header_params = {}
 
@@ -2798,13 +2798,13 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_import_id' in params:
-            query_params['filter_import_id'] = params['filter_import_id']
+            query_params.append(('filter_import_id', params['filter_import_id']))
 
         header_params = {}
 
@@ -2912,7 +2912,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3020,7 +3020,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3135,7 +3135,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3243,7 +3243,7 @@ class GamificationTriviaApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -3360,21 +3360,21 @@ class GamificationTriviaApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_search' in params:
-            query_params['filter_search'] = params['filter_search']
+            query_params.append(('filter_search', params['filter_search']))
         if 'filter_idset' in params:
-            query_params['filter_idset'] = params['filter_idset']
+            query_params.append(('filter_idset', params['filter_idset']))
         if 'filter_category' in params:
-            query_params['filter_category'] = params['filter_category']
+            query_params.append(('filter_category', params['filter_category']))
         if 'filter_tagset' in params:
-            query_params['filter_tagset'] = params['filter_tagset']
+            query_params.append(('filter_tagset', params['filter_tagset']))
         if 'filter_type' in params:
-            query_params['filter_type'] = params['filter_type']
+            query_params.append(('filter_type', params['filter_type']))
         if 'filter_published' in params:
-            query_params['filter_published'] = params['filter_published']
+            query_params.append(('filter_published', params['filter_published']))
         if 'filter_import_id' in params:
-            query_params['filter_import_id'] = params['filter_import_id']
+            query_params.append(('filter_import_id', params['filter_import_id']))
 
         header_params = {}
 

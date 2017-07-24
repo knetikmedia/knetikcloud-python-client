@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -110,7 +110,7 @@ class MediaModerationApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -217,15 +217,15 @@ class MediaModerationApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'exclude_resolved' in params:
-            query_params['exclude_resolved'] = params['exclude_resolved']
+            query_params.append(('exclude_resolved', params['exclude_resolved']))
         if 'filter_context' in params:
-            query_params['filter_context'] = params['filter_context']
+            query_params.append(('filter_context', params['filter_context']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -333,7 +333,7 @@ class MediaModerationApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 

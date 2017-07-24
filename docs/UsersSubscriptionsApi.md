@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**set_subscription_payment_method**](UsersSubscriptionsApi.md#set_subscription_payment_method) | **PUT** /users/{user_id}/subscriptions/{inventory_id}/payment-method | Set the payment method to use for a subscription
 [**set_subscription_status**](UsersSubscriptionsApi.md#set_subscription_status) | **PUT** /users/{user_id}/subscriptions/{inventory_id}/status | Set the status of a subscription
 [**set_user_subscription_plan**](UsersSubscriptionsApi.md#set_user_subscription_plan) | **PUT** /users/{user_id}/subscriptions/{inventory_id}/plan | Set a new subscription plan for a user
+[**set_user_subscription_price**](UsersSubscriptionsApi.md#set_user_subscription_price) | **PUT** /users/{user_id}/subscriptions/{inventory_id}/price-override | Set a new subscription price for a user
 
 
 # **get_user_subscription_details**
@@ -20,7 +21,7 @@ Get details about a user's subscription
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -71,7 +72,7 @@ Get details about a user's subscriptions
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -120,7 +121,7 @@ Reactivate a subscription and charge fee
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -173,7 +174,7 @@ Set a new date to bill a subscription on
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -227,7 +228,7 @@ May send null to use floating default
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -281,7 +282,7 @@ The body is a json string (put in quotes) that should match a desired invoice st
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -333,7 +334,7 @@ Set a new subscription plan for a user
 
 ### Example 
 ```python
-from __future__ import print_statement
+from __future__ import print_function
 import time
 import knetik_cloud
 from knetik_cloud.rest import ApiException
@@ -362,6 +363,60 @@ Name | Type | Description  | Notes
  **user_id** | **int**| The id of the user | 
  **inventory_id** | **int**| The id of the user&#39;s inventory | 
  **plan_id** | **str**| The id of the new plan. Must be from the same subscription | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_user_subscription_price**
+> set_user_subscription_price(user_id, inventory_id, the_override_details=the_override_details)
+
+Set a new subscription price for a user
+
+This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2
+knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.UsersSubscriptionsApi()
+user_id = 56 # int | The id of the user
+inventory_id = 56 # int | The id of the user's inventory
+the_override_details = knetik_cloud.SubscriptionPriceOverrideRequest() # SubscriptionPriceOverrideRequest | override (optional)
+
+try: 
+    # Set a new subscription price for a user
+    api_instance.set_user_subscription_price(user_id, inventory_id, the_override_details=the_override_details)
+except ApiException as e:
+    print("Exception when calling UsersSubscriptionsApi->set_user_subscription_price: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The id of the user | 
+ **inventory_id** | **int**| The id of the user&#39;s inventory | 
+ **the_override_details** | [**SubscriptionPriceOverrideRequest**](SubscriptionPriceOverrideRequest.md)| override | [optional] 
 
 ### Return type
 

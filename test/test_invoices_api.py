@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -84,6 +84,14 @@ class TestInvoicesApi(unittest.TestCase):
         Test case for pay_invoice
 
         Trigger payment of an invoice
+        """
+        pass
+
+    def test_set_bundled_invoice_item_fulfillment_status(self):
+        """
+        Test case for set_bundled_invoice_item_fulfillment_status
+
+        Set the fulfillment status of a bundled invoice item
         """
         pass
 

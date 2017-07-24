@@ -3,7 +3,7 @@
 """
     Knetik Platform API Documentation latest 
 
-    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+    This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
     OpenAPI spec version: latest 
     Contact: support@knetik.com
@@ -107,7 +107,7 @@ class CampaignsChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -217,9 +217,9 @@ class CampaignsChallengesApi(object):
         if 'challenge_id' in params:
             path_params['challenge_id'] = params['challenge_id']
 
-        query_params = {}
+        query_params = []
         if 'validate_settings' in params:
-            query_params['validateSettings'] = params['validate_settings']
+            query_params.append(('validateSettings', params['validate_settings']))
 
         header_params = {}
 
@@ -322,7 +322,7 @@ class CampaignsChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -425,7 +425,7 @@ class CampaignsChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -531,7 +531,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -565,20 +565,21 @@ class CampaignsChallengesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def delete_challenge_activity(self, activity_id, challenge_id, **kwargs):
+    def delete_challenge_activity(self, id, challenge_id, **kwargs):
         """
         Delete a challenge activity
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.delete_challenge_activity(activity_id, challenge_id, callback=callback_function)
+        >>> thread = api.delete_challenge_activity(id, challenge_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int activity_id: The activity id (required)
+        :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :return: None
                  If the method is called asynchronously,
@@ -586,32 +587,33 @@ class CampaignsChallengesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.delete_challenge_activity_with_http_info(activity_id, challenge_id, **kwargs)
+            return self.delete_challenge_activity_with_http_info(id, challenge_id, **kwargs)
         else:
-            (data) = self.delete_challenge_activity_with_http_info(activity_id, challenge_id, **kwargs)
+            (data) = self.delete_challenge_activity_with_http_info(id, challenge_id, **kwargs)
             return data
 
-    def delete_challenge_activity_with_http_info(self, activity_id, challenge_id, **kwargs):
+    def delete_challenge_activity_with_http_info(self, id, challenge_id, **kwargs):
         """
         Delete a challenge activity
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.delete_challenge_activity_with_http_info(activity_id, challenge_id, callback=callback_function)
+        >>> thread = api.delete_challenge_activity_with_http_info(id, challenge_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int activity_id: The activity id (required)
+        :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['activity_id', 'challenge_id']
+        all_params = ['id', 'challenge_id']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -626,9 +628,9 @@ class CampaignsChallengesApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'activity_id' is set
-        if ('activity_id' not in params) or (params['activity_id'] is None):
-            raise ValueError("Missing the required parameter `activity_id` when calling `delete_challenge_activity`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `delete_challenge_activity`")
         # verify the required parameter 'challenge_id' is set
         if ('challenge_id' not in params) or (params['challenge_id'] is None):
             raise ValueError("Missing the required parameter `challenge_id` when calling `delete_challenge_activity`")
@@ -637,12 +639,12 @@ class CampaignsChallengesApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'activity_id' in params:
-            path_params['activity_id'] = params['activity_id']
+        if 'id' in params:
+            path_params['id'] = params['id']
         if 'challenge_id' in params:
             path_params['challenge_id'] = params['challenge_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -661,7 +663,7 @@ class CampaignsChallengesApi(object):
         # Authentication setting
         auth_settings = ['OAuth2']
 
-        return self.api_client.call_api('/challenges/{challenge_id}/activities/{activity_id}', 'DELETE',
+        return self.api_client.call_api('/challenges/{challenge_id}/activities/{id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -750,9 +752,9 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -856,7 +858,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -964,9 +966,9 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
         if 'cascade' in params:
-            query_params['cascade'] = params['cascade']
+            query_params.append(('cascade', params['cascade']))
 
         header_params = {}
 
@@ -1070,7 +1072,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1180,13 +1182,13 @@ class CampaignsChallengesApi(object):
         if 'challenge_id' in params:
             path_params['challenge_id'] = params['challenge_id']
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1220,51 +1222,55 @@ class CampaignsChallengesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def get_challenge_activity(self, activity_id, **kwargs):
+    def get_challenge_activity(self, id, challenge_id, **kwargs):
         """
         Get a single challenge activity
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_challenge_activity(activity_id, callback=callback_function)
+        >>> thread = api.get_challenge_activity(id, challenge_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int activity_id: The activity id (required)
+        :param int id: The challenge_activity id (required)
+        :param int challenge_id: The challenge id (required)
         :return: ChallengeActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.get_challenge_activity_with_http_info(activity_id, **kwargs)
+            return self.get_challenge_activity_with_http_info(id, challenge_id, **kwargs)
         else:
-            (data) = self.get_challenge_activity_with_http_info(activity_id, **kwargs)
+            (data) = self.get_challenge_activity_with_http_info(id, challenge_id, **kwargs)
             return data
 
-    def get_challenge_activity_with_http_info(self, activity_id, **kwargs):
+    def get_challenge_activity_with_http_info(self, id, challenge_id, **kwargs):
         """
         Get a single challenge activity
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.get_challenge_activity_with_http_info(activity_id, callback=callback_function)
+        >>> thread = api.get_challenge_activity_with_http_info(id, challenge_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int activity_id: The activity id (required)
+        :param int id: The challenge_activity id (required)
+        :param int challenge_id: The challenge id (required)
         :return: ChallengeActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['activity_id']
+        all_params = ['id', 'challenge_id']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1279,18 +1285,23 @@ class CampaignsChallengesApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'activity_id' is set
-        if ('activity_id' not in params) or (params['activity_id'] is None):
-            raise ValueError("Missing the required parameter `activity_id` when calling `get_challenge_activity`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_challenge_activity`")
+        # verify the required parameter 'challenge_id' is set
+        if ('challenge_id' not in params) or (params['challenge_id'] is None):
+            raise ValueError("Missing the required parameter `challenge_id` when calling `get_challenge_activity`")
 
 
         collection_formats = {}
 
         path_params = {}
-        if 'activity_id' in params:
-            path_params['activity_id'] = params['activity_id']
+        if 'id' in params:
+            path_params['id'] = params['id']
+        if 'challenge_id' in params:
+            path_params['challenge_id'] = params['challenge_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1309,7 +1320,7 @@ class CampaignsChallengesApi(object):
         # Authentication setting
         auth_settings = []
 
-        return self.api_client.call_api('/challenges/{challenge_id}/activities/{activity_id}', 'GET',
+        return self.api_client.call_api('/challenges/{challenge_id}/activities/{id}', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1394,7 +1405,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1497,13 +1508,13 @@ class CampaignsChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1607,7 +1618,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1718,21 +1729,21 @@ class CampaignsChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_start_date' in params:
-            query_params['filter_start_date'] = params['filter_start_date']
+            query_params.append(('filter_start_date', params['filter_start_date']))
         if 'filter_end_date' in params:
-            query_params['filter_end_date'] = params['filter_end_date']
+            query_params.append(('filter_end_date', params['filter_end_date']))
         if 'filter_campaigns' in params:
-            query_params['filter_campaigns'] = params['filter_campaigns']
+            query_params.append(('filter_campaigns', params['filter_campaigns']))
         if 'filter_challenge' in params:
-            query_params['filter_challenge'] = params['filter_challenge']
+            query_params.append(('filter_challenge', params['filter_challenge']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -1836,7 +1847,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -1939,13 +1950,13 @@ class CampaignsChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -2056,21 +2067,21 @@ class CampaignsChallengesApi(object):
 
         path_params = {}
 
-        query_params = {}
+        query_params = []
         if 'filter_template' in params:
-            query_params['filter_template'] = params['filter_template']
+            query_params.append(('filter_template', params['filter_template']))
         if 'filter_active_campaign' in params:
-            query_params['filter_active_campaign'] = params['filter_active_campaign']
+            query_params.append(('filter_active_campaign', params['filter_active_campaign']))
         if 'filter_start_date' in params:
-            query_params['filter_start_date'] = params['filter_start_date']
+            query_params.append(('filter_start_date', params['filter_start_date']))
         if 'filter_end_date' in params:
-            query_params['filter_end_date'] = params['filter_end_date']
+            query_params.append(('filter_end_date', params['filter_end_date']))
         if 'size' in params:
-            query_params['size'] = params['size']
+            query_params.append(('size', params['size']))
         if 'page' in params:
-            query_params['page'] = params['page']
+            query_params.append(('page', params['page']))
         if 'order' in params:
-            query_params['order'] = params['order']
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -2178,7 +2189,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2214,20 +2225,21 @@ class CampaignsChallengesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def update_challenge_activity(self, activity_id, challenge_id, **kwargs):
+    def update_challenge_activity(self, id, challenge_id, **kwargs):
         """
         Update a challenge activity
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_challenge_activity(activity_id, challenge_id, callback=callback_function)
+        >>> thread = api.update_challenge_activity(id, challenge_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int activity_id: The activity id (required)
+        :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
         :return: ChallengeActivityResource
@@ -2236,25 +2248,26 @@ class CampaignsChallengesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.update_challenge_activity_with_http_info(activity_id, challenge_id, **kwargs)
+            return self.update_challenge_activity_with_http_info(id, challenge_id, **kwargs)
         else:
-            (data) = self.update_challenge_activity_with_http_info(activity_id, challenge_id, **kwargs)
+            (data) = self.update_challenge_activity_with_http_info(id, challenge_id, **kwargs)
             return data
 
-    def update_challenge_activity_with_http_info(self, activity_id, challenge_id, **kwargs):
+    def update_challenge_activity_with_http_info(self, id, challenge_id, **kwargs):
         """
         Update a challenge activity
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
         to be invoked when receiving the response.
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.update_challenge_activity_with_http_info(activity_id, challenge_id, callback=callback_function)
+        >>> thread = api.update_challenge_activity_with_http_info(id, challenge_id, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param int activity_id: The activity id (required)
+        :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
         :return: ChallengeActivityResource
@@ -2262,7 +2275,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['activity_id', 'challenge_id', 'challenge_activity_resource']
+        all_params = ['id', 'challenge_id', 'challenge_activity_resource']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2277,9 +2290,9 @@ class CampaignsChallengesApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'activity_id' is set
-        if ('activity_id' not in params) or (params['activity_id'] is None):
-            raise ValueError("Missing the required parameter `activity_id` when calling `update_challenge_activity`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `update_challenge_activity`")
         # verify the required parameter 'challenge_id' is set
         if ('challenge_id' not in params) or (params['challenge_id'] is None):
             raise ValueError("Missing the required parameter `challenge_id` when calling `update_challenge_activity`")
@@ -2288,12 +2301,12 @@ class CampaignsChallengesApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'activity_id' in params:
-            path_params['activity_id'] = params['activity_id']
+        if 'id' in params:
+            path_params['id'] = params['id']
         if 'challenge_id' in params:
             path_params['challenge_id'] = params['challenge_id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2314,7 +2327,7 @@ class CampaignsChallengesApi(object):
         # Authentication setting
         auth_settings = ['OAuth2']
 
-        return self.api_client.call_api('/challenges/{challenge_id}/activities/{activity_id}', 'PUT',
+        return self.api_client.call_api('/challenges/{challenge_id}/activities/{id}', 'PUT',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -2401,7 +2414,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
@@ -2509,7 +2522,7 @@ class CampaignsChallengesApi(object):
         if 'id' in params:
             path_params['id'] = params['id']
 
-        query_params = {}
+        query_params = []
 
         header_params = {}
 
