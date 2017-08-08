@@ -65,6 +65,7 @@ class UserActivityResults(object):
         self._ties = None
         self._updated_date = None
         self._user = None
+        self.discriminator = None
 
         if currency_rewards is not None:
           self.currency_rewards = currency_rewards

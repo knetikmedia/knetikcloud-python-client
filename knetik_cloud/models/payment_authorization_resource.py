@@ -59,6 +59,7 @@ class PaymentAuthorizationResource(object):
         self._id = None
         self._invoice = None
         self._payment_type = None
+        self.discriminator = None
 
         if captured is not None:
           self.captured = captured

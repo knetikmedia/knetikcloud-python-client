@@ -50,6 +50,7 @@ class ContributionResource(object):
         self._artist = None
         self._media = None
         self._role = None
+        self.discriminator = None
 
         self.artist = artist
         self.media = media

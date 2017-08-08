@@ -80,6 +80,7 @@ class ArtistResource(object):
         self._short_description = None
         self._template = None
         self._updated_date = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

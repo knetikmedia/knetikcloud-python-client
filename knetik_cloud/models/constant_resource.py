@@ -50,6 +50,7 @@ class ConstantResource(object):
         self._type = None
         self._value = None
         self._value_type = None
+        self.discriminator = None
 
         if type is not None:
           self.type = type

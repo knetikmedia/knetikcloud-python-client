@@ -47,6 +47,7 @@ class NewPasswordRequest(object):
 
         self._password = None
         self._secret = None
+        self.discriminator = None
 
         self.password = password
         self.secret = secret

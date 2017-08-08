@@ -56,6 +56,7 @@ class MongoDatabaseConfig(object):
         self._password = None
         self._servers = None
         self._username = None
+        self.discriminator = None
 
         if db_name is not None:
           self.db_name = db_name

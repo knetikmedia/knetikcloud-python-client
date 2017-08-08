@@ -343,7 +343,7 @@ Class | Method | HTTP request | Description
 *InvoicesApi* | [**get_invoice_logs**](docs/InvoicesApi.md#get_invoice_logs) | **GET** /invoices/{id}/logs | List invoice logs
 *InvoicesApi* | [**get_invoices**](docs/InvoicesApi.md#get_invoices) | **GET** /invoices | Retrieve invoices
 *InvoicesApi* | [**get_payment_statuses**](docs/InvoicesApi.md#get_payment_statuses) | **GET** /invoices/payment-statuses | Lists available payment statuses
-*InvoicesApi* | [**pay_invoice**](docs/InvoicesApi.md#pay_invoice) | **POST** /invoices/{id}/payments | Trigger payment of an invoice
+*InvoicesApi* | [**pay_invoice**](docs/InvoicesApi.md#pay_invoice) | **POST** /invoices/{id}/payments | Pay an invoice using a saved payment method
 *InvoicesApi* | [**set_bundled_invoice_item_fulfillment_status**](docs/InvoicesApi.md#set_bundled_invoice_item_fulfillment_status) | **PUT** /invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status | Set the fulfillment status of a bundled invoice item
 *InvoicesApi* | [**set_external_ref**](docs/InvoicesApi.md#set_external_ref) | **PUT** /invoices/{id}/external-ref | Set the external reference of an invoice
 *InvoicesApi* | [**set_invoice_item_fulfillment_status**](docs/InvoicesApi.md#set_invoice_item_fulfillment_status) | **PUT** /invoices/{id}/items/{sku}/fulfillment-status | Set the fulfillment status of an invoice item
@@ -410,6 +410,7 @@ Class | Method | HTTP request | Description
 *PaymentsApi* | [**payment_capture**](docs/PaymentsApi.md#payment_capture) | **POST** /payment/authorizations/{id}/capture | Capture an existing invoice payment authorization
 *PaymentsApi* | [**update_payment_method**](docs/PaymentsApi.md#update_payment_method) | **PUT** /users/{user_id}/payment-methods/{id} | Update an existing payment method for a user
 *PaymentsAppleApi* | [**verify_apple_receipt**](docs/PaymentsAppleApi.md#verify_apple_receipt) | **POST** /payment/provider/apple/receipt | Pay invoice with Apple receipt
+*PaymentsFattMerchantApi* | [**create_or_update_fatt_merchant_payment_method**](docs/PaymentsFattMerchantApi.md#create_or_update_fatt_merchant_payment_method) | **PUT** /payment/provider/fattmerchant/payment-methods | Create or update a FattMerchant payment method for a user
 *PaymentsGoogleApi* | [**handle_google_payment**](docs/PaymentsGoogleApi.md#handle_google_payment) | **POST** /payment/provider/google/payments | Mark an invoice paid with Google
 *PaymentsOptimalApi* | [**silent_post_optimal**](docs/PaymentsOptimalApi.md#silent_post_optimal) | **POST** /payment/provider/optimal/silent | Initiate silent post with Optimal
 *PaymentsPayPalClassicApi* | [**create_pay_pal_billing_agreement_url**](docs/PaymentsPayPalClassicApi.md#create_pay_pal_billing_agreement_url) | **POST** /payment/provider/paypal/classic/agreements/start | Create a PayPal Classic billing agreement for the user
@@ -463,6 +464,7 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**get_store**](docs/StoreApi.md#get_store) | **GET** /store | Get a listing of store items
 *StoreApi* | [**get_store_item**](docs/StoreApi.md#get_store_item) | **GET** /store/items/{id} | Get a single store item
 *StoreApi* | [**get_store_items**](docs/StoreApi.md#get_store_items) | **GET** /store/items | List and search store items
+*StoreApi* | [**quick_buy**](docs/StoreApi.md#quick_buy) | **POST** /store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
 *StoreApi* | [**update_item_template**](docs/StoreApi.md#update_item_template) | **PUT** /store/items/templates/{id} | Update an item template
 *StoreApi* | [**update_store_item**](docs/StoreApi.md#update_store_item) | **PUT** /store/items/{id} | Update a store item
 *StoreBundlesApi* | [**create_bundle_item**](docs/StoreBundlesApi.md#create_bundle_item) | **POST** /store/bundles | Create a bundle item
@@ -722,6 +724,8 @@ Class | Method | HTTP request | Description
  - [ExpressionResource](docs/ExpressionResource.md)
  - [Expressionobject](docs/Expressionobject.md)
  - [FacebookToken](docs/FacebookToken.md)
+ - [FattMerchantPaymentMethod](docs/FattMerchantPaymentMethod.md)
+ - [FattMerchantPaymentMethodRequest](docs/FattMerchantPaymentMethodRequest.md)
  - [FinalizeBillingAgreementRequest](docs/FinalizeBillingAgreementRequest.md)
  - [FinalizePayPalPaymentRequest](docs/FinalizePayPalPaymentRequest.md)
  - [FlagReportResource](docs/FlagReportResource.md)
@@ -738,6 +742,7 @@ Class | Method | HTTP request | Description
  - [IOConfig](docs/IOConfig.md)
  - [ImportJobOutputResource](docs/ImportJobOutputResource.md)
  - [ImportJobResource](docs/ImportJobResource.md)
+ - [IntWrapper](docs/IntWrapper.md)
  - [IntegerOperationResource](docs/IntegerOperationResource.md)
  - [InventorySubscriptionResource](docs/InventorySubscriptionResource.md)
  - [InvoiceCreateRequest](docs/InvoiceCreateRequest.md)
@@ -848,6 +853,7 @@ Class | Method | HTTP request | Description
  - [PasswordResetRequest](docs/PasswordResetRequest.md)
  - [PayBySavedMethodRequest](docs/PayBySavedMethodRequest.md)
  - [PaymentAuthorizationResource](docs/PaymentAuthorizationResource.md)
+ - [PaymentMethodDetails](docs/PaymentMethodDetails.md)
  - [PaymentMethodResource](docs/PaymentMethodResource.md)
  - [PaymentMethodTypeResource](docs/PaymentMethodTypeResource.md)
  - [PermissionResource](docs/PermissionResource.md)
@@ -861,6 +867,7 @@ Class | Method | HTTP request | Description
  - [PropertyFieldResource](docs/PropertyFieldResource.md)
  - [QuestionResource](docs/QuestionResource.md)
  - [QuestionTemplateResource](docs/QuestionTemplateResource.md)
+ - [QuickBuyRequest](docs/QuickBuyRequest.md)
  - [RawEmailResource](docs/RawEmailResource.md)
  - [RawSMSResource](docs/RawSMSResource.md)
  - [ReactivateSubscriptionRequest](docs/ReactivateSubscriptionRequest.md)
@@ -894,6 +901,7 @@ Class | Method | HTTP request | Description
  - [StateTaxResource](docs/StateTaxResource.md)
  - [StoreItemTemplateResource](docs/StoreItemTemplateResource.md)
  - [StringOperationResource](docs/StringOperationResource.md)
+ - [StringWrapper](docs/StringWrapper.md)
  - [StripeCreatePaymentMethod](docs/StripeCreatePaymentMethod.md)
  - [StripePaymentRequest](docs/StripePaymentRequest.md)
  - [SubscriptionCreditResource](docs/SubscriptionCreditResource.md)
@@ -957,6 +965,7 @@ Class | Method | HTTP request | Description
  - [IntegerProperty](docs/IntegerProperty.md)
  - [IntegerPropertyDefinitionResource](docs/IntegerPropertyDefinitionResource.md)
  - [LimitedGettable](docs/LimitedGettable.md)
+ - [LogLevelEvent](docs/LogLevelEvent.md)
  - [LongProperty](docs/LongProperty.md)
  - [LongPropertyDefinitionResource](docs/LongPropertyDefinitionResource.md)
  - [NewCustomerEvent](docs/NewCustomerEvent.md)

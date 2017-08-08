@@ -71,6 +71,7 @@ class CartShippingOption(object):
         self._taxable = None
         self._vendor_id = None
         self._vendor_name = None
+        self.discriminator = None
 
         if currency_code is not None:
           self.currency_code = currency_code

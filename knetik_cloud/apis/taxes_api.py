@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class TaxesApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_country_tax(self, **kwargs):
         """
         Create a country tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_country_tax(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_country_tax(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param CountryTaxResource tax_resource: The tax object
         :return: CountryTaxResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_country_tax_with_http_info(**kwargs)
         else:
             (data) = self.create_country_tax_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class TaxesApi(object):
         """
         Create a country tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_country_tax_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_country_tax_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param CountryTaxResource tax_resource: The tax object
         :return: CountryTaxResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class TaxesApi(object):
         """
 
         all_params = ['tax_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='CountryTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -145,15 +132,11 @@ class TaxesApi(object):
         """
         Create a state tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_state_tax(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_state_tax(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param StateTaxResource tax_resource: The tax object
         :return: StateTaxResource
@@ -161,7 +144,7 @@ class TaxesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_state_tax_with_http_info(country_code_iso3, **kwargs)
         else:
             (data) = self.create_state_tax_with_http_info(country_code_iso3, **kwargs)
@@ -171,15 +154,11 @@ class TaxesApi(object):
         """
         Create a state tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_state_tax_with_http_info(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_state_tax_with_http_info(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param StateTaxResource tax_resource: The tax object
         :return: StateTaxResource
@@ -188,7 +167,7 @@ class TaxesApi(object):
         """
 
         all_params = ['country_code_iso3', 'tax_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -243,7 +222,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='StateTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -253,22 +232,18 @@ class TaxesApi(object):
         """
         Delete an existing tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_country_tax(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_country_tax(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_country_tax_with_http_info(country_code_iso3, **kwargs)
         else:
             (data) = self.delete_country_tax_with_http_info(country_code_iso3, **kwargs)
@@ -278,15 +253,11 @@ class TaxesApi(object):
         """
         Delete an existing tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_country_tax_with_http_info(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_country_tax_with_http_info(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :return: None
                  If the method is called asynchronously,
@@ -294,7 +265,7 @@ class TaxesApi(object):
         """
 
         all_params = ['country_code_iso3']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -347,7 +318,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -357,15 +328,11 @@ class TaxesApi(object):
         """
         Delete an existing state tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_state_tax(country_code_iso3, state_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_state_tax(country_code_iso3, state_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param str state_code: The code of the state (required)
         :return: None
@@ -373,7 +340,7 @@ class TaxesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_state_tax_with_http_info(country_code_iso3, state_code, **kwargs)
         else:
             (data) = self.delete_state_tax_with_http_info(country_code_iso3, state_code, **kwargs)
@@ -383,15 +350,11 @@ class TaxesApi(object):
         """
         Delete an existing state tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_state_tax_with_http_info(country_code_iso3, state_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_state_tax_with_http_info(country_code_iso3, state_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param str state_code: The code of the state (required)
         :return: None
@@ -400,7 +363,7 @@ class TaxesApi(object):
         """
 
         all_params = ['country_code_iso3', 'state_code']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -458,7 +421,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -468,22 +431,18 @@ class TaxesApi(object):
         """
         Get a single tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_country_tax(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_country_tax(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :return: CountryTaxResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_country_tax_with_http_info(country_code_iso3, **kwargs)
         else:
             (data) = self.get_country_tax_with_http_info(country_code_iso3, **kwargs)
@@ -493,15 +452,11 @@ class TaxesApi(object):
         """
         Get a single tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_country_tax_with_http_info(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_country_tax_with_http_info(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :return: CountryTaxResource
                  If the method is called asynchronously,
@@ -509,7 +464,7 @@ class TaxesApi(object):
         """
 
         all_params = ['country_code_iso3']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -562,7 +517,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='CountryTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -573,15 +528,11 @@ class TaxesApi(object):
         List and search taxes
         Get a list of taxes
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_country_taxes(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_country_taxes(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -590,7 +541,7 @@ class TaxesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_country_taxes_with_http_info(**kwargs)
         else:
             (data) = self.get_country_taxes_with_http_info(**kwargs)
@@ -601,15 +552,11 @@ class TaxesApi(object):
         List and search taxes
         Get a list of taxes
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_country_taxes_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_country_taxes_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -619,7 +566,7 @@ class TaxesApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -673,7 +620,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceCountryTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -683,15 +630,11 @@ class TaxesApi(object):
         """
         Get a single state tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_state_tax(country_code_iso3, state_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_state_tax(country_code_iso3, state_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param str state_code: The code of the state (required)
         :return: StateTaxResource
@@ -699,7 +642,7 @@ class TaxesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_state_tax_with_http_info(country_code_iso3, state_code, **kwargs)
         else:
             (data) = self.get_state_tax_with_http_info(country_code_iso3, state_code, **kwargs)
@@ -709,15 +652,11 @@ class TaxesApi(object):
         """
         Get a single state tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_state_tax_with_http_info(country_code_iso3, state_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_state_tax_with_http_info(country_code_iso3, state_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param str state_code: The code of the state (required)
         :return: StateTaxResource
@@ -726,7 +665,7 @@ class TaxesApi(object):
         """
 
         all_params = ['country_code_iso3', 'state_code']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -784,7 +723,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='StateTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -795,15 +734,11 @@ class TaxesApi(object):
         List and search taxes across all countries
         Get a list of taxes
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_state_taxes_for_countries(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_state_taxes_for_countries(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -812,7 +747,7 @@ class TaxesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_state_taxes_for_countries_with_http_info(**kwargs)
         else:
             (data) = self.get_state_taxes_for_countries_with_http_info(**kwargs)
@@ -823,15 +758,11 @@ class TaxesApi(object):
         List and search taxes across all countries
         Get a list of taxes
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_state_taxes_for_countries_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_state_taxes_for_countries_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -841,7 +772,7 @@ class TaxesApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -895,7 +826,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceStateTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -906,15 +837,11 @@ class TaxesApi(object):
         List and search taxes within a country
         Get a list of taxes
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_state_taxes_for_country(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_state_taxes_for_country(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned
@@ -924,7 +851,7 @@ class TaxesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_state_taxes_for_country_with_http_info(country_code_iso3, **kwargs)
         else:
             (data) = self.get_state_taxes_for_country_with_http_info(country_code_iso3, **kwargs)
@@ -935,15 +862,11 @@ class TaxesApi(object):
         List and search taxes within a country
         Get a list of taxes
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_state_taxes_for_country_with_http_info(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_state_taxes_for_country_with_http_info(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned
@@ -954,7 +877,7 @@ class TaxesApi(object):
         """
 
         all_params = ['country_code_iso3', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1013,7 +936,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceStateTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1023,15 +946,11 @@ class TaxesApi(object):
         """
         Create or update a tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_country_tax(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_country_tax(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param CountryTaxResource tax_resource: The tax object
         :return: CountryTaxResource
@@ -1039,7 +958,7 @@ class TaxesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_country_tax_with_http_info(country_code_iso3, **kwargs)
         else:
             (data) = self.update_country_tax_with_http_info(country_code_iso3, **kwargs)
@@ -1049,15 +968,11 @@ class TaxesApi(object):
         """
         Create or update a tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_country_tax_with_http_info(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_country_tax_with_http_info(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param CountryTaxResource tax_resource: The tax object
         :return: CountryTaxResource
@@ -1066,7 +981,7 @@ class TaxesApi(object):
         """
 
         all_params = ['country_code_iso3', 'tax_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1121,7 +1036,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='CountryTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1131,15 +1046,11 @@ class TaxesApi(object):
         """
         Create or update a state tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_state_tax(country_code_iso3, state_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_state_tax(country_code_iso3, state_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param str state_code: The code of the state (required)
         :param StateTaxResource tax_resource: The tax object
@@ -1148,7 +1059,7 @@ class TaxesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_state_tax_with_http_info(country_code_iso3, state_code, **kwargs)
         else:
             (data) = self.update_state_tax_with_http_info(country_code_iso3, state_code, **kwargs)
@@ -1158,15 +1069,11 @@ class TaxesApi(object):
         """
         Create or update a state tax
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_state_tax_with_http_info(country_code_iso3, state_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_state_tax_with_http_info(country_code_iso3, state_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :param str state_code: The code of the state (required)
         :param StateTaxResource tax_resource: The tax object
@@ -1176,7 +1083,7 @@ class TaxesApi(object):
         """
 
         all_params = ['country_code_iso3', 'state_code', 'tax_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1236,7 +1143,7 @@ class TaxesApi(object):
                                         files=local_var_files,
                                         response_type='StateTaxResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

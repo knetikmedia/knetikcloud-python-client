@@ -59,6 +59,7 @@ class CommentSearch(object):
         self._id = None
         self._owner_id = None
         self._owner_username = None
+        self.discriminator = None
 
         if content is not None:
           self.content = content

@@ -40,6 +40,19 @@ class Behavior(object):
         'type_hint': 'type_hint'
     }
 
+    discriminator_value_class_map = {
+        'time_period_gettable': 'TimePeriodGettable',
+        'expirable': 'Expirable',
+        'fulfillable': 'Fulfillable',
+        'consumable': 'Consumable',
+        'pre_req_entitlement': 'PreReqEntitlement',
+        'guest_playable': 'GuestPlayable',
+        'limited_gettable': 'LimitedGettable',
+        'time_period_usable': 'TimePeriodUsable',
+        'spendable': 'Spendable',
+        'price_overridable': 'PriceOverridable'
+    }
+
     def __init__(self, description=None, type_hint=None):
         """
         Behavior - a model defined in Swagger
@@ -47,6 +60,7 @@ class Behavior(object):
 
         self._description = None
         self._type_hint = None
+        self.discriminator = 'type_hint'
 
         if description is not None:
           self.description = description
@@ -96,6 +110,16 @@ class Behavior(object):
         """
 
         self._type_hint = type_hint
+
+    def get_real_child_model(self, data):
+        """
+        Returns the real base class specified by the discriminator
+        """
+        discriminator_value = data[self.discriminator].lower()
+        if self.discriminator_value_class_map.has_key(discriminator_value):
+            return self.discriminator_value_class_map[discriminator_value]
+        else:
+            return None
 
     def to_dict(self):
         """

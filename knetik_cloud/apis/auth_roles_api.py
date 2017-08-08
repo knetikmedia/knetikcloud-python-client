@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class AuthRolesApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_role(self, **kwargs):
         """
         Create a new role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_role(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_role(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param RoleResource role_resource: The role resource object
         :return: RoleResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_role_with_http_info(**kwargs)
         else:
             (data) = self.create_role_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class AuthRolesApi(object):
         """
         Create a new role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_role_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_role_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param RoleResource role_resource: The role resource object
         :return: RoleResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='RoleResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -145,15 +132,11 @@ class AuthRolesApi(object):
         """
         Delete a role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_role(role, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_role(role, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str role: The role value (required)
         :param bool force: If true, removes role from users/clients
         :return: None
@@ -161,7 +144,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_role_with_http_info(role, **kwargs)
         else:
             (data) = self.delete_role_with_http_info(role, **kwargs)
@@ -171,15 +154,11 @@ class AuthRolesApi(object):
         """
         Delete a role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_role_with_http_info(role, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_role_with_http_info(role, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str role: The role value (required)
         :param bool force: If true, removes role from users/clients
         :return: None
@@ -188,7 +167,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role', 'force']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -243,7 +222,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -253,22 +232,18 @@ class AuthRolesApi(object):
         """
         Get roles for a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_client_roles(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_client_roles(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The client key (required)
         :return: list[RoleResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_client_roles_with_http_info(client_key, **kwargs)
         else:
             (data) = self.get_client_roles_with_http_info(client_key, **kwargs)
@@ -278,15 +253,11 @@ class AuthRolesApi(object):
         """
         Get roles for a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_client_roles_with_http_info(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_client_roles_with_http_info(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The client key (required)
         :return: list[RoleResource]
                  If the method is called asynchronously,
@@ -294,7 +265,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['client_key']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -347,7 +318,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='list[RoleResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -357,22 +328,18 @@ class AuthRolesApi(object):
         """
         Get a single role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_role(role, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_role(role, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str role: The role value (required)
         :return: RoleResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_role_with_http_info(role, **kwargs)
         else:
             (data) = self.get_role_with_http_info(role, **kwargs)
@@ -382,15 +349,11 @@ class AuthRolesApi(object):
         """
         Get a single role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_role_with_http_info(role, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_role_with_http_info(role, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str role: The role value (required)
         :return: RoleResource
                  If the method is called asynchronously,
@@ -398,7 +361,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -451,7 +414,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='RoleResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -461,15 +424,13 @@ class AuthRolesApi(object):
         """
         List and search roles
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_roles(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_roles(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
+        :param str filter_name: Filter for roles that have a name starting with specified string
+        :param str filter_role: Filter for roles that have a role starting with specified string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -478,7 +439,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_roles_with_http_info(**kwargs)
         else:
             (data) = self.get_roles_with_http_info(**kwargs)
@@ -488,15 +449,13 @@ class AuthRolesApi(object):
         """
         List and search roles
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_roles_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_roles_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
+        :param str filter_name: Filter for roles that have a name starting with specified string
+        :param str filter_role: Filter for roles that have a role starting with specified string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -505,8 +464,8 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params = ['filter_name', 'filter_role', 'size', 'page', 'order']
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -527,6 +486,10 @@ class AuthRolesApi(object):
         path_params = {}
 
         query_params = []
+        if 'filter_name' in params:
+            query_params.append(('filter_name', params['filter_name']))
+        if 'filter_role' in params:
+            query_params.append(('filter_role', params['filter_role']))
         if 'size' in params:
             query_params.append(('size', params['size']))
         if 'page' in params:
@@ -560,7 +523,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceRoleResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -570,22 +533,18 @@ class AuthRolesApi(object):
         """
         Get roles for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_roles(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_roles(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :return: list[RoleResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_roles_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_user_roles_with_http_info(user_id, **kwargs)
@@ -595,15 +554,11 @@ class AuthRolesApi(object):
         """
         Get roles for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_roles_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_roles_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :return: list[RoleResource]
                  If the method is called asynchronously,
@@ -611,7 +566,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['user_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -664,7 +619,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='list[RoleResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -674,15 +629,11 @@ class AuthRolesApi(object):
         """
         Set roles for a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_client_roles(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_client_roles(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The client key (required)
         :param list[str] roles_list: The list of unique roles
         :return: ClientResource
@@ -690,7 +641,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_client_roles_with_http_info(client_key, **kwargs)
         else:
             (data) = self.set_client_roles_with_http_info(client_key, **kwargs)
@@ -700,15 +651,11 @@ class AuthRolesApi(object):
         """
         Set roles for a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_client_roles_with_http_info(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_client_roles_with_http_info(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The client key (required)
         :param list[str] roles_list: The list of unique roles
         :return: ClientResource
@@ -717,7 +664,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['client_key', 'roles_list']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -772,7 +719,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='ClientResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -782,15 +729,11 @@ class AuthRolesApi(object):
         """
         Set permissions for a role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_permissions_for_role(role, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_permissions_for_role(role, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str role: The role value (required)
         :param list[str] permissions_list: The list of unique permissions
         :return: RoleResource
@@ -798,7 +741,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_permissions_for_role_with_http_info(role, **kwargs)
         else:
             (data) = self.set_permissions_for_role_with_http_info(role, **kwargs)
@@ -808,15 +751,11 @@ class AuthRolesApi(object):
         """
         Set permissions for a role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_permissions_for_role_with_http_info(role, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_permissions_for_role_with_http_info(role, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str role: The role value (required)
         :param list[str] permissions_list: The list of unique permissions
         :return: RoleResource
@@ -825,7 +764,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role', 'permissions_list']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -880,7 +819,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='RoleResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -890,15 +829,11 @@ class AuthRolesApi(object):
         """
         Set roles for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_user_roles(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_user_roles(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param list[str] roles_list: The list of unique roles
         :return: UserResource
@@ -906,7 +841,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_user_roles_with_http_info(user_id, **kwargs)
         else:
             (data) = self.set_user_roles_with_http_info(user_id, **kwargs)
@@ -916,15 +851,11 @@ class AuthRolesApi(object):
         """
         Set roles for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_user_roles_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_user_roles_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param list[str] roles_list: The list of unique roles
         :return: UserResource
@@ -933,7 +864,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['user_id', 'roles_list']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -988,7 +919,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='UserResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -998,15 +929,11 @@ class AuthRolesApi(object):
         """
         Update a role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_role(role, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_role(role, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str role: The role value (required)
         :param RoleResource role_resource: The role resource object
         :return: RoleResource
@@ -1014,7 +941,7 @@ class AuthRolesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_role_with_http_info(role, **kwargs)
         else:
             (data) = self.update_role_with_http_info(role, **kwargs)
@@ -1024,15 +951,11 @@ class AuthRolesApi(object):
         """
         Update a role
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_role_with_http_info(role, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_role_with_http_info(role, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str role: The role value (required)
         :param RoleResource role_resource: The role resource object
         :return: RoleResource
@@ -1041,7 +964,7 @@ class AuthRolesApi(object):
         """
 
         all_params = ['role', 'role_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1096,7 +1019,7 @@ class AuthRolesApi(object):
                                         files=local_var_files,
                                         response_type='RoleResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

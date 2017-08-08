@@ -53,6 +53,7 @@ class StateResource(object):
         self._country_code_iso3 = None
         self._id = None
         self._name = None
+        self.discriminator = None
 
         if code is not None:
           self.code = code

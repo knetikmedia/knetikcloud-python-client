@@ -27,10 +27,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.LogsApi()
+api_instance = knetik_cloud.LogsApi(knetik_cloud.ApiClient(configuration))
 log_entry = knetik_cloud.UserActionLog() # UserActionLog | The user log entry to be added (optional)
 
 try: 
@@ -75,10 +76,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.LogsApi()
+api_instance = knetik_cloud.LogsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The BRE event log entry id
 
 try: 
@@ -124,10 +126,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.LogsApi()
+api_instance = knetik_cloud.LogsApi(knetik_cloud.ApiClient(configuration))
 filter_start_date = 'filter_start_date_example' # str | A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 filter_event_name = 'filter_event_name_example' # str | Filter event logs by event name (optional)
 filter_event_id = 'filter_event_id_example' # str | Filter event logs by request id (optional)
@@ -183,10 +186,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.LogsApi()
+api_instance = knetik_cloud.LogsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The forward log entry id
 
 try: 
@@ -232,10 +236,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.LogsApi()
+api_instance = knetik_cloud.LogsApi(knetik_cloud.ApiClient(configuration))
 filter_start_date = 'filter_start_date_example' # str | A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 filter_end_date = 'filter_end_date_example' # str | A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). (optional)
 filter_status_code = 56 # int | Filter forward logs by http status code (optional)
@@ -291,10 +296,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.LogsApi()
+api_instance = knetik_cloud.LogsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The user log entry id
 
 try: 
@@ -340,10 +346,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.LogsApi()
+api_instance = knetik_cloud.LogsApi(knetik_cloud.ApiClient(configuration))
 filter_user = 56 # int | Filter for actions taken by a specific user by id (optional)
 filter_action_name = 'filter_action_name_example' # str | Filter for actions of a specific name (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)

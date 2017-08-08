@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**get_store**](StoreApi.md#get_store) | **GET** /store | Get a listing of store items
 [**get_store_item**](StoreApi.md#get_store_item) | **GET** /store/items/{id} | Get a single store item
 [**get_store_items**](StoreApi.md#get_store_items) | **GET** /store/items | List and search store items
+[**quick_buy**](StoreApi.md#quick_buy) | **POST** /store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
 [**update_item_template**](StoreApi.md#update_item_template) | **PUT** /store/items/templates/{id} | Update an item template
 [**update_store_item**](StoreApi.md#update_store_item) | **PUT** /store/items/{id} | Update a store item
 
@@ -34,10 +35,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 item_template_resource = knetik_cloud.StoreItemTemplateResource() # StoreItemTemplateResource | The new item template (optional)
 
 try: 
@@ -85,10 +87,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 cascade = false # bool | Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
 store_item = knetik_cloud.StoreItem() # StoreItem | The store item object (optional)
 
@@ -136,10 +139,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | force deleting the template if it's attached to other objects, cascade = detach (optional)
 
@@ -186,10 +190,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the item
 
 try: 
@@ -234,10 +239,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 
 try: 
     # List available item behaviors
@@ -281,10 +287,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -330,10 +337,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -549,6 +557,58 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **quick_buy**
+> InvoiceResource quick_buy(quick_buy_request=quick_buy_request)
+
+One-step purchase and pay for a single SKU item from a user's wallet
+
+Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
+quick_buy_request = knetik_cloud.QuickBuyRequest() # QuickBuyRequest | Quick buy details (optional)
+
+try: 
+    # One-step purchase and pay for a single SKU item from a user's wallet
+    api_response = api_instance.quick_buy(quick_buy_request=quick_buy_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling StoreApi->quick_buy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_buy_request** | [**QuickBuyRequest**](QuickBuyRequest.md)| Quick buy details | [optional] 
+
+### Return type
+
+[**InvoiceResource**](InvoiceResource.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_item_template**
 > StoreItemTemplateResource update_item_template(id, item_template_resource=item_template_resource)
 
@@ -563,10 +623,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 item_template_resource = knetik_cloud.StoreItemTemplateResource() # StoreItemTemplateResource | The item template resource object (optional)
 
@@ -614,10 +675,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreApi()
+api_instance = knetik_cloud.StoreApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the item
 cascade = false # bool | Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
 store_item = knetik_cloud.StoreItem() # StoreItem | The store item object (optional)

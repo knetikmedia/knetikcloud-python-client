@@ -77,6 +77,7 @@ class CartShippingAddressRequest(object):
         self._shipping_address_line1 = None
         self._shipping_address_line2 = None
         self._zip = None
+        self.discriminator = None
 
         if city is not None:
           self.city = city

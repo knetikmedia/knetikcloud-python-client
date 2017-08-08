@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,28 +31,20 @@ class ReportingRevenueApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def get_item_revenue(self, currency_code, **kwargs):
         """
         Get item revenue info
         Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_item_revenue(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_item_revenue(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get sales data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -62,7 +53,7 @@ class ReportingRevenueApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_item_revenue_with_http_info(currency_code, **kwargs)
         else:
             (data) = self.get_item_revenue_with_http_info(currency_code, **kwargs)
@@ -73,15 +64,11 @@ class ReportingRevenueApi(object):
         Get item revenue info
         Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_item_revenue_with_http_info(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_item_revenue_with_http_info(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get sales data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -91,7 +78,7 @@ class ReportingRevenueApi(object):
         """
 
         all_params = ['currency_code', 'start_date', 'end_date']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -148,7 +135,7 @@ class ReportingRevenueApi(object):
                                         files=local_var_files,
                                         response_type='RevenueReportResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -159,15 +146,11 @@ class ReportingRevenueApi(object):
         Get refund revenue info
         Get basic info about revenue loss from refunds (for all item types), summed up within a time range.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_refund_revenue(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_refund_revenue(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get refund data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -176,7 +159,7 @@ class ReportingRevenueApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_refund_revenue_with_http_info(currency_code, **kwargs)
         else:
             (data) = self.get_refund_revenue_with_http_info(currency_code, **kwargs)
@@ -187,15 +170,11 @@ class ReportingRevenueApi(object):
         Get refund revenue info
         Get basic info about revenue loss from refunds (for all item types), summed up within a time range.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_refund_revenue_with_http_info(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_refund_revenue_with_http_info(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get refund data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -205,7 +184,7 @@ class ReportingRevenueApi(object):
         """
 
         all_params = ['currency_code', 'start_date', 'end_date']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -262,7 +241,7 @@ class ReportingRevenueApi(object):
                                         files=local_var_files,
                                         response_type='RevenueReportResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -273,15 +252,11 @@ class ReportingRevenueApi(object):
         Get revenue info by country
         Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_revenue_by_country(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_revenue_by_country(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get sales data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -292,7 +267,7 @@ class ReportingRevenueApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_revenue_by_country_with_http_info(currency_code, **kwargs)
         else:
             (data) = self.get_revenue_by_country_with_http_info(currency_code, **kwargs)
@@ -303,15 +278,11 @@ class ReportingRevenueApi(object):
         Get revenue info by country
         Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_revenue_by_country_with_http_info(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_revenue_by_country_with_http_info(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get sales data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -323,7 +294,7 @@ class ReportingRevenueApi(object):
         """
 
         all_params = ['currency_code', 'start_date', 'end_date', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -384,7 +355,7 @@ class ReportingRevenueApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceRevenueCountryReportResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -395,15 +366,11 @@ class ReportingRevenueApi(object):
         Get revenue info by item
         Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_revenue_by_item(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_revenue_by_item(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get sales data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -414,7 +381,7 @@ class ReportingRevenueApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_revenue_by_item_with_http_info(currency_code, **kwargs)
         else:
             (data) = self.get_revenue_by_item_with_http_info(currency_code, **kwargs)
@@ -425,15 +392,11 @@ class ReportingRevenueApi(object):
         Get revenue info by item
         Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_revenue_by_item_with_http_info(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_revenue_by_item_with_http_info(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get sales data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -445,7 +408,7 @@ class ReportingRevenueApi(object):
         """
 
         all_params = ['currency_code', 'start_date', 'end_date', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -506,7 +469,7 @@ class ReportingRevenueApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceRevenueProductReportResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -517,15 +480,11 @@ class ReportingRevenueApi(object):
         Get subscription revenue info
         Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscription_revenue(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscription_revenue(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get sales data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -534,7 +493,7 @@ class ReportingRevenueApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_subscription_revenue_with_http_info(currency_code, **kwargs)
         else:
             (data) = self.get_subscription_revenue_with_http_info(currency_code, **kwargs)
@@ -545,15 +504,11 @@ class ReportingRevenueApi(object):
         Get subscription revenue info
         Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscription_revenue_with_http_info(currency_code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscription_revenue_with_http_info(currency_code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str currency_code: The code for a currency to get sales data for (required)
         :param int start_date: The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
         :param int end_date: The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
@@ -563,7 +518,7 @@ class ReportingRevenueApi(object):
         """
 
         all_params = ['currency_code', 'start_date', 'end_date']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -620,7 +575,7 @@ class ReportingRevenueApi(object):
                                         files=local_var_files,
                                         response_type='RevenueReportResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

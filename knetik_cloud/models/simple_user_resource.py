@@ -53,6 +53,7 @@ class SimpleUserResource(object):
         self._display_name = None
         self._id = None
         self._username = None
+        self.discriminator = None
 
         if avatar_url is not None:
           self.avatar_url = avatar_url

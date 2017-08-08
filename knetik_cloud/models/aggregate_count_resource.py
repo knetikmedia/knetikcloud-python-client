@@ -47,6 +47,7 @@ class AggregateCountResource(object):
 
         self._count = None
         self._date = None
+        self.discriminator = None
 
         if count is not None:
           self.count = count

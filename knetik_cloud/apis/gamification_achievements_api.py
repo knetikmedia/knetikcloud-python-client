@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,35 +31,27 @@ class GamificationAchievementsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_achievement(self, **kwargs):
         """
         Create a new achievement definition
         If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_achievement(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_achievement(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param AchievementDefinitionResource achievement: The achievement definition
         :return: AchievementDefinitionResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_achievement_with_http_info(**kwargs)
         else:
             (data) = self.create_achievement_with_http_info(**kwargs)
@@ -71,15 +62,11 @@ class GamificationAchievementsApi(object):
         Create a new achievement definition
         If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_achievement_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_achievement_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param AchievementDefinitionResource achievement: The achievement definition
         :return: AchievementDefinitionResource
                  If the method is called asynchronously,
@@ -87,7 +74,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['achievement']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -137,7 +124,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='AchievementDefinitionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -148,22 +135,18 @@ class GamificationAchievementsApi(object):
         Create an achievement template
         Achievement templates define a type of achievement and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_achievement_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_achievement_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource template: The achievement template to be created
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_achievement_template_with_http_info(**kwargs)
         else:
             (data) = self.create_achievement_template_with_http_info(**kwargs)
@@ -174,15 +157,11 @@ class GamificationAchievementsApi(object):
         Create an achievement template
         Achievement templates define a type of achievement and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_achievement_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_achievement_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource template: The achievement template to be created
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -190,7 +169,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['template']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -240,7 +219,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -251,22 +230,18 @@ class GamificationAchievementsApi(object):
         Delete an achievement definition
         Will also disable the associated generated rule, if any.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_achievement(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_achievement(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The name of the achievement (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_achievement_with_http_info(name, **kwargs)
         else:
             (data) = self.delete_achievement_with_http_info(name, **kwargs)
@@ -277,15 +252,11 @@ class GamificationAchievementsApi(object):
         Delete an achievement definition
         Will also disable the associated generated rule, if any.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_achievement_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_achievement_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The name of the achievement (required)
         :return: None
                  If the method is called asynchronously,
@@ -293,7 +264,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -346,7 +317,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -357,15 +328,11 @@ class GamificationAchievementsApi(object):
         Delete an achievement template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_achievement_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_achievement_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -373,7 +340,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_achievement_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_achievement_template_with_http_info(id, **kwargs)
@@ -384,15 +351,11 @@ class GamificationAchievementsApi(object):
         Delete an achievement template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_achievement_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_achievement_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -401,7 +364,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -456,7 +419,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -466,22 +429,18 @@ class GamificationAchievementsApi(object):
         """
         Get a single achievement definition
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievement(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievement(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The name of the achievement (required)
         :return: AchievementDefinitionResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_achievement_with_http_info(name, **kwargs)
         else:
             (data) = self.get_achievement_with_http_info(name, **kwargs)
@@ -491,15 +450,11 @@ class GamificationAchievementsApi(object):
         """
         Get a single achievement definition
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievement_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievement_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The name of the achievement (required)
         :return: AchievementDefinitionResource
                  If the method is called asynchronously,
@@ -507,7 +462,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -560,7 +515,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='AchievementDefinitionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -570,22 +525,18 @@ class GamificationAchievementsApi(object):
         """
         Get a single achievement template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievement_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievement_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_achievement_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_achievement_template_with_http_info(id, **kwargs)
@@ -595,15 +546,11 @@ class GamificationAchievementsApi(object):
         """
         Get a single achievement template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievement_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievement_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -611,7 +558,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -664,7 +611,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -674,15 +621,11 @@ class GamificationAchievementsApi(object):
         """
         List and search achievement templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievement_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievement_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -691,7 +634,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_achievement_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_achievement_templates_with_http_info(**kwargs)
@@ -701,15 +644,11 @@ class GamificationAchievementsApi(object):
         """
         List and search achievement templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievement_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievement_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -719,7 +658,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -773,7 +712,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -783,21 +722,17 @@ class GamificationAchievementsApi(object):
         """
         Get the list of triggers that can be used to trigger an achievement progress update
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievement_triggers(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievement_triggers(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[BreTriggerResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_achievement_triggers_with_http_info(**kwargs)
         else:
             (data) = self.get_achievement_triggers_with_http_info(**kwargs)
@@ -807,22 +742,18 @@ class GamificationAchievementsApi(object):
         """
         Get the list of triggers that can be used to trigger an achievement progress update
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievement_triggers_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievement_triggers_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[BreTriggerResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -869,7 +800,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='list[BreTriggerResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -879,15 +810,11 @@ class GamificationAchievementsApi(object):
         """
         Get all achievement definitions in the system
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievements(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievements(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_tagset: Filter for achievements with specified tags (separated by comma)
         :param str filter_name: Filter for achievements whose name contains a string
         :param bool filter_hidden: Filter for achievements that are hidden or not
@@ -900,7 +827,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_achievements_with_http_info(**kwargs)
         else:
             (data) = self.get_achievements_with_http_info(**kwargs)
@@ -910,15 +837,11 @@ class GamificationAchievementsApi(object):
         """
         Get all achievement definitions in the system
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_achievements_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_achievements_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_tagset: Filter for achievements with specified tags (separated by comma)
         :param str filter_name: Filter for achievements whose name contains a string
         :param bool filter_hidden: Filter for achievements that are hidden or not
@@ -932,7 +855,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['filter_tagset', 'filter_name', 'filter_hidden', 'size', 'page', 'order', 'filter_derived']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -994,7 +917,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceAchievementDefinitionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1005,22 +928,18 @@ class GamificationAchievementsApi(object):
         Get a list of derived achievements
         Used by other services that depend on achievements
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_derived_achievements(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_derived_achievements(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The name of the derived achievement (required)
         :return: list[AchievementDefinitionResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_derived_achievements_with_http_info(name, **kwargs)
         else:
             (data) = self.get_derived_achievements_with_http_info(name, **kwargs)
@@ -1031,15 +950,11 @@ class GamificationAchievementsApi(object):
         Get a list of derived achievements
         Used by other services that depend on achievements
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_derived_achievements_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_derived_achievements_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The name of the derived achievement (required)
         :return: list[AchievementDefinitionResource]
                  If the method is called asynchronously,
@@ -1047,7 +962,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1100,7 +1015,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='list[AchievementDefinitionResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1111,15 +1026,11 @@ class GamificationAchievementsApi(object):
         Retrieve progress on a given achievement for a given user
         Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_achievement_progress(user_id, achievement_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_achievement_progress(user_id, achievement_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param str achievement_name: The achievement's name (required)
         :return: UserAchievementGroupResource
@@ -1127,7 +1038,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_achievement_progress_with_http_info(user_id, achievement_name, **kwargs)
         else:
             (data) = self.get_user_achievement_progress_with_http_info(user_id, achievement_name, **kwargs)
@@ -1138,15 +1049,11 @@ class GamificationAchievementsApi(object):
         Retrieve progress on a given achievement for a given user
         Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_achievement_progress_with_http_info(user_id, achievement_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_achievement_progress_with_http_info(user_id, achievement_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param str achievement_name: The achievement's name (required)
         :return: UserAchievementGroupResource
@@ -1155,7 +1062,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['user_id', 'achievement_name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1213,7 +1120,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='UserAchievementGroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1224,15 +1131,11 @@ class GamificationAchievementsApi(object):
         Retrieve progress on achievements for a given user
         Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_achievements_progress(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_achievements_progress(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param bool filter_achievement_derived: Filter for achievements that are derived from other services
         :param str filter_achievement_tagset: Filter for achievements with specified tags (separated by comma)
@@ -1244,7 +1147,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_achievements_progress_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_user_achievements_progress_with_http_info(user_id, **kwargs)
@@ -1255,15 +1158,11 @@ class GamificationAchievementsApi(object):
         Retrieve progress on achievements for a given user
         Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_achievements_progress_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_achievements_progress_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param bool filter_achievement_derived: Filter for achievements that are derived from other services
         :param str filter_achievement_tagset: Filter for achievements with specified tags (separated by comma)
@@ -1276,7 +1175,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['user_id', 'filter_achievement_derived', 'filter_achievement_tagset', 'filter_achievement_name', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1339,7 +1238,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUserAchievementGroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1350,15 +1249,11 @@ class GamificationAchievementsApi(object):
         Retrieve progress on a given achievement for all users
         Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_users_achievement_progress(achievement_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_users_achievement_progress(achievement_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str achievement_name: The achievement's name (required)
         :param bool filter_achievement_derived: Filter for achievements that are derived from other services
         :param str filter_achievement_tagset: Filter for achievements with specified tags (separated by comma)
@@ -1370,7 +1265,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_users_achievement_progress_with_http_info(achievement_name, **kwargs)
         else:
             (data) = self.get_users_achievement_progress_with_http_info(achievement_name, **kwargs)
@@ -1381,15 +1276,11 @@ class GamificationAchievementsApi(object):
         Retrieve progress on a given achievement for all users
         Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_users_achievement_progress_with_http_info(achievement_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_users_achievement_progress_with_http_info(achievement_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str achievement_name: The achievement's name (required)
         :param bool filter_achievement_derived: Filter for achievements that are derived from other services
         :param str filter_achievement_tagset: Filter for achievements with specified tags (separated by comma)
@@ -1402,7 +1293,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['achievement_name', 'filter_achievement_derived', 'filter_achievement_tagset', 'filter_achievement_name', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1465,7 +1356,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUserAchievementGroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1476,15 +1367,11 @@ class GamificationAchievementsApi(object):
         Retrieve progress on achievements for all users
         Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_users_achievements_progress(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_users_achievements_progress(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool filter_achievement_derived: Filter for achievements that are derived from other services
         :param str filter_achievement_tagset: Filter for achievements with specified tags (separated by comma)
         :param str filter_achievement_name: Filter for achievements whose name contains a string
@@ -1495,7 +1382,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_users_achievements_progress_with_http_info(**kwargs)
         else:
             (data) = self.get_users_achievements_progress_with_http_info(**kwargs)
@@ -1506,15 +1393,11 @@ class GamificationAchievementsApi(object):
         Retrieve progress on achievements for all users
         Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_users_achievements_progress_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_users_achievements_progress_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool filter_achievement_derived: Filter for achievements that are derived from other services
         :param str filter_achievement_tagset: Filter for achievements with specified tags (separated by comma)
         :param str filter_achievement_name: Filter for achievements whose name contains a string
@@ -1526,7 +1409,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['filter_achievement_derived', 'filter_achievement_tagset', 'filter_achievement_name', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1584,7 +1467,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUserAchievementGroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1595,24 +1478,20 @@ class GamificationAchievementsApi(object):
         Increment an achievement progress record for a user
         If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.increment_achievement_progress(user_id, achievement_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.increment_achievement_progress(user_id, achievement_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param str achievement_name: The achievement's name (required)
-        :param int progress: The amount to add to the progress value
+        :param IntWrapper progress: The amount to add to the progress value
         :return: UserAchievementGroupResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.increment_achievement_progress_with_http_info(user_id, achievement_name, **kwargs)
         else:
             (data) = self.increment_achievement_progress_with_http_info(user_id, achievement_name, **kwargs)
@@ -1623,25 +1502,21 @@ class GamificationAchievementsApi(object):
         Increment an achievement progress record for a user
         If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.increment_achievement_progress_with_http_info(user_id, achievement_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.increment_achievement_progress_with_http_info(user_id, achievement_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param str achievement_name: The achievement's name (required)
-        :param int progress: The amount to add to the progress value
+        :param IntWrapper progress: The amount to add to the progress value
         :return: UserAchievementGroupResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['user_id', 'achievement_name', 'progress']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1701,7 +1576,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='UserAchievementGroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1712,24 +1587,20 @@ class GamificationAchievementsApi(object):
         Set an achievement progress record for a user
         If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_achievement_progress(user_id, achievement_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_achievement_progress(user_id, achievement_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param str achievement_name: The achievement's name (required)
-        :param int progress: The new progress value
+        :param IntWrapper progress: The new progress value
         :return: UserAchievementGroupResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_achievement_progress_with_http_info(user_id, achievement_name, **kwargs)
         else:
             (data) = self.set_achievement_progress_with_http_info(user_id, achievement_name, **kwargs)
@@ -1740,25 +1611,21 @@ class GamificationAchievementsApi(object):
         Set an achievement progress record for a user
         If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_achievement_progress_with_http_info(user_id, achievement_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_achievement_progress_with_http_info(user_id, achievement_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user's id (required)
         :param str achievement_name: The achievement's name (required)
-        :param int progress: The new progress value
+        :param IntWrapper progress: The new progress value
         :return: UserAchievementGroupResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['user_id', 'achievement_name', 'progress']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1818,7 +1685,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='UserAchievementGroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1829,15 +1696,11 @@ class GamificationAchievementsApi(object):
         Update an achievement definition
         The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_achievement(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_achievement(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The name of the achievement (required)
         :param AchievementDefinitionResource achievement: The achievement definition
         :return: AchievementDefinitionResource
@@ -1845,7 +1708,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_achievement_with_http_info(name, **kwargs)
         else:
             (data) = self.update_achievement_with_http_info(name, **kwargs)
@@ -1856,15 +1719,11 @@ class GamificationAchievementsApi(object):
         Update an achievement definition
         The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_achievement_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_achievement_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The name of the achievement (required)
         :param AchievementDefinitionResource achievement: The achievement definition
         :return: AchievementDefinitionResource
@@ -1873,7 +1732,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['name', 'achievement']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1928,7 +1787,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='AchievementDefinitionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1938,15 +1797,11 @@ class GamificationAchievementsApi(object):
         """
         Update an achievement template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_achievement_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_achievement_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource template: The updated template
         :return: TemplateResource
@@ -1954,7 +1809,7 @@ class GamificationAchievementsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_achievement_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_achievement_template_with_http_info(id, **kwargs)
@@ -1964,15 +1819,11 @@ class GamificationAchievementsApi(object):
         """
         Update an achievement template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_achievement_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_achievement_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource template: The updated template
         :return: TemplateResource
@@ -1981,7 +1832,7 @@ class GamificationAchievementsApi(object):
         """
 
         all_params = ['id', 'template']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2036,7 +1887,7 @@ class GamificationAchievementsApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

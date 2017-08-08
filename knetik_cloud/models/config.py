@@ -53,6 +53,7 @@ class Config(object):
         self._name = None
         self._public_read = None
         self._value = None
+        self.discriminator = None
 
         if description is not None:
           self.description = description

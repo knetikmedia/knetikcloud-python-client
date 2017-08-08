@@ -47,6 +47,7 @@ class KeyValuePairstringstring(object):
 
         self._key = None
         self._value = None
+        self.discriminator = None
 
         if key is not None:
           self.key = key

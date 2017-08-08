@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class AuthPermissionsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_permission(self, **kwargs):
         """
         Create a new permission
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_permission(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_permission(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param PermissionResource permission_resource: The permission resource object
         :return: PermissionResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_permission_with_http_info(**kwargs)
         else:
             (data) = self.create_permission_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class AuthPermissionsApi(object):
         """
         Create a new permission
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_permission_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_permission_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param PermissionResource permission_resource: The permission resource object
         :return: PermissionResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class AuthPermissionsApi(object):
         """
 
         all_params = ['permission_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class AuthPermissionsApi(object):
                                         files=local_var_files,
                                         response_type='PermissionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -145,15 +132,11 @@ class AuthPermissionsApi(object):
         """
         Delete a permission
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_permission(permission, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_permission(permission, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str permission: The permission value (required)
         :param bool force: If true, removes permission assigned to roles
         :return: None
@@ -161,7 +144,7 @@ class AuthPermissionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_permission_with_http_info(permission, **kwargs)
         else:
             (data) = self.delete_permission_with_http_info(permission, **kwargs)
@@ -171,15 +154,11 @@ class AuthPermissionsApi(object):
         """
         Delete a permission
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_permission_with_http_info(permission, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_permission_with_http_info(permission, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str permission: The permission value (required)
         :param bool force: If true, removes permission assigned to roles
         :return: None
@@ -188,7 +167,7 @@ class AuthPermissionsApi(object):
         """
 
         all_params = ['permission', 'force']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -243,7 +222,7 @@ class AuthPermissionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -253,22 +232,18 @@ class AuthPermissionsApi(object):
         """
         Get a single permission
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_permission(permission, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_permission(permission, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str permission: The permission value (required)
         :return: PermissionResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_permission_with_http_info(permission, **kwargs)
         else:
             (data) = self.get_permission_with_http_info(permission, **kwargs)
@@ -278,15 +253,11 @@ class AuthPermissionsApi(object):
         """
         Get a single permission
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_permission_with_http_info(permission, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_permission_with_http_info(permission, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str permission: The permission value (required)
         :return: PermissionResource
                  If the method is called asynchronously,
@@ -294,7 +265,7 @@ class AuthPermissionsApi(object):
         """
 
         all_params = ['permission']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -347,7 +318,7 @@ class AuthPermissionsApi(object):
                                         files=local_var_files,
                                         response_type='PermissionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -357,15 +328,11 @@ class AuthPermissionsApi(object):
         """
         List and search permissions
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_permissions(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_permissions(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -374,7 +341,7 @@ class AuthPermissionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_permissions_with_http_info(**kwargs)
         else:
             (data) = self.get_permissions_with_http_info(**kwargs)
@@ -384,15 +351,11 @@ class AuthPermissionsApi(object):
         """
         List and search permissions
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_permissions_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_permissions_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -402,7 +365,7 @@ class AuthPermissionsApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -456,7 +419,7 @@ class AuthPermissionsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourcePermissionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -466,15 +429,11 @@ class AuthPermissionsApi(object):
         """
         Update a permission
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_permission(permission, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_permission(permission, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str permission: The permission value (required)
         :param PermissionResource permission_resource: The permission resource object
         :return: PermissionResource
@@ -482,7 +441,7 @@ class AuthPermissionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_permission_with_http_info(permission, **kwargs)
         else:
             (data) = self.update_permission_with_http_info(permission, **kwargs)
@@ -492,15 +451,11 @@ class AuthPermissionsApi(object):
         """
         Update a permission
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_permission_with_http_info(permission, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_permission_with_http_info(permission, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str permission: The permission value (required)
         :param PermissionResource permission_resource: The permission resource object
         :return: PermissionResource
@@ -509,7 +464,7 @@ class AuthPermissionsApi(object):
         """
 
         all_params = ['permission', 'permission_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -564,7 +519,7 @@ class AuthPermissionsApi(object):
                                         files=local_var_files,
                                         response_type='PermissionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

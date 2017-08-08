@@ -53,6 +53,7 @@ class UserRelationshipResource(object):
         self._context = None
         self._id = None
         self._parent = None
+        self.discriminator = None
 
         self.child = child
         if context is not None:

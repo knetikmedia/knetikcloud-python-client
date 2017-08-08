@@ -50,6 +50,7 @@ class CountryResource(object):
         self._iso2 = None
         self._iso3 = None
         self._name = None
+        self.discriminator = None
 
         if iso2 is not None:
           self.iso2 = iso2

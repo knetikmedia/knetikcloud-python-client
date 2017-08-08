@@ -65,6 +65,7 @@ class FlagReportResource(object):
         self._resolution = None
         self._resolved = None
         self._updated_date = None
+        self.discriminator = None
 
         if context is not None:
           self.context = context

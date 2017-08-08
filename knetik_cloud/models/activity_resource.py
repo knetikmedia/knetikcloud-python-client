@@ -86,6 +86,7 @@ class ActivityResource(object):
         self._type = None
         self._unique_key = None
         self._updated_date = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

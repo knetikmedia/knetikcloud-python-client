@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,33 +31,25 @@ class LocationsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def get_countries(self, **kwargs):
         """
         Get a list of countries
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_countries(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_countries(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[CountryResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_countries_with_http_info(**kwargs)
         else:
             (data) = self.get_countries_with_http_info(**kwargs)
@@ -68,22 +59,18 @@ class LocationsApi(object):
         """
         Get a list of countries
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_countries_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_countries_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[CountryResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -130,7 +117,7 @@ class LocationsApi(object):
                                         files=local_var_files,
                                         response_type='list[CountryResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -141,21 +128,17 @@ class LocationsApi(object):
         Get the iso3 code of your country
         Determined by geo ip location
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_country_by_geo_location(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_country_by_geo_location(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_country_by_geo_location_with_http_info(**kwargs)
         else:
             (data) = self.get_country_by_geo_location_with_http_info(**kwargs)
@@ -166,22 +149,18 @@ class LocationsApi(object):
         Get the iso3 code of your country
         Determined by geo ip location
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_country_by_geo_location_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_country_by_geo_location_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -228,7 +207,7 @@ class LocationsApi(object):
                                         files=local_var_files,
                                         response_type='str',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -238,22 +217,18 @@ class LocationsApi(object):
         """
         Get a list of a country's states
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_country_states(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_country_states(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :return: list[StateResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_country_states_with_http_info(country_code_iso3, **kwargs)
         else:
             (data) = self.get_country_states_with_http_info(country_code_iso3, **kwargs)
@@ -263,15 +238,11 @@ class LocationsApi(object):
         """
         Get a list of a country's states
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_country_states_with_http_info(country_code_iso3, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_country_states_with_http_info(country_code_iso3, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str country_code_iso3: The iso3 code of the country (required)
         :return: list[StateResource]
                  If the method is called asynchronously,
@@ -279,7 +250,7 @@ class LocationsApi(object):
         """
 
         all_params = ['country_code_iso3']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -332,7 +303,7 @@ class LocationsApi(object):
                                         files=local_var_files,
                                         response_type='list[StateResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -343,21 +314,17 @@ class LocationsApi(object):
         Get the currency information of your country
         Determined by geo ip location, currency to country mapping and a fallback setting
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_currency_by_geo_location(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_currency_by_geo_location(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: CurrencyResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_currency_by_geo_location_with_http_info(**kwargs)
         else:
             (data) = self.get_currency_by_geo_location_with_http_info(**kwargs)
@@ -368,22 +335,18 @@ class LocationsApi(object):
         Get the currency information of your country
         Determined by geo ip location, currency to country mapping and a fallback setting
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_currency_by_geo_location_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_currency_by_geo_location_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: CurrencyResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -430,7 +393,7 @@ class LocationsApi(object):
                                         files=local_var_files,
                                         response_type='CurrencyResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

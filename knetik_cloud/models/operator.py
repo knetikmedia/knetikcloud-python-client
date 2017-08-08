@@ -43,6 +43,7 @@ class Operator(object):
         Operator - a model defined in Swagger
         """
 
+        self.discriminator = None
 
 
     def to_dict(self):

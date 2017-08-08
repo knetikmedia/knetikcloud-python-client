@@ -53,6 +53,7 @@ class BillingReport(object):
         self._id = None
         self._last_known_failures = None
         self._statistics = None
+        self.discriminator = None
 
         if created is not None:
           self.created = created

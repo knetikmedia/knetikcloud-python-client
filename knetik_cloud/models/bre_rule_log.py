@@ -59,6 +59,7 @@ class BreRuleLog(object):
         self._rule_id = None
         self._rule_name = None
         self._rule_start_date = None
+        self.discriminator = None
 
         if ran is not None:
           self.ran = ran

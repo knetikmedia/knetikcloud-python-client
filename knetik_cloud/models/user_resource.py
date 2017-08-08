@@ -131,6 +131,7 @@ class UserResource(object):
         self._template = None
         self._timezone_code = None
         self._username = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

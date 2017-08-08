@@ -50,6 +50,7 @@ class RawSMSResource(object):
         self.__from = None
         self._recipients = None
         self._text = None
+        self.discriminator = None
 
         if _from is not None:
           self._from = _from

@@ -53,6 +53,7 @@ class LookupTypeResource(object):
         self._key_type = None
         self._name = None
         self._value_type = None
+        self.discriminator = None
 
         self.description = description
         self.key_type = key_type

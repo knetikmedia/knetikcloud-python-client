@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,27 +31,19 @@ class UsersGroupsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_member_to_group(self, unique_name, user, **kwargs):
         """
         Adds a new member to the group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_member_to_group(unique_name, user, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_member_to_group(unique_name, user, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param GroupMemberResource user: The id and status for a user to add to the group (required)
         :return: GroupMemberResource
@@ -60,7 +51,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_member_to_group_with_http_info(unique_name, user, **kwargs)
         else:
             (data) = self.add_member_to_group_with_http_info(unique_name, user, **kwargs)
@@ -70,15 +61,11 @@ class UsersGroupsApi(object):
         """
         Adds a new member to the group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_member_to_group_with_http_info(unique_name, user, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_member_to_group_with_http_info(unique_name, user, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param GroupMemberResource user: The id and status for a user to add to the group (required)
         :return: GroupMemberResource
@@ -87,7 +74,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name', 'user']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -145,7 +132,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='GroupMemberResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -155,15 +142,11 @@ class UsersGroupsApi(object):
         """
         Adds multiple members to the group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_members_to_group(unique_name, users, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_members_to_group(unique_name, users, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param list[GroupMemberResource] users: The id and status for a list of users to add to the group (required)
         :return: list[GroupMemberResource]
@@ -171,7 +154,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_members_to_group_with_http_info(unique_name, users, **kwargs)
         else:
             (data) = self.add_members_to_group_with_http_info(unique_name, users, **kwargs)
@@ -181,15 +164,11 @@ class UsersGroupsApi(object):
         """
         Adds multiple members to the group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_members_to_group_with_http_info(unique_name, users, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_members_to_group_with_http_info(unique_name, users, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param list[GroupMemberResource] users: The id and status for a list of users to add to the group (required)
         :return: list[GroupMemberResource]
@@ -198,7 +177,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name', 'users']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -256,7 +235,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='list[GroupMemberResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -266,22 +245,18 @@ class UsersGroupsApi(object):
         """
         Create a group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_group(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_group(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param GroupResource group_resource: The new group
         :return: GroupResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_group_with_http_info(**kwargs)
         else:
             (data) = self.create_group_with_http_info(**kwargs)
@@ -291,15 +266,11 @@ class UsersGroupsApi(object):
         """
         Create a group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_group_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_group_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param GroupResource group_resource: The new group
         :return: GroupResource
                  If the method is called asynchronously,
@@ -307,7 +278,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['group_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -357,7 +328,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='GroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -368,22 +339,18 @@ class UsersGroupsApi(object):
         Create a group template
         Group Templates define a type of group and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_group_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_group_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource group_template_resource: The group template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_group_template_with_http_info(**kwargs)
         else:
             (data) = self.create_group_template_with_http_info(**kwargs)
@@ -394,15 +361,11 @@ class UsersGroupsApi(object):
         Create a group template
         Group Templates define a type of group and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_group_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_group_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource group_template_resource: The group template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -410,7 +373,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['group_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -460,7 +423,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -470,22 +433,18 @@ class UsersGroupsApi(object):
         """
         Removes a group from the system IF no resources are attached to it
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_group(unique_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_group(unique_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_group_with_http_info(unique_name, **kwargs)
         else:
             (data) = self.delete_group_with_http_info(unique_name, **kwargs)
@@ -495,15 +454,11 @@ class UsersGroupsApi(object):
         """
         Removes a group from the system IF no resources are attached to it
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_group_with_http_info(unique_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_group_with_http_info(unique_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :return: None
                  If the method is called asynchronously,
@@ -511,7 +466,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -564,7 +519,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -575,15 +530,11 @@ class UsersGroupsApi(object):
         Delete a group template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_group_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_group_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -591,7 +542,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_group_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_group_template_with_http_info(id, **kwargs)
@@ -602,15 +553,11 @@ class UsersGroupsApi(object):
         Delete a group template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_group_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_group_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -619,7 +566,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -674,7 +621,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -684,22 +631,18 @@ class UsersGroupsApi(object):
         """
         Loads a specific group's details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group(unique_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group(unique_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :return: GroupResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_group_with_http_info(unique_name, **kwargs)
         else:
             (data) = self.get_group_with_http_info(unique_name, **kwargs)
@@ -709,15 +652,11 @@ class UsersGroupsApi(object):
         """
         Loads a specific group's details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_with_http_info(unique_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_with_http_info(unique_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :return: GroupResource
                  If the method is called asynchronously,
@@ -725,7 +664,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -778,7 +717,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='GroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -788,15 +727,11 @@ class UsersGroupsApi(object):
         """
         Get a user from a group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_member(unique_name, user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_member(unique_name, user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param int user_id: The id of the user (required)
         :return: GroupMemberResource
@@ -804,7 +739,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_group_member_with_http_info(unique_name, user_id, **kwargs)
         else:
             (data) = self.get_group_member_with_http_info(unique_name, user_id, **kwargs)
@@ -814,15 +749,11 @@ class UsersGroupsApi(object):
         """
         Get a user from a group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_member_with_http_info(unique_name, user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_member_with_http_info(unique_name, user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param int user_id: The id of the user (required)
         :return: GroupMemberResource
@@ -831,7 +762,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name', 'user_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -889,7 +820,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='GroupMemberResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -899,15 +830,11 @@ class UsersGroupsApi(object):
         """
         Lists members of the group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_members(unique_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_members(unique_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -917,7 +844,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_group_members_with_http_info(unique_name, **kwargs)
         else:
             (data) = self.get_group_members_with_http_info(unique_name, **kwargs)
@@ -927,15 +854,11 @@ class UsersGroupsApi(object):
         """
         Lists members of the group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_members_with_http_info(unique_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_members_with_http_info(unique_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -946,7 +869,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1005,7 +928,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceGroupMemberResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1015,22 +938,18 @@ class UsersGroupsApi(object):
         """
         Get a single group template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_group_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_group_template_with_http_info(id, **kwargs)
@@ -1040,15 +959,11 @@ class UsersGroupsApi(object):
         """
         Get a single group template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -1056,7 +971,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1109,7 +1024,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1119,15 +1034,11 @@ class UsersGroupsApi(object):
         """
         List and search group templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -1136,7 +1047,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_group_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_group_templates_with_http_info(**kwargs)
@@ -1146,15 +1057,11 @@ class UsersGroupsApi(object):
         """
         List and search group templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_group_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -1164,7 +1071,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1218,7 +1125,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1228,22 +1135,18 @@ class UsersGroupsApi(object):
         """
         List groups a user is in
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_groups_for_user(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_groups_for_user(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_groups_for_user_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_groups_for_user_with_http_info(user_id, **kwargs)
@@ -1253,15 +1156,11 @@ class UsersGroupsApi(object):
         """
         List groups a user is in
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_groups_for_user_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_groups_for_user_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :return: list[str]
                  If the method is called asynchronously,
@@ -1269,7 +1168,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['user_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1322,7 +1221,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='list[str]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1332,15 +1231,11 @@ class UsersGroupsApi(object):
         """
         Removes a user from a group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_group_member(unique_name, user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_group_member(unique_name, user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param int user_id: The id of the user to remove (required)
         :return: None
@@ -1348,7 +1243,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_group_member_with_http_info(unique_name, user_id, **kwargs)
         else:
             (data) = self.remove_group_member_with_http_info(unique_name, user_id, **kwargs)
@@ -1358,15 +1253,11 @@ class UsersGroupsApi(object):
         """
         Removes a user from a group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_group_member_with_http_info(unique_name, user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_group_member_with_http_info(unique_name, user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param int user_id: The id of the user to remove (required)
         :return: None
@@ -1375,7 +1266,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name', 'user_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1433,7 +1324,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1443,15 +1334,11 @@ class UsersGroupsApi(object):
         """
         Update a group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_group(unique_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_group(unique_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param GroupResource group_resource: The updated group
         :return: None
@@ -1459,7 +1346,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_group_with_http_info(unique_name, **kwargs)
         else:
             (data) = self.update_group_with_http_info(unique_name, **kwargs)
@@ -1469,15 +1356,11 @@ class UsersGroupsApi(object):
         """
         Update a group
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_group_with_http_info(unique_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_group_with_http_info(unique_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param GroupResource group_resource: The updated group
         :return: None
@@ -1486,7 +1369,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name', 'group_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1541,7 +1424,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1551,15 +1434,11 @@ class UsersGroupsApi(object):
         """
         Change a user's status
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_group_member_status(unique_name, user_id, status, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_group_member_status(unique_name, user_id, status, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param int user_id: The user id of the member to modify (required)
         :param str status: The new status for the user (required)
@@ -1568,7 +1447,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_group_member_status_with_http_info(unique_name, user_id, status, **kwargs)
         else:
             (data) = self.update_group_member_status_with_http_info(unique_name, user_id, status, **kwargs)
@@ -1578,15 +1457,11 @@ class UsersGroupsApi(object):
         """
         Change a user's status
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_group_member_status_with_http_info(unique_name, user_id, status, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_group_member_status_with_http_info(unique_name, user_id, status, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str unique_name: The group unique name (required)
         :param int user_id: The user id of the member to modify (required)
         :param str status: The new status for the user (required)
@@ -1596,7 +1471,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['unique_name', 'user_id', 'status']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1659,7 +1534,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1669,15 +1544,11 @@ class UsersGroupsApi(object):
         """
         Update a group template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_group_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_group_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource group_template_resource: The group template resource object
         :return: TemplateResource
@@ -1685,7 +1556,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_group_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_group_template_with_http_info(id, **kwargs)
@@ -1695,15 +1566,11 @@ class UsersGroupsApi(object):
         """
         Update a group template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_group_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_group_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource group_template_resource: The group template resource object
         :return: TemplateResource
@@ -1712,7 +1579,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['id', 'group_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1767,7 +1634,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1777,15 +1644,11 @@ class UsersGroupsApi(object):
         """
         List and search groups
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_groups(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_groups(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_template: Filter for groups using a specific template, by id
         :param str filter_member_count: Filters groups by member count. Multiple values possible for range search. Format: filter_member_count=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count=GT,14,LT,17
         :param str filter_name: Filter for groups with names starting with the given string
@@ -1800,7 +1663,7 @@ class UsersGroupsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_groups_with_http_info(**kwargs)
         else:
             (data) = self.update_groups_with_http_info(**kwargs)
@@ -1810,15 +1673,11 @@ class UsersGroupsApi(object):
         """
         List and search groups
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_groups_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_groups_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_template: Filter for groups using a specific template, by id
         :param str filter_member_count: Filters groups by member count. Multiple values possible for range search. Format: filter_member_count=OP,ts&... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count=GT,14,LT,17
         :param str filter_name: Filter for groups with names starting with the given string
@@ -1834,7 +1693,7 @@ class UsersGroupsApi(object):
         """
 
         all_params = ['filter_template', 'filter_member_count', 'filter_name', 'filter_unique_name', 'filter_parent', 'filter_status', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1900,7 +1759,7 @@ class UsersGroupsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceGroupResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

@@ -25,10 +25,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersRelationshipsApi()
+api_instance = knetik_cloud.UsersRelationshipsApi(knetik_cloud.ApiClient(configuration))
 relationship = knetik_cloud.UserRelationshipResource() # UserRelationshipResource | The new relationship (optional)
 
 try: 
@@ -74,10 +75,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersRelationshipsApi()
+api_instance = knetik_cloud.UsersRelationshipsApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The id of the relationship
 
 try: 
@@ -122,10 +124,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersRelationshipsApi()
+api_instance = knetik_cloud.UsersRelationshipsApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The id of the relationship
 
 try: 
@@ -171,10 +174,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersRelationshipsApi()
+api_instance = knetik_cloud.UsersRelationshipsApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned (optional) (default to 1)
 order = 'order_example' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
@@ -224,10 +228,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersRelationshipsApi()
+api_instance = knetik_cloud.UsersRelationshipsApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The id of the relationship
 relationship = knetik_cloud.UserRelationshipResource() # UserRelationshipResource | The new relationship (optional)
 

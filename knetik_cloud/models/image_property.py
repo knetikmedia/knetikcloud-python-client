@@ -31,158 +31,20 @@ class ImageProperty(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'type': 'str',
-        'crc': 'str',
-        'description': 'str',
-        'file_type': 'str',
-        'url': 'str'
+        
     }
 
     attribute_map = {
-        'type': 'type',
-        'crc': 'crc',
-        'description': 'description',
-        'file_type': 'file_type',
-        'url': 'url'
+        
     }
 
-    def __init__(self, type=None, crc=None, description=None, file_type=None, url=None):
+    def __init__(self):
         """
         ImageProperty - a model defined in Swagger
         """
 
-        self._type = None
-        self._crc = None
-        self._description = None
-        self._file_type = None
-        self._url = None
+        self.discriminator = None
 
-        self.type = type
-        if crc is not None:
-          self.crc = crc
-        if description is not None:
-          self.description = description
-        if file_type is not None:
-          self.file_type = file_type
-        if url is not None:
-          self.url = url
-
-    @property
-    def type(self):
-        """
-        Gets the type of this ImageProperty.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :return: The type of this ImageProperty.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this ImageProperty.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :param type: The type of this ImageProperty.
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
-
-        self._type = type
-
-    @property
-    def crc(self):
-        """
-        Gets the crc of this ImageProperty.
-        A crc value for file integrity verification
-
-        :return: The crc of this ImageProperty.
-        :rtype: str
-        """
-        return self._crc
-
-    @crc.setter
-    def crc(self, crc):
-        """
-        Sets the crc of this ImageProperty.
-        A crc value for file integrity verification
-
-        :param crc: The crc of this ImageProperty.
-        :type: str
-        """
-
-        self._crc = crc
-
-    @property
-    def description(self):
-        """
-        Gets the description of this ImageProperty.
-        A description of the file
-
-        :return: The description of this ImageProperty.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this ImageProperty.
-        A description of the file
-
-        :param description: The description of this ImageProperty.
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def file_type(self):
-        """
-        Gets the file_type of this ImageProperty.
-        The type of file such as txt, mp3, mov or csv
-
-        :return: The file_type of this ImageProperty.
-        :rtype: str
-        """
-        return self._file_type
-
-    @file_type.setter
-    def file_type(self, file_type):
-        """
-        Sets the file_type of this ImageProperty.
-        The type of file such as txt, mp3, mov or csv
-
-        :param file_type: The file_type of this ImageProperty.
-        :type: str
-        """
-
-        self._file_type = file_type
-
-    @property
-    def url(self):
-        """
-        Gets the url of this ImageProperty.
-        The url of the file
-
-        :return: The url of this ImageProperty.
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """
-        Sets the url of this ImageProperty.
-        The url of the file
-
-        :param url: The url of this ImageProperty.
-        :type: str
-        """
-
-        self._url = url
 
     def to_dict(self):
         """

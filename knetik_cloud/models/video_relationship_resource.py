@@ -53,6 +53,7 @@ class VideoRelationshipResource(object):
         self._id = None
         self._relationship_details = None
         self._to = None
+        self.discriminator = None
 
         if _from is not None:
           self._from = _from

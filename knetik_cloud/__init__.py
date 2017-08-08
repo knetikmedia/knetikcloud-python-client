@@ -100,6 +100,8 @@ from .models.event_context_resource import EventContextResource
 from .models.expression_resource import ExpressionResource
 from .models.expressionobject import Expressionobject
 from .models.facebook_token import FacebookToken
+from .models.fatt_merchant_payment_method import FattMerchantPaymentMethod
+from .models.fatt_merchant_payment_method_request import FattMerchantPaymentMethodRequest
 from .models.finalize_billing_agreement_request import FinalizeBillingAgreementRequest
 from .models.finalize_pay_pal_payment_request import FinalizePayPalPaymentRequest
 from .models.flag_report_resource import FlagReportResource
@@ -116,6 +118,7 @@ from .models.group_resource import GroupResource
 from .models.io_config import IOConfig
 from .models.import_job_output_resource import ImportJobOutputResource
 from .models.import_job_resource import ImportJobResource
+from .models.int_wrapper import IntWrapper
 from .models.integer_operation_resource import IntegerOperationResource
 from .models.inventory_subscription_resource import InventorySubscriptionResource
 from .models.invoice_create_request import InvoiceCreateRequest
@@ -226,6 +229,7 @@ from .models.parameter_resource import ParameterResource
 from .models.password_reset_request import PasswordResetRequest
 from .models.pay_by_saved_method_request import PayBySavedMethodRequest
 from .models.payment_authorization_resource import PaymentAuthorizationResource
+from .models.payment_method_details import PaymentMethodDetails
 from .models.payment_method_resource import PaymentMethodResource
 from .models.payment_method_type_resource import PaymentMethodTypeResource
 from .models.permission_resource import PermissionResource
@@ -239,6 +243,7 @@ from .models.property_field_list_resource import PropertyFieldListResource
 from .models.property_field_resource import PropertyFieldResource
 from .models.question_resource import QuestionResource
 from .models.question_template_resource import QuestionTemplateResource
+from .models.quick_buy_request import QuickBuyRequest
 from .models.raw_email_resource import RawEmailResource
 from .models.raw_sms_resource import RawSMSResource
 from .models.reactivate_subscription_request import ReactivateSubscriptionRequest
@@ -272,6 +277,7 @@ from .models.state_resource import StateResource
 from .models.state_tax_resource import StateTaxResource
 from .models.store_item_template_resource import StoreItemTemplateResource
 from .models.string_operation_resource import StringOperationResource
+from .models.string_wrapper import StringWrapper
 from .models.stripe_create_payment_method import StripeCreatePaymentMethod
 from .models.stripe_payment_request import StripePaymentRequest
 from .models.subscription_credit_resource import SubscriptionCreditResource
@@ -335,6 +341,7 @@ from .models.image_property_definition_resource import ImagePropertyDefinitionRe
 from .models.integer_property import IntegerProperty
 from .models.integer_property_definition_resource import IntegerPropertyDefinitionResource
 from .models.limited_gettable import LimitedGettable
+from .models.log_level_event import LogLevelEvent
 from .models.long_property import LongProperty
 from .models.long_property_definition_resource import LongPropertyDefinitionResource
 from .models.new_customer_event import NewCustomerEvent
@@ -404,6 +411,7 @@ from .apis.media_videos_api import MediaVideosApi
 from .apis.messaging_api import MessagingApi
 from .apis.payments_api import PaymentsApi
 from .apis.payments_apple_api import PaymentsAppleApi
+from .apis.payments_fatt_merchant_api import PaymentsFattMerchantApi
 from .apis.payments_google_api import PaymentsGoogleApi
 from .apis.payments_optimal_api import PaymentsOptimalApi
 from .apis.payments_pay_pal_classic_api import PaymentsPayPalClassicApi
@@ -447,5 +455,3 @@ from .apis.util_version_api import UtilVersionApi
 from .api_client import ApiClient
 
 from .configuration import Configuration
-
-configuration = Configuration()

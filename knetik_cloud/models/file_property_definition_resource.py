@@ -31,142 +31,28 @@ class FilePropertyDefinitionResource(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'field_list': 'PropertyFieldListResource',
-        'name': 'str',
-        'required': 'bool',
-        'type': 'str',
         'file_type': 'str',
         'max_file_size': 'int'
     }
 
     attribute_map = {
-        'field_list': 'field_list',
-        'name': 'name',
-        'required': 'required',
-        'type': 'type',
         'file_type': 'file_type',
         'max_file_size': 'max_file_size'
     }
 
-    def __init__(self, field_list=None, name=None, required=None, type=None, file_type=None, max_file_size=None):
+    def __init__(self, file_type=None, max_file_size=None):
         """
         FilePropertyDefinitionResource - a model defined in Swagger
         """
 
-        self._field_list = None
-        self._name = None
-        self._required = None
-        self._type = None
         self._file_type = None
         self._max_file_size = None
+        self.discriminator = None
 
-        if field_list is not None:
-          self.field_list = field_list
-        self.name = name
-        self.required = required
-        self.type = type
         if file_type is not None:
           self.file_type = file_type
         if max_file_size is not None:
           self.max_file_size = max_file_size
-
-    @property
-    def field_list(self):
-        """
-        Gets the field_list of this FilePropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :return: The field_list of this FilePropertyDefinitionResource.
-        :rtype: PropertyFieldListResource
-        """
-        return self._field_list
-
-    @field_list.setter
-    def field_list(self, field_list):
-        """
-        Sets the field_list of this FilePropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :param field_list: The field_list of this FilePropertyDefinitionResource.
-        :type: PropertyFieldListResource
-        """
-
-        self._field_list = field_list
-
-    @property
-    def name(self):
-        """
-        Gets the name of this FilePropertyDefinitionResource.
-        The name of the property
-
-        :return: The name of this FilePropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this FilePropertyDefinitionResource.
-        The name of the property
-
-        :param name: The name of this FilePropertyDefinitionResource.
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-
-        self._name = name
-
-    @property
-    def required(self):
-        """
-        Gets the required of this FilePropertyDefinitionResource.
-        Whether the property is required
-
-        :return: The required of this FilePropertyDefinitionResource.
-        :rtype: bool
-        """
-        return self._required
-
-    @required.setter
-    def required(self, required):
-        """
-        Sets the required of this FilePropertyDefinitionResource.
-        Whether the property is required
-
-        :param required: The required of this FilePropertyDefinitionResource.
-        :type: bool
-        """
-        if required is None:
-            raise ValueError("Invalid value for `required`, must not be `None`")
-
-        self._required = required
-
-    @property
-    def type(self):
-        """
-        Gets the type of this FilePropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :return: The type of this FilePropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this FilePropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :param type: The type of this FilePropertyDefinitionResource.
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
-
-        self._type = type
 
     @property
     def file_type(self):

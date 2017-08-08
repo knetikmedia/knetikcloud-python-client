@@ -36,12 +36,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
-tag = 'tag_example' # str | tag
+tag = knetik_cloud.StringWrapper() # StringWrapper | tag
 
 try: 
     # Add a tag to a user
@@ -55,7 +56,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The id of the user | 
- **tag** | **str**| tag | 
+ **tag** | [**StringWrapper**](StringWrapper.md)| tag | 
 
 ### Return type
 
@@ -88,10 +89,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 user_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The user template resource object (optional)
 
 try: 
@@ -139,10 +141,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -191,10 +194,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the user or 'me'
 
 try: 
@@ -240,10 +244,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 
 try: 
@@ -289,10 +294,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -338,10 +344,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -393,10 +400,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 filter_displayname = 'filter_displayname_example' # str | Filter for users whose display name starts with provided string. (optional)
 filter_email = 'filter_email_example' # str | Filter for users whose email starts with provided string. Requires USERS_ADMIN permission (optional)
 filter_firstname = 'filter_firstname_example' # str | Filter for users whose first name starts with provided string. Requires USERS_ADMIN permission (optional)
@@ -563,10 +571,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 tag = 'tag_example' # str | The tag to remove
 
@@ -615,12 +624,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the user
-password = 'password_example' # str | The new plain text password (optional)
+password = knetik_cloud.StringWrapper() # StringWrapper | The new plain text password (optional)
 
 try: 
     # Set a user's password
@@ -634,7 +644,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The id of the user | 
- **password** | **str**| The new plain text password | [optional] 
+ **password** | [**StringWrapper**](StringWrapper.md)| The new plain text password | [optional] 
 
 ### Return type
 
@@ -761,10 +771,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the user or 'me'
 user_resource = knetik_cloud.UserResource() # UserResource | The user resource object (optional)
 
@@ -811,10 +822,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersApi()
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 user_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The user template resource object (optional)
 

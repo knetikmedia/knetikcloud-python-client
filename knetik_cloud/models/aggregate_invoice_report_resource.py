@@ -53,6 +53,7 @@ class AggregateInvoiceReportResource(object):
         self._date = None
         self._revenue = None
         self._user_count = None
+        self.discriminator = None
 
         if count is not None:
           self.count = count

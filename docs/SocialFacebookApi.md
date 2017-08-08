@@ -23,10 +23,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.SocialFacebookApi()
+api_instance = knetik_cloud.SocialFacebookApi(knetik_cloud.ApiClient(configuration))
 facebook_token = knetik_cloud.FacebookToken() # FacebookToken | The token from facebook (optional)
 
 try: 

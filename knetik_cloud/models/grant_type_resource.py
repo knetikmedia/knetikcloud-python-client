@@ -47,6 +47,7 @@ class GrantTypeResource(object):
 
         self._description = None
         self._name = None
+        self.discriminator = None
 
         if description is not None:
           self.description = description

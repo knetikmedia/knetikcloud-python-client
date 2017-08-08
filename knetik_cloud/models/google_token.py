@@ -44,6 +44,7 @@ class GoogleToken(object):
         """
 
         self._authorization_code = None
+        self.discriminator = None
 
         self.authorization_code = authorization_code
 

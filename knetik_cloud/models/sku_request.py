@@ -44,6 +44,7 @@ class SkuRequest(object):
         """
 
         self._sku = None
+        self.discriminator = None
 
         self.sku = sku
 

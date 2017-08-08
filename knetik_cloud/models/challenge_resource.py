@@ -95,6 +95,7 @@ class ChallengeResource(object):
         self._start_date = None
         self._template = None
         self._updated_date = None
+        self.discriminator = None
 
         if activities is not None:
           self.activities = activities

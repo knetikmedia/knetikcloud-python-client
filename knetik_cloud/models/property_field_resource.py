@@ -62,6 +62,7 @@ class PropertyFieldResource(object):
         self._required = None
         self._type = None
         self._valid_values = None
+        self.discriminator = None
 
         if description is not None:
           self.description = description

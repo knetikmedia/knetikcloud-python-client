@@ -50,6 +50,7 @@ class RevenueCountryReportResource(object):
         self._country = None
         self._revenue = None
         self._volume = None
+        self.discriminator = None
 
         if country is not None:
           self.country = country

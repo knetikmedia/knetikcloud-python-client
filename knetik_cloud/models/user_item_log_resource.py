@@ -62,6 +62,7 @@ class UserItemLogResource(object):
         self._type = None
         self._user = None
         self._user_inventory = None
+        self.discriminator = None
 
         if id is not None:
           self.id = id

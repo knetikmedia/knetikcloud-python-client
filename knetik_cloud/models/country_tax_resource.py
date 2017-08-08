@@ -53,6 +53,7 @@ class CountryTaxResource(object):
         self._name = None
         self._rate = None
         self._tax_shipping = None
+        self.discriminator = None
 
         self.country_iso3 = country_iso3
         self.name = name

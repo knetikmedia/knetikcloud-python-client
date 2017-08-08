@@ -53,6 +53,7 @@ class TierResource(object):
         self._name = None
         self._required_progress = None
         self._trigger_event_name = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class StoreVendorsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_vendor(self, **kwargs):
         """
         Create a vendor
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_vendor(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_vendor(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param VendorResource vendor: The vendor
         :return: VendorResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_vendor_with_http_info(**kwargs)
         else:
             (data) = self.create_vendor_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class StoreVendorsApi(object):
         """
         Create a vendor
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_vendor_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_vendor_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param VendorResource vendor: The vendor
         :return: VendorResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['vendor']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type='VendorResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -146,22 +133,18 @@ class StoreVendorsApi(object):
         Create a vendor template
         Vendor Templates define a type of vendor and the properties they have.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_vendor_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_vendor_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ItemTemplateResource vendor_template_resource: The new vendor template
         :return: ItemTemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_vendor_template_with_http_info(**kwargs)
         else:
             (data) = self.create_vendor_template_with_http_info(**kwargs)
@@ -172,15 +155,11 @@ class StoreVendorsApi(object):
         Create a vendor template
         Vendor Templates define a type of vendor and the properties they have.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_vendor_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_vendor_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ItemTemplateResource vendor_template_resource: The new vendor template
         :return: ItemTemplateResource
                  If the method is called asynchronously,
@@ -188,7 +167,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['vendor_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -238,7 +217,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type='ItemTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -248,22 +227,18 @@ class StoreVendorsApi(object):
         """
         Delete a vendor
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_vendor(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_vendor(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the vendor (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_vendor_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_vendor_with_http_info(id, **kwargs)
@@ -273,15 +248,11 @@ class StoreVendorsApi(object):
         """
         Delete a vendor
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_vendor_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_vendor_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the vendor (required)
         :return: None
                  If the method is called asynchronously,
@@ -289,7 +260,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -342,7 +313,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -352,15 +323,11 @@ class StoreVendorsApi(object):
         """
         Delete a vendor template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_vendor_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_vendor_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: force deleting the template if it's attached to other objects, cascade = detach
         :return: None
@@ -368,7 +335,7 @@ class StoreVendorsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_vendor_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_vendor_template_with_http_info(id, **kwargs)
@@ -378,15 +345,11 @@ class StoreVendorsApi(object):
         """
         Delete a vendor template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_vendor_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_vendor_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: force deleting the template if it's attached to other objects, cascade = detach
         :return: None
@@ -395,7 +358,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -450,7 +413,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -460,22 +423,18 @@ class StoreVendorsApi(object):
         """
         Get a single vendor
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_vendor(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_vendor(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the vendor (required)
         :return: VendorResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_vendor_with_http_info(id, **kwargs)
         else:
             (data) = self.get_vendor_with_http_info(id, **kwargs)
@@ -485,15 +444,11 @@ class StoreVendorsApi(object):
         """
         Get a single vendor
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_vendor_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_vendor_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the vendor (required)
         :return: VendorResource
                  If the method is called asynchronously,
@@ -501,7 +456,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -554,7 +509,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type='VendorResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -565,22 +520,18 @@ class StoreVendorsApi(object):
         Get a single vendor template
         Vendor Templates define a type of vendor and the properties they have.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_vendor_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_vendor_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: ItemTemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_vendor_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_vendor_template_with_http_info(id, **kwargs)
@@ -591,15 +542,11 @@ class StoreVendorsApi(object):
         Get a single vendor template
         Vendor Templates define a type of vendor and the properties they have.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_vendor_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_vendor_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: ItemTemplateResource
                  If the method is called asynchronously,
@@ -607,7 +554,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -660,7 +607,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type='ItemTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -670,15 +617,11 @@ class StoreVendorsApi(object):
         """
         List and search vendor templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_vendor_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_vendor_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -687,7 +630,7 @@ class StoreVendorsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_vendor_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_vendor_templates_with_http_info(**kwargs)
@@ -697,15 +640,11 @@ class StoreVendorsApi(object):
         """
         List and search vendor templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_vendor_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_vendor_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -715,7 +654,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -769,7 +708,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceItemTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -779,15 +718,11 @@ class StoreVendorsApi(object):
         """
         List and search vendors
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_vendors(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_vendors(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_name: Filters vendors by name starting with the text provided in the filter
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -797,7 +732,7 @@ class StoreVendorsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_vendors_with_http_info(**kwargs)
         else:
             (data) = self.get_vendors_with_http_info(**kwargs)
@@ -807,15 +742,11 @@ class StoreVendorsApi(object):
         """
         List and search vendors
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_vendors_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_vendors_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_name: Filters vendors by name starting with the text provided in the filter
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -826,7 +757,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['filter_name', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -882,7 +813,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceVendorResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -892,15 +823,11 @@ class StoreVendorsApi(object):
         """
         Update a vendor
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_vendor(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_vendor(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the vendor (required)
         :param VendorResource vendor: The vendor
         :return: VendorResource
@@ -908,7 +835,7 @@ class StoreVendorsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_vendor_with_http_info(id, **kwargs)
         else:
             (data) = self.update_vendor_with_http_info(id, **kwargs)
@@ -918,15 +845,11 @@ class StoreVendorsApi(object):
         """
         Update a vendor
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_vendor_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_vendor_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the vendor (required)
         :param VendorResource vendor: The vendor
         :return: VendorResource
@@ -935,7 +858,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['id', 'vendor']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -990,7 +913,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type='VendorResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1000,15 +923,11 @@ class StoreVendorsApi(object):
         """
         Update a vendor template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_vendor_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_vendor_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param ItemTemplateResource vendor_template_resource: The vendor template resource object
         :return: ItemTemplateResource
@@ -1016,7 +935,7 @@ class StoreVendorsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_vendor_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_vendor_template_with_http_info(id, **kwargs)
@@ -1026,15 +945,11 @@ class StoreVendorsApi(object):
         """
         Update a vendor template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_vendor_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_vendor_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param ItemTemplateResource vendor_template_resource: The vendor template resource object
         :return: ItemTemplateResource
@@ -1043,7 +958,7 @@ class StoreVendorsApi(object):
         """
 
         all_params = ['id', 'vendor_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1098,7 +1013,7 @@ class StoreVendorsApi(object):
                                         files=local_var_files,
                                         response_type='ItemTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

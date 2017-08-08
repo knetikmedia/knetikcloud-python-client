@@ -59,6 +59,7 @@ class StateTaxResource(object):
         self._rate = None
         self._state_code = None
         self._tax_shipping = None
+        self.discriminator = None
 
         self.country_iso3 = country_iso3
         self.federally_exempt = federally_exempt

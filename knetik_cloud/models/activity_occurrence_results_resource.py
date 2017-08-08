@@ -44,6 +44,7 @@ class ActivityOccurrenceResultsResource(object):
         """
 
         self._users = None
+        self.discriminator = None
 
         self.users = users
 

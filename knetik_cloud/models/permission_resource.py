@@ -62,6 +62,7 @@ class PermissionResource(object):
         self._parent = None
         self._permission = None
         self._updated_date = None
+        self.discriminator = None
 
         if created_date is not None:
           self.created_date = created_date

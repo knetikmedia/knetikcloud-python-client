@@ -65,6 +65,7 @@ class UserLevelingResource(object):
         self._progress = None
         self._tier_names = None
         self._user_id = None
+        self.discriminator = None
 
         self.last_tier_name = last_tier_name
         self.last_tier_progress = last_tier_progress

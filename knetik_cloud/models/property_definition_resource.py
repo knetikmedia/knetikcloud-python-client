@@ -44,6 +44,24 @@ class PropertyDefinitionResource(object):
         'type': 'type'
     }
 
+    discriminator_value_class_map = {
+        'text': 'TextPropertyDefinitionResource',
+        'image': 'ImagePropertyDefinitionResource',
+        'audio': 'AudioPropertyDefinitionResource',
+        'file_group': 'FileGroupPropertyDefinitionResource',
+        'long': 'LongPropertyDefinitionResource',
+        'boolean': 'BooleanPropertyDefinitionResource',
+        'video': 'VideoPropertyDefinitionResource',
+        'image_group': 'ImageGroupPropertyDefinitionResource',
+        'formatted_text': 'FormattedTextPropertyDefinitionResource',
+        'audio_group': 'AudioGroupPropertyDefinitionResource',
+        'double': 'DoublePropertyDefinitionResource',
+        'date': 'DatePropertyDefinitionResource',
+        'video_group': 'VideoGroupPropertyDefinitionResource',
+        'file': 'FilePropertyDefinitionResource',
+        'integer': 'IntegerPropertyDefinitionResource'
+    }
+
     def __init__(self, field_list=None, name=None, required=None, type=None):
         """
         PropertyDefinitionResource - a model defined in Swagger
@@ -53,6 +71,7 @@ class PropertyDefinitionResource(object):
         self._name = None
         self._required = None
         self._type = None
+        self.discriminator = 'type'
 
         if field_list is not None:
           self.field_list = field_list
@@ -157,6 +176,16 @@ class PropertyDefinitionResource(object):
             raise ValueError("Invalid value for `type`, must not be `None`")
 
         self._type = type
+
+    def get_real_child_model(self, data):
+        """
+        Returns the real base class specified by the discriminator
+        """
+        discriminator_value = data[self.discriminator].lower()
+        if self.discriminator_value_class_map.has_key(discriminator_value):
+            return self.discriminator_value_class_map[discriminator_value]
+        else:
+            return None
 
     def to_dict(self):
         """

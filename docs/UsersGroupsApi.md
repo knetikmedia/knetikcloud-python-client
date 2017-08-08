@@ -37,10 +37,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 unique_name = 'unique_name_example' # str | The group unique name
 user = knetik_cloud.GroupMemberResource() # GroupMemberResource | The id and status for a user to add to the group
 
@@ -88,10 +89,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 unique_name = 'unique_name_example' # str | The group unique name
 users = [knetik_cloud.GroupMemberResource()] # list[GroupMemberResource] | The id and status for a list of users to add to the group
 
@@ -139,10 +141,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 group_resource = knetik_cloud.GroupResource() # GroupResource | The new group (optional)
 
 try: 
@@ -190,10 +193,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 group_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The group template resource object (optional)
 
 try: 
@@ -239,10 +243,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 unique_name = 'unique_name_example' # str | The group unique name
 
 try: 
@@ -289,10 +294,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -485,10 +491,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -534,10 +541,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -633,10 +641,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 unique_name = 'unique_name_example' # str | The group unique name
 user_id = 56 # int | The id of the user to remove
 
@@ -683,10 +692,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 unique_name = 'unique_name_example' # str | The group unique name
 group_resource = knetik_cloud.GroupResource() # GroupResource | The updated group (optional)
 
@@ -733,10 +743,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 unique_name = 'unique_name_example' # str | The group unique name
 user_id = 56 # int | The user id of the member to modify
 status = 'status_example' # str | The new status for the user
@@ -785,10 +796,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 group_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The group template resource object (optional)
 

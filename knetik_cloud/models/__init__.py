@@ -100,6 +100,8 @@ from .event_context_resource import EventContextResource
 from .expression_resource import ExpressionResource
 from .expressionobject import Expressionobject
 from .facebook_token import FacebookToken
+from .fatt_merchant_payment_method import FattMerchantPaymentMethod
+from .fatt_merchant_payment_method_request import FattMerchantPaymentMethodRequest
 from .finalize_billing_agreement_request import FinalizeBillingAgreementRequest
 from .finalize_pay_pal_payment_request import FinalizePayPalPaymentRequest
 from .flag_report_resource import FlagReportResource
@@ -116,6 +118,7 @@ from .group_resource import GroupResource
 from .io_config import IOConfig
 from .import_job_output_resource import ImportJobOutputResource
 from .import_job_resource import ImportJobResource
+from .int_wrapper import IntWrapper
 from .integer_operation_resource import IntegerOperationResource
 from .inventory_subscription_resource import InventorySubscriptionResource
 from .invoice_create_request import InvoiceCreateRequest
@@ -226,6 +229,7 @@ from .parameter_resource import ParameterResource
 from .password_reset_request import PasswordResetRequest
 from .pay_by_saved_method_request import PayBySavedMethodRequest
 from .payment_authorization_resource import PaymentAuthorizationResource
+from .payment_method_details import PaymentMethodDetails
 from .payment_method_resource import PaymentMethodResource
 from .payment_method_type_resource import PaymentMethodTypeResource
 from .permission_resource import PermissionResource
@@ -239,6 +243,7 @@ from .property_field_list_resource import PropertyFieldListResource
 from .property_field_resource import PropertyFieldResource
 from .question_resource import QuestionResource
 from .question_template_resource import QuestionTemplateResource
+from .quick_buy_request import QuickBuyRequest
 from .raw_email_resource import RawEmailResource
 from .raw_sms_resource import RawSMSResource
 from .reactivate_subscription_request import ReactivateSubscriptionRequest
@@ -272,6 +277,7 @@ from .state_resource import StateResource
 from .state_tax_resource import StateTaxResource
 from .store_item_template_resource import StoreItemTemplateResource
 from .string_operation_resource import StringOperationResource
+from .string_wrapper import StringWrapper
 from .stripe_create_payment_method import StripeCreatePaymentMethod
 from .stripe_payment_request import StripePaymentRequest
 from .subscription_credit_resource import SubscriptionCreditResource
@@ -335,6 +341,7 @@ from .image_property_definition_resource import ImagePropertyDefinitionResource
 from .integer_property import IntegerProperty
 from .integer_property_definition_resource import IntegerPropertyDefinitionResource
 from .limited_gettable import LimitedGettable
+from .log_level_event import LogLevelEvent
 from .long_property import LongProperty
 from .long_property_definition_resource import LongPropertyDefinitionResource
 from .new_customer_event import NewCustomerEvent

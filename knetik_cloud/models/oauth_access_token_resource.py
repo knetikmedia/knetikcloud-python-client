@@ -50,6 +50,7 @@ class OauthAccessTokenResource(object):
         self._client_id = None
         self._token = None
         self._username = None
+        self.discriminator = None
 
         if client_id is not None:
           self.client_id = client_id

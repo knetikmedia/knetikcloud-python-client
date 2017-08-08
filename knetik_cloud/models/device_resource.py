@@ -95,6 +95,7 @@ class DeviceResource(object):
         self._updated_date = None
         self._user = None
         self._users = None
+        self.discriminator = None
 
         if authorization is not None:
           self.authorization = authorization

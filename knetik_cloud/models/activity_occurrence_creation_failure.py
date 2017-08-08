@@ -44,6 +44,7 @@ class ActivityOccurrenceCreationFailure(object):
         """
 
         self._user_results = None
+        self.discriminator = None
 
         if user_results is not None:
           self.user_results = user_results

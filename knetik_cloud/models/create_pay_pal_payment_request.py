@@ -50,6 +50,7 @@ class CreatePayPalPaymentRequest(object):
         self._cancel_url = None
         self._invoice_id = None
         self._return_url = None
+        self.discriminator = None
 
         self.cancel_url = cancel_url
         self.invoice_id = invoice_id

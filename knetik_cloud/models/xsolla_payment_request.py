@@ -47,6 +47,7 @@ class XsollaPaymentRequest(object):
 
         self._invoice_id = None
         self._return_url = None
+        self.discriminator = None
 
         self.invoice_id = invoice_id
         self.return_url = return_url

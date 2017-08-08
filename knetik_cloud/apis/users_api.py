@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,35 +31,27 @@ class UsersApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_user_tag(self, user_id, tag, **kwargs):
         """
         Add a tag to a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_user_tag(user_id, tag, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_user_tag(user_id, tag, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
-        :param str tag: tag (required)
+        :param StringWrapper tag: tag (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_user_tag_with_http_info(user_id, tag, **kwargs)
         else:
             (data) = self.add_user_tag_with_http_info(user_id, tag, **kwargs)
@@ -70,24 +61,20 @@ class UsersApi(object):
         """
         Add a tag to a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_user_tag_with_http_info(user_id, tag, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_user_tag_with_http_info(user_id, tag, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
-        :param str tag: tag (required)
+        :param StringWrapper tag: tag (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['user_id', 'tag']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -145,7 +132,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -156,22 +143,18 @@ class UsersApi(object):
         Create a user template
         User Templates define a type of user and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_user_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_user_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource user_template_resource: The user template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_user_template_with_http_info(**kwargs)
         else:
             (data) = self.create_user_template_with_http_info(**kwargs)
@@ -182,15 +165,11 @@ class UsersApi(object):
         Create a user template
         User Templates define a type of user and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_user_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_user_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource user_template_resource: The user template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -198,7 +177,7 @@ class UsersApi(object):
         """
 
         all_params = ['user_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -248,7 +227,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -259,15 +238,11 @@ class UsersApi(object):
         Delete a user template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_user_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_user_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -275,7 +250,7 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_user_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_user_template_with_http_info(id, **kwargs)
@@ -286,15 +261,11 @@ class UsersApi(object):
         Delete a user template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_user_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_user_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -303,7 +274,7 @@ class UsersApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -358,7 +329,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -369,22 +340,18 @@ class UsersApi(object):
         Get a single user
         Additional private info is included as USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the user or 'me' (required)
         :return: UserResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_with_http_info(id, **kwargs)
         else:
             (data) = self.get_user_with_http_info(id, **kwargs)
@@ -395,15 +362,11 @@ class UsersApi(object):
         Get a single user
         Additional private info is included as USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the user or 'me' (required)
         :return: UserResource
                  If the method is called asynchronously,
@@ -411,7 +374,7 @@ class UsersApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -464,7 +427,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type='UserResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -474,22 +437,18 @@ class UsersApi(object):
         """
         List tags for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_tags(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_tags(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_tags_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_user_tags_with_http_info(user_id, **kwargs)
@@ -499,15 +458,11 @@ class UsersApi(object):
         """
         List tags for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_tags_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_tags_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :return: list[str]
                  If the method is called asynchronously,
@@ -515,7 +470,7 @@ class UsersApi(object):
         """
 
         all_params = ['user_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -568,7 +523,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type='list[str]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -578,22 +533,18 @@ class UsersApi(object):
         """
         Get a single user template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_user_template_with_http_info(id, **kwargs)
@@ -603,15 +554,11 @@ class UsersApi(object):
         """
         Get a single user template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -619,7 +566,7 @@ class UsersApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -672,7 +619,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -682,15 +629,11 @@ class UsersApi(object):
         """
         List and search user templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -699,7 +642,7 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_user_templates_with_http_info(**kwargs)
@@ -709,15 +652,11 @@ class UsersApi(object):
         """
         List and search user templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -727,7 +666,7 @@ class UsersApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -781,7 +720,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -792,15 +731,11 @@ class UsersApi(object):
         List and search users
         Additional private info is included as USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_users(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_users(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_displayname: Filter for users whose display name starts with provided string.
         :param str filter_email: Filter for users whose email starts with provided string. Requires USERS_ADMIN permission
         :param str filter_firstname: Filter for users whose first name starts with provided string. Requires USERS_ADMIN permission
@@ -819,7 +754,7 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_users_with_http_info(**kwargs)
         else:
             (data) = self.get_users_with_http_info(**kwargs)
@@ -830,15 +765,11 @@ class UsersApi(object):
         List and search users
         Additional private info is included as USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_users_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_users_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_displayname: Filter for users whose display name starts with provided string.
         :param str filter_email: Filter for users whose email starts with provided string. Requires USERS_ADMIN permission
         :param str filter_firstname: Filter for users whose first name starts with provided string. Requires USERS_ADMIN permission
@@ -858,7 +789,7 @@ class UsersApi(object):
         """
 
         all_params = ['filter_displayname', 'filter_email', 'filter_firstname', 'filter_fullname', 'filter_lastname', 'filter_username', 'filter_tag', 'filter_group', 'filter_role', 'filter_search', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -932,7 +863,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUserBaseResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -943,15 +874,11 @@ class UsersApi(object):
         Choose a new password after a reset
         Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.password_reset(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.password_reset(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the user (required)
         :param NewPasswordRequest new_password_request: The new password request object
         :return: None
@@ -959,7 +886,7 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.password_reset_with_http_info(id, **kwargs)
         else:
             (data) = self.password_reset_with_http_info(id, **kwargs)
@@ -970,15 +897,11 @@ class UsersApi(object):
         Choose a new password after a reset
         Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.password_reset_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.password_reset_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the user (required)
         :param NewPasswordRequest new_password_request: The new password request object
         :return: None
@@ -987,7 +910,7 @@ class UsersApi(object):
         """
 
         all_params = ['id', 'new_password_request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1042,7 +965,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1053,22 +976,18 @@ class UsersApi(object):
         Register a new user
         Password should be in plain text and will be encrypted on receipt. Use SSL for security
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.register_user(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.register_user(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param UserResource user_resource: The user resource object
         :return: UserResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.register_user_with_http_info(**kwargs)
         else:
             (data) = self.register_user_with_http_info(**kwargs)
@@ -1079,15 +998,11 @@ class UsersApi(object):
         Register a new user
         Password should be in plain text and will be encrypted on receipt. Use SSL for security
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.register_user_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.register_user_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param UserResource user_resource: The user resource object
         :return: UserResource
                  If the method is called asynchronously,
@@ -1095,7 +1010,7 @@ class UsersApi(object):
         """
 
         all_params = ['user_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1145,7 +1060,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type='UserResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1155,15 +1070,11 @@ class UsersApi(object):
         """
         Remove a tag from a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_user_tag(user_id, tag, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_user_tag(user_id, tag, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str tag: The tag to remove (required)
         :return: None
@@ -1171,7 +1082,7 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_user_tag_with_http_info(user_id, tag, **kwargs)
         else:
             (data) = self.remove_user_tag_with_http_info(user_id, tag, **kwargs)
@@ -1181,15 +1092,11 @@ class UsersApi(object):
         """
         Remove a tag from a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_user_tag_with_http_info(user_id, tag, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_user_tag_with_http_info(user_id, tag, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str tag: The tag to remove (required)
         :return: None
@@ -1198,7 +1105,7 @@ class UsersApi(object):
         """
 
         all_params = ['user_id', 'tag']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1256,7 +1163,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1267,23 +1174,19 @@ class UsersApi(object):
         Set a user's password
         Password should be in plain text and will be encrypted on receipt. Use SSL for security.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_password(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_password(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the user (required)
-        :param str password: The new plain text password
+        :param StringWrapper password: The new plain text password
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_password_with_http_info(id, **kwargs)
         else:
             (data) = self.set_password_with_http_info(id, **kwargs)
@@ -1294,24 +1197,20 @@ class UsersApi(object):
         Set a user's password
         Password should be in plain text and will be encrypted on receipt. Use SSL for security.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_password_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_password_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the user (required)
-        :param str password: The new plain text password
+        :param StringWrapper password: The new plain text password
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'password']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1366,7 +1265,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1377,22 +1276,18 @@ class UsersApi(object):
         Reset a user's password
         A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.start_password_reset(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.start_password_reset(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the user (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.start_password_reset_with_http_info(id, **kwargs)
         else:
             (data) = self.start_password_reset_with_http_info(id, **kwargs)
@@ -1403,15 +1298,11 @@ class UsersApi(object):
         Reset a user's password
         A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.start_password_reset_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.start_password_reset_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the user (required)
         :return: None
                  If the method is called asynchronously,
@@ -1419,7 +1310,7 @@ class UsersApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1472,7 +1363,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1483,22 +1374,18 @@ class UsersApi(object):
         Reset a user's password without user id
         A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.submit_password_reset(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.submit_password_reset(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param PasswordResetRequest password_reset: An object containing one of three methods to look up a user
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.submit_password_reset_with_http_info(**kwargs)
         else:
             (data) = self.submit_password_reset_with_http_info(**kwargs)
@@ -1509,15 +1396,11 @@ class UsersApi(object):
         Reset a user's password without user id
         A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.submit_password_reset_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.submit_password_reset_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param PasswordResetRequest password_reset: An object containing one of three methods to look up a user
         :return: None
                  If the method is called asynchronously,
@@ -1525,7 +1408,7 @@ class UsersApi(object):
         """
 
         all_params = ['password_reset']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1575,7 +1458,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1586,15 +1469,11 @@ class UsersApi(object):
         Update a user
         Password will not be edited on this endpoint, use password specific endpoints.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_user(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_user(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the user or 'me' (required)
         :param UserResource user_resource: The user resource object
         :return: None
@@ -1602,7 +1481,7 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_user_with_http_info(id, **kwargs)
         else:
             (data) = self.update_user_with_http_info(id, **kwargs)
@@ -1613,15 +1492,11 @@ class UsersApi(object):
         Update a user
         Password will not be edited on this endpoint, use password specific endpoints.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_user_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_user_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the user or 'me' (required)
         :param UserResource user_resource: The user resource object
         :return: None
@@ -1630,7 +1505,7 @@ class UsersApi(object):
         """
 
         all_params = ['id', 'user_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1685,7 +1560,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1695,15 +1570,11 @@ class UsersApi(object):
         """
         Update a user template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_user_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_user_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource user_template_resource: The user template resource object
         :return: TemplateResource
@@ -1711,7 +1582,7 @@ class UsersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_user_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_user_template_with_http_info(id, **kwargs)
@@ -1721,15 +1592,11 @@ class UsersApi(object):
         """
         Update a user template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_user_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_user_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource user_template_resource: The user template resource object
         :return: TemplateResource
@@ -1738,7 +1605,7 @@ class UsersApi(object):
         """
 
         all_params = ['id', 'user_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1793,7 +1660,7 @@ class UsersApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

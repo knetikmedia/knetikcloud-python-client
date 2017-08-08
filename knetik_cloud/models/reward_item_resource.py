@@ -56,6 +56,7 @@ class RewardItemResource(object):
         self._max_rank = None
         self._min_rank = None
         self._quantity = None
+        self.discriminator = None
 
         self.item_id = item_id
         if item_name is not None:

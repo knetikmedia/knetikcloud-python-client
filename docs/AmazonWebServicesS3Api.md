@@ -23,10 +23,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AmazonWebServicesS3Api()
+api_instance = knetik_cloud.AmazonWebServicesS3Api(knetik_cloud.ApiClient(configuration))
 filename = 'filename_example' # str | The file name (optional)
 content_type = 'content_type_example' # str | The content type (optional)
 

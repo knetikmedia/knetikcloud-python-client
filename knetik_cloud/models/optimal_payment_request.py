@@ -62,6 +62,7 @@ class OptimalPaymentRequest(object):
         self._on_decline = None
         self._on_error = None
         self._on_success = None
+        self.discriminator = None
 
         if email is not None:
           self.email = email

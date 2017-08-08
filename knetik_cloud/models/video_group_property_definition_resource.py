@@ -31,14 +31,6 @@ class VideoGroupPropertyDefinitionResource(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'field_list': 'PropertyFieldListResource',
-        'name': 'str',
-        'required': 'bool',
-        'type': 'str',
-        'file_type': 'str',
-        'max_count': 'int',
-        'max_file_size': 'int',
-        'min_count': 'int',
         'max_height': 'int',
         'max_length': 'int',
         'max_width': 'int',
@@ -48,14 +40,6 @@ class VideoGroupPropertyDefinitionResource(object):
     }
 
     attribute_map = {
-        'field_list': 'field_list',
-        'name': 'name',
-        'required': 'required',
-        'type': 'type',
-        'file_type': 'file_type',
-        'max_count': 'max_count',
-        'max_file_size': 'max_file_size',
-        'min_count': 'min_count',
         'max_height': 'max_height',
         'max_length': 'max_length',
         'max_width': 'max_width',
@@ -64,39 +48,19 @@ class VideoGroupPropertyDefinitionResource(object):
         'min_width': 'min_width'
     }
 
-    def __init__(self, field_list=None, name=None, required=None, type=None, file_type=None, max_count=None, max_file_size=None, min_count=None, max_height=None, max_length=None, max_width=None, min_height=None, min_length=None, min_width=None):
+    def __init__(self, max_height=None, max_length=None, max_width=None, min_height=None, min_length=None, min_width=None):
         """
         VideoGroupPropertyDefinitionResource - a model defined in Swagger
         """
 
-        self._field_list = None
-        self._name = None
-        self._required = None
-        self._type = None
-        self._file_type = None
-        self._max_count = None
-        self._max_file_size = None
-        self._min_count = None
         self._max_height = None
         self._max_length = None
         self._max_width = None
         self._min_height = None
         self._min_length = None
         self._min_width = None
+        self.discriminator = None
 
-        if field_list is not None:
-          self.field_list = field_list
-        self.name = name
-        self.required = required
-        self.type = type
-        if file_type is not None:
-          self.file_type = file_type
-        if max_count is not None:
-          self.max_count = max_count
-        if max_file_size is not None:
-          self.max_file_size = max_file_size
-        if min_count is not None:
-          self.min_count = min_count
         if max_height is not None:
           self.max_height = max_height
         if max_length is not None:
@@ -109,196 +73,6 @@ class VideoGroupPropertyDefinitionResource(object):
           self.min_length = min_length
         if min_width is not None:
           self.min_width = min_width
-
-    @property
-    def field_list(self):
-        """
-        Gets the field_list of this VideoGroupPropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :return: The field_list of this VideoGroupPropertyDefinitionResource.
-        :rtype: PropertyFieldListResource
-        """
-        return self._field_list
-
-    @field_list.setter
-    def field_list(self, field_list):
-        """
-        Sets the field_list of this VideoGroupPropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :param field_list: The field_list of this VideoGroupPropertyDefinitionResource.
-        :type: PropertyFieldListResource
-        """
-
-        self._field_list = field_list
-
-    @property
-    def name(self):
-        """
-        Gets the name of this VideoGroupPropertyDefinitionResource.
-        The name of the property
-
-        :return: The name of this VideoGroupPropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this VideoGroupPropertyDefinitionResource.
-        The name of the property
-
-        :param name: The name of this VideoGroupPropertyDefinitionResource.
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-
-        self._name = name
-
-    @property
-    def required(self):
-        """
-        Gets the required of this VideoGroupPropertyDefinitionResource.
-        Whether the property is required
-
-        :return: The required of this VideoGroupPropertyDefinitionResource.
-        :rtype: bool
-        """
-        return self._required
-
-    @required.setter
-    def required(self, required):
-        """
-        Sets the required of this VideoGroupPropertyDefinitionResource.
-        Whether the property is required
-
-        :param required: The required of this VideoGroupPropertyDefinitionResource.
-        :type: bool
-        """
-        if required is None:
-            raise ValueError("Invalid value for `required`, must not be `None`")
-
-        self._required = required
-
-    @property
-    def type(self):
-        """
-        Gets the type of this VideoGroupPropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :return: The type of this VideoGroupPropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this VideoGroupPropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :param type: The type of this VideoGroupPropertyDefinitionResource.
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
-
-        self._type = type
-
-    @property
-    def file_type(self):
-        """
-        Gets the file_type of this VideoGroupPropertyDefinitionResource.
-        If provided, a file type that the property must match
-
-        :return: The file_type of this VideoGroupPropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._file_type
-
-    @file_type.setter
-    def file_type(self, file_type):
-        """
-        Sets the file_type of this VideoGroupPropertyDefinitionResource.
-        If provided, a file type that the property must match
-
-        :param file_type: The file_type of this VideoGroupPropertyDefinitionResource.
-        :type: str
-        """
-
-        self._file_type = file_type
-
-    @property
-    def max_count(self):
-        """
-        Gets the max_count of this VideoGroupPropertyDefinitionResource.
-        If provided, the maximum number of files in the group
-
-        :return: The max_count of this VideoGroupPropertyDefinitionResource.
-        :rtype: int
-        """
-        return self._max_count
-
-    @max_count.setter
-    def max_count(self, max_count):
-        """
-        Sets the max_count of this VideoGroupPropertyDefinitionResource.
-        If provided, the maximum number of files in the group
-
-        :param max_count: The max_count of this VideoGroupPropertyDefinitionResource.
-        :type: int
-        """
-
-        self._max_count = max_count
-
-    @property
-    def max_file_size(self):
-        """
-        Gets the max_file_size of this VideoGroupPropertyDefinitionResource.
-        If provided, the maximum allowed size per file in bytes
-
-        :return: The max_file_size of this VideoGroupPropertyDefinitionResource.
-        :rtype: int
-        """
-        return self._max_file_size
-
-    @max_file_size.setter
-    def max_file_size(self, max_file_size):
-        """
-        Sets the max_file_size of this VideoGroupPropertyDefinitionResource.
-        If provided, the maximum allowed size per file in bytes
-
-        :param max_file_size: The max_file_size of this VideoGroupPropertyDefinitionResource.
-        :type: int
-        """
-
-        self._max_file_size = max_file_size
-
-    @property
-    def min_count(self):
-        """
-        Gets the min_count of this VideoGroupPropertyDefinitionResource.
-        If provided, the minimum number of files in the group
-
-        :return: The min_count of this VideoGroupPropertyDefinitionResource.
-        :rtype: int
-        """
-        return self._min_count
-
-    @min_count.setter
-    def min_count(self, min_count):
-        """
-        Sets the min_count of this VideoGroupPropertyDefinitionResource.
-        If provided, the minimum number of files in the group
-
-        :param min_count: The min_count of this VideoGroupPropertyDefinitionResource.
-        :type: int
-        """
-
-        self._min_count = min_count
 
     @property
     def max_height(self):

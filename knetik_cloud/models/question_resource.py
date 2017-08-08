@@ -86,6 +86,7 @@ class QuestionResource(object):
         self._template = None
         self._updated_date = None
         self._vendor = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

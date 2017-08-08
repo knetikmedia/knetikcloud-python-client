@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,28 +31,20 @@ class SearchApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_search_index(self, type, id, **kwargs):
         """
         Add a new object to an index
         Mainly intended for internal use.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_search_index(type, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_search_index(type, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str type: The index type (required)
         :param str id: The ID of the object (required)
         :param object object: The object to add
@@ -62,7 +53,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_search_index_with_http_info(type, id, **kwargs)
         else:
             (data) = self.add_search_index_with_http_info(type, id, **kwargs)
@@ -73,15 +64,11 @@ class SearchApi(object):
         Add a new object to an index
         Mainly intended for internal use.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_search_index_with_http_info(type, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_search_index_with_http_info(type, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str type: The index type (required)
         :param str id: The ID of the object (required)
         :param object object: The object to add
@@ -91,7 +78,7 @@ class SearchApi(object):
         """
 
         all_params = ['type', 'id', 'object']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -151,7 +138,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -162,22 +149,18 @@ class SearchApi(object):
         Register reference mappings
         Add a new type mapping to connect data from one index to another, or discover an exsting one. Mainly intended for internal use.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_search_mappings(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_search_mappings(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param list[SearchReferenceMapping] mappings: The mappings to add
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_search_mappings_with_http_info(**kwargs)
         else:
             (data) = self.add_search_mappings_with_http_info(**kwargs)
@@ -188,15 +171,11 @@ class SearchApi(object):
         Register reference mappings
         Add a new type mapping to connect data from one index to another, or discover an exsting one. Mainly intended for internal use.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_search_mappings_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_search_mappings_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param list[SearchReferenceMapping] mappings: The mappings to add
         :return: None
                  If the method is called asynchronously,
@@ -204,7 +183,7 @@ class SearchApi(object):
         """
 
         all_params = ['mappings']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -254,7 +233,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -265,15 +244,11 @@ class SearchApi(object):
         Delete an object
         Mainly intended for internal use. Requires SEARCH_ADMIN.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_search_index(type, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_search_index(type, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str type: The index type (required)
         :param str id: The ID of the object to delete (required)
         :return: None
@@ -281,7 +256,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_search_index_with_http_info(type, id, **kwargs)
         else:
             (data) = self.delete_search_index_with_http_info(type, id, **kwargs)
@@ -292,15 +267,11 @@ class SearchApi(object):
         Delete an object
         Mainly intended for internal use. Requires SEARCH_ADMIN.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_search_index_with_http_info(type, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_search_index_with_http_info(type, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str type: The index type (required)
         :param str id: The ID of the object to delete (required)
         :return: None
@@ -309,7 +280,7 @@ class SearchApi(object):
         """
 
         all_params = ['type', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -367,7 +338,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -378,22 +349,18 @@ class SearchApi(object):
         Delete all objects in an index
         Mainly intended for internal use
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_search_indexes(type, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_search_indexes(type, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str type: The index type (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_search_indexes_with_http_info(type, **kwargs)
         else:
             (data) = self.delete_search_indexes_with_http_info(type, **kwargs)
@@ -404,15 +371,11 @@ class SearchApi(object):
         Delete all objects in an index
         Mainly intended for internal use
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_search_indexes_with_http_info(type, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_search_indexes_with_http_info(type, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str type: The index type (required)
         :return: None
                  If the method is called asynchronously,
@@ -420,7 +383,7 @@ class SearchApi(object):
         """
 
         all_params = ['type']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -473,7 +436,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -484,15 +447,11 @@ class SearchApi(object):
         Search an index
         The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type. See individual search endpoints on other resources for details on their format.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_index(type, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_index(type, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str type: The index type (required)
         :param object query: The query to be used for the search
         :param int size: The number of objects returned per page
@@ -502,7 +461,7 @@ class SearchApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_index_with_http_info(type, **kwargs)
         else:
             (data) = self.search_index_with_http_info(type, **kwargs)
@@ -513,15 +472,11 @@ class SearchApi(object):
         Search an index
         The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type. See individual search endpoints on other resources for details on their format.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_index_with_http_info(type, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_index_with_http_info(type, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str type: The index type (required)
         :param object query: The query to be used for the search
         :param int size: The number of objects returned per page
@@ -532,7 +487,7 @@ class SearchApi(object):
         """
 
         all_params = ['type', 'query', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -591,7 +546,7 @@ class SearchApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceMapstringobject',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

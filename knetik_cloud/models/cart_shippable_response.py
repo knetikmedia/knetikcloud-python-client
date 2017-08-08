@@ -47,6 +47,7 @@ class CartShippableResponse(object):
 
         self._cart_id = None
         self._shippable = None
+        self.discriminator = None
 
         if cart_id is not None:
           self.cart_id = cart_id

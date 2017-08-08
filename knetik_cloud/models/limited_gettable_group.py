@@ -50,6 +50,7 @@ class LimitedGettableGroup(object):
         self._active_only = None
         self._name = None
         self._owned_limit = None
+        self.discriminator = None
 
         self.active_only = active_only
         if name is not None:

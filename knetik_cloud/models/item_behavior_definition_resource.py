@@ -50,6 +50,7 @@ class ItemBehaviorDefinitionResource(object):
         self._behavior = None
         self._modifiable = None
         self._required = None
+        self.discriminator = None
 
         self.behavior = behavior
         self.modifiable = modifiable

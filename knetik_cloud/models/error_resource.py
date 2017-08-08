@@ -50,6 +50,7 @@ class ErrorResource(object):
         self._details = None
         self._field = None
         self._message = None
+        self.discriminator = None
 
         if details is not None:
           self.details = details

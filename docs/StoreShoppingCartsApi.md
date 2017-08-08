@@ -33,10 +33,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 custom_discount = knetik_cloud.CouponDefinition() # CouponDefinition | The details of the discount to add (optional)
 
@@ -83,10 +84,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 sku_request = knetik_cloud.SkuRequest() # SkuRequest | The request of the sku (optional)
 
@@ -135,10 +137,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 cart_item_request = knetik_cloud.CartItemRequest() # CartItemRequest | The cart item request object (optional)
 
@@ -187,10 +190,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 owner = 56 # int | Set the owner of a cart. If not specified, defaults to the calling user's id. If specified and is not the calling user's id, SHOPPING_CARTS_ADMIN permission is required (optional)
 currency_code = 'currency_code_example' # str | Set the currency for the cart, by currency code. May be disallowed by site settings. (optional)
 
@@ -238,10 +242,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 
 try: 
@@ -287,10 +292,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 filter_owner_id = 56 # int | Filter by the id of the owner (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
@@ -342,10 +348,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 
 try: 
@@ -393,10 +400,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 
 try: 
@@ -442,10 +450,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 code = 'code_example' # str | The SKU code of the coupon to remove
 
@@ -494,12 +503,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
-currency_code = 'currency_code_example' # str | The code of the currency (optional)
+currency_code = knetik_cloud.StringWrapper() # StringWrapper | The code of the currency (optional)
 
 try: 
     # Sets the currency to use for the cart
@@ -513,7 +523,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the cart | 
- **currency_code** | **str**| The code of the currency | [optional] 
+ **currency_code** | [**StringWrapper**](StringWrapper.md)| The code of the currency | [optional] 
 
 ### Return type
 
@@ -544,12 +554,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
-user_id = 56 # int | The id of the user (optional)
+user_id = knetik_cloud.IntWrapper() # IntWrapper | The id of the user (optional)
 
 try: 
     # Sets the owner of a cart if none is set already
@@ -563,7 +574,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the cart | 
- **user_id** | **int**| The id of the user | [optional] 
+ **user_id** | [**IntWrapper**](IntWrapper.md)| The id of the user | [optional] 
 
 ### Return type
 
@@ -596,10 +607,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 cart_item_request = knetik_cloud.CartItemRequest() # CartItemRequest | The cart item request object (optional)
 
@@ -646,10 +658,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.StoreShoppingCartsApi()
+api_instance = knetik_cloud.StoreShoppingCartsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the cart
 cart_shipping_address_request = knetik_cloud.CartShippingAddressRequest() # CartShippingAddressRequest | The cart shipping address request object (optional)
 

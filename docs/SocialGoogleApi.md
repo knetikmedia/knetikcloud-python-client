@@ -23,10 +23,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.SocialGoogleApi()
+api_instance = knetik_cloud.SocialGoogleApi(knetik_cloud.ApiClient(configuration))
 google_token = knetik_cloud.GoogleToken() # GoogleToken | The token from google (optional)
 
 try: 

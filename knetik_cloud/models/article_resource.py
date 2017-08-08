@@ -71,6 +71,7 @@ class ArticleResource(object):
         self._template = None
         self._title = None
         self._updated_date = None
+        self.discriminator = None
 
         self.active = active
         if additional_properties is not None:

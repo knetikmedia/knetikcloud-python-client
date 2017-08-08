@@ -53,6 +53,7 @@ class FulfillmentType(object):
         self._description = None
         self._id = None
         self._name = None
+        self.discriminator = None
 
         if core is not None:
           self.core = core

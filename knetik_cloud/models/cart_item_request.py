@@ -53,6 +53,7 @@ class CartItemRequest(object):
         self._catalog_sku = None
         self._price_override = None
         self._quantity = None
+        self.discriminator = None
 
         if affiliate_key is not None:
           self.affiliate_key = affiliate_key

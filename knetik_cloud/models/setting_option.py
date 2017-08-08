@@ -47,6 +47,7 @@ class SettingOption(object):
 
         self._name = None
         self._value = None
+        self.discriminator = None
 
         self.name = name
         if value is not None:

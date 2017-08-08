@@ -53,6 +53,7 @@ class RevenueProductReportResource(object):
         self._item_name = None
         self._revenue = None
         self._volume = None
+        self.discriminator = None
 
         if item_id is not None:
           self.item_id = item_id

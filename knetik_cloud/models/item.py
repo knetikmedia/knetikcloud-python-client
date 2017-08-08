@@ -64,6 +64,15 @@ class Item(object):
         'updated_date': 'updated_date'
     }
 
+    discriminator_value_class_map = {
+        'shipping_item': 'ShippingItem',
+        'bundle_item': 'BundleItem',
+        'subscription': 'Subscription',
+        'item': 'StoreItem',
+        'coupon_item': 'CouponItem',
+        'entitlement': 'EntitlementItem'
+    }
+
     def __init__(self, additional_properties=None, behaviors=None, category=None, created_date=None, id=None, long_description=None, name=None, short_description=None, sort=None, tags=None, template=None, type_hint=None, unique_key=None, updated_date=None):
         """
         Item - a model defined in Swagger
@@ -83,6 +92,7 @@ class Item(object):
         self._type_hint = None
         self._unique_key = None
         self._updated_date = None
+        self.discriminator = 'type_hint'
 
         if additional_properties is not None:
           self.additional_properties = additional_properties
@@ -436,6 +446,16 @@ class Item(object):
         """
 
         self._updated_date = updated_date
+
+    def get_real_child_model(self, data):
+        """
+        Returns the real base class specified by the discriminator
+        """
+        discriminator_value = data[self.discriminator].lower()
+        if self.discriminator_value_class_map.has_key(discriminator_value):
+            return self.discriminator_value_class_map[discriminator_value]
+        else:
+            return None
 
     def to_dict(self):
         """

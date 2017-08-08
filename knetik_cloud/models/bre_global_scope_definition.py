@@ -47,6 +47,7 @@ class BreGlobalScopeDefinition(object):
 
         self._name = None
         self._type = None
+        self.discriminator = None
 
         self.name = name
         self.type = type

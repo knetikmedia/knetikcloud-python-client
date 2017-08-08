@@ -53,6 +53,7 @@ class IOConfig(object):
         self._enabled = None
         self._environment = None
         self._product = None
+        self.discriminator = None
 
         if customer is not None:
           self.customer = customer

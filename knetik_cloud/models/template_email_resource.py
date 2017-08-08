@@ -53,6 +53,7 @@ class TemplateEmailResource(object):
         self._recipients = None
         self._template_key = None
         self._template_vars = None
+        self.discriminator = None
 
         if _from is not None:
           self._from = _from

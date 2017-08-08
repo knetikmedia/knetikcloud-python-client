@@ -47,6 +47,7 @@ class PredicateOperation(object):
 
         self._args = None
         self._operator = None
+        self.discriminator = None
 
         if args is not None:
           self.args = args

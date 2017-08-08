@@ -74,6 +74,7 @@ class UserInventoryResource(object):
         self._status = None
         self._updated_date = None
         self._user = None
+        self.discriminator = None
 
         if behavior_data is not None:
           self.behavior_data = behavior_data

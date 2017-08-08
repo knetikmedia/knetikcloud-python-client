@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class MessagingApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def send_raw_email(self, **kwargs):
         """
         Send a raw email to one or more users
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.send_raw_email(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_raw_email(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param RawEmailResource raw_email_resource: The new raw email to be sent
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.send_raw_email_with_http_info(**kwargs)
         else:
             (data) = self.send_raw_email_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class MessagingApi(object):
         """
         Send a raw email to one or more users
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.send_raw_email_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_raw_email_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param RawEmailResource raw_email_resource: The new raw email to be sent
         :return: None
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class MessagingApi(object):
         """
 
         all_params = ['raw_email_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class MessagingApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -146,22 +133,18 @@ class MessagingApi(object):
         Send a raw SMS
         Sends a raw SMS text message to one or more users. User's without registered mobile numbers will be skipped.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.send_raw_sms(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_raw_sms(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param RawSMSResource raw_sms_resource: The new raw SMS to be sent
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.send_raw_sms_with_http_info(**kwargs)
         else:
             (data) = self.send_raw_sms_with_http_info(**kwargs)
@@ -172,15 +155,11 @@ class MessagingApi(object):
         Send a raw SMS
         Sends a raw SMS text message to one or more users. User's without registered mobile numbers will be skipped.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.send_raw_sms_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_raw_sms_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param RawSMSResource raw_sms_resource: The new raw SMS to be sent
         :return: None
                  If the method is called asynchronously,
@@ -188,7 +167,7 @@ class MessagingApi(object):
         """
 
         all_params = ['raw_sms_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -238,7 +217,7 @@ class MessagingApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -248,22 +227,18 @@ class MessagingApi(object):
         """
         Send a templated email to one or more users
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.send_templated_email(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_templated_email(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateEmailResource message_resource: The new template email to be sent
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.send_templated_email_with_http_info(**kwargs)
         else:
             (data) = self.send_templated_email_with_http_info(**kwargs)
@@ -273,15 +248,11 @@ class MessagingApi(object):
         """
         Send a templated email to one or more users
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.send_templated_email_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_templated_email_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateEmailResource message_resource: The new template email to be sent
         :return: None
                  If the method is called asynchronously,
@@ -289,7 +260,7 @@ class MessagingApi(object):
         """
 
         all_params = ['message_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -339,7 +310,7 @@ class MessagingApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -350,22 +321,18 @@ class MessagingApi(object):
         Send a new templated SMS
         Sends a templated SMS text message to one or more users. User's without registered mobile numbers will be skipped.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.send_templated_sms(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_templated_sms(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateSMSResource template_sms_resource: The new template SMS to be sent
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.send_templated_sms_with_http_info(**kwargs)
         else:
             (data) = self.send_templated_sms_with_http_info(**kwargs)
@@ -376,15 +343,11 @@ class MessagingApi(object):
         Send a new templated SMS
         Sends a templated SMS text message to one or more users. User's without registered mobile numbers will be skipped.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.send_templated_sms_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.send_templated_sms_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateSMSResource template_sms_resource: The new template SMS to be sent
         :return: None
                  If the method is called asynchronously,
@@ -392,7 +355,7 @@ class MessagingApi(object):
         """
 
         all_params = ['template_sms_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -442,7 +405,7 @@ class MessagingApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

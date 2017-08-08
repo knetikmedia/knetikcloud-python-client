@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class ConfigsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_config(self, **kwargs):
         """
         Create a new config
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_config(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_config(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param Config config: The config object
         :return: Config
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_config_with_http_info(**kwargs)
         else:
             (data) = self.create_config_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class ConfigsApi(object):
         """
         Create a new config
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_config_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_config_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param Config config: The config object
         :return: Config
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class ConfigsApi(object):
         """
 
         all_params = ['config']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class ConfigsApi(object):
                                         files=local_var_files,
                                         response_type='Config',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -145,22 +132,18 @@ class ConfigsApi(object):
         """
         Delete an existing config
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_config(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_config(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The config name (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_config_with_http_info(name, **kwargs)
         else:
             (data) = self.delete_config_with_http_info(name, **kwargs)
@@ -170,15 +153,11 @@ class ConfigsApi(object):
         """
         Delete an existing config
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_config_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_config_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The config name (required)
         :return: None
                  If the method is called asynchronously,
@@ -186,7 +165,7 @@ class ConfigsApi(object):
         """
 
         all_params = ['name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -239,7 +218,7 @@ class ConfigsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -250,22 +229,18 @@ class ConfigsApi(object):
         Get a single config
         Only configs that are public readable will be shown without admin access
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_config(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_config(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The config name (required)
         :return: Config
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_config_with_http_info(name, **kwargs)
         else:
             (data) = self.get_config_with_http_info(name, **kwargs)
@@ -276,15 +251,11 @@ class ConfigsApi(object):
         Get a single config
         Only configs that are public readable will be shown without admin access
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_config_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_config_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The config name (required)
         :return: Config
                  If the method is called asynchronously,
@@ -292,7 +263,7 @@ class ConfigsApi(object):
         """
 
         all_params = ['name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -345,7 +316,7 @@ class ConfigsApi(object):
                                         files=local_var_files,
                                         response_type='Config',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -355,15 +326,11 @@ class ConfigsApi(object):
         """
         List and search configs
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_configs(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_configs(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_search: Filter for configs whose name contains the given string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned
@@ -373,7 +340,7 @@ class ConfigsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_configs_with_http_info(**kwargs)
         else:
             (data) = self.get_configs_with_http_info(**kwargs)
@@ -383,15 +350,11 @@ class ConfigsApi(object):
         """
         List and search configs
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_configs_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_configs_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_search: Filter for configs whose name contains the given string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned
@@ -402,7 +365,7 @@ class ConfigsApi(object):
         """
 
         all_params = ['filter_search', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -458,7 +421,7 @@ class ConfigsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceConfig',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -468,15 +431,11 @@ class ConfigsApi(object):
         """
         Update an existing config
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_config(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_config(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The config name (required)
         :param Config config: The config object
         :return: None
@@ -484,7 +443,7 @@ class ConfigsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_config_with_http_info(name, **kwargs)
         else:
             (data) = self.update_config_with_http_info(name, **kwargs)
@@ -494,15 +453,11 @@ class ConfigsApi(object):
         """
         Update an existing config
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_config_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_config_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The config name (required)
         :param Config config: The config object
         :return: None
@@ -511,7 +466,7 @@ class ConfigsApi(object):
         """
 
         all_params = ['name', 'config']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -566,7 +521,7 @@ class ConfigsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

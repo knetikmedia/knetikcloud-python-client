@@ -89,6 +89,7 @@ class InvoiceItemResource(object):
         self._total_price = None
         self._type_hint = None
         self._unit_price = None
+        self.discriminator = None
 
         if bundle_sku is not None:
           self.bundle_sku = bundle_sku

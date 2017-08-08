@@ -31,8 +31,6 @@ class TimePeriodGettable(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'type_hint': 'str',
         'get_limit': 'int',
         'group_name': 'str',
         'time_length': 'int',
@@ -40,79 +38,28 @@ class TimePeriodGettable(object):
     }
 
     attribute_map = {
-        'description': 'description',
-        'type_hint': 'type_hint',
         'get_limit': 'get_limit',
         'group_name': 'group_name',
         'time_length': 'time_length',
         'unit_of_time': 'unit_of_time'
     }
 
-    def __init__(self, description=None, type_hint=None, get_limit=None, group_name=None, time_length=None, unit_of_time=None):
+    def __init__(self, get_limit=None, group_name=None, time_length=None, unit_of_time=None):
         """
         TimePeriodGettable - a model defined in Swagger
         """
 
-        self._description = None
-        self._type_hint = None
         self._get_limit = None
         self._group_name = None
         self._time_length = None
         self._unit_of_time = None
+        self.discriminator = None
 
-        if description is not None:
-          self.description = description
-        if type_hint is not None:
-          self.type_hint = type_hint
         self.get_limit = get_limit
         if group_name is not None:
           self.group_name = group_name
         self.time_length = time_length
         self.unit_of_time = unit_of_time
-
-    @property
-    def description(self):
-        """
-        Gets the description of this TimePeriodGettable.
-
-        :return: The description of this TimePeriodGettable.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this TimePeriodGettable.
-
-        :param description: The description of this TimePeriodGettable.
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def type_hint(self):
-        """
-        Gets the type_hint of this TimePeriodGettable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :return: The type_hint of this TimePeriodGettable.
-        :rtype: str
-        """
-        return self._type_hint
-
-    @type_hint.setter
-    def type_hint(self, type_hint):
-        """
-        Sets the type_hint of this TimePeriodGettable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :param type_hint: The type_hint of this TimePeriodGettable.
-        :type: str
-        """
-
-        self._type_hint = type_hint
 
     @property
     def get_limit(self):

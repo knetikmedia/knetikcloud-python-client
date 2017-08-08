@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,35 +31,27 @@ class PaymentsPayPalClassicApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_pay_pal_billing_agreement_url(self, **kwargs):
         """
         Create a PayPal Classic billing agreement for the user
         Returns the token that should be used to forward the user to PayPal so they can accept the agreement.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_pay_pal_billing_agreement_url(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_pay_pal_billing_agreement_url(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param CreateBillingAgreementRequest request: The request to create a PayPal billing agreement
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_pay_pal_billing_agreement_url_with_http_info(**kwargs)
         else:
             (data) = self.create_pay_pal_billing_agreement_url_with_http_info(**kwargs)
@@ -71,15 +62,11 @@ class PaymentsPayPalClassicApi(object):
         Create a PayPal Classic billing agreement for the user
         Returns the token that should be used to forward the user to PayPal so they can accept the agreement.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_pay_pal_billing_agreement_url_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_pay_pal_billing_agreement_url_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param CreateBillingAgreementRequest request: The request to create a PayPal billing agreement
         :return: str
                  If the method is called asynchronously,
@@ -87,7 +74,7 @@ class PaymentsPayPalClassicApi(object):
         """
 
         all_params = ['request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -137,7 +124,7 @@ class PaymentsPayPalClassicApi(object):
                                         files=local_var_files,
                                         response_type='str',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -148,22 +135,18 @@ class PaymentsPayPalClassicApi(object):
         Create a payment token for PayPal express checkout
         Returns the token that should be used to forward the user to PayPal so they can complete the checkout.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_pay_pal_express_checkout(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_pay_pal_express_checkout(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param CreatePayPalPaymentRequest request: The request to create a PayPal payment token
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_pay_pal_express_checkout_with_http_info(**kwargs)
         else:
             (data) = self.create_pay_pal_express_checkout_with_http_info(**kwargs)
@@ -174,15 +157,11 @@ class PaymentsPayPalClassicApi(object):
         Create a payment token for PayPal express checkout
         Returns the token that should be used to forward the user to PayPal so they can complete the checkout.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_pay_pal_express_checkout_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_pay_pal_express_checkout_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param CreatePayPalPaymentRequest request: The request to create a PayPal payment token
         :return: str
                  If the method is called asynchronously,
@@ -190,7 +169,7 @@ class PaymentsPayPalClassicApi(object):
         """
 
         all_params = ['request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -240,7 +219,7 @@ class PaymentsPayPalClassicApi(object):
                                         files=local_var_files,
                                         response_type='str',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -251,22 +230,18 @@ class PaymentsPayPalClassicApi(object):
         Finalizes a billing agreement after the user has accepted through PayPal
         Returns the ID of the new payment method created for the user for the billing agreement.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.finalize_pay_pal_billing_agreement(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.finalize_pay_pal_billing_agreement(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FinalizeBillingAgreementRequest request: The request to finalize a PayPal billing agreement
         :return: int
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.finalize_pay_pal_billing_agreement_with_http_info(**kwargs)
         else:
             (data) = self.finalize_pay_pal_billing_agreement_with_http_info(**kwargs)
@@ -277,15 +252,11 @@ class PaymentsPayPalClassicApi(object):
         Finalizes a billing agreement after the user has accepted through PayPal
         Returns the ID of the new payment method created for the user for the billing agreement.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.finalize_pay_pal_billing_agreement_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.finalize_pay_pal_billing_agreement_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FinalizeBillingAgreementRequest request: The request to finalize a PayPal billing agreement
         :return: int
                  If the method is called asynchronously,
@@ -293,7 +264,7 @@ class PaymentsPayPalClassicApi(object):
         """
 
         all_params = ['request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -343,7 +314,7 @@ class PaymentsPayPalClassicApi(object):
                                         files=local_var_files,
                                         response_type='int',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -354,22 +325,18 @@ class PaymentsPayPalClassicApi(object):
         Finalizes a payment after the user has completed checkout with PayPal
         The invoice will be marked paid/failed by asynchronous IPN callback.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.finalize_pay_pal_checkout(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.finalize_pay_pal_checkout(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FinalizePayPalPaymentRequest request: The request to finalize the payment
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.finalize_pay_pal_checkout_with_http_info(**kwargs)
         else:
             (data) = self.finalize_pay_pal_checkout_with_http_info(**kwargs)
@@ -380,15 +347,11 @@ class PaymentsPayPalClassicApi(object):
         Finalizes a payment after the user has completed checkout with PayPal
         The invoice will be marked paid/failed by asynchronous IPN callback.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.finalize_pay_pal_checkout_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.finalize_pay_pal_checkout_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param FinalizePayPalPaymentRequest request: The request to finalize the payment
         :return: None
                  If the method is called asynchronously,
@@ -396,7 +359,7 @@ class PaymentsPayPalClassicApi(object):
         """
 
         all_params = ['request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -446,7 +409,7 @@ class PaymentsPayPalClassicApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

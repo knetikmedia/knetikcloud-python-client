@@ -53,6 +53,7 @@ class SelectedSettingResource(object):
         self._key_name = None
         self._value = None
         self._value_name = None
+        self.discriminator = None
 
         self.key = key
         self.key_name = key_name

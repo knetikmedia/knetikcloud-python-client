@@ -32,6 +32,7 @@ class AmazonS3Activity(object):
     """
     swagger_types = {
         'action': 'str',
+        'cdn_url': 'str',
         'created_date': 'int',
         'filename': 'str',
         'id': 'int',
@@ -42,6 +43,7 @@ class AmazonS3Activity(object):
 
     attribute_map = {
         'action': 'action',
+        'cdn_url': 'cdn_url',
         'created_date': 'created_date',
         'filename': 'filename',
         'id': 'id',
@@ -50,21 +52,25 @@ class AmazonS3Activity(object):
         'user_id': 'user_id'
     }
 
-    def __init__(self, action=None, created_date=None, filename=None, id=None, object_key=None, url=None, user_id=None):
+    def __init__(self, action=None, cdn_url=None, created_date=None, filename=None, id=None, object_key=None, url=None, user_id=None):
         """
         AmazonS3Activity - a model defined in Swagger
         """
 
         self._action = None
+        self._cdn_url = None
         self._created_date = None
         self._filename = None
         self._id = None
         self._object_key = None
         self._url = None
         self._user_id = None
+        self.discriminator = None
 
         if action is not None:
           self.action = action
+        if cdn_url is not None:
+          self.cdn_url = cdn_url
         if created_date is not None:
           self.created_date = created_date
         if filename is not None:
@@ -100,6 +106,29 @@ class AmazonS3Activity(object):
         """
 
         self._action = action
+
+    @property
+    def cdn_url(self):
+        """
+        Gets the cdn_url of this AmazonS3Activity.
+        URL for accessing the resource via CDN if configured (will default to the main url if not)
+
+        :return: The cdn_url of this AmazonS3Activity.
+        :rtype: str
+        """
+        return self._cdn_url
+
+    @cdn_url.setter
+    def cdn_url(self, cdn_url):
+        """
+        Sets the cdn_url of this AmazonS3Activity.
+        URL for accessing the resource via CDN if configured (will default to the main url if not)
+
+        :param cdn_url: The cdn_url of this AmazonS3Activity.
+        :type: str
+        """
+
+        self._cdn_url = cdn_url
 
     @property
     def created_date(self):
@@ -197,7 +226,7 @@ class AmazonS3Activity(object):
     def url(self):
         """
         Gets the url of this AmazonS3Activity.
-        URL for accessing the S3 resource
+        URL for posting and later accessing the S3 resource
 
         :return: The url of this AmazonS3Activity.
         :rtype: str
@@ -208,7 +237,7 @@ class AmazonS3Activity(object):
     def url(self, url):
         """
         Sets the url of this AmazonS3Activity.
-        URL for accessing the S3 resource
+        URL for posting and later accessing the S3 resource
 
         :param url: The url of this AmazonS3Activity.
         :type: str

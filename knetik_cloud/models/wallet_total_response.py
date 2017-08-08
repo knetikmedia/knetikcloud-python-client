@@ -47,6 +47,7 @@ class WalletTotalResponse(object):
 
         self._currency_code = None
         self._total = None
+        self.discriminator = None
 
         if currency_code is not None:
           self.currency_code = currency_code

@@ -50,6 +50,7 @@ class UserActivityResultsResource(object):
         self._score = None
         self._tags = None
         self._user_id = None
+        self.discriminator = None
 
         if score is not None:
           self.score = score

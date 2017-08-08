@@ -53,6 +53,7 @@ class InvoiceLogEntry(object):
         self._invoice_id = None
         self._message = None
         self._type = None
+        self.discriminator = None
 
         if date is not None:
           self.date = date

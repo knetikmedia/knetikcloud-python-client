@@ -44,6 +44,7 @@ class InvoiceCreateRequest(object):
         """
 
         self._cart_guid = None
+        self.discriminator = None
 
         self.cart_guid = cart_guid
 

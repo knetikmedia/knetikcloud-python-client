@@ -56,6 +56,7 @@ class FinalizeBillingAgreementRequest(object):
         self._payer_id = None
         self._token = None
         self._user_id = None
+        self.discriminator = None
 
         if invoice_id is not None:
           self.invoice_id = invoice_id

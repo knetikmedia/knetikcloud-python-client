@@ -31,142 +31,28 @@ class DoublePropertyDefinitionResource(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'field_list': 'PropertyFieldListResource',
-        'name': 'str',
-        'required': 'bool',
-        'type': 'str',
         'max': 'float',
         'min': 'float'
     }
 
     attribute_map = {
-        'field_list': 'field_list',
-        'name': 'name',
-        'required': 'required',
-        'type': 'type',
         'max': 'max',
         'min': 'min'
     }
 
-    def __init__(self, field_list=None, name=None, required=None, type=None, max=None, min=None):
+    def __init__(self, max=None, min=None):
         """
         DoublePropertyDefinitionResource - a model defined in Swagger
         """
 
-        self._field_list = None
-        self._name = None
-        self._required = None
-        self._type = None
         self._max = None
         self._min = None
+        self.discriminator = None
 
-        if field_list is not None:
-          self.field_list = field_list
-        self.name = name
-        self.required = required
-        self.type = type
         if max is not None:
           self.max = max
         if min is not None:
           self.min = min
-
-    @property
-    def field_list(self):
-        """
-        Gets the field_list of this DoublePropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :return: The field_list of this DoublePropertyDefinitionResource.
-        :rtype: PropertyFieldListResource
-        """
-        return self._field_list
-
-    @field_list.setter
-    def field_list(self, field_list):
-        """
-        Sets the field_list of this DoublePropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :param field_list: The field_list of this DoublePropertyDefinitionResource.
-        :type: PropertyFieldListResource
-        """
-
-        self._field_list = field_list
-
-    @property
-    def name(self):
-        """
-        Gets the name of this DoublePropertyDefinitionResource.
-        The name of the property
-
-        :return: The name of this DoublePropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this DoublePropertyDefinitionResource.
-        The name of the property
-
-        :param name: The name of this DoublePropertyDefinitionResource.
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-
-        self._name = name
-
-    @property
-    def required(self):
-        """
-        Gets the required of this DoublePropertyDefinitionResource.
-        Whether the property is required
-
-        :return: The required of this DoublePropertyDefinitionResource.
-        :rtype: bool
-        """
-        return self._required
-
-    @required.setter
-    def required(self, required):
-        """
-        Sets the required of this DoublePropertyDefinitionResource.
-        Whether the property is required
-
-        :param required: The required of this DoublePropertyDefinitionResource.
-        :type: bool
-        """
-        if required is None:
-            raise ValueError("Invalid value for `required`, must not be `None`")
-
-        self._required = required
-
-    @property
-    def type(self):
-        """
-        Gets the type of this DoublePropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :return: The type of this DoublePropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this DoublePropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :param type: The type of this DoublePropertyDefinitionResource.
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
-
-        self._type = type
 
     @property
     def max(self):

@@ -50,6 +50,7 @@ class TokenDetailsResource(object):
         self._client_id = None
         self._roles = None
         self._user_id = None
+        self.discriminator = None
 
         if client_id is not None:
           self.client_id = client_id

@@ -59,6 +59,7 @@ class SqlDatabaseConfig(object):
         self._password = None
         self._port = None
         self._username = None
+        self.discriminator = None
 
         if connection_pool_size is not None:
           self.connection_pool_size = connection_pool_size

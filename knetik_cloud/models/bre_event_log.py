@@ -62,6 +62,7 @@ class BreEventLog(object):
         self._id = None
         self._parameters = None
         self._rules = None
+        self.discriminator = None
 
         if customer is not None:
           self.customer = customer

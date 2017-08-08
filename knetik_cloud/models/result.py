@@ -50,6 +50,7 @@ class Result(object):
         self._code = None
         self._request_id = None
         self._result = None
+        self.discriminator = None
 
         if code is not None:
           self.code = code

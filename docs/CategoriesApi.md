@@ -31,10 +31,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CategoriesApi()
+api_instance = knetik_cloud.CategoriesApi(knetik_cloud.ApiClient(configuration))
 category = knetik_cloud.CategoryResource() # CategoryResource | The category to create (optional)
 
 try: 
@@ -82,10 +83,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CategoriesApi()
+api_instance = knetik_cloud.CategoriesApi(knetik_cloud.ApiClient(configuration))
 template = knetik_cloud.TemplateResource() # TemplateResource | The template to create (optional)
 
 try: 
@@ -131,10 +133,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CategoriesApi()
+api_instance = knetik_cloud.CategoriesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the category to be deleted
 
 try: 
@@ -181,10 +184,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CategoriesApi()
+api_instance = knetik_cloud.CategoriesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -331,10 +335,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CategoriesApi()
+api_instance = knetik_cloud.CategoriesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -380,10 +385,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CategoriesApi()
+api_instance = knetik_cloud.CategoriesApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -481,10 +487,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CategoriesApi()
+api_instance = knetik_cloud.CategoriesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the category
 category = knetik_cloud.CategoryResource() # CategoryResource | The category to update (optional)
 
@@ -532,10 +539,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CategoriesApi()
+api_instance = knetik_cloud.CategoriesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 template = knetik_cloud.TemplateResource() # TemplateResource | The updated template information (optional)
 

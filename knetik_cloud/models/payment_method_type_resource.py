@@ -47,6 +47,7 @@ class PaymentMethodTypeResource(object):
 
         self._id = None
         self._name = None
+        self.discriminator = None
 
         self.id = id
         self.name = name

@@ -77,6 +77,7 @@ class CatalogSale(object):
         self._short_description = None
         self._tag = None
         self._vendor = None
+        self.discriminator = None
 
         self.currency_code = currency_code
         self.discount_type = discount_type

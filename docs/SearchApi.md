@@ -27,10 +27,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.SearchApi()
+api_instance = knetik_cloud.SearchApi(knetik_cloud.ApiClient(configuration))
 type = 'type_example' # str | The index type
 id = 'id_example' # str | The ID of the object
 object = NULL # object | The object to add (optional)
@@ -81,10 +82,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.SearchApi()
+api_instance = knetik_cloud.SearchApi(knetik_cloud.ApiClient(configuration))
 mappings = [knetik_cloud.SearchReferenceMapping()] # list[SearchReferenceMapping] | The mappings to add (optional)
 
 try: 
@@ -131,10 +133,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.SearchApi()
+api_instance = knetik_cloud.SearchApi(knetik_cloud.ApiClient(configuration))
 type = 'type_example' # str | The index type
 id = 'id_example' # str | The ID of the object to delete
 
@@ -183,10 +186,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.SearchApi()
+api_instance = knetik_cloud.SearchApi(knetik_cloud.ApiClient(configuration))
 type = 'type_example' # str | The index type
 
 try: 

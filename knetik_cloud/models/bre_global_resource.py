@@ -62,6 +62,7 @@ class BreGlobalResource(object):
         self._scopes = None
         self._system_global = None
         self._type = None
+        self.discriminator = None
 
         if description is not None:
           self.description = description

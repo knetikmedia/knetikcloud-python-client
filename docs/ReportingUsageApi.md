@@ -26,10 +26,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoint. Removes the url and method from the result object (optional) (default to false)
@@ -87,10 +88,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoint. Removes the url and method from the result object (optional) (default to false)
@@ -148,10 +150,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoint. Removes the url and method from the result object (optional) (default to false)
@@ -209,10 +212,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoint. Removes the url and method from the result object (optional) (default to false)
@@ -270,10 +274,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoints. Removes the url and method from the result object (optional) (default to false)
@@ -331,10 +336,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 

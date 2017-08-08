@@ -56,6 +56,7 @@ class UserAchievementResource(object):
         self._created_date = None
         self._earned_date = None
         self._updated_date = None
+        self.discriminator = None
 
         if achieved is not None:
           self.achieved = achieved

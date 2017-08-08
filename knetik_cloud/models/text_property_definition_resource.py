@@ -31,137 +31,23 @@ class TextPropertyDefinitionResource(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'field_list': 'PropertyFieldListResource',
-        'name': 'str',
-        'required': 'bool',
-        'type': 'str',
         'max_length': 'int'
     }
 
     attribute_map = {
-        'field_list': 'field_list',
-        'name': 'name',
-        'required': 'required',
-        'type': 'type',
         'max_length': 'max_length'
     }
 
-    def __init__(self, field_list=None, name=None, required=None, type=None, max_length=None):
+    def __init__(self, max_length=None):
         """
         TextPropertyDefinitionResource - a model defined in Swagger
         """
 
-        self._field_list = None
-        self._name = None
-        self._required = None
-        self._type = None
         self._max_length = None
+        self.discriminator = None
 
-        if field_list is not None:
-          self.field_list = field_list
-        self.name = name
-        self.required = required
-        self.type = type
         if max_length is not None:
           self.max_length = max_length
-
-    @property
-    def field_list(self):
-        """
-        Gets the field_list of this TextPropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :return: The field_list of this TextPropertyDefinitionResource.
-        :rtype: PropertyFieldListResource
-        """
-        return self._field_list
-
-    @field_list.setter
-    def field_list(self, field_list):
-        """
-        Sets the field_list of this TextPropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :param field_list: The field_list of this TextPropertyDefinitionResource.
-        :type: PropertyFieldListResource
-        """
-
-        self._field_list = field_list
-
-    @property
-    def name(self):
-        """
-        Gets the name of this TextPropertyDefinitionResource.
-        The name of the property
-
-        :return: The name of this TextPropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this TextPropertyDefinitionResource.
-        The name of the property
-
-        :param name: The name of this TextPropertyDefinitionResource.
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-
-        self._name = name
-
-    @property
-    def required(self):
-        """
-        Gets the required of this TextPropertyDefinitionResource.
-        Whether the property is required
-
-        :return: The required of this TextPropertyDefinitionResource.
-        :rtype: bool
-        """
-        return self._required
-
-    @required.setter
-    def required(self, required):
-        """
-        Sets the required of this TextPropertyDefinitionResource.
-        Whether the property is required
-
-        :param required: The required of this TextPropertyDefinitionResource.
-        :type: bool
-        """
-        if required is None:
-            raise ValueError("Invalid value for `required`, must not be `None`")
-
-        self._required = required
-
-    @property
-    def type(self):
-        """
-        Gets the type of this TextPropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :return: The type of this TextPropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this TextPropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :param type: The type of this TextPropertyDefinitionResource.
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
-
-        self._type = type
 
     @property
     def max_length(self):

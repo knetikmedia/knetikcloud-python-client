@@ -53,6 +53,7 @@ class BehaviorDefinitionResource(object):
         self._prerequisite_behaviors = None
         self._properties = None
         self._type_hint = None
+        self.discriminator = None
 
         if description is not None:
           self.description = description

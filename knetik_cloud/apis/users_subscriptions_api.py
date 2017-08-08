@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,27 +31,19 @@ class UsersSubscriptionsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def get_user_subscription_details(self, user_id, inventory_id, **kwargs):
         """
         Get details about a user's subscription
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_subscription_details(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_subscription_details(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
         :return: InventorySubscriptionResource
@@ -60,7 +51,7 @@ class UsersSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_subscription_details_with_http_info(user_id, inventory_id, **kwargs)
         else:
             (data) = self.get_user_subscription_details_with_http_info(user_id, inventory_id, **kwargs)
@@ -70,15 +61,11 @@ class UsersSubscriptionsApi(object):
         """
         Get details about a user's subscription
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_subscription_details_with_http_info(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_subscription_details_with_http_info(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
         :return: InventorySubscriptionResource
@@ -87,7 +74,7 @@ class UsersSubscriptionsApi(object):
         """
 
         all_params = ['user_id', 'inventory_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -145,7 +132,7 @@ class UsersSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='InventorySubscriptionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -155,22 +142,18 @@ class UsersSubscriptionsApi(object):
         """
         Get details about a user's subscriptions
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_users_subscription_details(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_users_subscription_details(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :return: list[InventorySubscriptionResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_users_subscription_details_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_users_subscription_details_with_http_info(user_id, **kwargs)
@@ -180,15 +163,11 @@ class UsersSubscriptionsApi(object):
         """
         Get details about a user's subscriptions
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_users_subscription_details_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_users_subscription_details_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :return: list[InventorySubscriptionResource]
                  If the method is called asynchronously,
@@ -196,7 +175,7 @@ class UsersSubscriptionsApi(object):
         """
 
         all_params = ['user_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -249,7 +228,7 @@ class UsersSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='list[InventorySubscriptionResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -259,15 +238,11 @@ class UsersSubscriptionsApi(object):
         """
         Reactivate a subscription and charge fee
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.reactivate_user_subscription(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.reactivate_user_subscription(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
         :param ReactivateSubscriptionRequest reactivate_subscription_request: The reactivate subscription request object inventory
@@ -276,7 +251,7 @@ class UsersSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.reactivate_user_subscription_with_http_info(user_id, inventory_id, **kwargs)
         else:
             (data) = self.reactivate_user_subscription_with_http_info(user_id, inventory_id, **kwargs)
@@ -286,15 +261,11 @@ class UsersSubscriptionsApi(object):
         """
         Reactivate a subscription and charge fee
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.reactivate_user_subscription_with_http_info(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.reactivate_user_subscription_with_http_info(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
         :param ReactivateSubscriptionRequest reactivate_subscription_request: The reactivate subscription request object inventory
@@ -304,7 +275,7 @@ class UsersSubscriptionsApi(object):
         """
 
         all_params = ['user_id', 'inventory_id', 'reactivate_subscription_request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -364,7 +335,7 @@ class UsersSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='InvoiceResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -374,15 +345,11 @@ class UsersSubscriptionsApi(object):
         """
         Set a new date to bill a subscription on
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_subscription_bill_date(user_id, inventory_id, bill_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_subscription_bill_date(user_id, inventory_id, bill_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
         :param int bill_date: The new bill date. Unix timestamp in seconds (required)
@@ -391,7 +358,7 @@ class UsersSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_subscription_bill_date_with_http_info(user_id, inventory_id, bill_date, **kwargs)
         else:
             (data) = self.set_subscription_bill_date_with_http_info(user_id, inventory_id, bill_date, **kwargs)
@@ -401,15 +368,11 @@ class UsersSubscriptionsApi(object):
         """
         Set a new date to bill a subscription on
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_subscription_bill_date_with_http_info(user_id, inventory_id, bill_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_subscription_bill_date_with_http_info(user_id, inventory_id, bill_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
         :param int bill_date: The new bill date. Unix timestamp in seconds (required)
@@ -419,7 +382,7 @@ class UsersSubscriptionsApi(object):
         """
 
         all_params = ['user_id', 'inventory_id', 'bill_date']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -482,7 +445,7 @@ class UsersSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -493,24 +456,20 @@ class UsersSubscriptionsApi(object):
         Set the payment method to use for a subscription
         May send null to use floating default
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_subscription_payment_method(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_subscription_payment_method(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
-        :param int payment_method_id: The id of the payment method
+        :param IntWrapper payment_method_id: The id of the payment method
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_subscription_payment_method_with_http_info(user_id, inventory_id, **kwargs)
         else:
             (data) = self.set_subscription_payment_method_with_http_info(user_id, inventory_id, **kwargs)
@@ -521,25 +480,21 @@ class UsersSubscriptionsApi(object):
         Set the payment method to use for a subscription
         May send null to use floating default
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_subscription_payment_method_with_http_info(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_subscription_payment_method_with_http_info(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
-        :param int payment_method_id: The id of the payment method
+        :param IntWrapper payment_method_id: The id of the payment method
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['user_id', 'inventory_id', 'payment_method_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -599,7 +554,7 @@ class UsersSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -608,26 +563,22 @@ class UsersSubscriptionsApi(object):
     def set_subscription_status(self, user_id, inventory_id, status, **kwargs):
         """
         Set the status of a subscription
-        The body is a json string (put in quotes) that should match a desired invoice status type. Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
+        Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_subscription_status(user_id, inventory_id, status, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_subscription_status(user_id, inventory_id, status, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
-        :param str status: The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended') (required)
+        :param StringWrapper status: The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended') (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_subscription_status_with_http_info(user_id, inventory_id, status, **kwargs)
         else:
             (data) = self.set_subscription_status_with_http_info(user_id, inventory_id, status, **kwargs)
@@ -636,27 +587,23 @@ class UsersSubscriptionsApi(object):
     def set_subscription_status_with_http_info(self, user_id, inventory_id, status, **kwargs):
         """
         Set the status of a subscription
-        The body is a json string (put in quotes) that should match a desired invoice status type. Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
+        Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_subscription_status_with_http_info(user_id, inventory_id, status, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_subscription_status_with_http_info(user_id, inventory_id, status, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
-        :param str status: The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended') (required)
+        :param StringWrapper status: The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended') (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['user_id', 'inventory_id', 'status']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -719,7 +666,7 @@ class UsersSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -729,24 +676,20 @@ class UsersSubscriptionsApi(object):
         """
         Set a new subscription plan for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_user_subscription_plan(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_user_subscription_plan(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
-        :param str plan_id: The id of the new plan. Must be from the same subscription
+        :param StringWrapper plan_id: The id of the new plan. Must be from the same subscription
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_user_subscription_plan_with_http_info(user_id, inventory_id, **kwargs)
         else:
             (data) = self.set_user_subscription_plan_with_http_info(user_id, inventory_id, **kwargs)
@@ -756,25 +699,21 @@ class UsersSubscriptionsApi(object):
         """
         Set a new subscription plan for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_user_subscription_plan_with_http_info(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_user_subscription_plan_with_http_info(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
-        :param str plan_id: The id of the new plan. Must be from the same subscription
+        :param StringWrapper plan_id: The id of the new plan. Must be from the same subscription
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['user_id', 'inventory_id', 'plan_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -834,7 +773,7 @@ class UsersSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -845,15 +784,11 @@ class UsersSubscriptionsApi(object):
         Set a new subscription price for a user
         This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_user_subscription_price(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_user_subscription_price(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
         :param SubscriptionPriceOverrideRequest the_override_details: override
@@ -862,7 +797,7 @@ class UsersSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_user_subscription_price_with_http_info(user_id, inventory_id, **kwargs)
         else:
             (data) = self.set_user_subscription_price_with_http_info(user_id, inventory_id, **kwargs)
@@ -873,15 +808,11 @@ class UsersSubscriptionsApi(object):
         Set a new subscription price for a user
         This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_user_subscription_price_with_http_info(user_id, inventory_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_user_subscription_price_with_http_info(user_id, inventory_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
         :param SubscriptionPriceOverrideRequest the_override_details: override
@@ -891,7 +822,7 @@ class UsersSubscriptionsApi(object):
         """
 
         all_params = ['user_id', 'inventory_id', 'the_override_details']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -951,7 +882,7 @@ class UsersSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

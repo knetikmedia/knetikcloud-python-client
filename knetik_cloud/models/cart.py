@@ -104,6 +104,7 @@ class Cart(object):
         self._status = None
         self._subtotal = None
         self._updated = None
+        self.discriminator = None
 
         if available_shipping_options is not None:
           self.available_shipping_options = available_shipping_options

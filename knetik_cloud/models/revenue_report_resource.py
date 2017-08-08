@@ -53,6 +53,7 @@ class RevenueReportResource(object):
         self._sale_count = None
         self._sales_average = None
         self._sales_total = None
+        self.discriminator = None
 
         if customer_count is not None:
           self.customer_count = customer_count

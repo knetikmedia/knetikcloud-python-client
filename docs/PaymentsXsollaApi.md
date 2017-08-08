@@ -22,10 +22,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsXsollaApi()
+api_instance = knetik_cloud.PaymentsXsollaApi(knetik_cloud.ApiClient(configuration))
 request = knetik_cloud.XsollaPaymentRequest() # XsollaPaymentRequest | The payment request to be sent to XSolla (optional)
 
 try: 

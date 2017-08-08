@@ -50,6 +50,7 @@ class PasswordResetRequest(object):
         self._email = None
         self._mobile_number = None
         self._username = None
+        self.discriminator = None
 
         if email is not None:
           self.email = email

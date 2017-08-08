@@ -83,6 +83,7 @@ class CampaignResource(object):
         self._short_description = None
         self._template = None
         self._updated_date = None
+        self.discriminator = None
 
         if active is not None:
           self.active = active

@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,35 +31,27 @@ class BRERuleEngineTriggersApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_bre_trigger(self, **kwargs):
         """
         Create a trigger
         Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_bre_trigger(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_bre_trigger(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param BreTriggerResource bre_trigger_resource: The BRE trigger resource object
         :return: BreTriggerResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_bre_trigger_with_http_info(**kwargs)
         else:
             (data) = self.create_bre_trigger_with_http_info(**kwargs)
@@ -71,15 +62,11 @@ class BRERuleEngineTriggersApi(object):
         Create a trigger
         Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_bre_trigger_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_bre_trigger_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param BreTriggerResource bre_trigger_resource: The BRE trigger resource object
         :return: BreTriggerResource
                  If the method is called asynchronously,
@@ -87,7 +74,7 @@ class BRERuleEngineTriggersApi(object):
         """
 
         all_params = ['bre_trigger_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -137,7 +124,7 @@ class BRERuleEngineTriggersApi(object):
                                         files=local_var_files,
                                         response_type='BreTriggerResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -148,22 +135,18 @@ class BRERuleEngineTriggersApi(object):
         Delete a trigger
         May fail if there are existing rules against it. Cannot delete core triggers
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_bre_trigger(event_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_bre_trigger(event_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str event_name: The trigger event name (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_bre_trigger_with_http_info(event_name, **kwargs)
         else:
             (data) = self.delete_bre_trigger_with_http_info(event_name, **kwargs)
@@ -174,15 +157,11 @@ class BRERuleEngineTriggersApi(object):
         Delete a trigger
         May fail if there are existing rules against it. Cannot delete core triggers
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_bre_trigger_with_http_info(event_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_bre_trigger_with_http_info(event_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str event_name: The trigger event name (required)
         :return: None
                  If the method is called asynchronously,
@@ -190,7 +169,7 @@ class BRERuleEngineTriggersApi(object):
         """
 
         all_params = ['event_name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -243,7 +222,7 @@ class BRERuleEngineTriggersApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -253,22 +232,18 @@ class BRERuleEngineTriggersApi(object):
         """
         Get a single trigger
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_trigger(event_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_trigger(event_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str event_name: The trigger event name (required)
         :return: BreTriggerResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_bre_trigger_with_http_info(event_name, **kwargs)
         else:
             (data) = self.get_bre_trigger_with_http_info(event_name, **kwargs)
@@ -278,15 +253,11 @@ class BRERuleEngineTriggersApi(object):
         """
         Get a single trigger
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_trigger_with_http_info(event_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_trigger_with_http_info(event_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str event_name: The trigger event name (required)
         :return: BreTriggerResource
                  If the method is called asynchronously,
@@ -294,7 +265,7 @@ class BRERuleEngineTriggersApi(object):
         """
 
         all_params = ['event_name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -347,7 +318,7 @@ class BRERuleEngineTriggersApi(object):
                                         files=local_var_files,
                                         response_type='BreTriggerResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -357,15 +328,11 @@ class BRERuleEngineTriggersApi(object):
         """
         List triggers
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_triggers(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_triggers(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool filter_system: Filter for triggers that are system triggers when true, or not when false. Leave off for both mixed
         :param str filter_category: Filter for triggers that are within a specific category
         :param str filter_tags: Filter for triggers that have all of the given tags (comma separated list)
@@ -378,7 +345,7 @@ class BRERuleEngineTriggersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_bre_triggers_with_http_info(**kwargs)
         else:
             (data) = self.get_bre_triggers_with_http_info(**kwargs)
@@ -388,15 +355,11 @@ class BRERuleEngineTriggersApi(object):
         """
         List triggers
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_triggers_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_triggers_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool filter_system: Filter for triggers that are system triggers when true, or not when false. Leave off for both mixed
         :param str filter_category: Filter for triggers that are within a specific category
         :param str filter_tags: Filter for triggers that have all of the given tags (comma separated list)
@@ -410,7 +373,7 @@ class BRERuleEngineTriggersApi(object):
         """
 
         all_params = ['filter_system', 'filter_category', 'filter_tags', 'filter_name', 'filter_search', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -472,7 +435,7 @@ class BRERuleEngineTriggersApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceBreTriggerResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -483,15 +446,11 @@ class BRERuleEngineTriggersApi(object):
         Update a trigger
         May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_bre_trigger(event_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_bre_trigger(event_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str event_name: The trigger event name (required)
         :param BreTriggerResource bre_trigger_resource: The BRE trigger resource object
         :return: BreTriggerResource
@@ -499,7 +458,7 @@ class BRERuleEngineTriggersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_bre_trigger_with_http_info(event_name, **kwargs)
         else:
             (data) = self.update_bre_trigger_with_http_info(event_name, **kwargs)
@@ -510,15 +469,11 @@ class BRERuleEngineTriggersApi(object):
         Update a trigger
         May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_bre_trigger_with_http_info(event_name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_bre_trigger_with_http_info(event_name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str event_name: The trigger event name (required)
         :param BreTriggerResource bre_trigger_resource: The BRE trigger resource object
         :return: BreTriggerResource
@@ -527,7 +482,7 @@ class BRERuleEngineTriggersApi(object):
         """
 
         all_params = ['event_name', 'bre_trigger_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -582,7 +537,7 @@ class BRERuleEngineTriggersApi(object):
                                         files=local_var_files,
                                         response_type='BreTriggerResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,27 +31,19 @@ class ReportingUsageApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def get_usage_by_day(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by day
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_day(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_day(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoint. Removes the url and method from the result object
@@ -65,7 +56,7 @@ class ReportingUsageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_usage_by_day_with_http_info(start_date, end_date, **kwargs)
         else:
             (data) = self.get_usage_by_day_with_http_info(start_date, end_date, **kwargs)
@@ -75,15 +66,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by day
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_day_with_http_info(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_day_with_http_info(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoint. Removes the url and method from the result object
@@ -97,7 +84,7 @@ class ReportingUsageApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'combine_endpoints', 'method', 'url', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -165,7 +152,7 @@ class ReportingUsageApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUsageInfo',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -175,15 +162,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by hour
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_hour(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_hour(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoint. Removes the url and method from the result object
@@ -196,7 +179,7 @@ class ReportingUsageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_usage_by_hour_with_http_info(start_date, end_date, **kwargs)
         else:
             (data) = self.get_usage_by_hour_with_http_info(start_date, end_date, **kwargs)
@@ -206,15 +189,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by hour
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_hour_with_http_info(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_hour_with_http_info(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoint. Removes the url and method from the result object
@@ -228,7 +207,7 @@ class ReportingUsageApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'combine_endpoints', 'method', 'url', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -296,7 +275,7 @@ class ReportingUsageApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUsageInfo',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -306,15 +285,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by minute
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_minute(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_minute(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoint. Removes the url and method from the result object
@@ -327,7 +302,7 @@ class ReportingUsageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_usage_by_minute_with_http_info(start_date, end_date, **kwargs)
         else:
             (data) = self.get_usage_by_minute_with_http_info(start_date, end_date, **kwargs)
@@ -337,15 +312,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by minute
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_minute_with_http_info(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_minute_with_http_info(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoint. Removes the url and method from the result object
@@ -359,7 +330,7 @@ class ReportingUsageApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'combine_endpoints', 'method', 'url', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -427,7 +398,7 @@ class ReportingUsageApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUsageInfo',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -437,15 +408,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by month
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_month(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_month(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoint. Removes the url and method from the result object
@@ -458,7 +425,7 @@ class ReportingUsageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_usage_by_month_with_http_info(start_date, end_date, **kwargs)
         else:
             (data) = self.get_usage_by_month_with_http_info(start_date, end_date, **kwargs)
@@ -468,15 +435,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by month
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_month_with_http_info(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_month_with_http_info(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoint. Removes the url and method from the result object
@@ -490,7 +453,7 @@ class ReportingUsageApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'combine_endpoints', 'method', 'url', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -558,7 +521,7 @@ class ReportingUsageApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUsageInfo',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -568,15 +531,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by year
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_year(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_year(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoints. Removes the url and method from the result object
@@ -589,7 +548,7 @@ class ReportingUsageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_usage_by_year_with_http_info(start_date, end_date, **kwargs)
         else:
             (data) = self.get_usage_by_year_with_http_info(start_date, end_date, **kwargs)
@@ -599,15 +558,11 @@ class ReportingUsageApi(object):
         """
         Returns aggregated endpoint usage information by year
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_by_year_with_http_info(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_by_year_with_http_info(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :param bool combine_endpoints: Whether to combine counts from different endpoints. Removes the url and method from the result object
@@ -621,7 +576,7 @@ class ReportingUsageApi(object):
         """
 
         all_params = ['start_date', 'end_date', 'combine_endpoints', 'method', 'url', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -689,7 +644,7 @@ class ReportingUsageApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUsageInfo',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -699,15 +654,11 @@ class ReportingUsageApi(object):
         """
         Returns list of endpoints called (method and url)
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_endpoints(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_endpoints(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :return: list[str]
@@ -715,7 +666,7 @@ class ReportingUsageApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_usage_endpoints_with_http_info(start_date, end_date, **kwargs)
         else:
             (data) = self.get_usage_endpoints_with_http_info(start_date, end_date, **kwargs)
@@ -725,15 +676,11 @@ class ReportingUsageApi(object):
         """
         Returns list of endpoints called (method and url)
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_usage_endpoints_with_http_info(start_date, end_date, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_usage_endpoints_with_http_info(start_date, end_date, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int start_date: The beginning of the range being requested, unix timestamp in seconds (required)
         :param int end_date: The ending of the range being requested, unix timestamp in seconds (required)
         :return: list[str]
@@ -742,7 +689,7 @@ class ReportingUsageApi(object):
         """
 
         all_params = ['start_date', 'end_date']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -800,7 +747,7 @@ class ReportingUsageApi(object):
                                         files=local_var_files,
                                         response_type='list[str]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

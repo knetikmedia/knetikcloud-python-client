@@ -47,6 +47,7 @@ class GooglePaymentRequest(object):
 
         self._json_payload = None
         self._signature = None
+        self.discriminator = None
 
         self.json_payload = json_payload
         self.signature = signature

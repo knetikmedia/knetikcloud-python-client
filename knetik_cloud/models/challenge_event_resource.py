@@ -56,6 +56,7 @@ class ChallengeEventResource(object):
         self._id = None
         self._reward_status = None
         self._start_date = None
+        self.discriminator = None
 
         if challenge_id is not None:
           self.challenge_id = challenge_id

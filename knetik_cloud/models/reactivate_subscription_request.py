@@ -47,6 +47,7 @@ class ReactivateSubscriptionRequest(object):
 
         self._inventory_id = None
         self._reactivation_fee = None
+        self.discriminator = None
 
         if inventory_id is not None:
           self.inventory_id = inventory_id

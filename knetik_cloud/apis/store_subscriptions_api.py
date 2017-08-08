@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class StoreSubscriptionsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_subscription(self, **kwargs):
         """
         Creates a subscription item and associated plans
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_subscription(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_subscription(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SubscriptionResource subscription_resource: The subscription to be created
         :return: SubscriptionResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_subscription_with_http_info(**kwargs)
         else:
             (data) = self.create_subscription_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class StoreSubscriptionsApi(object):
         """
         Creates a subscription item and associated plans
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_subscription_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_subscription_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SubscriptionResource subscription_resource: The subscription to be created
         :return: SubscriptionResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['subscription_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='SubscriptionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -146,22 +133,18 @@ class StoreSubscriptionsApi(object):
         Create a subscription template
         Subscription Templates define a type of subscription and the properties they have.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_subscription_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_subscription_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SubscriptionTemplateResource subscription_template_resource: The new subscription template
         :return: SubscriptionTemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_subscription_template_with_http_info(**kwargs)
         else:
             (data) = self.create_subscription_template_with_http_info(**kwargs)
@@ -172,15 +155,11 @@ class StoreSubscriptionsApi(object):
         Create a subscription template
         Subscription Templates define a type of subscription and the properties they have.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_subscription_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_subscription_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param SubscriptionTemplateResource subscription_template_resource: The new subscription template
         :return: SubscriptionTemplateResource
                  If the method is called asynchronously,
@@ -188,7 +167,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['subscription_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -238,7 +217,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='SubscriptionTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -249,15 +228,11 @@ class StoreSubscriptionsApi(object):
         Delete a subscription plan
         Must not be locked or a migration target
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_subscription(id, plan_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_subscription(id, plan_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the subscription (required)
         :param str plan_id: The id of the plan (required)
         :return: None
@@ -265,7 +240,7 @@ class StoreSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_subscription_with_http_info(id, plan_id, **kwargs)
         else:
             (data) = self.delete_subscription_with_http_info(id, plan_id, **kwargs)
@@ -276,15 +251,11 @@ class StoreSubscriptionsApi(object):
         Delete a subscription plan
         Must not be locked or a migration target
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_subscription_with_http_info(id, plan_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_subscription_with_http_info(id, plan_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the subscription (required)
         :param str plan_id: The id of the plan (required)
         :return: None
@@ -293,7 +264,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['id', 'plan_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -351,7 +322,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -361,15 +332,11 @@ class StoreSubscriptionsApi(object):
         """
         Delete a subscription template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_subscription_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_subscription_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: force deleting the template if it's attached to other objects, cascade = detach
         :return: None
@@ -377,7 +344,7 @@ class StoreSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_subscription_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_subscription_template_with_http_info(id, **kwargs)
@@ -387,15 +354,11 @@ class StoreSubscriptionsApi(object):
         """
         Delete a subscription template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_subscription_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_subscription_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: force deleting the template if it's attached to other objects, cascade = detach
         :return: None
@@ -404,7 +367,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -459,7 +422,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -469,22 +432,18 @@ class StoreSubscriptionsApi(object):
         """
         Retrieve a single subscription item and associated plans
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscription(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscription(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the subscription (required)
         :return: SubscriptionResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_subscription_with_http_info(id, **kwargs)
         else:
             (data) = self.get_subscription_with_http_info(id, **kwargs)
@@ -494,15 +453,11 @@ class StoreSubscriptionsApi(object):
         """
         Retrieve a single subscription item and associated plans
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscription_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscription_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the subscription (required)
         :return: SubscriptionResource
                  If the method is called asynchronously,
@@ -510,7 +465,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -563,7 +518,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='SubscriptionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -574,22 +529,18 @@ class StoreSubscriptionsApi(object):
         Get a single subscription template
         Subscription Templates define a type of subscription and the properties they have.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscription_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscription_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: SubscriptionTemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_subscription_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_subscription_template_with_http_info(id, **kwargs)
@@ -600,15 +551,11 @@ class StoreSubscriptionsApi(object):
         Get a single subscription template
         Subscription Templates define a type of subscription and the properties they have.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscription_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscription_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: SubscriptionTemplateResource
                  If the method is called asynchronously,
@@ -616,7 +563,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -669,7 +616,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='SubscriptionTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -679,15 +626,11 @@ class StoreSubscriptionsApi(object):
         """
         List and search subscription templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscription_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscription_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -696,7 +639,7 @@ class StoreSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_subscription_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_subscription_templates_with_http_info(**kwargs)
@@ -706,15 +649,11 @@ class StoreSubscriptionsApi(object):
         """
         List and search subscription templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscription_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscription_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -724,7 +663,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -778,7 +717,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceSubscriptionTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -788,15 +727,11 @@ class StoreSubscriptionsApi(object):
         """
         List available subscription items and associated plans
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscriptions(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscriptions(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -805,7 +740,7 @@ class StoreSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_subscriptions_with_http_info(**kwargs)
         else:
             (data) = self.get_subscriptions_with_http_info(**kwargs)
@@ -815,15 +750,11 @@ class StoreSubscriptionsApi(object):
         """
         List available subscription items and associated plans
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_subscriptions_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_subscriptions_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -833,7 +764,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -887,7 +818,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceSubscriptionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -897,21 +828,17 @@ class StoreSubscriptionsApi(object):
         """
         Processes subscriptions and charge dues
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.process_subscriptions(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.process_subscriptions(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.process_subscriptions_with_http_info(**kwargs)
         else:
             (data) = self.process_subscriptions_with_http_info(**kwargs)
@@ -921,22 +848,18 @@ class StoreSubscriptionsApi(object):
         """
         Processes subscriptions and charge dues
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.process_subscriptions_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.process_subscriptions_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -983,7 +906,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -994,15 +917,11 @@ class StoreSubscriptionsApi(object):
         Updates a subscription item and associated plans
         Will not remove plans left out
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_subscription(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_subscription(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the subscription (required)
         :param SubscriptionResource subscription_resource: The subscription resource object
         :return: None
@@ -1010,7 +929,7 @@ class StoreSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_subscription_with_http_info(id, **kwargs)
         else:
             (data) = self.update_subscription_with_http_info(id, **kwargs)
@@ -1021,15 +940,11 @@ class StoreSubscriptionsApi(object):
         Updates a subscription item and associated plans
         Will not remove plans left out
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_subscription_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_subscription_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the subscription (required)
         :param SubscriptionResource subscription_resource: The subscription resource object
         :return: None
@@ -1038,7 +953,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['id', 'subscription_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1093,7 +1008,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1103,15 +1018,11 @@ class StoreSubscriptionsApi(object):
         """
         Update a subscription template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_subscription_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_subscription_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param SubscriptionTemplateResource subscription_template_resource: The subscription template resource object
         :return: SubscriptionTemplateResource
@@ -1119,7 +1030,7 @@ class StoreSubscriptionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_subscription_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_subscription_template_with_http_info(id, **kwargs)
@@ -1129,15 +1040,11 @@ class StoreSubscriptionsApi(object):
         """
         Update a subscription template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_subscription_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_subscription_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param SubscriptionTemplateResource subscription_template_resource: The subscription template resource object
         :return: SubscriptionTemplateResource
@@ -1146,7 +1053,7 @@ class StoreSubscriptionsApi(object):
         """
 
         all_params = ['id', 'subscription_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1201,7 +1108,7 @@ class StoreSubscriptionsApi(object):
                                         files=local_var_files,
                                         response_type='SubscriptionTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

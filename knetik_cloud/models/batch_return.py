@@ -50,6 +50,7 @@ class BatchReturn(object):
         self._body = None
         self._code = None
         self._uri = None
+        self.discriminator = None
 
         if body is not None:
           self.body = body

@@ -80,6 +80,7 @@ class ActivityOccurrenceResource(object):
         self._status = None
         self._updated_date = None
         self._users = None
+        self.discriminator = None
 
         self.activity_id = activity_id
         if challenge_activity_id is not None:

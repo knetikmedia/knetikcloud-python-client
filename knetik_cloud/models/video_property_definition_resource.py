@@ -31,10 +31,6 @@ class VideoPropertyDefinitionResource(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'field_list': 'PropertyFieldListResource',
-        'name': 'str',
-        'required': 'bool',
-        'type': 'str',
         'file_type': 'str',
         'max_height': 'int',
         'max_length': 'int',
@@ -45,10 +41,6 @@ class VideoPropertyDefinitionResource(object):
     }
 
     attribute_map = {
-        'field_list': 'field_list',
-        'name': 'name',
-        'required': 'required',
-        'type': 'type',
         'file_type': 'file_type',
         'max_height': 'max_height',
         'max_length': 'max_length',
@@ -58,15 +50,11 @@ class VideoPropertyDefinitionResource(object):
         'min_width': 'min_width'
     }
 
-    def __init__(self, field_list=None, name=None, required=None, type=None, file_type=None, max_height=None, max_length=None, max_width=None, min_height=None, min_length=None, min_width=None):
+    def __init__(self, file_type=None, max_height=None, max_length=None, max_width=None, min_height=None, min_length=None, min_width=None):
         """
         VideoPropertyDefinitionResource - a model defined in Swagger
         """
 
-        self._field_list = None
-        self._name = None
-        self._required = None
-        self._type = None
         self._file_type = None
         self._max_height = None
         self._max_length = None
@@ -74,12 +62,8 @@ class VideoPropertyDefinitionResource(object):
         self._min_height = None
         self._min_length = None
         self._min_width = None
+        self.discriminator = None
 
-        if field_list is not None:
-          self.field_list = field_list
-        self.name = name
-        self.required = required
-        self.type = type
         if file_type is not None:
           self.file_type = file_type
         if max_height is not None:
@@ -94,104 +78,6 @@ class VideoPropertyDefinitionResource(object):
           self.min_length = min_length
         if min_width is not None:
           self.min_width = min_width
-
-    @property
-    def field_list(self):
-        """
-        Gets the field_list of this VideoPropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :return: The field_list of this VideoPropertyDefinitionResource.
-        :rtype: PropertyFieldListResource
-        """
-        return self._field_list
-
-    @field_list.setter
-    def field_list(self, field_list):
-        """
-        Sets the field_list of this VideoPropertyDefinitionResource.
-        A list of the fields on both the property definition and property of this type
-
-        :param field_list: The field_list of this VideoPropertyDefinitionResource.
-        :type: PropertyFieldListResource
-        """
-
-        self._field_list = field_list
-
-    @property
-    def name(self):
-        """
-        Gets the name of this VideoPropertyDefinitionResource.
-        The name of the property
-
-        :return: The name of this VideoPropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """
-        Sets the name of this VideoPropertyDefinitionResource.
-        The name of the property
-
-        :param name: The name of this VideoPropertyDefinitionResource.
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")
-
-        self._name = name
-
-    @property
-    def required(self):
-        """
-        Gets the required of this VideoPropertyDefinitionResource.
-        Whether the property is required
-
-        :return: The required of this VideoPropertyDefinitionResource.
-        :rtype: bool
-        """
-        return self._required
-
-    @required.setter
-    def required(self, required):
-        """
-        Sets the required of this VideoPropertyDefinitionResource.
-        Whether the property is required
-
-        :param required: The required of this VideoPropertyDefinitionResource.
-        :type: bool
-        """
-        if required is None:
-            raise ValueError("Invalid value for `required`, must not be `None`")
-
-        self._required = required
-
-    @property
-    def type(self):
-        """
-        Gets the type of this VideoPropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :return: The type of this VideoPropertyDefinitionResource.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this VideoPropertyDefinitionResource.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :param type: The type of this VideoPropertyDefinitionResource.
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
-
-        self._type = type
 
     @property
     def file_type(self):

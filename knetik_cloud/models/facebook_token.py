@@ -44,6 +44,7 @@ class FacebookToken(object):
         """
 
         self._access_token = None
+        self.discriminator = None
 
         self.access_token = access_token
 

@@ -50,6 +50,7 @@ class PollAnswerResource(object):
         self._count = None
         self._key = None
         self._text = None
+        self.discriminator = None
 
         if count is not None:
           self.count = count

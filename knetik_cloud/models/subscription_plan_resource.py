@@ -119,6 +119,7 @@ class SubscriptionPlanResource(object):
         self._recurring_fee = None
         self._recurring_sku = None
         self._start_date = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

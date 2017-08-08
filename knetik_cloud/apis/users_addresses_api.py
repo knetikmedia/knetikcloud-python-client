@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,27 +31,19 @@ class UsersAddressesApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_address(self, user_id, **kwargs):
         """
         Create a new address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_address(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_address(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param SavedAddressResource saved_address_resource: The new address
         :return: SavedAddressResource
@@ -60,7 +51,7 @@ class UsersAddressesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_address_with_http_info(user_id, **kwargs)
         else:
             (data) = self.create_address_with_http_info(user_id, **kwargs)
@@ -70,15 +61,11 @@ class UsersAddressesApi(object):
         """
         Create a new address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_address_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_address_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param SavedAddressResource saved_address_resource: The new address
         :return: SavedAddressResource
@@ -87,7 +74,7 @@ class UsersAddressesApi(object):
         """
 
         all_params = ['user_id', 'saved_address_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +129,7 @@ class UsersAddressesApi(object):
                                         files=local_var_files,
                                         response_type='SavedAddressResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -152,15 +139,11 @@ class UsersAddressesApi(object):
         """
         Delete an address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_address(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_address(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param int id: The id of the address (required)
         :return: None
@@ -168,7 +151,7 @@ class UsersAddressesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_address_with_http_info(user_id, id, **kwargs)
         else:
             (data) = self.delete_address_with_http_info(user_id, id, **kwargs)
@@ -178,15 +161,11 @@ class UsersAddressesApi(object):
         """
         Delete an address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_address_with_http_info(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_address_with_http_info(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param int id: The id of the address (required)
         :return: None
@@ -195,7 +174,7 @@ class UsersAddressesApi(object):
         """
 
         all_params = ['user_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -253,7 +232,7 @@ class UsersAddressesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -263,15 +242,11 @@ class UsersAddressesApi(object):
         """
         Get a single address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_address(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_address(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param int id: The id of the address (required)
         :return: SavedAddressResource
@@ -279,7 +254,7 @@ class UsersAddressesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_address_with_http_info(user_id, id, **kwargs)
         else:
             (data) = self.get_address_with_http_info(user_id, id, **kwargs)
@@ -289,15 +264,11 @@ class UsersAddressesApi(object):
         """
         Get a single address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_address_with_http_info(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_address_with_http_info(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param int id: The id of the address (required)
         :return: SavedAddressResource
@@ -306,7 +277,7 @@ class UsersAddressesApi(object):
         """
 
         all_params = ['user_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -364,7 +335,7 @@ class UsersAddressesApi(object):
                                         files=local_var_files,
                                         response_type='SavedAddressResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -374,15 +345,11 @@ class UsersAddressesApi(object):
         """
         List and search addresses
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_addresses(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_addresses(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -392,7 +359,7 @@ class UsersAddressesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_addresses_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_addresses_with_http_info(user_id, **kwargs)
@@ -402,15 +369,11 @@ class UsersAddressesApi(object):
         """
         List and search addresses
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_addresses_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_addresses_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -421,7 +384,7 @@ class UsersAddressesApi(object):
         """
 
         all_params = ['user_id', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -480,7 +443,7 @@ class UsersAddressesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceSavedAddressResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -490,15 +453,11 @@ class UsersAddressesApi(object):
         """
         Update an address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_address(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_address(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param int id: The id of the address (required)
         :param SavedAddressResource saved_address_resource: The saved address resource object
@@ -507,7 +466,7 @@ class UsersAddressesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_address_with_http_info(user_id, id, **kwargs)
         else:
             (data) = self.update_address_with_http_info(user_id, id, **kwargs)
@@ -517,15 +476,11 @@ class UsersAddressesApi(object):
         """
         Update an address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_address_with_http_info(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_address_with_http_info(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str user_id: The id of the user (required)
         :param int id: The id of the address (required)
         :param SavedAddressResource saved_address_resource: The saved address resource object
@@ -535,7 +490,7 @@ class UsersAddressesApi(object):
         """
 
         all_params = ['user_id', 'id', 'saved_address_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -595,7 +550,7 @@ class UsersAddressesApi(object):
                                         files=local_var_files,
                                         response_type='SavedAddressResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

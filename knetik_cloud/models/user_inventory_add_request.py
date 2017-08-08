@@ -53,6 +53,7 @@ class UserInventoryAddRequest(object):
         self._overrides = None
         self._skip_invoice = None
         self._sku = None
+        self.discriminator = None
 
         self.note = note
         if overrides is not None:

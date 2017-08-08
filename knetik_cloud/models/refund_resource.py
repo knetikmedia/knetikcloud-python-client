@@ -50,6 +50,7 @@ class RefundResource(object):
         self._amount = None
         self._refund_transaction_id = None
         self._transaction_id = None
+        self.discriminator = None
 
         if amount is not None:
           self.amount = amount

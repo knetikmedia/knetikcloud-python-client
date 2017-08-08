@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ascending** | **bool** |  | [optional] 
+**descending** | **bool** |  | [optional] 
 **direction** | **str** |  | [optional] 
 **ignore_case** | **bool** |  | [optional] 
 **null_handling** | **str** |  | [optional] 

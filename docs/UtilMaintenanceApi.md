@@ -24,10 +24,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UtilMaintenanceApi()
+api_instance = knetik_cloud.UtilMaintenanceApi(knetik_cloud.ApiClient(configuration))
 
 try: 
     # Delete maintenance info
@@ -112,10 +113,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UtilMaintenanceApi()
+api_instance = knetik_cloud.UtilMaintenanceApi(knetik_cloud.ApiClient(configuration))
 maintenance = knetik_cloud.Maintenance() # Maintenance | The maintenance object (optional)
 
 try: 
@@ -160,10 +162,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UtilMaintenanceApi()
+api_instance = knetik_cloud.UtilMaintenanceApi(knetik_cloud.ApiClient(configuration))
 maintenance = knetik_cloud.Maintenance() # Maintenance | The maintenance object (optional)
 
 try: 

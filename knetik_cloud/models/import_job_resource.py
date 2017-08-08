@@ -71,6 +71,7 @@ class ImportJobResource(object):
         self._updated_date = None
         self._url = None
         self._vendor = None
+        self.discriminator = None
 
         self.category_id = category_id
         if created_date is not None:

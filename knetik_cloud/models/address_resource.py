@@ -59,6 +59,7 @@ class AddressResource(object):
         self._country_code = None
         self._postal_code = None
         self._state_code = None
+        self.discriminator = None
 
         self.address1 = address1
         if address2 is not None:

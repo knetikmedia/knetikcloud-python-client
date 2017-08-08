@@ -53,6 +53,7 @@ class RefundRequest(object):
         self._bundle_sku = None
         self._notes = None
         self._sku = None
+        self.discriminator = None
 
         if amount is not None:
           self.amount = amount

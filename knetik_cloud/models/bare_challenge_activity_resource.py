@@ -50,6 +50,7 @@ class BareChallengeActivityResource(object):
         self._activity_id = None
         self._challenge_id = None
         self._id = None
+        self.discriminator = None
 
         self.activity_id = activity_id
         self.challenge_id = challenge_id

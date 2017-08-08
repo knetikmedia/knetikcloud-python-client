@@ -65,6 +65,7 @@ class ChallengeActivityResource(object):
         self._reward_set = None
         self._settings = None
         self._template = None
+        self.discriminator = None
 
         self.activity_id = activity_id
         if additional_properties is not None:

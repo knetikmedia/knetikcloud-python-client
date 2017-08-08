@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class LogsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_user_log(self, **kwargs):
         """
         Add a user log entry
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_user_log(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_user_log(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param UserActionLog log_entry: The user log entry to be added
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_user_log_with_http_info(**kwargs)
         else:
             (data) = self.add_user_log_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class LogsApi(object):
         """
         Add a user log entry
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_user_log_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_user_log_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param UserActionLog log_entry: The user log entry to be added
         :return: None
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class LogsApi(object):
         """
 
         all_params = ['log_entry']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class LogsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -145,22 +132,18 @@ class LogsApi(object):
         """
         Get an existing BRE event log entry by id
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_event_log(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_event_log(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The BRE event log entry id (required)
         :return: BreEventLog
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_bre_event_log_with_http_info(id, **kwargs)
         else:
             (data) = self.get_bre_event_log_with_http_info(id, **kwargs)
@@ -170,15 +153,11 @@ class LogsApi(object):
         """
         Get an existing BRE event log entry by id
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_event_log_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_event_log_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The BRE event log entry id (required)
         :return: BreEventLog
                  If the method is called asynchronously,
@@ -186,7 +165,7 @@ class LogsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -239,7 +218,7 @@ class LogsApi(object):
                                         files=local_var_files,
                                         response_type='BreEventLog',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -249,15 +228,11 @@ class LogsApi(object):
         """
         Returns a list of BRE event log entries
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_event_logs(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_event_logs(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param str filter_event_name: Filter event logs by event name
         :param str filter_event_id: Filter event logs by request id
@@ -269,7 +244,7 @@ class LogsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_bre_event_logs_with_http_info(**kwargs)
         else:
             (data) = self.get_bre_event_logs_with_http_info(**kwargs)
@@ -279,15 +254,11 @@ class LogsApi(object):
         """
         Returns a list of BRE event log entries
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_event_logs_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_event_logs_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param str filter_event_name: Filter event logs by event name
         :param str filter_event_id: Filter event logs by request id
@@ -300,7 +271,7 @@ class LogsApi(object):
         """
 
         all_params = ['filter_start_date', 'filter_event_name', 'filter_event_id', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -360,7 +331,7 @@ class LogsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceBreEventLog',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -370,22 +341,18 @@ class LogsApi(object):
         """
         Get an existing forward log entry by id
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_forward_log(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_forward_log(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The forward log entry id (required)
         :return: ForwardLog
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_bre_forward_log_with_http_info(id, **kwargs)
         else:
             (data) = self.get_bre_forward_log_with_http_info(id, **kwargs)
@@ -395,15 +362,11 @@ class LogsApi(object):
         """
         Get an existing forward log entry by id
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_forward_log_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_forward_log_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The forward log entry id (required)
         :return: ForwardLog
                  If the method is called asynchronously,
@@ -411,7 +374,7 @@ class LogsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -464,7 +427,7 @@ class LogsApi(object):
                                         files=local_var_files,
                                         response_type='ForwardLog',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -474,15 +437,11 @@ class LogsApi(object):
         """
         Returns a list of forward log entries
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_forward_logs(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_forward_logs(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param str filter_end_date: A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param int filter_status_code: Filter forward logs by http status code
@@ -494,7 +453,7 @@ class LogsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_bre_forward_logs_with_http_info(**kwargs)
         else:
             (data) = self.get_bre_forward_logs_with_http_info(**kwargs)
@@ -504,15 +463,11 @@ class LogsApi(object):
         """
         Returns a list of forward log entries
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_bre_forward_logs_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_bre_forward_logs_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param str filter_end_date: A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param int filter_status_code: Filter forward logs by http status code
@@ -525,7 +480,7 @@ class LogsApi(object):
         """
 
         all_params = ['filter_start_date', 'filter_end_date', 'filter_status_code', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -585,7 +540,7 @@ class LogsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceForwardLog',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -595,22 +550,18 @@ class LogsApi(object):
         """
         Returns a user log entry by id
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_log(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_log(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The user log entry id (required)
         :return: UserActionLog
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_log_with_http_info(id, **kwargs)
         else:
             (data) = self.get_user_log_with_http_info(id, **kwargs)
@@ -620,15 +571,11 @@ class LogsApi(object):
         """
         Returns a user log entry by id
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_log_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_log_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The user log entry id (required)
         :return: UserActionLog
                  If the method is called asynchronously,
@@ -636,7 +583,7 @@ class LogsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -689,7 +636,7 @@ class LogsApi(object):
                                         files=local_var_files,
                                         response_type='UserActionLog',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -699,15 +646,11 @@ class LogsApi(object):
         """
         Returns a page of user logs entries
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_logs(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_logs(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int filter_user: Filter for actions taken by a specific user by id
         :param str filter_action_name: Filter for actions of a specific name
         :param int size: The number of objects returned per page
@@ -718,7 +661,7 @@ class LogsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_logs_with_http_info(**kwargs)
         else:
             (data) = self.get_user_logs_with_http_info(**kwargs)
@@ -728,15 +671,11 @@ class LogsApi(object):
         """
         Returns a page of user logs entries
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_logs_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_logs_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int filter_user: Filter for actions taken by a specific user by id
         :param str filter_action_name: Filter for actions of a specific name
         :param int size: The number of objects returned per page
@@ -748,7 +687,7 @@ class LogsApi(object):
         """
 
         all_params = ['filter_user', 'filter_action_name', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -806,7 +745,7 @@ class LogsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUserActionLog',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

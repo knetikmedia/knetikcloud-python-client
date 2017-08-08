@@ -50,6 +50,7 @@ class IntegerOperationResource(object):
         self._args = None
         self._op = None
         self._type = None
+        self.discriminator = None
 
         if args is not None:
           self.args = args

@@ -125,6 +125,7 @@ class VideoResource(object):
         self._uploader = None
         self._views = None
         self._width = None
+        self.discriminator = None
 
         if active is not None:
           self.active = active

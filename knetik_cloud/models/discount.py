@@ -56,6 +56,7 @@ class Discount(object):
         self._sku = None
         self._unique_key = None
         self._value = None
+        self.discriminator = None
 
         if description is not None:
           self.description = description

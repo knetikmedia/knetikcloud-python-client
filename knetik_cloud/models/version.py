@@ -44,6 +44,7 @@ class Version(object):
         """
 
         self._version = None
+        self.discriminator = None
 
         if version is not None:
           self.version = version

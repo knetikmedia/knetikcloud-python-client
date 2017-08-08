@@ -50,6 +50,7 @@ class LeaderboardResource(object):
         self._entries = None
         self._id = None
         self._strategy = None
+        self.discriminator = None
 
         if entries is not None:
           self.entries = entries

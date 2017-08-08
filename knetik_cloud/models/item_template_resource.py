@@ -59,6 +59,7 @@ class ItemTemplateResource(object):
         self._name = None
         self._properties = None
         self._updated_date = None
+        self.discriminator = None
 
         if behaviors is not None:
           self.behaviors = behaviors

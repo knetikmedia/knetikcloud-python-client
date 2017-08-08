@@ -62,6 +62,7 @@ class StoreItemTemplateResource(object):
         self._properties = None
         self._sku_template = None
         self._updated_date = None
+        self.discriminator = None
 
         if behaviors is not None:
           self.behaviors = behaviors

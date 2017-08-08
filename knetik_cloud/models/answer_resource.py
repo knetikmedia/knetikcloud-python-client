@@ -50,6 +50,7 @@ class AnswerResource(object):
         self._answer = None
         self._correct = None
         self._id = None
+        self.discriminator = None
 
         self.answer = answer
         self.correct = correct

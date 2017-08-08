@@ -59,6 +59,7 @@ class RewardCurrencyResource(object):
         self._min_rank = None
         self._percent = None
         self._value = None
+        self.discriminator = None
 
         self.currency_code = currency_code
         if currency_name is not None:

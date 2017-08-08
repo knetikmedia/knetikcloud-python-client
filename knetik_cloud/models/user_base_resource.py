@@ -68,6 +68,7 @@ class UserBaseResource(object):
         self._last_updated = None
         self._member_since = None
         self._username = None
+        self.discriminator = None
 
         if avatar_url is not None:
           self.avatar_url = avatar_url

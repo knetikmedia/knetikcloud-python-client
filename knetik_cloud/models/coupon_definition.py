@@ -86,6 +86,7 @@ class CouponDefinition(object):
         self._valid_for_tags = None
         self._value = None
         self._vendor_id = None
+        self.discriminator = None
 
         self.code = code
         if description is not None:

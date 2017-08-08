@@ -50,6 +50,7 @@ class NestedCategory(object):
         self._active = None
         self._id = None
         self._name = None
+        self.discriminator = None
 
         if active is not None:
           self.active = active

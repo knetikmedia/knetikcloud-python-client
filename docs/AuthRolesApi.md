@@ -30,10 +30,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role_resource = knetik_cloud.RoleResource() # RoleResource | The role resource object (optional)
 
 try: 
@@ -79,10 +80,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role = 'role_example' # str | The role value
 force = true # bool | If true, removes role from users/clients (optional)
 
@@ -129,10 +131,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 client_key = 'client_key_example' # str | The client key
 
 try: 
@@ -178,10 +181,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role = 'role_example' # str | The role value
 
 try: 
@@ -214,7 +218,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_roles**
-> PageResourceRoleResource get_roles(size=size, page=page, order=order)
+> PageResourceRoleResource get_roles(filter_name=filter_name, filter_role=filter_role, size=size, page=page, order=order)
 
 List and search roles
 
@@ -227,17 +231,20 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
+filter_name = 'filter_name_example' # str | Filter for roles that have a name starting with specified string (optional)
+filter_role = 'filter_role_example' # str | Filter for roles that have a role starting with specified string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'order_example' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 
 try: 
     # List and search roles
-    api_response = api_instance.get_roles(size=size, page=page, order=order)
+    api_response = api_instance.get_roles(filter_name=filter_name, filter_role=filter_role, size=size, page=page, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AuthRolesApi->get_roles: %s\n" % e)
@@ -247,6 +254,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filter_name** | **str**| Filter for roles that have a name starting with specified string | [optional] 
+ **filter_role** | **str**| Filter for roles that have a role starting with specified string | [optional] 
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
@@ -280,10 +289,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The user's id
 
 try: 
@@ -329,10 +339,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 client_key = 'client_key_example' # str | The client key
 roles_list = [knetik_cloud.list[str]()] # list[str] | The list of unique roles (optional)
 
@@ -380,10 +391,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role = 'role_example' # str | The role value
 permissions_list = [knetik_cloud.list[str]()] # list[str] | The list of unique permissions (optional)
 
@@ -431,10 +443,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The user's id
 roles_list = [knetik_cloud.list[str]()] # list[str] | The list of unique roles (optional)
 
@@ -482,10 +495,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role = 'role_example' # str | The role value
 role_resource = knetik_cloud.RoleResource() # RoleResource | The role resource object (optional)
 

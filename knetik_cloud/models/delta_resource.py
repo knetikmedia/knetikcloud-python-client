@@ -59,6 +59,7 @@ class DeltaResource(object):
         self._state = None
         self._tags = None
         self._updated_date = None
+        self.discriminator = None
 
         if category_id is not None:
           self.category_id = category_id

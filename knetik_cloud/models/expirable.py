@@ -31,81 +31,28 @@ class Expirable(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'type_hint': 'str',
         'time_length': 'int',
         'unit_of_time': 'str'
     }
 
     attribute_map = {
-        'description': 'description',
-        'type_hint': 'type_hint',
         'time_length': 'time_length',
         'unit_of_time': 'unit_of_time'
     }
 
-    def __init__(self, description=None, type_hint=None, time_length=None, unit_of_time=None):
+    def __init__(self, time_length=None, unit_of_time=None):
         """
         Expirable - a model defined in Swagger
         """
 
-        self._description = None
-        self._type_hint = None
         self._time_length = None
         self._unit_of_time = None
+        self.discriminator = None
 
-        if description is not None:
-          self.description = description
-        if type_hint is not None:
-          self.type_hint = type_hint
         if time_length is not None:
           self.time_length = time_length
         if unit_of_time is not None:
           self.unit_of_time = unit_of_time
-
-    @property
-    def description(self):
-        """
-        Gets the description of this Expirable.
-
-        :return: The description of this Expirable.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this Expirable.
-
-        :param description: The description of this Expirable.
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def type_hint(self):
-        """
-        Gets the type_hint of this Expirable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :return: The type_hint of this Expirable.
-        :rtype: str
-        """
-        return self._type_hint
-
-    @type_hint.setter
-    def type_hint(self, type_hint):
-        """
-        Sets the type_hint of this Expirable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :param type_hint: The type_hint of this Expirable.
-        :type: str
-        """
-
-        self._type_hint = type_hint
 
     @property
     def time_length(self):

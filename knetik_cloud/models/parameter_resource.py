@@ -50,6 +50,7 @@ class ParameterResource(object):
         self._of = None
         self._type = None
         self._value = None
+        self.discriminator = None
 
         if of is not None:
           self.of = of

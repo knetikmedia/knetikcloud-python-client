@@ -30,10 +30,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 level = knetik_cloud.LevelingResource() # LevelingResource | The level schema definition (optional)
 
 try: 
@@ -79,10 +80,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 name = 'name_example' # str | The level schema name
 
 try: 
@@ -127,10 +129,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 name = 'name_example' # str | The level schema name
 
 try: 
@@ -176,10 +179,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 
 try: 
     # Get the list of triggers that can be used to trigger a leveling progress update
@@ -223,10 +227,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 filter_name = 'filter_name_example' # str | Filter for level schemas whose name contains a given string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
@@ -278,10 +283,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 name = 'name_example' # str | The level schema name
 
@@ -331,10 +337,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 filter_name = 'filter_name_example' # str | Filter for level schemas whose name contains a given string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -390,13 +397,14 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 name = 'name_example' # str | The level schema name
-progress = 56 # int | The amount of progress to add (optional)
+progress = knetik_cloud.IntWrapper() # IntWrapper | The amount of progress to add (optional)
 
 try: 
     # Update or create a leveling progress record for a user
@@ -411,7 +419,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The id of the user | 
  **name** | **str**| The level schema name | 
- **progress** | **int**| The amount of progress to add | [optional] 
+ **progress** | [**IntWrapper**](IntWrapper.md)| The amount of progress to add | [optional] 
 
 ### Return type
 
@@ -444,13 +452,14 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 name = 'name_example' # str | The level schema name
-progress = 56 # int | The new progress amount (optional)
+progress = knetik_cloud.IntWrapper() # IntWrapper | The new progress amount (optional)
 
 try: 
     # Set leveling progress for a user
@@ -465,7 +474,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The id of the user | 
  **name** | **str**| The level schema name | 
- **progress** | **int**| The new progress amount | [optional] 
+ **progress** | [**IntWrapper**](IntWrapper.md)| The new progress amount | [optional] 
 
 ### Return type
 
@@ -496,10 +505,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi()
+api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
 name = 'name_example' # str | The level schema name
 new_level = knetik_cloud.LevelingResource() # LevelingResource | The level schema definition (optional)
 

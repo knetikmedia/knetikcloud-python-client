@@ -53,6 +53,7 @@ class ActivityOccurrenceJoinResult(object):
         self._error_code = None
         self._message = None
         self._user_id = None
+        self.discriminator = None
 
         if entitlement is not None:
           self.entitlement = entitlement

@@ -38,12 +38,17 @@ class ExpressionResource(object):
         'type': 'type'
     }
 
+    discriminator_value_class_map = {
+        
+    }
+
     def __init__(self, type=None):
         """
         ExpressionResource - a model defined in Swagger
         """
 
         self._type = None
+        self.discriminator = 'type'
 
         if type is not None:
           self.type = type
@@ -68,6 +73,16 @@ class ExpressionResource(object):
         """
 
         self._type = type
+
+    def get_real_child_model(self, data):
+        """
+        Returns the real base class specified by the discriminator
+        """
+        discriminator_value = data[self.discriminator].lower()
+        if self.discriminator_value_class_map.has_key(discriminator_value):
+            return self.discriminator_value_class_map[discriminator_value]
+        else:
+            return None
 
     def to_dict(self):
         """

@@ -62,6 +62,7 @@ class UserActionLog(object):
         self._id = None
         self._request_id = None
         self._user_id = None
+        self.discriminator = None
 
         self.action_description = action_description
         self.action_name = action_name

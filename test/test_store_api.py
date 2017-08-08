@@ -111,6 +111,14 @@ class TestStoreApi(unittest.TestCase):
         """
         pass
 
+    def test_quick_buy(self):
+        """
+        Test case for quick_buy
+
+        One-step purchase and pay for a single SKU item from a user's wallet
+        """
+        pass
+
     def test_update_item_template(self):
         """
         Test case for update_item_template

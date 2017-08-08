@@ -50,6 +50,7 @@ class CreateBillingAgreementRequest(object):
         self._cancel_url = None
         self._return_url = None
         self._user_id = None
+        self.discriminator = None
 
         self.cancel_url = cancel_url
         self.return_url = return_url

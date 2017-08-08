@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,27 +31,19 @@ class GamificationTriviaApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_question_answers(self, question_id, **kwargs):
         """
         Add an answer to a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_question_answers(question_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_question_answers(question_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :param AnswerResource answer: The new answer
         :return: AnswerResource
@@ -60,7 +51,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_question_answers_with_http_info(question_id, **kwargs)
         else:
             (data) = self.add_question_answers_with_http_info(question_id, **kwargs)
@@ -70,15 +61,11 @@ class GamificationTriviaApi(object):
         """
         Add an answer to a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_question_answers_with_http_info(question_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_question_answers_with_http_info(question_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :param AnswerResource answer: The new answer
         :return: AnswerResource
@@ -87,7 +74,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['question_id', 'answer']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +129,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='AnswerResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -152,23 +139,19 @@ class GamificationTriviaApi(object):
         """
         Add a tag to a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_question_tag(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_question_tag(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
-        :param str tag: The new tag
+        :param StringWrapper tag: The new tag
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_question_tag_with_http_info(id, **kwargs)
         else:
             (data) = self.add_question_tag_with_http_info(id, **kwargs)
@@ -178,24 +161,20 @@ class GamificationTriviaApi(object):
         """
         Add a tag to a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_question_tag_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_question_tag_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
-        :param str tag: The new tag
+        :param StringWrapper tag: The new tag
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'tag']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -250,7 +229,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -261,16 +240,12 @@ class GamificationTriviaApi(object):
         Add a tag to a batch of questions
         All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_tag_to_questions_batch(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_tag_to_questions_batch(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str tag: The tag to add
+        :param async bool
+        :param StringWrapper tag: The tag to add
         :param str filter_search: Filter for documents whose question, answers or tags contains provided string
         :param str filter_idset: Filter for documents whose id is in the comma separated list provided
         :param str filter_category: Filter for questions with specified category, by id
@@ -284,7 +259,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_tag_to_questions_batch_with_http_info(**kwargs)
         else:
             (data) = self.add_tag_to_questions_batch_with_http_info(**kwargs)
@@ -295,16 +270,12 @@ class GamificationTriviaApi(object):
         Add a tag to a batch of questions
         All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_tag_to_questions_batch_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_tag_to_questions_batch_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str tag: The tag to add
+        :param async bool
+        :param StringWrapper tag: The tag to add
         :param str filter_search: Filter for documents whose question, answers or tags contains provided string
         :param str filter_idset: Filter for documents whose id is in the comma separated list provided
         :param str filter_category: Filter for questions with specified category, by id
@@ -319,7 +290,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['tag', 'filter_search', 'filter_idset', 'filter_category', 'filter_tag', 'filter_tagset', 'filter_type', 'filter_published', 'filter_import_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -385,7 +356,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='int',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -396,22 +367,18 @@ class GamificationTriviaApi(object):
         Create an import job
         Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_import_job(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_import_job(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ImportJobResource request: The new import job
         :return: ImportJobResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_import_job_with_http_info(**kwargs)
         else:
             (data) = self.create_import_job_with_http_info(**kwargs)
@@ -422,15 +389,11 @@ class GamificationTriviaApi(object):
         Create an import job
         Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_import_job_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_import_job_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ImportJobResource request: The new import job
         :return: ImportJobResource
                  If the method is called asynchronously,
@@ -438,7 +401,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -488,7 +451,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='ImportJobResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -498,22 +461,18 @@ class GamificationTriviaApi(object):
         """
         Create a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_question(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_question(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param QuestionResource question: The new question
         :return: QuestionResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_question_with_http_info(**kwargs)
         else:
             (data) = self.create_question_with_http_info(**kwargs)
@@ -523,15 +482,11 @@ class GamificationTriviaApi(object):
         """
         Create a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_question_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_question_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param QuestionResource question: The new question
         :return: QuestionResource
                  If the method is called asynchronously,
@@ -539,7 +494,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['question']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -589,7 +544,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='QuestionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -600,22 +555,18 @@ class GamificationTriviaApi(object):
         Create a question template
         Question templates define a type of question and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_question_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_question_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param QuestionTemplateResource question_template_resource: The question template resource object
         :return: QuestionTemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_question_template_with_http_info(**kwargs)
         else:
             (data) = self.create_question_template_with_http_info(**kwargs)
@@ -626,15 +577,11 @@ class GamificationTriviaApi(object):
         Create a question template
         Question templates define a type of question and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_question_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_question_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param QuestionTemplateResource question_template_resource: The question template resource object
         :return: QuestionTemplateResource
                  If the method is called asynchronously,
@@ -642,7 +589,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['question_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -692,7 +639,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='QuestionTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -703,22 +650,18 @@ class GamificationTriviaApi(object):
         Delete an import job
         Also deletes all questions that were imported by it
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_import_job(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_import_job(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the job (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_import_job_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_import_job_with_http_info(id, **kwargs)
@@ -729,15 +672,11 @@ class GamificationTriviaApi(object):
         Delete an import job
         Also deletes all questions that were imported by it
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_import_job_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_import_job_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the job (required)
         :return: None
                  If the method is called asynchronously,
@@ -745,7 +684,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -798,7 +737,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -808,22 +747,18 @@ class GamificationTriviaApi(object):
         """
         Delete a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_question(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_question(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_question_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_question_with_http_info(id, **kwargs)
@@ -833,15 +768,11 @@ class GamificationTriviaApi(object):
         """
         Delete a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_question_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_question_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :return: None
                  If the method is called asynchronously,
@@ -849,7 +780,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -902,7 +833,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -912,15 +843,11 @@ class GamificationTriviaApi(object):
         """
         Remove an answer from a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_question_answers(question_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_question_answers(question_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :param str id: The id of the answer (required)
         :return: None
@@ -928,7 +855,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_question_answers_with_http_info(question_id, id, **kwargs)
         else:
             (data) = self.delete_question_answers_with_http_info(question_id, id, **kwargs)
@@ -938,15 +865,11 @@ class GamificationTriviaApi(object):
         """
         Remove an answer from a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_question_answers_with_http_info(question_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_question_answers_with_http_info(question_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :param str id: The id of the answer (required)
         :return: None
@@ -955,7 +878,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['question_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1013,7 +936,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1024,15 +947,11 @@ class GamificationTriviaApi(object):
         Delete a question template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_question_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_question_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -1040,7 +959,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_question_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_question_template_with_http_info(id, **kwargs)
@@ -1051,15 +970,11 @@ class GamificationTriviaApi(object):
         Delete a question template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_question_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_question_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -1068,7 +983,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1123,7 +1038,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1133,22 +1048,18 @@ class GamificationTriviaApi(object):
         """
         Get an import job
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_import_job(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_import_job(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the job (required)
         :return: ImportJobResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_import_job_with_http_info(id, **kwargs)
         else:
             (data) = self.get_import_job_with_http_info(id, **kwargs)
@@ -1158,15 +1069,11 @@ class GamificationTriviaApi(object):
         """
         Get an import job
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_import_job_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_import_job_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the job (required)
         :return: ImportJobResource
                  If the method is called asynchronously,
@@ -1174,7 +1081,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1227,7 +1134,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='ImportJobResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1237,15 +1144,11 @@ class GamificationTriviaApi(object):
         """
         Get a list of import job
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_import_jobs(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_import_jobs(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_vendor: Filter for jobs by vendor id
         :param str filter_category: Filter for jobs by category id
         :param str filter_name: Filter for jobs which name *STARTS* with the given string
@@ -1258,7 +1161,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_import_jobs_with_http_info(**kwargs)
         else:
             (data) = self.get_import_jobs_with_http_info(**kwargs)
@@ -1268,15 +1171,11 @@ class GamificationTriviaApi(object):
         """
         Get a list of import job
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_import_jobs_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_import_jobs_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_vendor: Filter for jobs by vendor id
         :param str filter_category: Filter for jobs by category id
         :param str filter_name: Filter for jobs which name *STARTS* with the given string
@@ -1290,7 +1189,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['filter_vendor', 'filter_category', 'filter_name', 'filter_status', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1352,7 +1251,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceImportJobResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1362,22 +1261,18 @@ class GamificationTriviaApi(object):
         """
         Get a single question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :return: QuestionResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_question_with_http_info(id, **kwargs)
         else:
             (data) = self.get_question_with_http_info(id, **kwargs)
@@ -1387,15 +1282,11 @@ class GamificationTriviaApi(object):
         """
         Get a single question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :return: QuestionResource
                  If the method is called asynchronously,
@@ -1403,7 +1294,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1456,7 +1347,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='QuestionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1466,15 +1357,11 @@ class GamificationTriviaApi(object):
         """
         Get an answer for a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_answer(question_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_answer(question_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :param str id: The id of the answer (required)
         :return: AnswerResource
@@ -1482,7 +1369,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_question_answer_with_http_info(question_id, id, **kwargs)
         else:
             (data) = self.get_question_answer_with_http_info(question_id, id, **kwargs)
@@ -1492,15 +1379,11 @@ class GamificationTriviaApi(object):
         """
         Get an answer for a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_answer_with_http_info(question_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_answer_with_http_info(question_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :param str id: The id of the answer (required)
         :return: AnswerResource
@@ -1509,7 +1392,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['question_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1567,7 +1450,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='AnswerResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1577,22 +1460,18 @@ class GamificationTriviaApi(object):
         """
         List the answers available for a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_answers(question_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_answers(question_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :return: list[AnswerResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_question_answers_with_http_info(question_id, **kwargs)
         else:
             (data) = self.get_question_answers_with_http_info(question_id, **kwargs)
@@ -1602,15 +1481,11 @@ class GamificationTriviaApi(object):
         """
         List the answers available for a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_answers_with_http_info(question_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_answers_with_http_info(question_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :return: list[AnswerResource]
                  If the method is called asynchronously,
@@ -1618,7 +1493,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['question_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1671,7 +1546,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='list[AnswerResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1682,22 +1557,18 @@ class GamificationTriviaApi(object):
         List question deltas in ascending order of updated date
         The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_deltas(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_deltas(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int since: Timestamp in seconds
         :return: list[DeltaResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_question_deltas_with_http_info(**kwargs)
         else:
             (data) = self.get_question_deltas_with_http_info(**kwargs)
@@ -1708,15 +1579,11 @@ class GamificationTriviaApi(object):
         List question deltas in ascending order of updated date
         The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_deltas_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_deltas_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int since: Timestamp in seconds
         :return: list[DeltaResource]
                  If the method is called asynchronously,
@@ -1724,7 +1591,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['since']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1774,7 +1641,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='list[DeltaResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1784,22 +1651,18 @@ class GamificationTriviaApi(object):
         """
         List the tags for a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_tags(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_tags(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_question_tags_with_http_info(id, **kwargs)
         else:
             (data) = self.get_question_tags_with_http_info(id, **kwargs)
@@ -1809,15 +1672,11 @@ class GamificationTriviaApi(object):
         """
         List the tags for a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_tags_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_tags_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :return: list[str]
                  If the method is called asynchronously,
@@ -1825,7 +1684,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1878,7 +1737,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='list[str]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1888,22 +1747,18 @@ class GamificationTriviaApi(object):
         """
         Get a single question template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: QuestionTemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_question_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_question_template_with_http_info(id, **kwargs)
@@ -1913,15 +1768,11 @@ class GamificationTriviaApi(object):
         """
         Get a single question template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: QuestionTemplateResource
                  If the method is called asynchronously,
@@ -1929,7 +1780,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1982,7 +1833,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='QuestionTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1992,15 +1843,11 @@ class GamificationTriviaApi(object):
         """
         List and search question templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -2009,7 +1856,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_question_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_question_templates_with_http_info(**kwargs)
@@ -2019,15 +1866,11 @@ class GamificationTriviaApi(object):
         """
         List and search question templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_question_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_question_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -2037,7 +1880,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2091,7 +1934,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceQuestionTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2101,15 +1944,11 @@ class GamificationTriviaApi(object):
         """
         List and search questions
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_questions(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_questions(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -2126,7 +1965,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_questions_with_http_info(**kwargs)
         else:
             (data) = self.get_questions_with_http_info(**kwargs)
@@ -2136,15 +1975,11 @@ class GamificationTriviaApi(object):
         """
         List and search questions
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_questions_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_questions_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -2162,7 +1997,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['size', 'page', 'order', 'filter_search', 'filter_idset', 'filter_category', 'filter_tagset', 'filter_tag', 'filter_type', 'filter_published', 'filter_import_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2232,7 +2067,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceQuestionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2243,15 +2078,11 @@ class GamificationTriviaApi(object):
         Count questions based on filters
         This is also provided by the list endpoint so you don't need to call this for pagination purposes
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_questions_count(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_questions_count(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_search: Filter for documents whose question, answers or tags contains provided string
         :param str filter_idset: Filter for documents whose id is in the comma separated list provided
         :param str filter_category: Filter for questions with specified category, by id
@@ -2264,7 +2095,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_questions_count_with_http_info(**kwargs)
         else:
             (data) = self.get_questions_count_with_http_info(**kwargs)
@@ -2275,15 +2106,11 @@ class GamificationTriviaApi(object):
         Count questions based on filters
         This is also provided by the list endpoint so you don't need to call this for pagination purposes
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_questions_count_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_questions_count_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_search: Filter for documents whose question, answers or tags contains provided string
         :param str filter_idset: Filter for documents whose id is in the comma separated list provided
         :param str filter_category: Filter for questions with specified category, by id
@@ -2297,7 +2124,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['filter_search', 'filter_idset', 'filter_category', 'filter_tag', 'filter_tagset', 'filter_type', 'filter_published']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2359,7 +2186,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='int',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2370,15 +2197,11 @@ class GamificationTriviaApi(object):
         Start processing an import job
         Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.process_import_job(id, publish_now, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.process_import_job(id, publish_now, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the job (required)
         :param bool publish_now: Whether the new questions should be published live immediately (required)
         :return: ImportJobResource
@@ -2386,7 +2209,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.process_import_job_with_http_info(id, publish_now, **kwargs)
         else:
             (data) = self.process_import_job_with_http_info(id, publish_now, **kwargs)
@@ -2397,15 +2220,11 @@ class GamificationTriviaApi(object):
         Start processing an import job
         Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.process_import_job_with_http_info(id, publish_now, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.process_import_job_with_http_info(id, publish_now, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the job (required)
         :param bool publish_now: Whether the new questions should be published live immediately (required)
         :return: ImportJobResource
@@ -2414,7 +2233,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id', 'publish_now']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2472,7 +2291,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='ImportJobResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2482,15 +2301,11 @@ class GamificationTriviaApi(object):
         """
         Remove a tag from a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_question_tag(id, tag, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_question_tag(id, tag, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :param str tag: The tag to remove (required)
         :return: None
@@ -2498,7 +2313,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_question_tag_with_http_info(id, tag, **kwargs)
         else:
             (data) = self.remove_question_tag_with_http_info(id, tag, **kwargs)
@@ -2508,15 +2323,11 @@ class GamificationTriviaApi(object):
         """
         Remove a tag from a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_question_tag_with_http_info(id, tag, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_question_tag_with_http_info(id, tag, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :param str tag: The tag to remove (required)
         :return: None
@@ -2525,7 +2336,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id', 'tag']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2583,7 +2394,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2594,15 +2405,11 @@ class GamificationTriviaApi(object):
         Remove a tag from a batch of questions
         ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_tag_to_questions_batch(tag, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_tag_to_questions_batch(tag, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str tag: The tag to remove (required)
         :param str filter_search: Filter for documents whose question, answers or tags contains provided string
         :param str filter_idset: Filter for documents whose id is in the comma separated list provided
@@ -2617,7 +2424,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_tag_to_questions_batch_with_http_info(tag, **kwargs)
         else:
             (data) = self.remove_tag_to_questions_batch_with_http_info(tag, **kwargs)
@@ -2628,15 +2435,11 @@ class GamificationTriviaApi(object):
         Remove a tag from a batch of questions
         ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_tag_to_questions_batch_with_http_info(tag, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_tag_to_questions_batch_with_http_info(tag, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str tag: The tag to remove (required)
         :param str filter_search: Filter for documents whose question, answers or tags contains provided string
         :param str filter_idset: Filter for documents whose id is in the comma separated list provided
@@ -2652,7 +2455,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['tag', 'filter_search', 'filter_idset', 'filter_category', 'filter_tag', 'filter_tagset', 'filter_type', 'filter_published', 'filter_import_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2721,7 +2524,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='int',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2732,15 +2535,11 @@ class GamificationTriviaApi(object):
         List and search tags by the beginning of the string
         For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_question_tags(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_question_tags(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_search: Filter for tags starting with the given text
         :param str filter_category: Filter for tags on questions from a specific category
         :param int filter_import_id: Filter for tags on questions from a specific import job
@@ -2749,7 +2548,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_question_tags_with_http_info(**kwargs)
         else:
             (data) = self.search_question_tags_with_http_info(**kwargs)
@@ -2760,15 +2559,11 @@ class GamificationTriviaApi(object):
         List and search tags by the beginning of the string
         For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_question_tags_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_question_tags_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_search: Filter for tags starting with the given text
         :param str filter_category: Filter for tags on questions from a specific category
         :param int filter_import_id: Filter for tags on questions from a specific import job
@@ -2778,7 +2573,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['filter_search', 'filter_category', 'filter_import_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2832,7 +2627,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='Collectionstring',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2843,15 +2638,11 @@ class GamificationTriviaApi(object):
         Update an import job
         Changes should be made before process is started for there to be any effect.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_import_job(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_import_job(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the job (required)
         :param ImportJobResource request: The updated job
         :return: ImportJobResource
@@ -2859,7 +2650,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_import_job_with_http_info(id, **kwargs)
         else:
             (data) = self.update_import_job_with_http_info(id, **kwargs)
@@ -2870,15 +2661,11 @@ class GamificationTriviaApi(object):
         Update an import job
         Changes should be made before process is started for there to be any effect.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_import_job_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_import_job_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the job (required)
         :param ImportJobResource request: The updated job
         :return: ImportJobResource
@@ -2887,7 +2674,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id', 'request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2942,7 +2729,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='ImportJobResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2952,15 +2739,11 @@ class GamificationTriviaApi(object):
         """
         Update a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_question(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_question(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :param QuestionResource question: The updated question
         :return: QuestionResource
@@ -2968,7 +2751,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_question_with_http_info(id, **kwargs)
         else:
             (data) = self.update_question_with_http_info(id, **kwargs)
@@ -2978,15 +2761,11 @@ class GamificationTriviaApi(object):
         """
         Update a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_question_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_question_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the question (required)
         :param QuestionResource question: The updated question
         :return: QuestionResource
@@ -2995,7 +2774,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id', 'question']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3050,7 +2829,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='QuestionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3060,15 +2839,11 @@ class GamificationTriviaApi(object):
         """
         Update an answer for a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_question_answer(question_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_question_answer(question_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :param str id: The id of the answer (required)
         :param AnswerResource answer: The updated answer
@@ -3077,7 +2852,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_question_answer_with_http_info(question_id, id, **kwargs)
         else:
             (data) = self.update_question_answer_with_http_info(question_id, id, **kwargs)
@@ -3087,15 +2862,11 @@ class GamificationTriviaApi(object):
         """
         Update an answer for a question
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_question_answer_with_http_info(question_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_question_answer_with_http_info(question_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str question_id: The id of the question (required)
         :param str id: The id of the answer (required)
         :param AnswerResource answer: The updated answer
@@ -3105,7 +2876,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['question_id', 'id', 'answer']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3165,7 +2936,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3175,15 +2946,11 @@ class GamificationTriviaApi(object):
         """
         Update a question template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_question_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_question_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param QuestionTemplateResource question_template_resource: The question template resource object
         :return: QuestionTemplateResource
@@ -3191,7 +2958,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_question_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_question_template_with_http_info(id, **kwargs)
@@ -3201,15 +2968,11 @@ class GamificationTriviaApi(object):
         """
         Update a question template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_question_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_question_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param QuestionTemplateResource question_template_resource: The question template resource object
         :return: QuestionTemplateResource
@@ -3218,7 +2981,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['id', 'question_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3273,7 +3036,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='QuestionTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -3284,15 +3047,11 @@ class GamificationTriviaApi(object):
         Bulk update questions
         Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_questions_in_bulk(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_questions_in_bulk(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param QuestionResource question: New values for a set of question fields
         :param str filter_search: Filter for documents whose question, answers or tags contains provided string
         :param str filter_idset: Filter for documents whose id is in the comma separated list provided
@@ -3306,7 +3065,7 @@ class GamificationTriviaApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_questions_in_bulk_with_http_info(**kwargs)
         else:
             (data) = self.update_questions_in_bulk_with_http_info(**kwargs)
@@ -3317,15 +3076,11 @@ class GamificationTriviaApi(object):
         Bulk update questions
         Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_questions_in_bulk_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_questions_in_bulk_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param QuestionResource question: New values for a set of question fields
         :param str filter_search: Filter for documents whose question, answers or tags contains provided string
         :param str filter_idset: Filter for documents whose id is in the comma separated list provided
@@ -3340,7 +3095,7 @@ class GamificationTriviaApi(object):
         """
 
         all_params = ['question', 'filter_search', 'filter_idset', 'filter_category', 'filter_tagset', 'filter_type', 'filter_published', 'filter_import_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -3404,7 +3159,7 @@ class GamificationTriviaApi(object):
                                         files=local_var_files,
                                         response_type='int',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

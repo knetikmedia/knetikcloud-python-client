@@ -62,6 +62,7 @@ class RoleResource(object):
         self._role = None
         self._role_permission = None
         self._user_count = None
+        self.discriminator = None
 
         if client_count is not None:
           self.client_count = client_count

@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,27 +31,19 @@ class PaymentsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_payment_method(self, user_id, **kwargs):
         """
         Create a new payment method for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_payment_method(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_payment_method(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment method is being created (required)
         :param PaymentMethodResource payment_method: Payment method being created
         :return: PaymentMethodResource
@@ -60,7 +51,7 @@ class PaymentsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_payment_method_with_http_info(user_id, **kwargs)
         else:
             (data) = self.create_payment_method_with_http_info(user_id, **kwargs)
@@ -70,15 +61,11 @@ class PaymentsApi(object):
         """
         Create a new payment method for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_payment_method_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_payment_method_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment method is being created (required)
         :param PaymentMethodResource payment_method: Payment method being created
         :return: PaymentMethodResource
@@ -87,7 +74,7 @@ class PaymentsApi(object):
         """
 
         all_params = ['user_id', 'payment_method']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +129,7 @@ class PaymentsApi(object):
                                         files=local_var_files,
                                         response_type='PaymentMethodResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -152,15 +139,11 @@ class PaymentsApi(object):
         """
         Delete an existing payment method for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_payment_method(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_payment_method(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment method is being updated (required)
         :param int id: ID of the payment method being deleted (required)
         :return: None
@@ -168,7 +151,7 @@ class PaymentsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_payment_method_with_http_info(user_id, id, **kwargs)
         else:
             (data) = self.delete_payment_method_with_http_info(user_id, id, **kwargs)
@@ -178,15 +161,11 @@ class PaymentsApi(object):
         """
         Delete an existing payment method for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_payment_method_with_http_info(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_payment_method_with_http_info(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment method is being updated (required)
         :param int id: ID of the payment method being deleted (required)
         :return: None
@@ -195,7 +174,7 @@ class PaymentsApi(object):
         """
 
         all_params = ['user_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -253,7 +232,7 @@ class PaymentsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -263,15 +242,11 @@ class PaymentsApi(object):
         """
         Get a single payment method for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_payment_method(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_payment_method(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment method is being retrieved (required)
         :param int id: ID of the payment method being retrieved (required)
         :return: PaymentMethodResource
@@ -279,7 +254,7 @@ class PaymentsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_payment_method_with_http_info(user_id, id, **kwargs)
         else:
             (data) = self.get_payment_method_with_http_info(user_id, id, **kwargs)
@@ -289,15 +264,11 @@ class PaymentsApi(object):
         """
         Get a single payment method for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_payment_method_with_http_info(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_payment_method_with_http_info(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment method is being retrieved (required)
         :param int id: ID of the payment method being retrieved (required)
         :return: PaymentMethodResource
@@ -306,7 +277,7 @@ class PaymentsApi(object):
         """
 
         all_params = ['user_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -364,7 +335,7 @@ class PaymentsApi(object):
                                         files=local_var_files,
                                         response_type='PaymentMethodResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -374,15 +345,11 @@ class PaymentsApi(object):
         """
         Get all payment methods for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_payment_methods(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_payment_methods(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment methods are being retrieved (required)
         :param str filter_name: Filter for payment methods whose name starts with a given string
         :param str filter_payment_type: Filter for payment methods with a specific payment type
@@ -396,7 +363,7 @@ class PaymentsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_payment_methods_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_payment_methods_with_http_info(user_id, **kwargs)
@@ -406,15 +373,11 @@ class PaymentsApi(object):
         """
         Get all payment methods for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_payment_methods_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_payment_methods_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment methods are being retrieved (required)
         :param str filter_name: Filter for payment methods whose name starts with a given string
         :param str filter_payment_type: Filter for payment methods with a specific payment type
@@ -429,7 +392,7 @@ class PaymentsApi(object):
         """
 
         all_params = ['user_id', 'filter_name', 'filter_payment_type', 'filter_payment_method_type_id', 'filter_payment_method_type_name', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -496,7 +459,7 @@ class PaymentsApi(object):
                                         files=local_var_files,
                                         response_type='list[PaymentMethodResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -506,22 +469,18 @@ class PaymentsApi(object):
         """
         Authorize payment of an invoice for later capture
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.payment_authorization(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.payment_authorization(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param PaymentAuthorizationResource request: Payment authorization request
         :return: PaymentAuthorizationResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.payment_authorization_with_http_info(**kwargs)
         else:
             (data) = self.payment_authorization_with_http_info(**kwargs)
@@ -531,15 +490,11 @@ class PaymentsApi(object):
         """
         Authorize payment of an invoice for later capture
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.payment_authorization_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.payment_authorization_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param PaymentAuthorizationResource request: Payment authorization request
         :return: PaymentAuthorizationResource
                  If the method is called asynchronously,
@@ -547,7 +502,7 @@ class PaymentsApi(object):
         """
 
         all_params = ['request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -597,7 +552,7 @@ class PaymentsApi(object):
                                         files=local_var_files,
                                         response_type='PaymentAuthorizationResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -607,22 +562,18 @@ class PaymentsApi(object):
         """
         Capture an existing invoice payment authorization
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.payment_capture(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.payment_capture(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: ID of the payment authorization to capture (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.payment_capture_with_http_info(id, **kwargs)
         else:
             (data) = self.payment_capture_with_http_info(id, **kwargs)
@@ -632,15 +583,11 @@ class PaymentsApi(object):
         """
         Capture an existing invoice payment authorization
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.payment_capture_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.payment_capture_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: ID of the payment authorization to capture (required)
         :return: None
                  If the method is called asynchronously,
@@ -648,7 +595,7 @@ class PaymentsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -701,7 +648,7 @@ class PaymentsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -711,15 +658,11 @@ class PaymentsApi(object):
         """
         Update an existing payment method for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_payment_method(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_payment_method(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment method is being updated (required)
         :param int id: ID of the payment method being updated (required)
         :param PaymentMethodResource payment_method: The updated payment method data
@@ -728,7 +671,7 @@ class PaymentsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_payment_method_with_http_info(user_id, id, **kwargs)
         else:
             (data) = self.update_payment_method_with_http_info(user_id, id, **kwargs)
@@ -738,15 +681,11 @@ class PaymentsApi(object):
         """
         Update an existing payment method for a user
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_payment_method_with_http_info(user_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_payment_method_with_http_info(user_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: ID of the user for whom the payment method is being updated (required)
         :param int id: ID of the payment method being updated (required)
         :param PaymentMethodResource payment_method: The updated payment method data
@@ -756,7 +695,7 @@ class PaymentsApi(object):
         """
 
         all_params = ['user_id', 'id', 'payment_method']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -816,7 +755,7 @@ class PaymentsApi(object):
                                         files=local_var_files,
                                         response_type='PaymentMethodResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

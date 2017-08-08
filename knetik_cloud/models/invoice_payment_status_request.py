@@ -47,6 +47,7 @@ class InvoicePaymentStatusRequest(object):
 
         self._payment_method_id = None
         self._status = None
+        self.discriminator = None
 
         if payment_method_id is not None:
           self.payment_method_id = payment_method_id

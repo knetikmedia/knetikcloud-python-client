@@ -50,6 +50,7 @@ class ApplyPaymentRequest(object):
         self._invoice_id = None
         self._receipt = None
         self._transaction_id = None
+        self.discriminator = None
 
         self.invoice_id = invoice_id
         self.receipt = receipt

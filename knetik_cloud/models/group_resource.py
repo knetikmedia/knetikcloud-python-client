@@ -71,6 +71,7 @@ class GroupResource(object):
         self._sub_member_count = None
         self._template = None
         self._unique_name = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

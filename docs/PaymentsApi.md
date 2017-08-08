@@ -27,10 +27,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment method is being created
 payment_method = knetik_cloud.PaymentMethodResource() # PaymentMethodResource | Payment method being created (optional)
 
@@ -78,10 +79,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment method is being updated
 id = 56 # int | ID of the payment method being deleted
 
@@ -128,10 +130,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment method is being retrieved
 id = 56 # int | ID of the payment method being retrieved
 
@@ -179,10 +182,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment methods are being retrieved
 filter_name = 'filter_name_example' # str | Filter for payment methods whose name starts with a given string (optional)
 filter_payment_type = 'filter_payment_type_example' # str | Filter for payment methods with a specific payment type (optional)
@@ -242,10 +246,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 request = knetik_cloud.PaymentAuthorizationResource() # PaymentAuthorizationResource | Payment authorization request (optional)
 
 try: 
@@ -291,10 +296,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | ID of the payment authorization to capture
 
 try: 
@@ -339,10 +345,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment method is being updated
 id = 56 # int | ID of the payment method being updated
 payment_method = knetik_cloud.PaymentMethodResource() # PaymentMethodResource | The updated payment method data (optional)

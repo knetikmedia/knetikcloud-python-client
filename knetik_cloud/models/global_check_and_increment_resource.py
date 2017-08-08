@@ -50,6 +50,7 @@ class GlobalCheckAndIncrementResource(object):
         self._check_value_resource = None
         self._global_resource = None
         self._type = None
+        self.discriminator = None
 
         if check_value_resource is not None:
           self.check_value_resource = check_value_resource

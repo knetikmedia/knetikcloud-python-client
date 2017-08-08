@@ -53,6 +53,7 @@ class LeaderboardEntryResource(object):
         self._score = None
         self._updated_date = None
         self._user = None
+        self.discriminator = None
 
         if rank is not None:
           self.rank = rank

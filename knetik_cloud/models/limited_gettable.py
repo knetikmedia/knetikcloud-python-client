@@ -31,76 +31,23 @@ class LimitedGettable(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'type_hint': 'str',
         'group': 'LimitedGettableGroup'
     }
 
     attribute_map = {
-        'description': 'description',
-        'type_hint': 'type_hint',
         'group': 'group'
     }
 
-    def __init__(self, description=None, type_hint=None, group=None):
+    def __init__(self, group=None):
         """
         LimitedGettable - a model defined in Swagger
         """
 
-        self._description = None
-        self._type_hint = None
         self._group = None
+        self.discriminator = None
 
-        if description is not None:
-          self.description = description
-        if type_hint is not None:
-          self.type_hint = type_hint
         if group is not None:
           self.group = group
-
-    @property
-    def description(self):
-        """
-        Gets the description of this LimitedGettable.
-
-        :return: The description of this LimitedGettable.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this LimitedGettable.
-
-        :param description: The description of this LimitedGettable.
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def type_hint(self):
-        """
-        Gets the type_hint of this LimitedGettable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :return: The type_hint of this LimitedGettable.
-        :rtype: str
-        """
-        return self._type_hint
-
-    @type_hint.setter
-    def type_hint(self, type_hint):
-        """
-        Sets the type_hint of this LimitedGettable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :param type_hint: The type_hint of this LimitedGettable.
-        :type: str
-        """
-
-        self._type_hint = type_hint
 
     @property
     def group(self):

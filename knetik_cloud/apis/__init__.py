@@ -42,6 +42,7 @@ from .media_videos_api import MediaVideosApi
 from .messaging_api import MessagingApi
 from .payments_api import PaymentsApi
 from .payments_apple_api import PaymentsAppleApi
+from .payments_fatt_merchant_api import PaymentsFattMerchantApi
 from .payments_google_api import PaymentsGoogleApi
 from .payments_optimal_api import PaymentsOptimalApi
 from .payments_pay_pal_classic_api import PaymentsPayPalClassicApi

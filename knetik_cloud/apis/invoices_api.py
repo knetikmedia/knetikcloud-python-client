@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,35 +31,27 @@ class InvoicesApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_invoice(self, **kwargs):
         """
         Create an invoice
         Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_invoice(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_invoice(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param InvoiceCreateRequest req: Invoice to be created
         :return: list[InvoiceResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_invoice_with_http_info(**kwargs)
         else:
             (data) = self.create_invoice_with_http_info(**kwargs)
@@ -71,15 +62,11 @@ class InvoicesApi(object):
         Create an invoice
         Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_invoice_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_invoice_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param InvoiceCreateRequest req: Invoice to be created
         :return: list[InvoiceResource]
                  If the method is called asynchronously,
@@ -87,7 +74,7 @@ class InvoicesApi(object):
         """
 
         all_params = ['req']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -137,7 +124,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type='list[InvoiceResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -147,21 +134,17 @@ class InvoicesApi(object):
         """
         Lists available fulfillment statuses
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ful_fillment_statuses(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_ful_fillment_statuses(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_ful_fillment_statuses_with_http_info(**kwargs)
         else:
             (data) = self.get_ful_fillment_statuses_with_http_info(**kwargs)
@@ -171,22 +154,18 @@ class InvoicesApi(object):
         """
         Lists available fulfillment statuses
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_ful_fillment_statuses_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_ful_fillment_statuses_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,7 +212,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type='list[str]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -243,22 +222,18 @@ class InvoicesApi(object):
         """
         Retrieve an invoice
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_invoice(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_invoice(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :return: InvoiceResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_invoice_with_http_info(id, **kwargs)
         else:
             (data) = self.get_invoice_with_http_info(id, **kwargs)
@@ -268,15 +243,11 @@ class InvoicesApi(object):
         """
         Retrieve an invoice
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_invoice_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_invoice_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :return: InvoiceResource
                  If the method is called asynchronously,
@@ -284,7 +255,7 @@ class InvoicesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -337,7 +308,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type='InvoiceResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -347,15 +318,11 @@ class InvoicesApi(object):
         """
         List invoice logs
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_invoice_logs(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_invoice_logs(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -364,7 +331,7 @@ class InvoicesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_invoice_logs_with_http_info(id, **kwargs)
         else:
             (data) = self.get_invoice_logs_with_http_info(id, **kwargs)
@@ -374,15 +341,11 @@ class InvoicesApi(object):
         """
         List invoice logs
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_invoice_logs_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_invoice_logs_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -392,7 +355,7 @@ class InvoicesApi(object):
         """
 
         all_params = ['id', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -449,7 +412,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceInvoiceLogEntry',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -460,15 +423,11 @@ class InvoicesApi(object):
         Retrieve invoices
         Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_invoices(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_invoices(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int filter_user: The id of a user to get invoices for. Automtically added if not being called with admin permissions.
         :param str filter_email: Filters invoices by customer's email. Admins only.
         :param str filter_fulfillment_status: Filters invoices by fulfillment status type. Can be a comma separated list of statuses
@@ -491,7 +450,7 @@ class InvoicesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_invoices_with_http_info(**kwargs)
         else:
             (data) = self.get_invoices_with_http_info(**kwargs)
@@ -502,15 +461,11 @@ class InvoicesApi(object):
         Retrieve invoices
         Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_invoices_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_invoices_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int filter_user: The id of a user to get invoices for. Automtically added if not being called with admin permissions.
         :param str filter_email: Filters invoices by customer's email. Admins only.
         :param str filter_fulfillment_status: Filters invoices by fulfillment status type. Can be a comma separated list of statuses
@@ -534,7 +489,7 @@ class InvoicesApi(object):
         """
 
         all_params = ['filter_user', 'filter_email', 'filter_fulfillment_status', 'filter_payment_status', 'filter_item_name', 'filter_external_ref', 'filter_created_date', 'filter_vendor_ids', 'filter_currency', 'filter_shipping_state_name', 'filter_shipping_country_name', 'filter_shipping', 'filter_vendor_name', 'filter_sku', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -616,7 +571,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceInvoiceResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -626,21 +581,17 @@ class InvoicesApi(object):
         """
         Lists available payment statuses
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_payment_statuses(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_payment_statuses(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_payment_statuses_with_http_info(**kwargs)
         else:
             (data) = self.get_payment_statuses_with_http_info(**kwargs)
@@ -650,22 +601,18 @@ class InvoicesApi(object):
         """
         Lists available payment statuses
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_payment_statuses_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_payment_statuses_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -712,7 +659,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type='list[str]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -720,25 +667,21 @@ class InvoicesApi(object):
 
     def pay_invoice(self, id, **kwargs):
         """
-        Trigger payment of an invoice
+        Pay an invoice using a saved payment method
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.pay_invoice(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.pay_invoice(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
-        :param PayBySavedMethodRequest request: Payment info
+        :param PayBySavedMethodRequest request: The payment method details. Will default to the appropriate user's wallet in the invoice currency if ommited.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.pay_invoice_with_http_info(id, **kwargs)
         else:
             (data) = self.pay_invoice_with_http_info(id, **kwargs)
@@ -746,26 +689,22 @@ class InvoicesApi(object):
 
     def pay_invoice_with_http_info(self, id, **kwargs):
         """
-        Trigger payment of an invoice
+        Pay an invoice using a saved payment method
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.pay_invoice_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.pay_invoice_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
-        :param PayBySavedMethodRequest request: Payment info
+        :param PayBySavedMethodRequest request: The payment method details. Will default to the appropriate user's wallet in the invoice currency if ommited.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -820,7 +759,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -831,25 +770,21 @@ class InvoicesApi(object):
         Set the fulfillment status of a bundled invoice item
         This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_bundled_invoice_item_fulfillment_status(id, bundle_sku, sku, status, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_bundled_invoice_item_fulfillment_status(id, bundle_sku, sku, status, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param str bundle_sku: The sku of the bundle in the invoice that contains the given target (required)
         :param str sku: The sku of an item in the bundle in the invoice (required)
-        :param str status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
+        :param StringWrapper status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_bundled_invoice_item_fulfillment_status_with_http_info(id, bundle_sku, sku, status, **kwargs)
         else:
             (data) = self.set_bundled_invoice_item_fulfillment_status_with_http_info(id, bundle_sku, sku, status, **kwargs)
@@ -860,26 +795,22 @@ class InvoicesApi(object):
         Set the fulfillment status of a bundled invoice item
         This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_bundled_invoice_item_fulfillment_status_with_http_info(id, bundle_sku, sku, status, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_bundled_invoice_item_fulfillment_status_with_http_info(id, bundle_sku, sku, status, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param str bundle_sku: The sku of the bundle in the invoice that contains the given target (required)
         :param str sku: The sku of an item in the bundle in the invoice (required)
-        :param str status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
+        :param StringWrapper status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'bundle_sku', 'sku', 'status']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -947,7 +878,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -957,23 +888,19 @@ class InvoicesApi(object):
         """
         Set the external reference of an invoice
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_external_ref(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_external_ref(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
-        :param str external_ref: External reference info
+        :param StringWrapper external_ref: External reference info
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_external_ref_with_http_info(id, **kwargs)
         else:
             (data) = self.set_external_ref_with_http_info(id, **kwargs)
@@ -983,24 +910,20 @@ class InvoicesApi(object):
         """
         Set the external reference of an invoice
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_external_ref_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_external_ref_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
-        :param str external_ref: External reference info
+        :param StringWrapper external_ref: External reference info
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'external_ref']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1055,7 +978,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1066,24 +989,20 @@ class InvoicesApi(object):
         Set the fulfillment status of an invoice item
         This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_invoice_item_fulfillment_status(id, sku, status, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_invoice_item_fulfillment_status(id, sku, status, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param str sku: The sku of an item in the invoice (required)
-        :param str status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
+        :param StringWrapper status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_invoice_item_fulfillment_status_with_http_info(id, sku, status, **kwargs)
         else:
             (data) = self.set_invoice_item_fulfillment_status_with_http_info(id, sku, status, **kwargs)
@@ -1094,25 +1013,21 @@ class InvoicesApi(object):
         Set the fulfillment status of an invoice item
         This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_invoice_item_fulfillment_status_with_http_info(id, sku, status, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_invoice_item_fulfillment_status_with_http_info(id, sku, status, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param str sku: The sku of an item in the invoice (required)
-        :param str status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
+        :param StringWrapper status: The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed' (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'sku', 'status']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1175,7 +1090,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1185,23 +1100,19 @@ class InvoicesApi(object):
         """
         Set the order notes of an invoice
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_order_notes(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_order_notes(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
-        :param str order_notes: Payment status info
+        :param StringWrapper order_notes: Payment status info
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_order_notes_with_http_info(id, **kwargs)
         else:
             (data) = self.set_order_notes_with_http_info(id, **kwargs)
@@ -1211,24 +1122,20 @@ class InvoicesApi(object):
         """
         Set the order notes of an invoice
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_order_notes_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_order_notes_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
-        :param str order_notes: Payment status info
+        :param StringWrapper order_notes: Payment status info
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'order_notes']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1283,7 +1190,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1294,15 +1201,11 @@ class InvoicesApi(object):
         Set the payment status of an invoice
         This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_payment_status(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_payment_status(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param InvoicePaymentStatusRequest request: Payment status info
         :return: None
@@ -1310,7 +1213,7 @@ class InvoicesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_payment_status_with_http_info(id, **kwargs)
         else:
             (data) = self.set_payment_status_with_http_info(id, **kwargs)
@@ -1321,15 +1224,11 @@ class InvoicesApi(object):
         Set the payment status of an invoice
         This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_payment_status_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_payment_status_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param InvoicePaymentStatusRequest request: Payment status info
         :return: None
@@ -1338,7 +1237,7 @@ class InvoicesApi(object):
         """
 
         all_params = ['id', 'request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1393,7 +1292,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1403,15 +1302,11 @@ class InvoicesApi(object):
         """
         Set or update billing info
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_billing_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_billing_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param AddressResource billing_info_request: Address info
         :return: None
@@ -1419,7 +1314,7 @@ class InvoicesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_billing_info_with_http_info(id, **kwargs)
         else:
             (data) = self.update_billing_info_with_http_info(id, **kwargs)
@@ -1429,15 +1324,11 @@ class InvoicesApi(object):
         """
         Set or update billing info
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_billing_info_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_billing_info_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the invoice (required)
         :param AddressResource billing_info_request: Address info
         :return: None
@@ -1446,7 +1337,7 @@ class InvoicesApi(object):
         """
 
         all_params = ['id', 'billing_info_request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1501,7 +1392,7 @@ class InvoicesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

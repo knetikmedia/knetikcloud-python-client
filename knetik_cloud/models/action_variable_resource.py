@@ -50,6 +50,7 @@ class ActionVariableResource(object):
         self._name = None
         self._optional = None
         self._type = None
+        self.discriminator = None
 
         self.name = name
         self.optional = optional

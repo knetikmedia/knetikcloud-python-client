@@ -56,6 +56,7 @@ class ActivityEntitlementResource(object):
         self._name = None
         self._price = None
         self._sku = None
+        self.discriminator = None
 
         if currency_code is not None:
           self.currency_code = currency_code

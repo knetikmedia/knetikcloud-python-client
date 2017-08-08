@@ -24,10 +24,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MessagingApi()
+api_instance = knetik_cloud.MessagingApi(knetik_cloud.ApiClient(configuration))
 raw_email_resource = knetik_cloud.RawEmailResource() # RawEmailResource | The new raw email to be sent (optional)
 
 try: 
@@ -74,10 +75,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MessagingApi()
+api_instance = knetik_cloud.MessagingApi(knetik_cloud.ApiClient(configuration))
 raw_sms_resource = knetik_cloud.RawSMSResource() # RawSMSResource | The new raw SMS to be sent (optional)
 
 try: 
@@ -122,10 +124,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MessagingApi()
+api_instance = knetik_cloud.MessagingApi(knetik_cloud.ApiClient(configuration))
 message_resource = knetik_cloud.TemplateEmailResource() # TemplateEmailResource | The new template email to be sent (optional)
 
 try: 
@@ -172,10 +175,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MessagingApi()
+api_instance = knetik_cloud.MessagingApi(knetik_cloud.ApiClient(configuration))
 template_sms_resource = knetik_cloud.TemplateSMSResource() # TemplateSMSResource | The new template SMS to be sent (optional)
 
 try: 

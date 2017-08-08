@@ -56,6 +56,7 @@ class SubscriptionCreditResource(object):
         self._id = None
         self._inventory_id = None
         self._reason = None
+        self.discriminator = None
 
         self.amount = amount
         if created_date is not None:

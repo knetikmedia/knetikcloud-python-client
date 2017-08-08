@@ -31,10 +31,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.TaxesApi()
+api_instance = knetik_cloud.TaxesApi(knetik_cloud.ApiClient(configuration))
 tax_resource = knetik_cloud.CountryTaxResource() # CountryTaxResource | The tax object (optional)
 
 try: 
@@ -80,10 +81,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.TaxesApi()
+api_instance = knetik_cloud.TaxesApi(knetik_cloud.ApiClient(configuration))
 country_code_iso3 = 'country_code_iso3_example' # str | The iso3 code of the country
 tax_resource = knetik_cloud.StateTaxResource() # StateTaxResource | The tax object (optional)
 
@@ -131,10 +133,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.TaxesApi()
+api_instance = knetik_cloud.TaxesApi(knetik_cloud.ApiClient(configuration))
 country_code_iso3 = 'country_code_iso3_example' # str | The iso3 code of the country
 
 try: 
@@ -179,10 +182,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.TaxesApi()
+api_instance = knetik_cloud.TaxesApi(knetik_cloud.ApiClient(configuration))
 country_code_iso3 = 'country_code_iso3_example' # str | The iso3 code of the country
 state_code = 'state_code_example' # str | The code of the state
 
@@ -481,10 +485,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.TaxesApi()
+api_instance = knetik_cloud.TaxesApi(knetik_cloud.ApiClient(configuration))
 country_code_iso3 = 'country_code_iso3_example' # str | The iso3 code of the country
 tax_resource = knetik_cloud.CountryTaxResource() # CountryTaxResource | The tax object (optional)
 
@@ -532,10 +537,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.TaxesApi()
+api_instance = knetik_cloud.TaxesApi(knetik_cloud.ApiClient(configuration))
 country_code_iso3 = 'country_code_iso3_example' # str | The iso3 code of the country
 state_code = 'state_code_example' # str | The code of the state
 tax_resource = knetik_cloud.StateTaxResource() # StateTaxResource | The tax object (optional)

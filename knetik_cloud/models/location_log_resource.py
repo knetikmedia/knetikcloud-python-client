@@ -50,6 +50,7 @@ class LocationLogResource(object):
         self._country = None
         self._ip = None
         self._time = None
+        self.discriminator = None
 
         if country is not None:
           self.country = country

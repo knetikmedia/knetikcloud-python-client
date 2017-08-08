@@ -56,6 +56,7 @@ class ChallengeEventParticipantResource(object):
         self._score = None
         self._user_id = None
         self._username = None
+        self.discriminator = None
 
         if email is not None:
           self.email = email

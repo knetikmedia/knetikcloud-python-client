@@ -71,6 +71,7 @@ class ClientResource(object):
         self._redirect_uris = None
         self._refresh_token_validity_seconds = None
         self._secret = None
+        self.discriminator = None
 
         if access_token_validity_seconds is not None:
           self.access_token_validity_seconds = access_token_validity_seconds

@@ -47,6 +47,7 @@ class SimpleReferenceResourceint(object):
 
         self._id = None
         self._name = None
+        self.discriminator = None
 
         self.id = id
         if name is not None:

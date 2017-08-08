@@ -65,6 +65,7 @@ class CurrencyResource(object):
         self._name = None
         self._type = None
         self._updated_date = None
+        self.discriminator = None
 
         if active is not None:
           self.active = active

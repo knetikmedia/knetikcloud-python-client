@@ -50,6 +50,7 @@ class MetricResource(object):
         self._activity_occurence_id = None
         self._tags = None
         self._value = None
+        self.discriminator = None
 
         self.activity_occurence_id = activity_occurence_id
         if tags is not None:

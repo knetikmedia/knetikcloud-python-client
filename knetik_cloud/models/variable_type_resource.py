@@ -50,6 +50,7 @@ class VariableTypeResource(object):
         self._base = None
         self._enumerable = None
         self._name = None
+        self.discriminator = None
 
         self.base = base
         if enumerable is not None:

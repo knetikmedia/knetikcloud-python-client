@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,35 +31,27 @@ class CampaignsChallengesApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_challenge(self, **kwargs):
         """
         Create a challenge
         Challenges do not run on their own.  They must be added to a campaign before events will spawn.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_challenge(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_challenge(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ChallengeResource challenge_resource: The challenge resource object
         :return: ChallengeResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_challenge_with_http_info(**kwargs)
         else:
             (data) = self.create_challenge_with_http_info(**kwargs)
@@ -71,15 +62,11 @@ class CampaignsChallengesApi(object):
         Create a challenge
         Challenges do not run on their own.  They must be added to a campaign before events will spawn.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_challenge_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_challenge_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ChallengeResource challenge_resource: The challenge resource object
         :return: ChallengeResource
                  If the method is called asynchronously,
@@ -87,7 +74,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['challenge_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -137,7 +124,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='ChallengeResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -147,15 +134,11 @@ class CampaignsChallengesApi(object):
         """
         Create a challenge activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_challenge_activity(challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_challenge_activity(challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
         :param bool validate_settings: Whether to validate the settings being sent against the available settings on the base activity.
@@ -164,7 +147,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_challenge_activity_with_http_info(challenge_id, **kwargs)
         else:
             (data) = self.create_challenge_activity_with_http_info(challenge_id, **kwargs)
@@ -174,15 +157,11 @@ class CampaignsChallengesApi(object):
         """
         Create a challenge activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_challenge_activity_with_http_info(challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_challenge_activity_with_http_info(challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
         :param bool validate_settings: Whether to validate the settings being sent against the available settings on the base activity.
@@ -192,7 +171,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['challenge_id', 'challenge_activity_resource', 'validate_settings']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -249,7 +228,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='ChallengeActivityResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -260,22 +239,18 @@ class CampaignsChallengesApi(object):
         Create a challenge activity template
         Challenge Activity Templates define a type of challenge activity and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_challenge_activity_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_challenge_activity_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource challenge_activity_template_resource: The challengeActivity template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_challenge_activity_template_with_http_info(**kwargs)
         else:
             (data) = self.create_challenge_activity_template_with_http_info(**kwargs)
@@ -286,15 +261,11 @@ class CampaignsChallengesApi(object):
         Create a challenge activity template
         Challenge Activity Templates define a type of challenge activity and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_challenge_activity_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_challenge_activity_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource challenge_activity_template_resource: The challengeActivity template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -302,7 +273,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['challenge_activity_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -352,7 +323,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -363,22 +334,18 @@ class CampaignsChallengesApi(object):
         Create a challenge template
         Challenge Templates define a type of challenge and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_challenge_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_challenge_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource challenge_template_resource: The challenge template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_challenge_template_with_http_info(**kwargs)
         else:
             (data) = self.create_challenge_template_with_http_info(**kwargs)
@@ -389,15 +356,11 @@ class CampaignsChallengesApi(object):
         Create a challenge template
         Challenge Templates define a type of challenge and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_challenge_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_challenge_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource challenge_template_resource: The challenge template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -405,7 +368,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['challenge_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -455,7 +418,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -465,22 +428,18 @@ class CampaignsChallengesApi(object):
         """
         Delete a challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_challenge_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_challenge_with_http_info(id, **kwargs)
@@ -490,15 +449,11 @@ class CampaignsChallengesApi(object):
         """
         Delete a challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge id (required)
         :return: None
                  If the method is called asynchronously,
@@ -506,7 +461,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -559,7 +514,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -570,15 +525,11 @@ class CampaignsChallengesApi(object):
         Delete a challenge activity
         A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_activity(id, challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_activity(id, challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :return: None
@@ -586,7 +537,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_challenge_activity_with_http_info(id, challenge_id, **kwargs)
         else:
             (data) = self.delete_challenge_activity_with_http_info(id, challenge_id, **kwargs)
@@ -597,15 +548,11 @@ class CampaignsChallengesApi(object):
         Delete a challenge activity
         A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_activity_with_http_info(id, challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_activity_with_http_info(id, challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :return: None
@@ -614,7 +561,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id', 'challenge_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -672,7 +619,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -683,15 +630,11 @@ class CampaignsChallengesApi(object):
         Delete a challenge activity template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_activity_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_activity_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -699,7 +642,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_challenge_activity_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_challenge_activity_template_with_http_info(id, **kwargs)
@@ -710,15 +653,11 @@ class CampaignsChallengesApi(object):
         Delete a challenge activity template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_activity_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_activity_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -727,7 +666,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -782,7 +721,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -792,22 +731,18 @@ class CampaignsChallengesApi(object):
         """
         Delete a challenge event
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_event(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_event(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge event id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_challenge_event_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_challenge_event_with_http_info(id, **kwargs)
@@ -817,15 +752,11 @@ class CampaignsChallengesApi(object):
         """
         Delete a challenge event
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_event_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_event_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge event id (required)
         :return: None
                  If the method is called asynchronously,
@@ -833,7 +764,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -886,7 +817,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -897,15 +828,11 @@ class CampaignsChallengesApi(object):
         Delete a challenge template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -913,7 +840,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_challenge_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_challenge_template_with_http_info(id, **kwargs)
@@ -924,15 +851,11 @@ class CampaignsChallengesApi(object):
         Delete a challenge template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_challenge_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_challenge_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -941,7 +864,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -996,7 +919,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1006,22 +929,18 @@ class CampaignsChallengesApi(object):
         """
         Retrieve a challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge id (required)
         :return: ChallengeResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_with_http_info(id, **kwargs)
         else:
             (data) = self.get_challenge_with_http_info(id, **kwargs)
@@ -1031,15 +950,11 @@ class CampaignsChallengesApi(object):
         """
         Retrieve a challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge id (required)
         :return: ChallengeResource
                  If the method is called asynchronously,
@@ -1047,7 +962,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1100,7 +1015,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='ChallengeResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1110,15 +1025,11 @@ class CampaignsChallengesApi(object):
         """
         List and search challenge activities
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_activities(challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_activities(challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int challenge_id: The challenge id (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -1128,7 +1039,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_activities_with_http_info(challenge_id, **kwargs)
         else:
             (data) = self.get_challenge_activities_with_http_info(challenge_id, **kwargs)
@@ -1138,15 +1049,11 @@ class CampaignsChallengesApi(object):
         """
         List and search challenge activities
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_activities_with_http_info(challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_activities_with_http_info(challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int challenge_id: The challenge id (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -1157,7 +1064,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['challenge_id', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1216,7 +1123,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceBareChallengeActivityResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1227,15 +1134,11 @@ class CampaignsChallengesApi(object):
         Get a single challenge activity
         A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_activity(id, challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_activity(id, challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :return: ChallengeActivityResource
@@ -1243,7 +1146,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_activity_with_http_info(id, challenge_id, **kwargs)
         else:
             (data) = self.get_challenge_activity_with_http_info(id, challenge_id, **kwargs)
@@ -1254,15 +1157,11 @@ class CampaignsChallengesApi(object):
         Get a single challenge activity
         A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_activity_with_http_info(id, challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_activity_with_http_info(id, challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :return: ChallengeActivityResource
@@ -1271,7 +1170,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id', 'challenge_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1329,7 +1228,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='ChallengeActivityResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1339,22 +1238,18 @@ class CampaignsChallengesApi(object):
         """
         Get a single challenge activity template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_activity_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_activity_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_activity_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_challenge_activity_template_with_http_info(id, **kwargs)
@@ -1364,15 +1259,11 @@ class CampaignsChallengesApi(object):
         """
         Get a single challenge activity template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_activity_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_activity_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -1380,7 +1271,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1433,7 +1324,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1443,15 +1334,11 @@ class CampaignsChallengesApi(object):
         """
         List and search challenge activity templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_activity_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_activity_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -1460,7 +1347,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_activity_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_challenge_activity_templates_with_http_info(**kwargs)
@@ -1470,15 +1357,11 @@ class CampaignsChallengesApi(object):
         """
         List and search challenge activity templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_activity_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_activity_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -1488,7 +1371,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1542,7 +1425,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1552,22 +1435,18 @@ class CampaignsChallengesApi(object):
         """
         Retrieve a single challenge event details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_event(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_event(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge event id (required)
         :return: ChallengeEventResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_event_with_http_info(id, **kwargs)
         else:
             (data) = self.get_challenge_event_with_http_info(id, **kwargs)
@@ -1577,15 +1456,11 @@ class CampaignsChallengesApi(object):
         """
         Retrieve a single challenge event details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_event_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_event_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge event id (required)
         :return: ChallengeEventResource
                  If the method is called asynchronously,
@@ -1593,7 +1468,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1646,7 +1521,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='ChallengeEventResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1656,15 +1531,11 @@ class CampaignsChallengesApi(object):
         """
         Retrieve a list of challenge events
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_events(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_events(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the event start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param str filter_end_date: A comma separated string without spaces.  First value is the operator to search on, second value is the event end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param bool filter_campaigns: check only for events from currently running campaigns
@@ -1677,7 +1548,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_events_with_http_info(**kwargs)
         else:
             (data) = self.get_challenge_events_with_http_info(**kwargs)
@@ -1687,15 +1558,11 @@ class CampaignsChallengesApi(object):
         """
         Retrieve a list of challenge events
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_events_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_events_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the event start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param str filter_end_date: A comma separated string without spaces.  First value is the operator to search on, second value is the event end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param bool filter_campaigns: check only for events from currently running campaigns
@@ -1709,7 +1576,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['filter_start_date', 'filter_end_date', 'filter_campaigns', 'filter_challenge', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1771,7 +1638,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceChallengeEventResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1781,22 +1648,18 @@ class CampaignsChallengesApi(object):
         """
         Get a single challenge template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_challenge_template_with_http_info(id, **kwargs)
@@ -1806,15 +1669,11 @@ class CampaignsChallengesApi(object):
         """
         Get a single challenge template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -1822,7 +1681,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1875,7 +1734,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1885,15 +1744,11 @@ class CampaignsChallengesApi(object):
         """
         List and search challenge templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -1902,7 +1757,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenge_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_challenge_templates_with_http_info(**kwargs)
@@ -1912,15 +1767,11 @@ class CampaignsChallengesApi(object):
         """
         List and search challenge templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenge_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenge_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -1930,7 +1781,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1984,7 +1835,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1994,15 +1845,11 @@ class CampaignsChallengesApi(object):
         """
         Retrieve a list of challenges
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenges(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenges(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool filter_template: Filter for challenges that are not tied to campaigns (templates)
         :param bool filter_active_campaign: Filter for challenges that are tied to active campaigns
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the challenge start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
@@ -2015,7 +1862,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_challenges_with_http_info(**kwargs)
         else:
             (data) = self.get_challenges_with_http_info(**kwargs)
@@ -2025,15 +1872,11 @@ class CampaignsChallengesApi(object):
         """
         Retrieve a list of challenges
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_challenges_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_challenges_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool filter_template: Filter for challenges that are not tied to campaigns (templates)
         :param bool filter_active_campaign: Filter for challenges that are tied to active campaigns
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the challenge start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
@@ -2047,7 +1890,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['filter_template', 'filter_active_campaign', 'filter_start_date', 'filter_end_date', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2109,7 +1952,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceChallengeResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2120,15 +1963,11 @@ class CampaignsChallengesApi(object):
         Update a challenge
         If the challenge is a copy, changes will propagate to all the related challenges
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_challenge(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_challenge(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge id (required)
         :param ChallengeResource challenge_resource: The challenge resource object
         :return: ChallengeResource
@@ -2136,7 +1975,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_challenge_with_http_info(id, **kwargs)
         else:
             (data) = self.update_challenge_with_http_info(id, **kwargs)
@@ -2147,15 +1986,11 @@ class CampaignsChallengesApi(object):
         Update a challenge
         If the challenge is a copy, changes will propagate to all the related challenges
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_challenge_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_challenge_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge id (required)
         :param ChallengeResource challenge_resource: The challenge resource object
         :return: ChallengeResource
@@ -2164,7 +1999,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id', 'challenge_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2219,7 +2054,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='ChallengeResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2230,15 +2065,11 @@ class CampaignsChallengesApi(object):
         Update a challenge activity
         A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_challenge_activity(id, challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_challenge_activity(id, challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
@@ -2247,7 +2078,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_challenge_activity_with_http_info(id, challenge_id, **kwargs)
         else:
             (data) = self.update_challenge_activity_with_http_info(id, challenge_id, **kwargs)
@@ -2258,15 +2089,11 @@ class CampaignsChallengesApi(object):
         Update a challenge activity
         A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_challenge_activity_with_http_info(id, challenge_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_challenge_activity_with_http_info(id, challenge_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
@@ -2276,7 +2103,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id', 'challenge_id', 'challenge_activity_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2336,7 +2163,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='ChallengeActivityResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2346,15 +2173,11 @@ class CampaignsChallengesApi(object):
         """
         Update an challenge activity template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_challenge_activity_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_challenge_activity_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource challenge_activity_template_resource: The challengeActivity template resource object
         :return: TemplateResource
@@ -2362,7 +2185,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_challenge_activity_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_challenge_activity_template_with_http_info(id, **kwargs)
@@ -2372,15 +2195,11 @@ class CampaignsChallengesApi(object):
         """
         Update an challenge activity template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_challenge_activity_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_challenge_activity_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource challenge_activity_template_resource: The challengeActivity template resource object
         :return: TemplateResource
@@ -2389,7 +2208,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id', 'challenge_activity_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2444,7 +2263,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2454,15 +2273,11 @@ class CampaignsChallengesApi(object):
         """
         Update a challenge template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_challenge_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_challenge_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource challenge_template_resource: The challenge template resource object
         :return: TemplateResource
@@ -2470,7 +2285,7 @@ class CampaignsChallengesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_challenge_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_challenge_template_with_http_info(id, **kwargs)
@@ -2480,15 +2295,11 @@ class CampaignsChallengesApi(object):
         """
         Update a challenge template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_challenge_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_challenge_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource challenge_template_resource: The challenge template resource object
         :return: TemplateResource
@@ -2497,7 +2308,7 @@ class CampaignsChallengesApi(object):
         """
 
         all_params = ['id', 'challenge_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2552,7 +2363,7 @@ class CampaignsChallengesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

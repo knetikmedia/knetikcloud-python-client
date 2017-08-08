@@ -101,6 +101,7 @@ class SubscriptionPlan(object):
         self._renew_period = None
         self._renew_period_unit_of_time = None
         self._subscription_id = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

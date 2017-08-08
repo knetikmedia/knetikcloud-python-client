@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**get_invoice_logs**](InvoicesApi.md#get_invoice_logs) | **GET** /invoices/{id}/logs | List invoice logs
 [**get_invoices**](InvoicesApi.md#get_invoices) | **GET** /invoices | Retrieve invoices
 [**get_payment_statuses**](InvoicesApi.md#get_payment_statuses) | **GET** /invoices/payment-statuses | Lists available payment statuses
-[**pay_invoice**](InvoicesApi.md#pay_invoice) | **POST** /invoices/{id}/payments | Trigger payment of an invoice
+[**pay_invoice**](InvoicesApi.md#pay_invoice) | **POST** /invoices/{id}/payments | Pay an invoice using a saved payment method
 [**set_bundled_invoice_item_fulfillment_status**](InvoicesApi.md#set_bundled_invoice_item_fulfillment_status) | **PUT** /invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status | Set the fulfillment status of a bundled invoice item
 [**set_external_ref**](InvoicesApi.md#set_external_ref) | **PUT** /invoices/{id}/external-ref | Set the external reference of an invoice
 [**set_invoice_item_fulfillment_status**](InvoicesApi.md#set_invoice_item_fulfillment_status) | **PUT** /invoices/{id}/items/{sku}/fulfillment-status | Set the fulfillment status of an invoice item
@@ -35,10 +35,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 req = knetik_cloud.InvoiceCreateRequest() # InvoiceCreateRequest | Invoice to be created (optional)
 
 try: 
@@ -126,10 +127,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
 
 try: 
@@ -175,10 +177,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
@@ -230,10 +233,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 filter_user = 56 # int | The id of a user to get invoices for. Automtically added if not being called with admin permissions. (optional)
 filter_email = 'filter_email_example' # str | Filters invoices by customer's email. Admins only. (optional)
 filter_fulfillment_status = 'filter_fulfillment_status_example' # str | Filters invoices by fulfillment status type. Can be a comma separated list of statuses (optional)
@@ -342,7 +346,7 @@ No authorization required
 # **pay_invoice**
 > pay_invoice(id, request=request)
 
-Trigger payment of an invoice
+Pay an invoice using a saved payment method
 
 ### Example 
 ```python
@@ -353,15 +357,16 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
-request = knetik_cloud.PayBySavedMethodRequest() # PayBySavedMethodRequest | Payment info (optional)
+request = knetik_cloud.PayBySavedMethodRequest() # PayBySavedMethodRequest | The payment method details. Will default to the appropriate user's wallet in the invoice currency if ommited. (optional)
 
 try: 
-    # Trigger payment of an invoice
+    # Pay an invoice using a saved payment method
     api_instance.pay_invoice(id, request=request)
 except ApiException as e:
     print("Exception when calling InvoicesApi->pay_invoice: %s\n" % e)
@@ -372,7 +377,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The id of the invoice | 
- **request** | [**PayBySavedMethodRequest**](PayBySavedMethodRequest.md)| Payment info | [optional] 
+ **request** | [**PayBySavedMethodRequest**](PayBySavedMethodRequest.md)| The payment method details. Will default to the appropriate user&#39;s wallet in the invoice currency if ommited. | [optional] 
 
 ### Return type
 
@@ -405,14 +410,15 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
 bundle_sku = 'bundle_sku_example' # str | The sku of the bundle in the invoice that contains the given target
 sku = 'sku_example' # str | The sku of an item in the bundle in the invoice
-status = 'status_example' # str | The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
+status = knetik_cloud.StringWrapper() # StringWrapper | The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
 
 try: 
     # Set the fulfillment status of a bundled invoice item
@@ -428,7 +434,7 @@ Name | Type | Description  | Notes
  **id** | **int**| The id of the invoice | 
  **bundle_sku** | **str**| The sku of the bundle in the invoice that contains the given target | 
  **sku** | **str**| The sku of an item in the bundle in the invoice | 
- **status** | **str**| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
+ **status** | [**StringWrapper**](StringWrapper.md)| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
 
 ### Return type
 
@@ -459,12 +465,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
-external_ref = 'external_ref_example' # str | External reference info (optional)
+external_ref = knetik_cloud.StringWrapper() # StringWrapper | External reference info (optional)
 
 try: 
     # Set the external reference of an invoice
@@ -478,7 +485,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The id of the invoice | 
- **external_ref** | **str**| External reference info | [optional] 
+ **external_ref** | [**StringWrapper**](StringWrapper.md)| External reference info | [optional] 
 
 ### Return type
 
@@ -511,13 +518,14 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
 sku = 'sku_example' # str | The sku of an item in the invoice
-status = 'status_example' # str | The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
+status = knetik_cloud.StringWrapper() # StringWrapper | The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  'unfulfilled', 'fulfilled', 'not fulfillable', 'failed', 'processing', 'failed_permanent', 'delayed'
 
 try: 
     # Set the fulfillment status of an invoice item
@@ -532,7 +540,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The id of the invoice | 
  **sku** | **str**| The sku of an item in the invoice | 
- **status** | **str**| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
+ **status** | [**StringWrapper**](StringWrapper.md)| The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39; | 
 
 ### Return type
 
@@ -563,12 +571,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
-order_notes = 'order_notes_example' # str | Payment status info (optional)
+order_notes = knetik_cloud.StringWrapper() # StringWrapper | Payment status info (optional)
 
 try: 
     # Set the order notes of an invoice
@@ -582,7 +591,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The id of the invoice | 
- **order_notes** | **str**| Payment status info | [optional] 
+ **order_notes** | [**StringWrapper**](StringWrapper.md)| Payment status info | [optional] 
 
 ### Return type
 
@@ -615,10 +624,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
 request = knetik_cloud.InvoicePaymentStatusRequest() # InvoicePaymentStatusRequest | Payment status info (optional)
 
@@ -665,10 +675,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.InvoicesApi()
+api_instance = knetik_cloud.InvoicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the invoice
 billing_info_request = knetik_cloud.AddressResource() # AddressResource | Address info (optional)
 

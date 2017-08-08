@@ -56,6 +56,7 @@ class SimpleWallet(object):
         self._currency_name = None
         self._id = None
         self._user_id = None
+        self.discriminator = None
 
         if balance is not None:
           self.balance = balance

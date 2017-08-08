@@ -50,6 +50,7 @@ class Schedule(object):
         self._duration = None
         self._duration_unit = None
         self._repeat = None
+        self.discriminator = None
 
         self.duration = duration
         self.duration_unit = duration_unit

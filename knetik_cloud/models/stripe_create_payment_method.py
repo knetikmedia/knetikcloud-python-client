@@ -31,26 +31,55 @@ class StripeCreatePaymentMethod(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'details': 'PaymentMethodDetails',
         'token': 'str',
         'user_id': 'int'
     }
 
     attribute_map = {
+        'details': 'details',
         'token': 'token',
         'user_id': 'user_id'
     }
 
-    def __init__(self, token=None, user_id=None):
+    def __init__(self, details=None, token=None, user_id=None):
         """
         StripeCreatePaymentMethod - a model defined in Swagger
         """
 
+        self._details = None
         self._token = None
         self._user_id = None
+        self.discriminator = None
 
+        if details is not None:
+          self.details = details
         self.token = token
         if user_id is not None:
           self.user_id = user_id
+
+    @property
+    def details(self):
+        """
+        Gets the details of this StripeCreatePaymentMethod.
+        Additional optional details to store on the payment method. If included, all fields in the details will override any defaults
+
+        :return: The details of this StripeCreatePaymentMethod.
+        :rtype: PaymentMethodDetails
+        """
+        return self._details
+
+    @details.setter
+    def details(self, details):
+        """
+        Sets the details of this StripeCreatePaymentMethod.
+        Additional optional details to store on the payment method. If included, all fields in the details will override any defaults
+
+        :param details: The details of this StripeCreatePaymentMethod.
+        :type: PaymentMethodDetails
+        """
+
+        self._details = details
 
     @property
     def token(self):

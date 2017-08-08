@@ -44,6 +44,7 @@ class EntitlementGrantRequest(object):
         """
 
         self._entitlement_id = None
+        self.discriminator = None
 
         self.entitlement_id = entitlement_id
 

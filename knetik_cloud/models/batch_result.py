@@ -53,6 +53,7 @@ class BatchResult(object):
         self._created_date = None
         self._id = None
         self._updated_date = None
+        self.discriminator = None
 
         if batch_return is not None:
           self.batch_return = batch_return

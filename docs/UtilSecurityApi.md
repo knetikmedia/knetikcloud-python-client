@@ -24,10 +24,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UtilSecurityApi()
+api_instance = knetik_cloud.UtilSecurityApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The user id (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
@@ -79,10 +80,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UtilSecurityApi()
+api_instance = knetik_cloud.UtilSecurityApi(knetik_cloud.ApiClient(configuration))
 
 try: 
     # Returns the authentication token details. Use /users endpoint for detailed user's info

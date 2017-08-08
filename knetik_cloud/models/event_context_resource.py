@@ -50,6 +50,7 @@ class EventContextResource(object):
         self._event_name = None
         self._parameters = None
         self._type = None
+        self.discriminator = None
 
         if event_name is not None:
           self.event_name = event_name

@@ -71,6 +71,7 @@ class BareActivityResource(object):
         self._type = None
         self._unique_key = None
         self._updated_date = None
+        self.discriminator = None
 
         if created_date is not None:
           self.created_date = created_date

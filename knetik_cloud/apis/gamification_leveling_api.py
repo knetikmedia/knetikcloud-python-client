@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class GamificationLevelingApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_level(self, **kwargs):
         """
         Create a level schema
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_level(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_level(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param LevelingResource level: The level schema definition
         :return: LevelingResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_level_with_http_info(**kwargs)
         else:
             (data) = self.create_level_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class GamificationLevelingApi(object):
         """
         Create a level schema
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_level_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_level_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param LevelingResource level: The level schema definition
         :return: LevelingResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class GamificationLevelingApi(object):
         """
 
         all_params = ['level']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type='LevelingResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -145,22 +132,18 @@ class GamificationLevelingApi(object):
         """
         Delete a level
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_level(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_level(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The level schema name (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_level_with_http_info(name, **kwargs)
         else:
             (data) = self.delete_level_with_http_info(name, **kwargs)
@@ -170,15 +153,11 @@ class GamificationLevelingApi(object):
         """
         Delete a level
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_level_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_level_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The level schema name (required)
         :return: None
                  If the method is called asynchronously,
@@ -186,7 +165,7 @@ class GamificationLevelingApi(object):
         """
 
         all_params = ['name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -239,7 +218,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -249,22 +228,18 @@ class GamificationLevelingApi(object):
         """
         Retrieve a level
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_level(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_level(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The level schema name (required)
         :return: LevelingResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_level_with_http_info(name, **kwargs)
         else:
             (data) = self.get_level_with_http_info(name, **kwargs)
@@ -274,15 +249,11 @@ class GamificationLevelingApi(object):
         """
         Retrieve a level
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_level_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_level_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The level schema name (required)
         :return: LevelingResource
                  If the method is called asynchronously,
@@ -290,7 +261,7 @@ class GamificationLevelingApi(object):
         """
 
         all_params = ['name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -343,7 +314,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type='LevelingResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -353,21 +324,17 @@ class GamificationLevelingApi(object):
         """
         Get the list of triggers that can be used to trigger a leveling progress update
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_level_triggers(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_level_triggers(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[BreTriggerResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_level_triggers_with_http_info(**kwargs)
         else:
             (data) = self.get_level_triggers_with_http_info(**kwargs)
@@ -377,22 +344,18 @@ class GamificationLevelingApi(object):
         """
         Get the list of triggers that can be used to trigger a leveling progress update
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_level_triggers_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_level_triggers_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[BreTriggerResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -439,7 +402,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type='list[BreTriggerResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -450,15 +413,11 @@ class GamificationLevelingApi(object):
         List and search levels
         Get a list of levels schemas with optional filtering
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_levels(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_levels(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_name: Filter for level schemas whose name contains a given string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -468,7 +427,7 @@ class GamificationLevelingApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_levels_with_http_info(**kwargs)
         else:
             (data) = self.get_levels_with_http_info(**kwargs)
@@ -479,15 +438,11 @@ class GamificationLevelingApi(object):
         List and search levels
         Get a list of levels schemas with optional filtering
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_levels_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_levels_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str filter_name: Filter for level schemas whose name contains a given string
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -498,7 +453,7 @@ class GamificationLevelingApi(object):
         """
 
         all_params = ['filter_name', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -554,7 +509,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceLevelingResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -564,15 +519,11 @@ class GamificationLevelingApi(object):
         """
         Get a user's progress for a given level schema
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_level(user_id, name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_level(user_id, name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str name: The level schema name (required)
         :return: UserLevelingResource
@@ -580,7 +531,7 @@ class GamificationLevelingApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_level_with_http_info(user_id, name, **kwargs)
         else:
             (data) = self.get_user_level_with_http_info(user_id, name, **kwargs)
@@ -590,15 +541,11 @@ class GamificationLevelingApi(object):
         """
         Get a user's progress for a given level schema
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_level_with_http_info(user_id, name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_level_with_http_info(user_id, name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str name: The level schema name (required)
         :return: UserLevelingResource
@@ -607,7 +554,7 @@ class GamificationLevelingApi(object):
         """
 
         all_params = ['user_id', 'name']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -665,7 +612,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type='UserLevelingResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -676,15 +623,11 @@ class GamificationLevelingApi(object):
         Get a user's progress for all level schemas
         Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_levels(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_levels(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str filter_name: Filter for level schemas whose name contains a given string
         :param int size: The number of objects returned per page
@@ -695,7 +638,7 @@ class GamificationLevelingApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_levels_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_user_levels_with_http_info(user_id, **kwargs)
@@ -706,15 +649,11 @@ class GamificationLevelingApi(object):
         Get a user's progress for all level schemas
         Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_levels_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_levels_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str filter_name: Filter for level schemas whose name contains a given string
         :param int size: The number of objects returned per page
@@ -726,7 +665,7 @@ class GamificationLevelingApi(object):
         """
 
         all_params = ['user_id', 'filter_name', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -787,7 +726,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceUserLevelingResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -798,24 +737,20 @@ class GamificationLevelingApi(object):
         Update or create a leveling progress record for a user
         If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.increment_progress(user_id, name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.increment_progress(user_id, name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str name: The level schema name (required)
-        :param int progress: The amount of progress to add
+        :param IntWrapper progress: The amount of progress to add
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.increment_progress_with_http_info(user_id, name, **kwargs)
         else:
             (data) = self.increment_progress_with_http_info(user_id, name, **kwargs)
@@ -826,25 +761,21 @@ class GamificationLevelingApi(object):
         Update or create a leveling progress record for a user
         If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.increment_progress_with_http_info(user_id, name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.increment_progress_with_http_info(user_id, name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str name: The level schema name (required)
-        :param int progress: The amount of progress to add
+        :param IntWrapper progress: The amount of progress to add
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['user_id', 'name', 'progress']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -904,7 +835,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -915,24 +846,20 @@ class GamificationLevelingApi(object):
         Set leveling progress for a user
         If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_progress(user_id, name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_progress(user_id, name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str name: The level schema name (required)
-        :param int progress: The new progress amount
+        :param IntWrapper progress: The new progress amount
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_progress_with_http_info(user_id, name, **kwargs)
         else:
             (data) = self.set_progress_with_http_info(user_id, name, **kwargs)
@@ -943,25 +870,21 @@ class GamificationLevelingApi(object):
         Set leveling progress for a user
         If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_progress_with_http_info(user_id, name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_progress_with_http_info(user_id, name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The id of the user (required)
         :param str name: The level schema name (required)
-        :param int progress: The new progress amount
+        :param IntWrapper progress: The new progress amount
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['user_id', 'name', 'progress']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1021,7 +944,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1031,15 +954,11 @@ class GamificationLevelingApi(object):
         """
         Update a level
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_level(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_level(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The level schema name (required)
         :param LevelingResource new_level: The level schema definition
         :return: LevelingResource
@@ -1047,7 +966,7 @@ class GamificationLevelingApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_level_with_http_info(name, **kwargs)
         else:
             (data) = self.update_level_with_http_info(name, **kwargs)
@@ -1057,15 +976,11 @@ class GamificationLevelingApi(object):
         """
         Update a level
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_level_with_http_info(name, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_level_with_http_info(name, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str name: The level schema name (required)
         :param LevelingResource new_level: The level schema definition
         :return: LevelingResource
@@ -1074,7 +989,7 @@ class GamificationLevelingApi(object):
         """
 
         all_params = ['name', 'new_level']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1129,7 +1044,7 @@ class GamificationLevelingApi(object):
                                         files=local_var_files,
                                         response_type='LevelingResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

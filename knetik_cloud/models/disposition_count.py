@@ -47,6 +47,7 @@ class DispositionCount(object):
 
         self._count = None
         self._name = None
+        self.discriminator = None
 
         if count is not None:
           self.count = count

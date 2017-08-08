@@ -65,6 +65,7 @@ class CommentResource(object):
         self._summary = None
         self._updated_date = None
         self._user = None
+        self.discriminator = None
 
         self.content = content
         if context is not None:

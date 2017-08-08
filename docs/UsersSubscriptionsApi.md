@@ -28,10 +28,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi()
+api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 
@@ -79,10 +80,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi()
+api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 
 try: 
@@ -128,10 +130,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi()
+api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 reactivate_subscription_request = knetik_cloud.ReactivateSubscriptionRequest() # ReactivateSubscriptionRequest | The reactivate subscription request object inventory (optional)
@@ -181,10 +184,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi()
+api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 bill_date = 789 # int | The new bill date. Unix timestamp in seconds
@@ -235,13 +239,14 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi()
+api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
-payment_method_id = 56 # int | The id of the payment method (optional)
+payment_method_id = knetik_cloud.IntWrapper() # IntWrapper | The id of the payment method (optional)
 
 try: 
     # Set the payment method to use for a subscription
@@ -256,7 +261,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The id of the user | 
  **inventory_id** | **int**| The id of the user&#39;s inventory | 
- **payment_method_id** | **int**| The id of the payment method | [optional] 
+ **payment_method_id** | [**IntWrapper**](IntWrapper.md)| The id of the payment method | [optional] 
 
 ### Return type
 
@@ -278,7 +283,7 @@ void (empty response body)
 
 Set the status of a subscription
 
-The body is a json string (put in quotes) that should match a desired invoice status type. Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
+Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
 
 ### Example 
 ```python
@@ -289,13 +294,14 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi()
+api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
-status = 'status_example' # str | The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended')
+status = knetik_cloud.StringWrapper() # StringWrapper | The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended')
 
 try: 
     # Set the status of a subscription
@@ -310,7 +316,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The id of the user | 
  **inventory_id** | **int**| The id of the user&#39;s inventory | 
- **status** | **str**| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
+ **status** | [**StringWrapper**](StringWrapper.md)| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
 
 ### Return type
 
@@ -341,13 +347,14 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi()
+api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
-plan_id = 'plan_id_example' # str | The id of the new plan. Must be from the same subscription (optional)
+plan_id = knetik_cloud.StringWrapper() # StringWrapper | The id of the new plan. Must be from the same subscription (optional)
 
 try: 
     # Set a new subscription plan for a user
@@ -362,7 +369,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The id of the user | 
  **inventory_id** | **int**| The id of the user&#39;s inventory | 
- **plan_id** | **str**| The id of the new plan. Must be from the same subscription | [optional] 
+ **plan_id** | [**StringWrapper**](StringWrapper.md)| The id of the new plan. Must be from the same subscription | [optional] 
 
 ### Return type
 
@@ -395,10 +402,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi()
+api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 the_override_details = knetik_cloud.SubscriptionPriceOverrideRequest() # SubscriptionPriceOverrideRequest | override (optional)

@@ -31,75 +31,22 @@ class PreReqEntitlement(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'type_hint': 'str',
         'item_ids': 'list[int]'
     }
 
     attribute_map = {
-        'description': 'description',
-        'type_hint': 'type_hint',
         'item_ids': 'item_ids'
     }
 
-    def __init__(self, description=None, type_hint=None, item_ids=None):
+    def __init__(self, item_ids=None):
         """
         PreReqEntitlement - a model defined in Swagger
         """
 
-        self._description = None
-        self._type_hint = None
         self._item_ids = None
+        self.discriminator = None
 
-        if description is not None:
-          self.description = description
-        if type_hint is not None:
-          self.type_hint = type_hint
         self.item_ids = item_ids
-
-    @property
-    def description(self):
-        """
-        Gets the description of this PreReqEntitlement.
-
-        :return: The description of this PreReqEntitlement.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this PreReqEntitlement.
-
-        :param description: The description of this PreReqEntitlement.
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def type_hint(self):
-        """
-        Gets the type_hint of this PreReqEntitlement.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :return: The type_hint of this PreReqEntitlement.
-        :rtype: str
-        """
-        return self._type_hint
-
-    @type_hint.setter
-    def type_hint(self, type_hint):
-        """
-        Sets the type_hint of this PreReqEntitlement.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :param type_hint: The type_hint of this PreReqEntitlement.
-        :type: str
-        """
-
-        self._type_hint = type_hint
 
     @property
     def item_ids(self):

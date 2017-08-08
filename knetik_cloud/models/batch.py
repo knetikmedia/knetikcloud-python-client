@@ -47,6 +47,7 @@ class Batch(object):
 
         self._batch = None
         self._timeout = None
+        self.discriminator = None
 
         self.batch = batch
         self.timeout = timeout

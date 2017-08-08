@@ -32,6 +32,7 @@ class Order(object):
     """
     swagger_types = {
         'ascending': 'bool',
+        'descending': 'bool',
         'direction': 'str',
         'ignore_case': 'bool',
         'null_handling': 'str',
@@ -40,25 +41,30 @@ class Order(object):
 
     attribute_map = {
         'ascending': 'ascending',
+        'descending': 'descending',
         'direction': 'direction',
         'ignore_case': 'ignore_case',
         'null_handling': 'null_handling',
         '_property': 'property'
     }
 
-    def __init__(self, ascending=None, direction=None, ignore_case=None, null_handling=None, _property=None):
+    def __init__(self, ascending=None, descending=None, direction=None, ignore_case=None, null_handling=None, _property=None):
         """
         Order - a model defined in Swagger
         """
 
         self._ascending = None
+        self._descending = None
         self._direction = None
         self._ignore_case = None
         self._null_handling = None
         self.__property = None
+        self.discriminator = None
 
         if ascending is not None:
           self.ascending = ascending
+        if descending is not None:
+          self.descending = descending
         if direction is not None:
           self.direction = direction
         if ignore_case is not None:
@@ -88,6 +94,27 @@ class Order(object):
         """
 
         self._ascending = ascending
+
+    @property
+    def descending(self):
+        """
+        Gets the descending of this Order.
+
+        :return: The descending of this Order.
+        :rtype: bool
+        """
+        return self._descending
+
+    @descending.setter
+    def descending(self, descending):
+        """
+        Sets the descending of this Order.
+
+        :param descending: The descending of this Order.
+        :type: bool
+        """
+
+        self._descending = descending
 
     @property
     def direction(self):

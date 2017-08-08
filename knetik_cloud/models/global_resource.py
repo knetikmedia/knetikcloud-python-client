@@ -50,6 +50,7 @@ class GlobalResource(object):
         self._global_def_id = None
         self._scopes = None
         self._type = None
+        self.discriminator = None
 
         if global_def_id is not None:
           self.global_def_id = global_def_id

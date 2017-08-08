@@ -89,6 +89,7 @@ class VendorResource(object):
         self._template = None
         self._update_date = None
         self._url = None
+        self.discriminator = None
 
         if active is not None:
           self.active = active

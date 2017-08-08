@@ -28,10 +28,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.DevicesApi()
+api_instance = knetik_cloud.DevicesApi(knetik_cloud.ApiClient(configuration))
 user_resources = [knetik_cloud.SimpleUserResource()] # list[SimpleUserResource] | userResources
 id = 56 # int | id
 
@@ -79,10 +80,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.DevicesApi()
+api_instance = knetik_cloud.DevicesApi(knetik_cloud.ApiClient(configuration))
 device = knetik_cloud.DeviceResource() # DeviceResource | device
 
 try: 
@@ -128,10 +130,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.DevicesApi()
+api_instance = knetik_cloud.DevicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | id
 
 try: 
@@ -176,10 +179,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.DevicesApi()
+api_instance = knetik_cloud.DevicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the device
 user_id = 56 # int | The user id of the device user
 
@@ -226,10 +230,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.DevicesApi()
+api_instance = knetik_cloud.DevicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | The id of the device
 filter_id = 'filter_id_example' # str | Filter for device users to delete with a user id in a given comma separated list of ids (optional)
 
@@ -276,10 +281,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.DevicesApi()
+api_instance = knetik_cloud.DevicesApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | id
 
 try: 
@@ -327,10 +333,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.DevicesApi()
+api_instance = knetik_cloud.DevicesApi(knetik_cloud.ApiClient(configuration))
 filter_make = 'filter_make_example' # str | Filter for devices with specified make (optional)
 filter_model = 'filter_model_example' # str | Filter for devices with specified model (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -384,10 +391,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.DevicesApi()
+api_instance = knetik_cloud.DevicesApi(knetik_cloud.ApiClient(configuration))
 device = knetik_cloud.DeviceResource() # DeviceResource | device
 id = 56 # int | id
 

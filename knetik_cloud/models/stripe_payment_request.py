@@ -47,6 +47,7 @@ class StripePaymentRequest(object):
 
         self._invoice_id = None
         self._token = None
+        self.discriminator = None
 
         self.invoice_id = invoice_id
         self.token = token

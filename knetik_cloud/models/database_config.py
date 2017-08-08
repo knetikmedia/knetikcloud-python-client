@@ -47,6 +47,7 @@ class DatabaseConfig(object):
 
         self._mongo = None
         self._sql = None
+        self.discriminator = None
 
         if mongo is not None:
           self.mongo = mongo

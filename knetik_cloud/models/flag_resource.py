@@ -62,6 +62,7 @@ class FlagResource(object):
         self._reason = None
         self._updated_date = None
         self._user = None
+        self.discriminator = None
 
         self.context = context
         self.context_id = context_id

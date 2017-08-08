@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class ContentCommentsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_comment(self, **kwargs):
         """
         Add a new comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_comment(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_comment(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param CommentResource comment_resource: The comment to be added
         :return: CommentResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_comment_with_http_info(**kwargs)
         else:
             (data) = self.add_comment_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class ContentCommentsApi(object):
         """
         Add a new comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_comment_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_comment_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param CommentResource comment_resource: The comment to be added
         :return: CommentResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class ContentCommentsApi(object):
         """
 
         all_params = ['comment_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class ContentCommentsApi(object):
                                         files=local_var_files,
                                         response_type='CommentResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -145,22 +132,18 @@ class ContentCommentsApi(object):
         """
         Delete a comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_comment(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_comment(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The comment id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_comment_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_comment_with_http_info(id, **kwargs)
@@ -170,15 +153,11 @@ class ContentCommentsApi(object):
         """
         Delete a comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_comment_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_comment_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The comment id (required)
         :return: None
                  If the method is called asynchronously,
@@ -186,7 +165,7 @@ class ContentCommentsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -239,7 +218,7 @@ class ContentCommentsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -249,22 +228,18 @@ class ContentCommentsApi(object):
         """
         Return a comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_comment(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_comment(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The comment id (required)
         :return: CommentResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_comment_with_http_info(id, **kwargs)
         else:
             (data) = self.get_comment_with_http_info(id, **kwargs)
@@ -274,15 +249,11 @@ class ContentCommentsApi(object):
         """
         Return a comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_comment_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_comment_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The comment id (required)
         :return: CommentResource
                  If the method is called asynchronously,
@@ -290,7 +261,7 @@ class ContentCommentsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -343,7 +314,7 @@ class ContentCommentsApi(object):
                                         files=local_var_files,
                                         response_type='CommentResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -353,15 +324,11 @@ class ContentCommentsApi(object):
         """
         Returns a page of comments
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_comments(context, context_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_comments(context, context_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str context: Get comments by context type (required)
         :param int context_id: Get comments by context id (required)
         :param int size: The number of objects returned per page
@@ -371,7 +338,7 @@ class ContentCommentsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_comments_with_http_info(context, context_id, **kwargs)
         else:
             (data) = self.get_comments_with_http_info(context, context_id, **kwargs)
@@ -381,15 +348,11 @@ class ContentCommentsApi(object):
         """
         Returns a page of comments
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_comments_with_http_info(context, context_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_comments_with_http_info(context, context_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str context: Get comments by context type (required)
         :param int context_id: Get comments by context id (required)
         :param int size: The number of objects returned per page
@@ -400,7 +363,7 @@ class ContentCommentsApi(object):
         """
 
         all_params = ['context', 'context_id', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -462,7 +425,7 @@ class ContentCommentsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceCommentResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -473,15 +436,11 @@ class ContentCommentsApi(object):
         Search the comment index
         The body is an ElasticSearch query json. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html'>documentation</a> for details on the format and search options
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_comments(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_comments(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param object query: The search query
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -490,7 +449,7 @@ class ContentCommentsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.search_comments_with_http_info(**kwargs)
         else:
             (data) = self.search_comments_with_http_info(**kwargs)
@@ -501,15 +460,11 @@ class ContentCommentsApi(object):
         Search the comment index
         The body is an ElasticSearch query json. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html'>documentation</a> for details on the format and search options
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.search_comments_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_comments_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param object query: The search query
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -519,7 +474,7 @@ class ContentCommentsApi(object):
         """
 
         all_params = ['query', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -573,7 +528,7 @@ class ContentCommentsApi(object):
                                         files=local_var_files,
                                         response_type='CommentSearch',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -583,23 +538,19 @@ class ContentCommentsApi(object):
         """
         Update a comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_comment(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_comment(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The comment id (required)
-        :param str content: The comment content
+        :param StringWrapper content: The comment content
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_comment_with_http_info(id, **kwargs)
         else:
             (data) = self.update_comment_with_http_info(id, **kwargs)
@@ -609,24 +560,20 @@ class ContentCommentsApi(object):
         """
         Update a comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_comment_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_comment_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The comment id (required)
-        :param str content: The comment content
+        :param StringWrapper content: The comment content
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'content']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -681,7 +628,7 @@ class ContentCommentsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

@@ -53,6 +53,7 @@ class UsageInfo(object):
         self._date = None
         self._method = None
         self._url = None
+        self.discriminator = None
 
         if count is not None:
           self.count = count

@@ -31,74 +31,20 @@ class AudioGroupProperty(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'type': 'str',
-        'files': 'list[FileProperty]'
+        
     }
 
     attribute_map = {
-        'type': 'type',
-        'files': 'files'
+        
     }
 
-    def __init__(self, type=None, files=None):
+    def __init__(self):
         """
         AudioGroupProperty - a model defined in Swagger
         """
 
-        self._type = None
-        self._files = None
+        self.discriminator = None
 
-        self.type = type
-        if files is not None:
-          self.files = files
-
-    @property
-    def type(self):
-        """
-        Gets the type of this AudioGroupProperty.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :return: The type of this AudioGroupProperty.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this AudioGroupProperty.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :param type: The type of this AudioGroupProperty.
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
-
-        self._type = type
-
-    @property
-    def files(self):
-        """
-        Gets the files of this AudioGroupProperty.
-        The list of files
-
-        :return: The files of this AudioGroupProperty.
-        :rtype: list[FileProperty]
-        """
-        return self._files
-
-    @files.setter
-    def files(self, files):
-        """
-        Sets the files of this AudioGroupProperty.
-        The list of files
-
-        :param files: The files of this AudioGroupProperty.
-        :type: list[FileProperty]
-        """
-
-        self._files = files
 
     def to_dict(self):
         """

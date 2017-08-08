@@ -31,81 +31,28 @@ class GuestPlayable(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'type_hint': 'str',
         'allowed': 'bool',
         'leaderboard': 'bool'
     }
 
     attribute_map = {
-        'description': 'description',
-        'type_hint': 'type_hint',
         'allowed': 'allowed',
         'leaderboard': 'leaderboard'
     }
 
-    def __init__(self, description=None, type_hint=None, allowed=None, leaderboard=None):
+    def __init__(self, allowed=None, leaderboard=None):
         """
         GuestPlayable - a model defined in Swagger
         """
 
-        self._description = None
-        self._type_hint = None
         self._allowed = None
         self._leaderboard = None
+        self.discriminator = None
 
-        if description is not None:
-          self.description = description
-        if type_hint is not None:
-          self.type_hint = type_hint
         if allowed is not None:
           self.allowed = allowed
         if leaderboard is not None:
           self.leaderboard = leaderboard
-
-    @property
-    def description(self):
-        """
-        Gets the description of this GuestPlayable.
-
-        :return: The description of this GuestPlayable.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this GuestPlayable.
-
-        :param description: The description of this GuestPlayable.
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def type_hint(self):
-        """
-        Gets the type_hint of this GuestPlayable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :return: The type_hint of this GuestPlayable.
-        :rtype: str
-        """
-        return self._type_hint
-
-    @type_hint.setter
-    def type_hint(self, type_hint):
-        """
-        Sets the type_hint of this GuestPlayable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :param type_hint: The type_hint of this GuestPlayable.
-        :type: str
-        """
-
-        self._type_hint = type_hint
 
     @property
     def allowed(self):

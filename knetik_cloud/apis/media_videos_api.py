@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,36 +31,28 @@ class MediaVideosApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_user_to_video_whitelist(self, id, **kwargs):
         """
         Adds a user to a video's whitelist
         Whitelisted users can view video regardless of privacy setting.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_user_to_video_whitelist(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_user_to_video_whitelist(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
-        :param int user_id: The user id
+        :param IntWrapper user_id: The user id
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_user_to_video_whitelist_with_http_info(id, **kwargs)
         else:
             (data) = self.add_user_to_video_whitelist_with_http_info(id, **kwargs)
@@ -72,24 +63,20 @@ class MediaVideosApi(object):
         Adds a user to a video's whitelist
         Whitelisted users can view video regardless of privacy setting.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_user_to_video_whitelist_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_user_to_video_whitelist_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
-        :param int user_id: The user id
+        :param IntWrapper user_id: The user id
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'user_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -144,7 +131,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -154,22 +141,18 @@ class MediaVideosApi(object):
         """
         Adds a new video in the system
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param VideoResource video_resource: The video object
         :return: VideoResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_video_with_http_info(**kwargs)
         else:
             (data) = self.add_video_with_http_info(**kwargs)
@@ -179,15 +162,11 @@ class MediaVideosApi(object):
         """
         Adds a new video in the system
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param VideoResource video_resource: The video object
         :return: VideoResource
                  If the method is called asynchronously,
@@ -195,7 +174,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -245,7 +224,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='VideoResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -255,15 +234,11 @@ class MediaVideosApi(object):
         """
         Add a new video comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_comment(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_comment(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id  (required)
         :param CommentResource comment_resource: The comment object
         :return: CommentResource
@@ -271,7 +246,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_video_comment_with_http_info(video_id, **kwargs)
         else:
             (data) = self.add_video_comment_with_http_info(video_id, **kwargs)
@@ -281,15 +256,11 @@ class MediaVideosApi(object):
         """
         Add a new video comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_comment_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_comment_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id  (required)
         :param CommentResource comment_resource: The comment object
         :return: CommentResource
@@ -298,7 +269,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'comment_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -353,7 +324,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='CommentResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -363,15 +334,11 @@ class MediaVideosApi(object):
         """
         Adds a contributor to a video
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_contributor(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_contributor(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param ContributionResource contribution_resource: The contribution object
         :return: None
@@ -379,7 +346,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_video_contributor_with_http_info(video_id, **kwargs)
         else:
             (data) = self.add_video_contributor_with_http_info(video_id, **kwargs)
@@ -389,15 +356,11 @@ class MediaVideosApi(object):
         """
         Adds a contributor to a video
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_contributor_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_contributor_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param ContributionResource contribution_resource: The contribution object
         :return: None
@@ -406,7 +369,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'contribution_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -461,7 +424,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -471,23 +434,19 @@ class MediaVideosApi(object):
         """
         Add a new flag
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_flag(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_flag(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
-        :param str reason: The flag reason
+        :param StringWrapper reason: The flag reason
         :return: FlagResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_video_flag_with_http_info(video_id, **kwargs)
         else:
             (data) = self.add_video_flag_with_http_info(video_id, **kwargs)
@@ -497,24 +456,20 @@ class MediaVideosApi(object):
         """
         Add a new flag
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_flag_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_flag_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
-        :param str reason: The flag reason
+        :param StringWrapper reason: The flag reason
         :return: FlagResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['video_id', 'reason']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -569,7 +524,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='FlagResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -579,15 +534,11 @@ class MediaVideosApi(object):
         """
         Adds one or more existing videos as related to this one
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_relationships(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_relationships(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param VideoRelationshipResource video_relationship_resource: The video relationship object 
         :return: VideoRelationshipResource
@@ -595,7 +546,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_video_relationships_with_http_info(video_id, **kwargs)
         else:
             (data) = self.add_video_relationships_with_http_info(video_id, **kwargs)
@@ -605,15 +556,11 @@ class MediaVideosApi(object):
         """
         Adds one or more existing videos as related to this one
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_video_relationships_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_video_relationships_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param VideoRelationshipResource video_relationship_resource: The video relationship object 
         :return: VideoRelationshipResource
@@ -622,7 +569,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'video_relationship_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -677,7 +624,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='VideoRelationshipResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -687,15 +634,11 @@ class MediaVideosApi(object):
         """
         Create a video disposition
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_video_disposition(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_video_disposition(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param DispositionResource disposition_resource: The disposition object
         :return: DispositionResource
@@ -703,7 +646,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_video_disposition_with_http_info(video_id, **kwargs)
         else:
             (data) = self.create_video_disposition_with_http_info(video_id, **kwargs)
@@ -713,15 +656,11 @@ class MediaVideosApi(object):
         """
         Create a video disposition
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_video_disposition_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_video_disposition_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param DispositionResource disposition_resource: The disposition object
         :return: DispositionResource
@@ -730,7 +669,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'disposition_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -785,7 +724,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='DispositionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -795,22 +734,18 @@ class MediaVideosApi(object):
         """
         Deletes a video from the system if no resources are attached to it
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_video_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_video_with_http_info(id, **kwargs)
@@ -820,15 +755,11 @@ class MediaVideosApi(object):
         """
         Deletes a video from the system if no resources are attached to it
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
         :return: None
                  If the method is called asynchronously,
@@ -836,7 +767,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -889,7 +820,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -899,15 +830,11 @@ class MediaVideosApi(object):
         """
         Delete a video comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_comment(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_comment(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The comment id (required)
         :return: None
@@ -915,7 +842,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_video_comment_with_http_info(video_id, id, **kwargs)
         else:
             (data) = self.delete_video_comment_with_http_info(video_id, id, **kwargs)
@@ -925,15 +852,11 @@ class MediaVideosApi(object):
         """
         Delete a video comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_comment_with_http_info(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_comment_with_http_info(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The comment id (required)
         :return: None
@@ -942,7 +865,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1000,7 +923,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1010,22 +933,18 @@ class MediaVideosApi(object):
         """
         Delete a video disposition
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_disposition(disposition_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_disposition(disposition_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int disposition_id: The disposition id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_video_disposition_with_http_info(disposition_id, **kwargs)
         else:
             (data) = self.delete_video_disposition_with_http_info(disposition_id, **kwargs)
@@ -1035,15 +954,11 @@ class MediaVideosApi(object):
         """
         Delete a video disposition
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_disposition_with_http_info(disposition_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_disposition_with_http_info(disposition_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int disposition_id: The disposition id (required)
         :return: None
                  If the method is called asynchronously,
@@ -1051,7 +966,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['disposition_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1104,7 +1019,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1114,22 +1029,18 @@ class MediaVideosApi(object):
         """
         Delete a flag
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_flag(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_flag(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_video_flag_with_http_info(video_id, **kwargs)
         else:
             (data) = self.delete_video_flag_with_http_info(video_id, **kwargs)
@@ -1139,15 +1050,11 @@ class MediaVideosApi(object):
         """
         Delete a flag
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_flag_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_flag_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :return: None
                  If the method is called asynchronously,
@@ -1155,7 +1062,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1208,7 +1115,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1218,15 +1125,11 @@ class MediaVideosApi(object):
         """
         Delete a video's relationship
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_relationship(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_relationship(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The relationship id (required)
         :return: None
@@ -1234,7 +1137,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_video_relationship_with_http_info(video_id, id, **kwargs)
         else:
             (data) = self.delete_video_relationship_with_http_info(video_id, id, **kwargs)
@@ -1244,15 +1147,11 @@ class MediaVideosApi(object):
         """
         Delete a video's relationship
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_video_relationship_with_http_info(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_relationship_with_http_info(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The relationship id (required)
         :return: None
@@ -1261,7 +1160,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1319,7 +1218,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1329,15 +1228,11 @@ class MediaVideosApi(object):
         """
         Get user videos
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_videos(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_videos(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user id (required)
         :param bool exclude_flagged: Skip videos that have been flagged by the current user
         :param int size: The number of objects returned per page
@@ -1347,7 +1242,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_user_videos_with_http_info(user_id, **kwargs)
         else:
             (data) = self.get_user_videos_with_http_info(user_id, **kwargs)
@@ -1357,15 +1252,11 @@ class MediaVideosApi(object):
         """
         Get user videos
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_user_videos_with_http_info(user_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_user_videos_with_http_info(user_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int user_id: The user id (required)
         :param bool exclude_flagged: Skip videos that have been flagged by the current user
         :param int size: The number of objects returned per page
@@ -1376,7 +1267,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['user_id', 'exclude_flagged', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1435,7 +1326,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceVideoResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1445,22 +1336,18 @@ class MediaVideosApi(object):
         """
         Loads a specific video details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_video(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
         :return: VideoResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_video_with_http_info(id, **kwargs)
         else:
             (data) = self.get_video_with_http_info(id, **kwargs)
@@ -1470,15 +1357,11 @@ class MediaVideosApi(object):
         """
         Loads a specific video details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_video_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
         :return: VideoResource
                  If the method is called asynchronously,
@@ -1486,7 +1369,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1539,7 +1422,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='VideoResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1549,15 +1432,11 @@ class MediaVideosApi(object):
         """
         Returns a page of comments for a video
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_video_comments(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_comments(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -1566,7 +1445,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_video_comments_with_http_info(video_id, **kwargs)
         else:
             (data) = self.get_video_comments_with_http_info(video_id, **kwargs)
@@ -1576,15 +1455,11 @@ class MediaVideosApi(object):
         """
         Returns a page of comments for a video
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_video_comments_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_comments_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -1594,7 +1469,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1651,7 +1526,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceCommentResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1661,15 +1536,11 @@ class MediaVideosApi(object):
         """
         Returns a page of dispositions for a video
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_video_dispositions(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_dispositions(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -1678,7 +1549,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_video_dispositions_with_http_info(video_id, **kwargs)
         else:
             (data) = self.get_video_dispositions_with_http_info(video_id, **kwargs)
@@ -1688,15 +1559,11 @@ class MediaVideosApi(object):
         """
         Returns a page of dispositions for a video
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_video_dispositions_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_dispositions_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -1706,7 +1573,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1763,7 +1630,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceDispositionResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1773,15 +1640,11 @@ class MediaVideosApi(object):
         """
         Returns a page of video relationships
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_video_relationships(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_relationships(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -1790,7 +1653,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_video_relationships_with_http_info(video_id, **kwargs)
         else:
             (data) = self.get_video_relationships_with_http_info(video_id, **kwargs)
@@ -1800,15 +1663,11 @@ class MediaVideosApi(object):
         """
         Returns a page of video relationships
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_video_relationships_with_http_info(video_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_relationships_with_http_info(video_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -1818,7 +1677,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1875,7 +1734,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceVideoRelationshipResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1885,15 +1744,11 @@ class MediaVideosApi(object):
         """
         Search videos using the documented filters
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_videos(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_videos(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool exclude_flagged: Skip videos that have been flagged by the current user
         :param int filter_videos_by_uploader: Filter for videos by uploader id
         :param str filter_category: Filter for videos from a specific category by id
@@ -1914,7 +1769,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_videos_with_http_info(**kwargs)
         else:
             (data) = self.get_videos_with_http_info(**kwargs)
@@ -1924,15 +1779,11 @@ class MediaVideosApi(object):
         """
         Search videos using the documented filters
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_videos_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_videos_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool exclude_flagged: Skip videos that have been flagged by the current user
         :param int filter_videos_by_uploader: Filter for videos by uploader id
         :param str filter_category: Filter for videos from a specific category by id
@@ -1954,7 +1805,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['exclude_flagged', 'filter_videos_by_uploader', 'filter_category', 'filter_tagset', 'filter_videos_by_name', 'filter_videos_by_contributor', 'filter_videos_by_author', 'filter_has_author', 'filter_has_uploader', 'filter_related_to', 'filter_friends', 'filter_disposition', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2032,7 +1883,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceVideoResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2043,15 +1894,11 @@ class MediaVideosApi(object):
         Removes a user from a video's whitelist
         Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_user_from_video_whitelist(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_user_from_video_whitelist(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The user id (required)
         :return: None
@@ -2059,7 +1906,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_user_from_video_whitelist_with_http_info(video_id, id, **kwargs)
         else:
             (data) = self.remove_user_from_video_whitelist_with_http_info(video_id, id, **kwargs)
@@ -2070,15 +1917,11 @@ class MediaVideosApi(object):
         Removes a user from a video's whitelist
         Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_user_from_video_whitelist_with_http_info(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_user_from_video_whitelist_with_http_info(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The user id (required)
         :return: None
@@ -2087,7 +1930,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2145,7 +1988,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2155,15 +1998,11 @@ class MediaVideosApi(object):
         """
         Removes a contributor from a video
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_video_contributor(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_video_contributor(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The contributor id (required)
         :return: None
@@ -2171,7 +2010,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_video_contributor_with_http_info(video_id, id, **kwargs)
         else:
             (data) = self.remove_video_contributor_with_http_info(video_id, id, **kwargs)
@@ -2181,15 +2020,11 @@ class MediaVideosApi(object):
         """
         Removes a contributor from a video
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_video_contributor_with_http_info(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_video_contributor_with_http_info(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The contributor id (required)
         :return: None
@@ -2198,7 +2033,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['video_id', 'id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2256,7 +2091,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2266,15 +2101,11 @@ class MediaVideosApi(object):
         """
         Modifies a video's details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_video(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_video(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
         :param VideoResource video_resource: The video object
         :return: None
@@ -2282,7 +2113,7 @@ class MediaVideosApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_video_with_http_info(id, **kwargs)
         else:
             (data) = self.update_video_with_http_info(id, **kwargs)
@@ -2292,15 +2123,11 @@ class MediaVideosApi(object):
         """
         Modifies a video's details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_video_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_video_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
         :param VideoResource video_resource: The video object
         :return: None
@@ -2309,7 +2136,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['id', 'video_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2364,7 +2191,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2374,24 +2201,20 @@ class MediaVideosApi(object):
         """
         Update a video comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_video_comment(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_video_comment(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The comment id (required)
-        :param str content: The comment content
+        :param StringWrapper content: The comment content
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_video_comment_with_http_info(video_id, id, **kwargs)
         else:
             (data) = self.update_video_comment_with_http_info(video_id, id, **kwargs)
@@ -2401,25 +2224,21 @@ class MediaVideosApi(object):
         """
         Update a video comment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_video_comment_with_http_info(video_id, id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_video_comment_with_http_info(video_id, id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int id: The comment id (required)
-        :param str content: The comment content
+        :param StringWrapper content: The comment content
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['video_id', 'id', 'content']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2479,7 +2298,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2489,24 +2308,20 @@ class MediaVideosApi(object):
         """
         Update a video's relationship details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_video_relationship(video_id, relationship_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_video_relationship(video_id, relationship_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int relationship_id: The relationship id (required)
-        :param str details: The video relationship details
+        :param StringWrapper details: The video relationship details
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_video_relationship_with_http_info(video_id, relationship_id, **kwargs)
         else:
             (data) = self.update_video_relationship_with_http_info(video_id, relationship_id, **kwargs)
@@ -2516,25 +2331,21 @@ class MediaVideosApi(object):
         """
         Update a video's relationship details
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_video_relationship_with_http_info(video_id, relationship_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_video_relationship_with_http_info(video_id, relationship_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int video_id: The video id (required)
         :param int relationship_id: The relationship id (required)
-        :param str details: The video relationship details
+        :param StringWrapper details: The video relationship details
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['video_id', 'relationship_id', 'details']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2594,7 +2405,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -2604,22 +2415,18 @@ class MediaVideosApi(object):
         """
         Increment a video's view count
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.view_video(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.view_video(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.view_video_with_http_info(id, **kwargs)
         else:
             (data) = self.view_video_with_http_info(id, **kwargs)
@@ -2629,15 +2436,11 @@ class MediaVideosApi(object):
         """
         Increment a video's view count
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.view_video_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.view_video_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The video id (required)
         :return: None
                  If the method is called asynchronously,
@@ -2645,7 +2448,7 @@ class MediaVideosApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -2698,7 +2501,7 @@ class MediaVideosApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

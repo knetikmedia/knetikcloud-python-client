@@ -50,6 +50,7 @@ class BundledSku(object):
         self._price_override = None
         self._quantity = None
         self._sku = None
+        self.discriminator = None
 
         if price_override is not None:
           self.price_override = price_override

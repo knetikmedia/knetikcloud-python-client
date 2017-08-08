@@ -46,12 +46,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The video id
-user_id = 56 # int | The user id (optional)
+user_id = knetik_cloud.IntWrapper() # IntWrapper | The user id (optional)
 
 try: 
     # Adds a user to a video's whitelist
@@ -65,7 +66,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The video id | 
- **user_id** | **int**| The user id | [optional] 
+ **user_id** | [**IntWrapper**](IntWrapper.md)| The user id | [optional] 
 
 ### Return type
 
@@ -96,10 +97,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_resource = knetik_cloud.VideoResource() # VideoResource | The video object (optional)
 
 try: 
@@ -145,10 +147,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 56 # int | The video id 
 comment_resource = knetik_cloud.CommentResource() # CommentResource | The comment object (optional)
 
@@ -196,10 +199,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 contribution_resource = knetik_cloud.ContributionResource() # ContributionResource | The contribution object (optional)
 
@@ -246,12 +250,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
-reason = 'reason_example' # str | The flag reason (optional)
+reason = knetik_cloud.StringWrapper() # StringWrapper | The flag reason (optional)
 
 try: 
     # Add a new flag
@@ -266,7 +271,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **video_id** | **int**| The video id | 
- **reason** | **str**| The flag reason | [optional] 
+ **reason** | [**StringWrapper**](StringWrapper.md)| The flag reason | [optional] 
 
 ### Return type
 
@@ -297,10 +302,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 video_relationship_resource = knetik_cloud.VideoRelationshipResource() # VideoRelationshipResource | The video relationship object  (optional)
 
@@ -348,10 +354,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 56 # int | The video id
 disposition_resource = knetik_cloud.DispositionResource() # DispositionResource | The disposition object (optional)
 
@@ -399,10 +406,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The video id
 
 try: 
@@ -447,10 +455,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 id = 789 # int | The comment id
 
@@ -497,10 +506,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 disposition_id = 789 # int | The disposition id
 
 try: 
@@ -545,10 +555,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 
 try: 
@@ -593,10 +604,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 id = 789 # int | The relationship id
 
@@ -643,10 +655,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The user id
 exclude_flagged = true # bool | Skip videos that have been flagged by the current user (optional) (default to true)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -698,10 +711,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The video id
 
 try: 
@@ -973,10 +987,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 id = 56 # int | The user id
 
@@ -1023,10 +1038,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 id = 56 # int | The contributor id
 
@@ -1073,10 +1089,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The video id
 video_resource = knetik_cloud.VideoResource() # VideoResource | The video object (optional)
 
@@ -1123,13 +1140,14 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 id = 789 # int | The comment id
-content = 'content_example' # str | The comment content (optional)
+content = knetik_cloud.StringWrapper() # StringWrapper | The comment content (optional)
 
 try: 
     # Update a video comment
@@ -1144,7 +1162,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **video_id** | **int**| The video id | 
  **id** | **int**| The comment id | 
- **content** | **str**| The comment content | [optional] 
+ **content** | [**StringWrapper**](StringWrapper.md)| The comment content | [optional] 
 
 ### Return type
 
@@ -1175,13 +1193,14 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.MediaVideosApi()
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
 video_id = 789 # int | The video id
 relationship_id = 789 # int | The relationship id
-details = 'details_example' # str | The video relationship details (optional)
+details = knetik_cloud.StringWrapper() # StringWrapper | The video relationship details (optional)
 
 try: 
     # Update a video's relationship details
@@ -1196,7 +1215,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **video_id** | **int**| The video id | 
  **relationship_id** | **int**| The relationship id | 
- **details** | **str**| The video relationship details | [optional] 
+ **details** | [**StringWrapper**](StringWrapper.md)| The video relationship details | [optional] 
 
 ### Return type
 

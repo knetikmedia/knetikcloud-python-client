@@ -56,6 +56,7 @@ class UserAchievementGroupResource(object):
         self._id = None
         self._progress = None
         self._user_id = None
+        self.discriminator = None
 
         self.achievements = achievements
         self.group_name = group_name

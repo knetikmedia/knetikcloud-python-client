@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class AuthClientsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_client(self, **kwargs):
         """
         Create a new client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_client(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_client(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ClientResource client_resource: The client resource object
         :return: ClientResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_client_with_http_info(**kwargs)
         else:
             (data) = self.create_client_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class AuthClientsApi(object):
         """
         Create a new client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_client_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_client_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ClientResource client_resource: The client resource object
         :return: ClientResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class AuthClientsApi(object):
         """
 
         all_params = ['client_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class AuthClientsApi(object):
                                         files=local_var_files,
                                         response_type='ClientResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -145,22 +132,18 @@ class AuthClientsApi(object):
         """
         Delete a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_client(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_client(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_client_with_http_info(client_key, **kwargs)
         else:
             (data) = self.delete_client_with_http_info(client_key, **kwargs)
@@ -170,15 +153,11 @@ class AuthClientsApi(object):
         """
         Delete a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_client_with_http_info(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_client_with_http_info(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :return: None
                  If the method is called asynchronously,
@@ -186,7 +165,7 @@ class AuthClientsApi(object):
         """
 
         all_params = ['client_key']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -239,7 +218,7 @@ class AuthClientsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -249,22 +228,18 @@ class AuthClientsApi(object):
         """
         Get a single client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_client(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_client(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :return: ClientResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_client_with_http_info(client_key, **kwargs)
         else:
             (data) = self.get_client_with_http_info(client_key, **kwargs)
@@ -274,15 +249,11 @@ class AuthClientsApi(object):
         """
         Get a single client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_client_with_http_info(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_client_with_http_info(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :return: ClientResource
                  If the method is called asynchronously,
@@ -290,7 +261,7 @@ class AuthClientsApi(object):
         """
 
         all_params = ['client_key']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -343,7 +314,7 @@ class AuthClientsApi(object):
                                         files=local_var_files,
                                         response_type='ClientResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -353,21 +324,17 @@ class AuthClientsApi(object):
         """
         List available client grant types
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_client_grant_types(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_client_grant_types(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[GrantTypeResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_client_grant_types_with_http_info(**kwargs)
         else:
             (data) = self.get_client_grant_types_with_http_info(**kwargs)
@@ -377,22 +344,18 @@ class AuthClientsApi(object):
         """
         List available client grant types
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_client_grant_types_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_client_grant_types_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :return: list[GrantTypeResource]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = []
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -439,7 +402,7 @@ class AuthClientsApi(object):
                                         files=local_var_files,
                                         response_type='list[GrantTypeResource]',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -449,15 +412,11 @@ class AuthClientsApi(object):
         """
         List and search clients
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_clients(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_clients(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -466,7 +425,7 @@ class AuthClientsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_clients_with_http_info(**kwargs)
         else:
             (data) = self.get_clients_with_http_info(**kwargs)
@@ -476,15 +435,11 @@ class AuthClientsApi(object):
         """
         List and search clients
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_clients_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_clients_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -494,7 +449,7 @@ class AuthClientsApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -548,7 +503,7 @@ class AuthClientsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceClientResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -558,15 +513,11 @@ class AuthClientsApi(object):
         """
         Set grant types for a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_client_grant_types(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_client_grant_types(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :param list[str] grant_list: A list of unique grant types
         :return: None
@@ -574,7 +525,7 @@ class AuthClientsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_client_grant_types_with_http_info(client_key, **kwargs)
         else:
             (data) = self.set_client_grant_types_with_http_info(client_key, **kwargs)
@@ -584,15 +535,11 @@ class AuthClientsApi(object):
         """
         Set grant types for a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_client_grant_types_with_http_info(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_client_grant_types_with_http_info(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :param list[str] grant_list: A list of unique grant types
         :return: None
@@ -601,7 +548,7 @@ class AuthClientsApi(object):
         """
 
         all_params = ['client_key', 'grant_list']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -656,7 +603,7 @@ class AuthClientsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -666,15 +613,11 @@ class AuthClientsApi(object):
         """
         Set redirect uris for a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_client_redirect_uris(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_client_redirect_uris(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :param list[str] redirect_list: A list of unique redirect uris
         :return: None
@@ -682,7 +625,7 @@ class AuthClientsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_client_redirect_uris_with_http_info(client_key, **kwargs)
         else:
             (data) = self.set_client_redirect_uris_with_http_info(client_key, **kwargs)
@@ -692,15 +635,11 @@ class AuthClientsApi(object):
         """
         Set redirect uris for a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_client_redirect_uris_with_http_info(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_client_redirect_uris_with_http_info(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :param list[str] redirect_list: A list of unique redirect uris
         :return: None
@@ -709,7 +648,7 @@ class AuthClientsApi(object):
         """
 
         all_params = ['client_key', 'redirect_list']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -764,7 +703,7 @@ class AuthClientsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -774,15 +713,11 @@ class AuthClientsApi(object):
         """
         Update a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_client(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_client(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :param ClientResource client_resource: The client resource object
         :return: ClientResource
@@ -790,7 +725,7 @@ class AuthClientsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_client_with_http_info(client_key, **kwargs)
         else:
             (data) = self.update_client_with_http_info(client_key, **kwargs)
@@ -800,15 +735,11 @@ class AuthClientsApi(object):
         """
         Update a client
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_client_with_http_info(client_key, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_client_with_http_info(client_key, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str client_key: The key of the client (required)
         :param ClientResource client_resource: The client resource object
         :return: ClientResource
@@ -817,7 +748,7 @@ class AuthClientsApi(object):
         """
 
         all_params = ['client_key', 'client_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -872,7 +803,7 @@ class AuthClientsApi(object):
                                         files=local_var_files,
                                         response_type='ClientResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

@@ -53,6 +53,7 @@ class WalletAlterRequest(object):
         self._invoice_id = None
         self._reason = None
         self._type = None
+        self.discriminator = None
 
         self.delta = delta
         if invoice_id is not None:

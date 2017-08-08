@@ -62,6 +62,7 @@ class ActivityUserResource(object):
         self._metric = None
         self._status = None
         self._user = None
+        self.discriminator = None
 
         if host is not None:
           self.host = host

@@ -77,6 +77,7 @@ class BreRule(object):
         self._sort = None
         self._start_date = None
         self._system_rule = None
+        self.discriminator = None
 
         self.actions = actions
         if condition is not None:

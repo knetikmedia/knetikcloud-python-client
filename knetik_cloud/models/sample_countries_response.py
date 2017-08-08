@@ -47,6 +47,7 @@ class SampleCountriesResponse(object):
 
         self._vendor_id1 = None
         self._vendor_id2 = None
+        self.discriminator = None
 
         if vendor_id1 is not None:
           self.vendor_id1 = vendor_id1

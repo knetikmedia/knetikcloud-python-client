@@ -56,6 +56,7 @@ class PollResponseResource(object):
         self._id = None
         self._poll_id = None
         self._user = None
+        self.discriminator = None
 
         self.answer = answer
         if answered_date is not None:

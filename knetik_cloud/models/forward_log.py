@@ -68,6 +68,7 @@ class ForwardLog(object):
         self._retry_count = None
         self._start_date = None
         self._url = None
+        self.discriminator = None
 
         if end_date is not None:
           self.end_date = end_date

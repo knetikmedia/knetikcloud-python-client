@@ -53,6 +53,7 @@ class S3Config(object):
         self._cdn_url = None
         self._region = None
         self._upload_prefix = None
+        self.discriminator = None
 
         if bucket_name is not None:
           self.bucket_name = bucket_name

@@ -31,7 +31,6 @@ class FileProperty(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'type': 'str',
         'crc': 'str',
         'description': 'str',
         'file_type': 'str',
@@ -39,25 +38,23 @@ class FileProperty(object):
     }
 
     attribute_map = {
-        'type': 'type',
         'crc': 'crc',
         'description': 'description',
         'file_type': 'file_type',
         'url': 'url'
     }
 
-    def __init__(self, type=None, crc=None, description=None, file_type=None, url=None):
+    def __init__(self, crc=None, description=None, file_type=None, url=None):
         """
         FileProperty - a model defined in Swagger
         """
 
-        self._type = None
         self._crc = None
         self._description = None
         self._file_type = None
         self._url = None
+        self.discriminator = None
 
-        self.type = type
         if crc is not None:
           self.crc = crc
         if description is not None:
@@ -66,31 +63,6 @@ class FileProperty(object):
           self.file_type = file_type
         if url is not None:
           self.url = url
-
-    @property
-    def type(self):
-        """
-        Gets the type of this FileProperty.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :return: The type of this FileProperty.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """
-        Sets the type of this FileProperty.
-        The type of the property. Used for polymorphic type recognition and thus must match an expected type with additional properties.
-
-        :param type: The type of this FileProperty.
-        :type: str
-        """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
-
-        self._type = type
 
     @property
     def crc(self):

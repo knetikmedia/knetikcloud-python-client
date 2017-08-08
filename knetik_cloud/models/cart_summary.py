@@ -65,6 +65,7 @@ class CartSummary(object):
         self._items_in_cart = None
         self._status = None
         self._subtotal = None
+        self.discriminator = None
 
         if created_date is not None:
           self.created_date = created_date

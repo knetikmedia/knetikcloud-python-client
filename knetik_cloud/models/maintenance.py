@@ -50,6 +50,7 @@ class Maintenance(object):
         self._access_locked = None
         self._details = None
         self._message = None
+        self.discriminator = None
 
         self.access_locked = access_locked
         if details is not None:

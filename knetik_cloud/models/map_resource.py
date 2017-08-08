@@ -47,6 +47,7 @@ class MapResource(object):
 
         self._map = None
         self._type = None
+        self.discriminator = None
 
         if map is not None:
           self.map = map

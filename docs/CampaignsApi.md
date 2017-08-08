@@ -33,10 +33,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The id of the campaign
 challenge_id = 789 # int | The id of the challenge (optional)
 
@@ -83,10 +84,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 campaign_resource = knetik_cloud.CampaignResource() # CampaignResource | The campaign resource object (optional)
 
 try: 
@@ -134,10 +136,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 campaign_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The campaign template resource object (optional)
 
 try: 
@@ -183,10 +186,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The campaign id
 
 try: 
@@ -233,10 +237,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -385,10 +390,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -434,10 +440,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -539,10 +546,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 campaign_id = 789 # int | The campaign id
 id = 789 # int | The challenge id
 
@@ -589,10 +597,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The campaign id
 campaign_resource = knetik_cloud.CampaignResource() # CampaignResource | The campaign resource object (optional)
 
@@ -640,10 +649,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsApi()
+api_instance = knetik_cloud.CampaignsApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 campaign_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The campaign template resource object (optional)
 

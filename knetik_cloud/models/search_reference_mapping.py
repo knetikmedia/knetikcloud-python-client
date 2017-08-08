@@ -56,6 +56,7 @@ class SearchReferenceMapping(object):
         self._ref_type = None
         self._source_field_to_destination_field = None
         self._type = None
+        self.discriminator = None
 
         self.id = id
         self.ref_id_field = ref_id_field

@@ -47,6 +47,7 @@ class BreEvent(object):
 
         self._event_name = None
         self._params = None
+        self.discriminator = None
 
         self.event_name = event_name
         self.params = params

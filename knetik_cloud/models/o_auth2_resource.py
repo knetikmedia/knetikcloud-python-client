@@ -53,6 +53,7 @@ class OAuth2Resource(object):
         self._expires_in = None
         self._scope = None
         self._token_type = None
+        self.discriminator = None
 
         if access_token is not None:
           self.access_token = access_token

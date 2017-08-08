@@ -50,6 +50,7 @@ class PropertyFieldListResource(object):
         self._property_definition_fields = None
         self._property_fields = None
         self._property_type = None
+        self.discriminator = None
 
         if property_definition_fields is not None:
           self.property_definition_fields = property_definition_fields

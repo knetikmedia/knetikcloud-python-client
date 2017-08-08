@@ -56,6 +56,7 @@ class CategoryResource(object):
         self._id = None
         self._name = None
         self._template = None
+        self.discriminator = None
 
         if active is not None:
           self.active = active

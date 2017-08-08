@@ -62,6 +62,7 @@ class QuestionTemplateResource(object):
         self._properties = None
         self._question_property = None
         self._updated_date = None
+        self.discriminator = None
 
         if answer_property is not None:
           self.answer_property = answer_property

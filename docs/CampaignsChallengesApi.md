@@ -45,10 +45,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 challenge_resource = knetik_cloud.ChallengeResource() # ChallengeResource | The challenge resource object (optional)
 
 try: 
@@ -94,10 +95,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 challenge_id = 789 # int | The challenge id
 challenge_activity_resource = knetik_cloud.ChallengeActivityResource() # ChallengeActivityResource | The challenge activity resource object (optional)
 validate_settings = false # bool | Whether to validate the settings being sent against the available settings on the base activity. (optional) (default to false)
@@ -149,10 +151,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 challenge_activity_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The challengeActivity template resource object (optional)
 
 try: 
@@ -200,10 +203,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 challenge_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The challenge template resource object (optional)
 
 try: 
@@ -249,10 +253,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The challenge id
 
 try: 
@@ -299,10 +304,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The challenge_activity id
 challenge_id = 789 # int | The challenge id
 
@@ -351,10 +357,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -401,10 +408,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The challenge event id
 
 try: 
@@ -451,10 +459,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -649,10 +658,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -698,10 +708,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -855,10 +866,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -904,10 +916,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -1017,10 +1030,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The challenge id
 challenge_resource = knetik_cloud.ChallengeResource() # ChallengeResource | The challenge resource object (optional)
 
@@ -1070,10 +1084,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The challenge_activity id
 challenge_id = 789 # int | The challenge id
 challenge_activity_resource = knetik_cloud.ChallengeActivityResource() # ChallengeActivityResource | The challenge activity resource object (optional)
@@ -1123,10 +1138,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 challenge_activity_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The challengeActivity template resource object (optional)
 
@@ -1174,10 +1190,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.CampaignsChallengesApi()
+api_instance = knetik_cloud.CampaignsChallengesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the template
 challenge_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The challenge template resource object (optional)
 

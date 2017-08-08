@@ -47,6 +47,7 @@ class SubscriptionPriceOverrideRequest(object):
 
         self._new_price = None
         self._reason = None
+        self.discriminator = None
 
         if new_price is not None:
           self.new_price = new_price

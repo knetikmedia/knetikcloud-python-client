@@ -80,6 +80,7 @@ class TransactionResource(object):
         self._type = None
         self._type_hint = None
         self._value = None
+        self.discriminator = None
 
         if create_date is not None:
           self.create_date = create_date

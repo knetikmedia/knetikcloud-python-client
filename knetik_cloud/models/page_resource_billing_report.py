@@ -68,6 +68,7 @@ class PageResourceBillingReport(object):
         self._sort = None
         self._total_elements = None
         self._total_pages = None
+        self.discriminator = None
 
         if content is not None:
           self.content = content

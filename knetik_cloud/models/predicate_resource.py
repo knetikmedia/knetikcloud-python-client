@@ -50,6 +50,7 @@ class PredicateResource(object):
         self._args = None
         self._op = None
         self._type = None
+        self.discriminator = None
 
         self.args = args
         self.op = op

@@ -50,6 +50,7 @@ class TypeHintLookupResource(object):
         self._lookup_key = None
         self._type = None
         self._value_type = None
+        self.discriminator = None
 
         if lookup_key is not None:
           self.lookup_key = lookup_key

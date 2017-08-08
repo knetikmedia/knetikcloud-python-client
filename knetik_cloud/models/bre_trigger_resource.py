@@ -62,6 +62,7 @@ class BreTriggerResource(object):
         self._tags = None
         self._trigger_description = None
         self._trigger_name = None
+        self.discriminator = None
 
         if category is not None:
           self.category = category

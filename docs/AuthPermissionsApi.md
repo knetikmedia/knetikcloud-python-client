@@ -25,10 +25,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthPermissionsApi()
+api_instance = knetik_cloud.AuthPermissionsApi(knetik_cloud.ApiClient(configuration))
 permission_resource = knetik_cloud.PermissionResource() # PermissionResource | The permission resource object (optional)
 
 try: 
@@ -74,10 +75,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthPermissionsApi()
+api_instance = knetik_cloud.AuthPermissionsApi(knetik_cloud.ApiClient(configuration))
 permission = 'permission_example' # str | The permission value
 force = true # bool | If true, removes permission assigned to roles (optional)
 
@@ -124,10 +126,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthPermissionsApi()
+api_instance = knetik_cloud.AuthPermissionsApi(knetik_cloud.ApiClient(configuration))
 permission = 'permission_example' # str | The permission value
 
 try: 
@@ -173,10 +176,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthPermissionsApi()
+api_instance = knetik_cloud.AuthPermissionsApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'permission:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to permission:ASC)
@@ -226,10 +230,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.AuthPermissionsApi()
+api_instance = knetik_cloud.AuthPermissionsApi(knetik_cloud.ApiClient(configuration))
 permission = 'permission_example' # str | The permission value
 permission_resource = knetik_cloud.PermissionResource() # PermissionResource | The permission resource object (optional)
 

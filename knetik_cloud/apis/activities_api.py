@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class ActivitiesApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def create_activity(self, **kwargs):
         """
         Create an activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_activity(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_activity(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ActivityResource activity_resource: The activity resource object
         :return: ActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_activity_with_http_info(**kwargs)
         else:
             (data) = self.create_activity_with_http_info(**kwargs)
@@ -69,15 +60,11 @@ class ActivitiesApi(object):
         """
         Create an activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_activity_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_activity_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param ActivityResource activity_resource: The activity resource object
         :return: ActivityResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['activity_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -135,7 +122,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='ActivityResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -146,15 +133,11 @@ class ActivitiesApi(object):
         Create a new activity occurrence. Ex: start a game
         Has to enforce extra rules if not used as an admin
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_activity_occurrence(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_activity_occurrence(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool test: if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings
         :param ActivityOccurrenceResource activity_occurrence_resource: The activity occurrence object
         :return: ActivityOccurrenceResource
@@ -162,7 +145,7 @@ class ActivitiesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_activity_occurrence_with_http_info(**kwargs)
         else:
             (data) = self.create_activity_occurrence_with_http_info(**kwargs)
@@ -173,15 +156,11 @@ class ActivitiesApi(object):
         Create a new activity occurrence. Ex: start a game
         Has to enforce extra rules if not used as an admin
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_activity_occurrence_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_activity_occurrence_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool test: if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings
         :param ActivityOccurrenceResource activity_occurrence_resource: The activity occurrence object
         :return: ActivityOccurrenceResource
@@ -190,7 +169,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['test', 'activity_occurrence_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -242,7 +221,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='ActivityOccurrenceResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -253,22 +232,18 @@ class ActivitiesApi(object):
         Create a activity template
         Activity Templates define a type of activity and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_activity_template(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_activity_template(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource activity_template_resource: The activity template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_activity_template_with_http_info(**kwargs)
         else:
             (data) = self.create_activity_template_with_http_info(**kwargs)
@@ -279,15 +254,11 @@ class ActivitiesApi(object):
         Create a activity template
         Activity Templates define a type of activity and the properties they have
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_activity_template_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_activity_template_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param TemplateResource activity_template_resource: The activity template resource object
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -295,7 +266,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['activity_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -345,7 +316,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -355,22 +326,18 @@ class ActivitiesApi(object):
         """
         Delete an activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_activity(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_activity(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the activity (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_activity_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_activity_with_http_info(id, **kwargs)
@@ -380,15 +347,11 @@ class ActivitiesApi(object):
         """
         Delete an activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_activity_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_activity_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the activity (required)
         :return: None
                  If the method is called asynchronously,
@@ -396,7 +359,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -449,7 +412,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -460,15 +423,11 @@ class ActivitiesApi(object):
         Delete a activity template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_activity_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_activity_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -476,7 +435,7 @@ class ActivitiesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.delete_activity_template_with_http_info(id, **kwargs)
         else:
             (data) = self.delete_activity_template_with_http_info(id, **kwargs)
@@ -487,15 +446,11 @@ class ActivitiesApi(object):
         Delete a activity template
         If cascade = 'detach', it will force delete the template even if it's attached to other objects
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.delete_activity_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_activity_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param str cascade: The value needed to delete used templates
         :return: None
@@ -504,7 +459,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['id', 'cascade']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -559,7 +514,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -569,15 +524,11 @@ class ActivitiesApi(object):
         """
         List activity definitions
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_activities(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_activities(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool filter_template: Filter for activities that are templates, or specifically not if false
         :param str filter_name: Filter for activities that have a name starting with specified string
         :param str filter_id: Filter for activities with an id in the given comma separated list of ids
@@ -589,7 +540,7 @@ class ActivitiesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_activities_with_http_info(**kwargs)
         else:
             (data) = self.get_activities_with_http_info(**kwargs)
@@ -599,15 +550,11 @@ class ActivitiesApi(object):
         """
         List activity definitions
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_activities_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_activities_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool filter_template: Filter for activities that are templates, or specifically not if false
         :param str filter_name: Filter for activities that have a name starting with specified string
         :param str filter_id: Filter for activities with an id in the given comma separated list of ids
@@ -620,7 +567,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['filter_template', 'filter_name', 'filter_id', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -680,7 +627,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceBareActivityResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -690,22 +637,18 @@ class ActivitiesApi(object):
         """
         Get a single activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_activity(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_activity(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the activity (required)
         :return: ActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_activity_with_http_info(id, **kwargs)
         else:
             (data) = self.get_activity_with_http_info(id, **kwargs)
@@ -715,15 +658,11 @@ class ActivitiesApi(object):
         """
         Get a single activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_activity_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_activity_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the activity (required)
         :return: ActivityResource
                  If the method is called asynchronously,
@@ -731,7 +670,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -784,7 +723,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='ActivityResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -794,22 +733,18 @@ class ActivitiesApi(object):
         """
         Get a single activity template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_activity_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_activity_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_activity_template_with_http_info(id, **kwargs)
         else:
             (data) = self.get_activity_template_with_http_info(id, **kwargs)
@@ -819,15 +754,11 @@ class ActivitiesApi(object):
         """
         Get a single activity template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_activity_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_activity_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :return: TemplateResource
                  If the method is called asynchronously,
@@ -835,7 +766,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -888,7 +819,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -898,15 +829,11 @@ class ActivitiesApi(object):
         """
         List and search activity templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_activity_templates(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_activity_templates(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -915,7 +842,7 @@ class ActivitiesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_activity_templates_with_http_info(**kwargs)
         else:
             (data) = self.get_activity_templates_with_http_info(**kwargs)
@@ -925,15 +852,11 @@ class ActivitiesApi(object):
         """
         List and search activity templates
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_activity_templates_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_activity_templates_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -943,7 +866,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -997,7 +920,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceTemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1007,15 +930,11 @@ class ActivitiesApi(object):
         """
         Sets the status of an activity occurrence to FINISHED and logs metrics
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_activity_occurrence_results(activity_occurrence_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_activity_occurrence_results(activity_occurrence_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
         :param ActivityOccurrenceResultsResource activity_occurrence_results: The activity occurrence object
         :return: ActivityOccurrenceResults
@@ -1023,7 +942,7 @@ class ActivitiesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_activity_occurrence_results_with_http_info(activity_occurrence_id, **kwargs)
         else:
             (data) = self.set_activity_occurrence_results_with_http_info(activity_occurrence_id, **kwargs)
@@ -1033,15 +952,11 @@ class ActivitiesApi(object):
         """
         Sets the status of an activity occurrence to FINISHED and logs metrics
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_activity_occurrence_results_with_http_info(activity_occurrence_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_activity_occurrence_results_with_http_info(activity_occurrence_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
         :param ActivityOccurrenceResultsResource activity_occurrence_results: The activity occurrence object
         :return: ActivityOccurrenceResults
@@ -1050,7 +965,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['activity_occurrence_id', 'activity_occurrence_results']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1105,7 +1020,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='ActivityOccurrenceResults',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1115,15 +1030,11 @@ class ActivitiesApi(object):
         """
         Update an activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_activity(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_activity(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the activity (required)
         :param ActivityResource activity_resource: The activity resource object
         :return: ActivityResource
@@ -1131,7 +1042,7 @@ class ActivitiesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_activity_with_http_info(id, **kwargs)
         else:
             (data) = self.update_activity_with_http_info(id, **kwargs)
@@ -1141,15 +1052,11 @@ class ActivitiesApi(object):
         """
         Update an activity
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_activity_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_activity_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The id of the activity (required)
         :param ActivityResource activity_resource: The activity resource object
         :return: ActivityResource
@@ -1158,7 +1065,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['id', 'activity_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1213,7 +1120,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='ActivityResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1224,15 +1131,11 @@ class ActivitiesApi(object):
         Updated the status of an activity occurrence
         If setting to 'FINISHED' you must POST to /results instead to record the metrics and get synchronous reward results
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_activity_occurrence(activity_occurrence_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_activity_occurrence(activity_occurrence_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
         :param str activity_cccurrence_status: The activity occurrence status object
         :return: None
@@ -1240,7 +1143,7 @@ class ActivitiesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_activity_occurrence_with_http_info(activity_occurrence_id, **kwargs)
         else:
             (data) = self.update_activity_occurrence_with_http_info(activity_occurrence_id, **kwargs)
@@ -1251,15 +1154,11 @@ class ActivitiesApi(object):
         Updated the status of an activity occurrence
         If setting to 'FINISHED' you must POST to /results instead to record the metrics and get synchronous reward results
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_activity_occurrence_with_http_info(activity_occurrence_id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_activity_occurrence_with_http_info(activity_occurrence_id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
         :param str activity_cccurrence_status: The activity occurrence status object
         :return: None
@@ -1268,7 +1167,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['activity_occurrence_id', 'activity_cccurrence_status']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1323,7 +1222,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1333,15 +1232,11 @@ class ActivitiesApi(object):
         """
         Update an activity template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_activity_template(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_activity_template(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource activity_template_resource: The activity template resource object
         :return: TemplateResource
@@ -1349,7 +1244,7 @@ class ActivitiesApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_activity_template_with_http_info(id, **kwargs)
         else:
             (data) = self.update_activity_template_with_http_info(id, **kwargs)
@@ -1359,15 +1254,11 @@ class ActivitiesApi(object):
         """
         Update an activity template
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_activity_template_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_activity_template_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the template (required)
         :param TemplateResource activity_template_resource: The activity template resource object
         :return: TemplateResource
@@ -1376,7 +1267,7 @@ class ActivitiesApi(object):
         """
 
         all_params = ['id', 'activity_template_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1431,7 +1322,7 @@ class ActivitiesApi(object):
                                         files=local_var_files,
                                         response_type='TemplateResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

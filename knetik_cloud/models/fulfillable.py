@@ -31,75 +31,22 @@ class Fulfillable(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'description': 'str',
-        'type_hint': 'str',
         'type_name': 'str'
     }
 
     attribute_map = {
-        'description': 'description',
-        'type_hint': 'type_hint',
         'type_name': 'type_name'
     }
 
-    def __init__(self, description=None, type_hint=None, type_name=None):
+    def __init__(self, type_name=None):
         """
         Fulfillable - a model defined in Swagger
         """
 
-        self._description = None
-        self._type_hint = None
         self._type_name = None
+        self.discriminator = None
 
-        if description is not None:
-          self.description = description
-        if type_hint is not None:
-          self.type_hint = type_hint
         self.type_name = type_name
-
-    @property
-    def description(self):
-        """
-        Gets the description of this Fulfillable.
-
-        :return: The description of this Fulfillable.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """
-        Sets the description of this Fulfillable.
-
-        :param description: The description of this Fulfillable.
-        :type: str
-        """
-
-        self._description = description
-
-    @property
-    def type_hint(self):
-        """
-        Gets the type_hint of this Fulfillable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :return: The type_hint of this Fulfillable.
-        :rtype: str
-        """
-        return self._type_hint
-
-    @type_hint.setter
-    def type_hint(self, type_hint):
-        """
-        Sets the type_hint of this Fulfillable.
-        Used for polymorphic type recognition and thus must match an expected type with additional properties
-
-        :param type_hint: The type_hint of this Fulfillable.
-        :type: str
-        """
-
-        self._type_hint = type_hint
 
     @property
     def type_name(self):

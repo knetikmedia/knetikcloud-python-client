@@ -53,6 +53,7 @@ class Country(object):
         self._iso2 = None
         self._iso3 = None
         self._name = None
+        self.discriminator = None
 
         if id is not None:
           self.id = id

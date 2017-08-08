@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,27 +31,19 @@ class StoreShoppingCartsApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def add_custom_discount(self, id, **kwargs):
         """
         Adds a custom discount to the cart
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_custom_discount(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_custom_discount(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param CouponDefinition custom_discount: The details of the discount to add
         :return: None
@@ -60,7 +51,7 @@ class StoreShoppingCartsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_custom_discount_with_http_info(id, **kwargs)
         else:
             (data) = self.add_custom_discount_with_http_info(id, **kwargs)
@@ -70,15 +61,11 @@ class StoreShoppingCartsApi(object):
         """
         Adds a custom discount to the cart
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_custom_discount_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_custom_discount_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param CouponDefinition custom_discount: The details of the discount to add
         :return: None
@@ -87,7 +74,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id', 'custom_discount']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +129,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -152,15 +139,11 @@ class StoreShoppingCartsApi(object):
         """
         Adds a discount coupon to the cart
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_discount_to_cart(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_discount_to_cart(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param SkuRequest sku_request: The request of the sku
         :return: None
@@ -168,7 +151,7 @@ class StoreShoppingCartsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_discount_to_cart_with_http_info(id, **kwargs)
         else:
             (data) = self.add_discount_to_cart_with_http_info(id, **kwargs)
@@ -178,15 +161,11 @@ class StoreShoppingCartsApi(object):
         """
         Adds a discount coupon to the cart
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_discount_to_cart_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_discount_to_cart_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param SkuRequest sku_request: The request of the sku
         :return: None
@@ -195,7 +174,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id', 'sku_request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -250,7 +229,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -261,15 +240,11 @@ class StoreShoppingCartsApi(object):
         Add an item to the cart
         Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_item_to_cart(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_item_to_cart(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param CartItemRequest cart_item_request: The cart item request object
         :return: None
@@ -277,7 +252,7 @@ class StoreShoppingCartsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.add_item_to_cart_with_http_info(id, **kwargs)
         else:
             (data) = self.add_item_to_cart_with_http_info(id, **kwargs)
@@ -288,15 +263,11 @@ class StoreShoppingCartsApi(object):
         Add an item to the cart
         Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.add_item_to_cart_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_item_to_cart_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param CartItemRequest cart_item_request: The cart item request object
         :return: None
@@ -305,7 +276,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id', 'cart_item_request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -360,7 +331,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -371,15 +342,11 @@ class StoreShoppingCartsApi(object):
         Create a cart
         You don't have to have a user to create a cart but the API requires authentication to checkout
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_cart(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_cart(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int owner: Set the owner of a cart. If not specified, defaults to the calling user's id. If specified and is not the calling user's id, SHOPPING_CARTS_ADMIN permission is required
         :param str currency_code: Set the currency for the cart, by currency code. May be disallowed by site settings.
         :return: str
@@ -387,7 +354,7 @@ class StoreShoppingCartsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.create_cart_with_http_info(**kwargs)
         else:
             (data) = self.create_cart_with_http_info(**kwargs)
@@ -398,15 +365,11 @@ class StoreShoppingCartsApi(object):
         Create a cart
         You don't have to have a user to create a cart but the API requires authentication to checkout
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.create_cart_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_cart_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int owner: Set the owner of a cart. If not specified, defaults to the calling user's id. If specified and is not the calling user's id, SHOPPING_CARTS_ADMIN permission is required
         :param str currency_code: Set the currency for the cart, by currency code. May be disallowed by site settings.
         :return: str
@@ -415,7 +378,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['owner', 'currency_code']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -467,7 +430,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type='str',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -477,22 +440,18 @@ class StoreShoppingCartsApi(object):
         """
         Returns the cart with the given GUID
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cart(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_cart(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :return: Cart
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_cart_with_http_info(id, **kwargs)
         else:
             (data) = self.get_cart_with_http_info(id, **kwargs)
@@ -502,15 +461,11 @@ class StoreShoppingCartsApi(object):
         """
         Returns the cart with the given GUID
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_cart_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_cart_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :return: Cart
                  If the method is called asynchronously,
@@ -518,7 +473,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -571,7 +526,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type='Cart',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -581,15 +536,11 @@ class StoreShoppingCartsApi(object):
         """
         Get a list of carts
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_carts(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_carts(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int filter_owner_id: Filter by the id of the owner
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -599,7 +550,7 @@ class StoreShoppingCartsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_carts_with_http_info(**kwargs)
         else:
             (data) = self.get_carts_with_http_info(**kwargs)
@@ -609,15 +560,11 @@ class StoreShoppingCartsApi(object):
         """
         Get a list of carts
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_carts_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_carts_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int filter_owner_id: Filter by the id of the owner
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
@@ -628,7 +575,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['filter_owner_id', 'size', 'page', 'order']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -684,7 +631,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceCartSummary',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -694,22 +641,18 @@ class StoreShoppingCartsApi(object):
         """
         Returns whether a cart requires shipping
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_shippable(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_shippable(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :return: CartShippableResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_shippable_with_http_info(id, **kwargs)
         else:
             (data) = self.get_shippable_with_http_info(id, **kwargs)
@@ -719,15 +662,11 @@ class StoreShoppingCartsApi(object):
         """
         Returns whether a cart requires shipping
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_shippable_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_shippable_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :return: CartShippableResponse
                  If the method is called asynchronously,
@@ -735,7 +674,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -788,7 +727,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type='CartShippableResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -799,22 +738,18 @@ class StoreShoppingCartsApi(object):
         Get the list of available shipping countries per vendor
         Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_shipping_countries(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_shipping_countries(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :return: SampleCountriesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_shipping_countries_with_http_info(id, **kwargs)
         else:
             (data) = self.get_shipping_countries_with_http_info(id, **kwargs)
@@ -825,15 +760,11 @@ class StoreShoppingCartsApi(object):
         Get the list of available shipping countries per vendor
         Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_shipping_countries_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_shipping_countries_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :return: SampleCountriesResponse
                  If the method is called asynchronously,
@@ -841,7 +772,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -894,7 +825,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type='SampleCountriesResponse',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -904,15 +835,11 @@ class StoreShoppingCartsApi(object):
         """
         Removes a discount coupon from the cart
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_discount_from_cart(id, code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_discount_from_cart(id, code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param str code: The SKU code of the coupon to remove (required)
         :return: None
@@ -920,7 +847,7 @@ class StoreShoppingCartsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.remove_discount_from_cart_with_http_info(id, code, **kwargs)
         else:
             (data) = self.remove_discount_from_cart_with_http_info(id, code, **kwargs)
@@ -930,15 +857,11 @@ class StoreShoppingCartsApi(object):
         """
         Removes a discount coupon from the cart
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.remove_discount_from_cart_with_http_info(id, code, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_discount_from_cart_with_http_info(id, code, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param str code: The SKU code of the coupon to remove (required)
         :return: None
@@ -947,7 +870,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id', 'code']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1005,7 +928,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1016,23 +939,19 @@ class StoreShoppingCartsApi(object):
         Sets the currency to use for the cart
         May be disallowed by site settings.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_cart_currency(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_cart_currency(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
-        :param str currency_code: The code of the currency
+        :param StringWrapper currency_code: The code of the currency
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_cart_currency_with_http_info(id, **kwargs)
         else:
             (data) = self.set_cart_currency_with_http_info(id, **kwargs)
@@ -1043,24 +962,20 @@ class StoreShoppingCartsApi(object):
         Sets the currency to use for the cart
         May be disallowed by site settings.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_cart_currency_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_cart_currency_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
-        :param str currency_code: The code of the currency
+        :param StringWrapper currency_code: The code of the currency
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'currency_code']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1115,7 +1030,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1125,23 +1040,19 @@ class StoreShoppingCartsApi(object):
         """
         Sets the owner of a cart if none is set already
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_cart_owner(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_cart_owner(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
-        :param int user_id: The id of the user
+        :param IntWrapper user_id: The id of the user
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.set_cart_owner_with_http_info(id, **kwargs)
         else:
             (data) = self.set_cart_owner_with_http_info(id, **kwargs)
@@ -1151,24 +1062,20 @@ class StoreShoppingCartsApi(object):
         """
         Sets the owner of a cart if none is set already
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.set_cart_owner_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_cart_owner_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
-        :param int user_id: The id of the user
+        :param IntWrapper user_id: The id of the user
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         all_params = ['id', 'user_id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1223,7 +1130,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1234,15 +1141,11 @@ class StoreShoppingCartsApi(object):
         Changes the quantity of an item already in the cart
         A quantity of zero will remove the item from the cart altogether.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_item_in_cart(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_item_in_cart(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param CartItemRequest cart_item_request: The cart item request object
         :return: None
@@ -1250,7 +1153,7 @@ class StoreShoppingCartsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_item_in_cart_with_http_info(id, **kwargs)
         else:
             (data) = self.update_item_in_cart_with_http_info(id, **kwargs)
@@ -1261,15 +1164,11 @@ class StoreShoppingCartsApi(object):
         Changes the quantity of an item already in the cart
         A quantity of zero will remove the item from the cart altogether.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_item_in_cart_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_item_in_cart_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param CartItemRequest cart_item_request: The cart item request object
         :return: None
@@ -1278,7 +1177,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id', 'cart_item_request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1333,7 +1232,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -1343,15 +1242,11 @@ class StoreShoppingCartsApi(object):
         """
         Modifies or sets the order shipping address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_shipping_address(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_shipping_address(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param CartShippingAddressRequest cart_shipping_address_request: The cart shipping address request object
         :return: None
@@ -1359,7 +1254,7 @@ class StoreShoppingCartsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_shipping_address_with_http_info(id, **kwargs)
         else:
             (data) = self.update_shipping_address_with_http_info(id, **kwargs)
@@ -1369,15 +1264,11 @@ class StoreShoppingCartsApi(object):
         """
         Modifies or sets the order shipping address
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_shipping_address_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_shipping_address_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param str id: The id of the cart (required)
         :param CartShippingAddressRequest cart_shipping_address_request: The cart shipping address request object
         :return: None
@@ -1386,7 +1277,7 @@ class StoreShoppingCartsApi(object):
         """
 
         all_params = ['id', 'cart_shipping_address_request']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -1441,7 +1332,7 @@ class StoreShoppingCartsApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

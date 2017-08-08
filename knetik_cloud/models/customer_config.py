@@ -56,6 +56,7 @@ class CustomerConfig(object):
         self._io = None
         self._name = None
         self._s3_config = None
+        self.discriminator = None
 
         if aliases is not None:
           self.aliases = aliases

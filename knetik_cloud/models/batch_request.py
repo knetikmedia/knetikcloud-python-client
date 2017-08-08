@@ -59,6 +59,7 @@ class BatchRequest(object):
         self._timeout = None
         self._token = None
         self._uri = None
+        self.discriminator = None
 
         self.body = body
         self.content_type = content_type

@@ -26,10 +26,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ContentCommentsApi()
+api_instance = knetik_cloud.ContentCommentsApi(knetik_cloud.ApiClient(configuration))
 comment_resource = knetik_cloud.CommentResource() # CommentResource | The comment to be added (optional)
 
 try: 
@@ -75,10 +76,11 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ContentCommentsApi()
+api_instance = knetik_cloud.ContentCommentsApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The comment id
 
 try: 
@@ -273,12 +275,13 @@ from knetik_cloud.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-knetik_cloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = knetik_cloud.ContentCommentsApi()
+api_instance = knetik_cloud.ContentCommentsApi(knetik_cloud.ApiClient(configuration))
 id = 789 # int | The comment id
-content = 'content_example' # str | The comment content (optional)
+content = knetik_cloud.StringWrapper() # StringWrapper | The comment content (optional)
 
 try: 
     # Update a comment
@@ -292,7 +295,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The comment id | 
- **content** | **str**| The comment content | [optional] 
+ **content** | [**StringWrapper**](StringWrapper.md)| The comment content | [optional] 
 
 ### Return type
 

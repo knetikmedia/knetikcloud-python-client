@@ -164,6 +164,7 @@ class InvoiceResource(object):
         self._user = None
         self._vendor_id = None
         self._vendor_name = None
+        self.discriminator = None
 
         if billing_address1 is not None:
           self.billing_address1 = billing_address1

@@ -43,6 +43,7 @@ class CollectionCountry(object):
         CollectionCountry - a model defined in Swagger
         """
 
+        self.discriminator = None
 
 
     def to_dict(self):

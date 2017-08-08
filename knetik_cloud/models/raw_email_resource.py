@@ -56,6 +56,7 @@ class RawEmailResource(object):
         self._html = None
         self._recipients = None
         self._subject = None
+        self.discriminator = None
 
         self.body = body
         if _from is not None:

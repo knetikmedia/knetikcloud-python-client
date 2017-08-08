@@ -20,7 +20,6 @@ import re
 # python 2 and python 3 compatibility library
 from six import iteritems
 
-from ..configuration import Configuration
 from ..api_client import ApiClient
 
 
@@ -32,34 +31,26 @@ class MediaModerationApi(object):
     """
 
     def __init__(self, api_client=None):
-        config = Configuration()
-        if api_client:
-            self.api_client = api_client
-        else:
-            if not config.api_client:
-                config.api_client = ApiClient()
-            self.api_client = config.api_client
+        if api_client is None:
+            api_client = ApiClient()
+        self.api_client = api_client
 
     def get_moderation_report(self, id, **kwargs):
         """
         Get a flag report
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_moderation_report(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_moderation_report(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The flag report id (required)
         :return: FlagReportResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_moderation_report_with_http_info(id, **kwargs)
         else:
             (data) = self.get_moderation_report_with_http_info(id, **kwargs)
@@ -69,15 +60,11 @@ class MediaModerationApi(object):
         """
         Get a flag report
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_moderation_report_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_moderation_report_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The flag report id (required)
         :return: FlagReportResource
                  If the method is called asynchronously,
@@ -85,7 +72,7 @@ class MediaModerationApi(object):
         """
 
         all_params = ['id']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -138,7 +125,7 @@ class MediaModerationApi(object):
                                         files=local_var_files,
                                         response_type='FlagReportResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -149,15 +136,11 @@ class MediaModerationApi(object):
         Returns a page of flag reports
         Context can be either a free-form string or a pre-defined context name
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_moderation_reports(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_moderation_reports(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool exclude_resolved: Ignore resolved context
         :param str filter_context: Filter by moderation context
         :param int size: The number of objects returned per page
@@ -167,7 +150,7 @@ class MediaModerationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.get_moderation_reports_with_http_info(**kwargs)
         else:
             (data) = self.get_moderation_reports_with_http_info(**kwargs)
@@ -178,15 +161,11 @@ class MediaModerationApi(object):
         Returns a page of flag reports
         Context can be either a free-form string or a pre-defined context name
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_moderation_reports_with_http_info(callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_moderation_reports_with_http_info(async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param bool exclude_resolved: Ignore resolved context
         :param str filter_context: Filter by moderation context
         :param int size: The number of objects returned per page
@@ -197,7 +176,7 @@ class MediaModerationApi(object):
         """
 
         all_params = ['exclude_resolved', 'filter_context', 'size', 'page']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -253,7 +232,7 @@ class MediaModerationApi(object):
                                         files=local_var_files,
                                         response_type='PageResourceFlagReportResource',
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),
@@ -264,15 +243,11 @@ class MediaModerationApi(object):
         Update a flag report
         Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_moderation_report(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_moderation_report(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The flag report id (required)
         :param FlagReportResource flag_report_resource: The new flag report
         :return: None
@@ -280,7 +255,7 @@ class MediaModerationApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('callback'):
+        if kwargs.get('async'):
             return self.update_moderation_report_with_http_info(id, **kwargs)
         else:
             (data) = self.update_moderation_report_with_http_info(id, **kwargs)
@@ -291,15 +266,11 @@ class MediaModerationApi(object):
         Update a flag report
         Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason.
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.update_moderation_report_with_http_info(id, callback=callback_function)
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_moderation_report_with_http_info(id, async=True)
+        >>> result = thread.get()
 
-        :param callback function: The callback function
-            for asynchronous request. (optional)
+        :param async bool
         :param int id: The flag report id (required)
         :param FlagReportResource flag_report_resource: The new flag report
         :return: None
@@ -308,7 +279,7 @@ class MediaModerationApi(object):
         """
 
         all_params = ['id', 'flag_report_resource']
-        all_params.append('callback')
+        all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -363,7 +334,7 @@ class MediaModerationApi(object):
                                         files=local_var_files,
                                         response_type=None,
                                         auth_settings=auth_settings,
-                                        callback=params.get('callback'),
+                                        async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
                                         _preload_content=params.get('_preload_content', True),
                                         _request_timeout=params.get('_request_timeout'),

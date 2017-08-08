@@ -83,7 +83,7 @@ class TestInvoicesApi(unittest.TestCase):
         """
         Test case for pay_invoice
 
-        Trigger payment of an invoice
+        Pay an invoice using a saved payment method
         """
         pass
 

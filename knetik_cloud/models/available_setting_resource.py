@@ -59,6 +59,7 @@ class AvailableSettingResource(object):
         self._key = None
         self._name = None
         self._options = None
+        self.discriminator = None
 
         if advanced_option is not None:
           self.advanced_option = advanced_option

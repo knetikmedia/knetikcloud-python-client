@@ -59,6 +59,7 @@ class DispositionResource(object):
         self._id = None
         self._name = None
         self._user = None
+        self.discriminator = None
 
         if context is not None:
           self.context = context

@@ -86,6 +86,7 @@ class InventorySubscriptionResource(object):
         self._start_date = None
         self._subscription_status = None
         self._user = None
+        self.discriminator = None
 
         if bill_date is not None:
           self.bill_date = bill_date

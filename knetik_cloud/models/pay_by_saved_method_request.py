@@ -44,6 +44,7 @@ class PayBySavedMethodRequest(object):
         """
 
         self._payment_method = None
+        self.discriminator = None
 
         self.payment_method = payment_method
 

@@ -50,6 +50,7 @@ class BreCategoryResource(object):
         self._additional_properties = None
         self._name = None
         self._template = None
+        self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties

@@ -56,6 +56,7 @@ class ActionResource(object):
         self._name = None
         self._tags = None
         self._variables = None
+        self.discriminator = None
 
         if category is not None:
           self.category = category

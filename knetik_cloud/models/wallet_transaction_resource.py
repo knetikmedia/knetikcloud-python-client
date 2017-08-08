@@ -89,6 +89,7 @@ class WalletTransactionResource(object):
         self._user = None
         self._value = None
         self._wallet_id = None
+        self.discriminator = None
 
         if balance is not None:
           self.balance = balance
