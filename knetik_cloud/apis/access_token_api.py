@@ -47,8 +47,10 @@ class AccessTokenApi(object):
         :param str grant_type: Grant type (required)
         :param str client_id: The id of the client (required)
         :param str client_secret: The secret key of the client.  Used only with a grant_type of client_credentials
-        :param str username: The username of the client.  Used only with a grant_type of password
-        :param str password: The password of the client.  Used only with a grant_type of password
+        :param str username: The username of the client. Used only with a grant_type of password
+        :param str password: The password of the client. Used only with a grant_type of password
+        :param str token: The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins)
+        :param str refresh_token: The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token
         :return: OAuth2Resource
                  If the method is called asynchronously,
                  returns the request thread.
@@ -72,14 +74,16 @@ class AccessTokenApi(object):
         :param str grant_type: Grant type (required)
         :param str client_id: The id of the client (required)
         :param str client_secret: The secret key of the client.  Used only with a grant_type of client_credentials
-        :param str username: The username of the client.  Used only with a grant_type of password
-        :param str password: The password of the client.  Used only with a grant_type of password
+        :param str username: The username of the client. Used only with a grant_type of password
+        :param str password: The password of the client. Used only with a grant_type of password
+        :param str token: The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins)
+        :param str refresh_token: The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token
         :return: OAuth2Resource
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['grant_type', 'client_id', 'client_secret', 'username', 'password']
+        all_params = ['grant_type', 'client_id', 'client_secret', 'username', 'password', 'token', 'refresh_token']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -122,6 +126,10 @@ class AccessTokenApi(object):
             form_params.append(('username', params['username']))
         if 'password' in params:
             form_params.append(('password', params['password']))
+        if 'token' in params:
+            form_params.append(('token', params['token']))
+        if 'refresh_token' in params:
+            form_params.append(('refresh_token', params['refresh_token']))
 
         body_params = None
         # HTTP header `Accept`
