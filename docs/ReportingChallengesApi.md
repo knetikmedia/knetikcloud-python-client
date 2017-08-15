@@ -23,12 +23,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingChallengesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ReportingChallengesApi()
 filter_event = 789 # int | A sepecific challenge event id (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned (optional) (default to 1)
@@ -57,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -81,12 +77,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingChallengesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ReportingChallengesApi()
 filter_event = 789 # int | A sepecific challenge event id (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned (optional) (default to 1)
@@ -115,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

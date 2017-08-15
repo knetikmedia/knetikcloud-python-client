@@ -22,12 +22,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.MediaModerationApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.MediaModerationApi()
 id = 789 # int | The flag report id
 
 try: 
@@ -50,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,12 +70,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.MediaModerationApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.MediaModerationApi()
 exclude_resolved = true # bool | Ignore resolved context (optional) (default to true)
 filter_context = 'filter_context_example' # str | Filter by moderation context (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -108,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -132,12 +124,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.MediaModerationApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.MediaModerationApi()
 id = 789 # int | The flag report id
 flag_report_resource = knetik_cloud.FlagReportResource() # FlagReportResource | The new flag report (optional)
 
@@ -161,7 +149,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

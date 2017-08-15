@@ -36,12 +36,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 unique_name = 'unique_name_example' # str | The group unique name
 user = knetik_cloud.GroupMemberResource() # GroupMemberResource | The id and status for a user to add to the group
 
@@ -66,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,12 +84,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 unique_name = 'unique_name_example' # str | The group unique name
 users = [knetik_cloud.GroupMemberResource()] # list[GroupMemberResource] | The id and status for a list of users to add to the group
 
@@ -118,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -140,12 +132,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 group_resource = knetik_cloud.GroupResource() # GroupResource | The new group (optional)
 
 try: 
@@ -168,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -192,12 +180,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 group_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The group template resource object (optional)
 
 try: 
@@ -220,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -242,12 +226,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 unique_name = 'unique_name_example' # str | The group unique name
 
 try: 
@@ -269,7 +249,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -293,12 +273,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -322,7 +298,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -490,12 +466,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -518,7 +490,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -540,12 +512,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -572,7 +540,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -640,12 +608,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 unique_name = 'unique_name_example' # str | The group unique name
 user_id = 56 # int | The id of the user to remove
 
@@ -669,7 +633,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -691,12 +655,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 unique_name = 'unique_name_example' # str | The group unique name
 group_resource = knetik_cloud.GroupResource() # GroupResource | The updated group (optional)
 
@@ -720,7 +680,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -742,12 +702,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 unique_name = 'unique_name_example' # str | The group unique name
 user_id = 56 # int | The user id of the member to modify
 status = 'status_example' # str | The new status for the user
@@ -773,7 +729,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -795,12 +751,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersGroupsApi()
 id = 'id_example' # str | The id of the template
 group_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The group template resource object (optional)
 
@@ -825,7 +777,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

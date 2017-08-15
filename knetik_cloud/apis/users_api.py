@@ -121,7 +121,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/tags', 'POST',
                                         path_params,
@@ -216,7 +216,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/templates', 'POST',
                                         path_params,
@@ -318,7 +318,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/templates/{id}', 'DELETE',
                                         path_params,
@@ -416,7 +416,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{id}', 'GET',
                                         path_params,
@@ -512,7 +512,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/tags', 'GET',
                                         path_params,
@@ -608,7 +608,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/templates/{id}', 'GET',
                                         path_params,
@@ -709,7 +709,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/templates', 'GET',
                                         path_params,
@@ -852,7 +852,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users', 'GET',
                                         path_params,
@@ -1152,7 +1152,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/tags/{tag}', 'DELETE',
                                         path_params,
@@ -1254,7 +1254,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{id}/password', 'PUT',
                                         path_params,
@@ -1549,7 +1549,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{id}', 'PUT',
                                         path_params,
@@ -1649,7 +1649,7 @@ class UsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/templates/{id}', 'PUT',
                                         path_params,

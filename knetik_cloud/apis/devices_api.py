@@ -121,7 +121,7 @@ class DevicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/devices/{id}/users', 'POST',
                                         path_params,
@@ -217,7 +217,7 @@ class DevicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/devices', 'POST',
                                         path_params,
@@ -313,7 +313,7 @@ class DevicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/devices/{id}', 'DELETE',
                                         path_params,
@@ -416,7 +416,7 @@ class DevicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/devices/{id}/users/{user_id}', 'DELETE',
                                         path_params,
@@ -516,7 +516,7 @@ class DevicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/devices/{id}/users', 'DELETE',
                                         path_params,
@@ -612,7 +612,7 @@ class DevicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/devices/{id}', 'GET',
                                         path_params,
@@ -723,7 +723,7 @@ class DevicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/devices', 'GET',
                                         path_params,
@@ -826,7 +826,7 @@ class DevicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/devices/{id}', 'PUT',
                                         path_params,

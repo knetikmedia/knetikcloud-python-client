@@ -113,7 +113,7 @@ class MediaArtistsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/artists', 'POST',
                                         path_params,
@@ -208,7 +208,7 @@ class MediaArtistsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/artists/templates', 'POST',
                                         path_params,
@@ -304,7 +304,7 @@ class MediaArtistsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/artists/{id}', 'DELETE',
                                         path_params,
@@ -406,7 +406,7 @@ class MediaArtistsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/artists/templates/{id}', 'DELETE',
                                         path_params,
@@ -602,7 +602,7 @@ class MediaArtistsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/artists/templates/{id}', 'GET',
                                         path_params,
@@ -703,7 +703,7 @@ class MediaArtistsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/artists/templates', 'GET',
                                         path_params,
@@ -908,7 +908,7 @@ class MediaArtistsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/artists/{id}', 'PUT',
                                         path_params,
@@ -1008,7 +1008,7 @@ class MediaArtistsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/artists/templates/{id}', 'PUT',
                                         path_params,

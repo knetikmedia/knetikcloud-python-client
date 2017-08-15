@@ -31,11 +31,19 @@ class TestAmazonWebServicesS3Api(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_download_url(self):
+        """
+        Test case for get_download_url
+
+        Get a temporary signed S3 URL for download
+        """
+        pass
+
     def test_get_signed_s3_url(self):
         """
         Test case for get_signed_s3_url
 
-        Get a signed S3 URL
+        Get a signed S3 URL for upload
         """
         pass
 

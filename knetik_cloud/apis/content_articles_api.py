@@ -113,7 +113,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/content/articles', 'POST',
                                         path_params,
@@ -208,7 +208,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/content/articles/templates', 'POST',
                                         path_params,
@@ -304,7 +304,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/content/articles/{id}', 'DELETE',
                                         path_params,
@@ -406,7 +406,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/content/articles/templates/{id}', 'DELETE',
                                         path_params,
@@ -598,7 +598,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/content/articles/templates/{id}', 'GET',
                                         path_params,
@@ -699,7 +699,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/content/articles/templates', 'GET',
                                         path_params,
@@ -726,6 +726,7 @@ class ContentArticlesApi(object):
         >>> result = thread.get()
 
         :param async bool
+        :param bool filter_active_only: Filter for articles that are active (true) or inactive (false)
         :param str filter_category: Filter for articles from a specific category by id
         :param str filter_tagset: Filter for articles with at least one of a specified set of tags (separated by comma)
         :param str filter_tag_intersection: Filter for articles with all of a specified set of tags (separated by comma)
@@ -755,6 +756,7 @@ class ContentArticlesApi(object):
         >>> result = thread.get()
 
         :param async bool
+        :param bool filter_active_only: Filter for articles that are active (true) or inactive (false)
         :param str filter_category: Filter for articles from a specific category by id
         :param str filter_tagset: Filter for articles with at least one of a specified set of tags (separated by comma)
         :param str filter_tag_intersection: Filter for articles with all of a specified set of tags (separated by comma)
@@ -768,7 +770,7 @@ class ContentArticlesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['filter_category', 'filter_tagset', 'filter_tag_intersection', 'filter_tag_exclusion', 'filter_title', 'size', 'page', 'order']
+        all_params = ['filter_active_only', 'filter_category', 'filter_tagset', 'filter_tag_intersection', 'filter_tag_exclusion', 'filter_title', 'size', 'page', 'order']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -790,6 +792,8 @@ class ContentArticlesApi(object):
         path_params = {}
 
         query_params = []
+        if 'filter_active_only' in params:
+            query_params.append(('filter_active_only', params['filter_active_only']))
         if 'filter_category' in params:
             query_params.append(('filter_category', params['filter_category']))
         if 'filter_tagset' in params:
@@ -922,7 +926,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/content/articles/{id}', 'PUT',
                                         path_params,
@@ -1022,7 +1026,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/content/articles/templates/{id}', 'PUT',
                                         path_params,

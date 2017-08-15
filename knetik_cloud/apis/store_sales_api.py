@@ -111,7 +111,7 @@ class StoreSalesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/sales', 'POST',
                                         path_params,
@@ -207,7 +207,7 @@ class StoreSalesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/sales/{id}', 'DELETE',
                                         path_params,
@@ -303,7 +303,7 @@ class StoreSalesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/sales/{id}', 'GET',
                                         path_params,
@@ -404,7 +404,7 @@ class StoreSalesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/sales', 'GET',
                                         path_params,
@@ -504,7 +504,7 @@ class StoreSalesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/sales/{id}', 'PUT',
                                         path_params,

@@ -141,7 +141,7 @@ class ReportingUsageApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/reporting/usage/day', 'GET',
                                         path_params,
@@ -264,7 +264,7 @@ class ReportingUsageApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/reporting/usage/hour', 'GET',
                                         path_params,
@@ -387,7 +387,7 @@ class ReportingUsageApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/reporting/usage/minute', 'GET',
                                         path_params,
@@ -510,7 +510,7 @@ class ReportingUsageApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/reporting/usage/month', 'GET',
                                         path_params,
@@ -633,7 +633,7 @@ class ReportingUsageApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/reporting/usage/year', 'GET',
                                         path_params,
@@ -736,7 +736,7 @@ class ReportingUsageApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/reporting/usage/endpoints', 'GET',
                                         path_params,

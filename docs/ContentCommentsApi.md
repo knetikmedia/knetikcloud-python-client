@@ -25,12 +25,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentCommentsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentCommentsApi()
 comment_resource = knetik_cloud.CommentResource() # CommentResource | The comment to be added (optional)
 
 try: 
@@ -53,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -75,12 +71,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentCommentsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentCommentsApi()
 id = 789 # int | The comment id
 
 try: 
@@ -102,7 +94,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -274,12 +266,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentCommentsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentCommentsApi()
 id = 789 # int | The comment id
 content = knetik_cloud.StringWrapper() # StringWrapper | The comment content (optional)
 
@@ -303,7 +291,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

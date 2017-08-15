@@ -111,7 +111,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activities', 'POST',
                                         path_params,
@@ -210,7 +210,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activity-occurrences', 'POST',
                                         path_params,
@@ -305,7 +305,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activities/templates', 'POST',
                                         path_params,
@@ -401,7 +401,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activities/{id}', 'DELETE',
                                         path_params,
@@ -503,7 +503,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activities/templates/{id}', 'DELETE',
                                         path_params,
@@ -808,7 +808,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activities/templates/{id}', 'GET',
                                         path_params,
@@ -909,7 +909,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activities/templates', 'GET',
                                         path_params,
@@ -1009,7 +1009,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activity-occurrences/{activity_occurrence_id}/results', 'POST',
                                         path_params,
@@ -1109,7 +1109,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activities/{id}', 'PUT',
                                         path_params,
@@ -1211,7 +1211,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activity-occurrences/{activity_occurrence_id}/status', 'PUT',
                                         path_params,
@@ -1311,7 +1311,7 @@ class ActivitiesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/activities/templates/{id}', 'PUT',
                                         path_params,

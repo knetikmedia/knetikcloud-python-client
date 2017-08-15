@@ -33,6 +33,7 @@ class SubscriptionResource(object):
     swagger_types = {
         'additional_properties': 'dict(str, ModelProperty)',
         'availability': 'str',
+        'behaviors': 'list[Behavior]',
         'category': 'str',
         'consolidation_day_of_month': 'int',
         'created_date': 'int',
@@ -56,6 +57,7 @@ class SubscriptionResource(object):
     attribute_map = {
         'additional_properties': 'additional_properties',
         'availability': 'availability',
+        'behaviors': 'behaviors',
         'category': 'category',
         'consolidation_day_of_month': 'consolidation_day_of_month',
         'created_date': 'created_date',
@@ -76,13 +78,14 @@ class SubscriptionResource(object):
         'vendor_id': 'vendor_id'
     }
 
-    def __init__(self, additional_properties=None, availability=None, category=None, consolidation_day_of_month=None, created_date=None, geo_country_list=None, geo_policy_type=None, id=None, long_description=None, name=None, plans=None, short_description=None, sort=None, store_end=None, store_start=None, tags=None, template=None, unique_key=None, updated_date=None, vendor_id=None):
+    def __init__(self, additional_properties=None, availability=None, behaviors=None, category=None, consolidation_day_of_month=None, created_date=None, geo_country_list=None, geo_policy_type=None, id=None, long_description=None, name=None, plans=None, short_description=None, sort=None, store_end=None, store_start=None, tags=None, template=None, unique_key=None, updated_date=None, vendor_id=None):
         """
         SubscriptionResource - a model defined in Swagger
         """
 
         self._additional_properties = None
         self._availability = None
+        self._behaviors = None
         self._category = None
         self._consolidation_day_of_month = None
         self._created_date = None
@@ -107,6 +110,8 @@ class SubscriptionResource(object):
           self.additional_properties = additional_properties
         if availability is not None:
           self.availability = availability
+        if behaviors is not None:
+          self.behaviors = behaviors
         if category is not None:
           self.category = category
         if consolidation_day_of_month is not None:
@@ -193,6 +198,29 @@ class SubscriptionResource(object):
             )
 
         self._availability = availability
+
+    @property
+    def behaviors(self):
+        """
+        Gets the behaviors of this SubscriptionResource.
+        The behaviors linked to the item, describing various options and interactions. May not be included in item lists
+
+        :return: The behaviors of this SubscriptionResource.
+        :rtype: list[Behavior]
+        """
+        return self._behaviors
+
+    @behaviors.setter
+    def behaviors(self, behaviors):
+        """
+        Sets the behaviors of this SubscriptionResource.
+        The behaviors linked to the item, describing various options and interactions. May not be included in item lists
+
+        :param behaviors: The behaviors of this SubscriptionResource.
+        :type: list[Behavior]
+        """
+
+        self._behaviors = behaviors
 
     @property
     def category(self):

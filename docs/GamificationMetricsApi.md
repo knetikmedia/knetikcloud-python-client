@@ -22,12 +22,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationMetricsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationMetricsApi()
 metric = knetik_cloud.MetricResource() # MetricResource | The new metric (optional)
 
 try: 
@@ -49,7 +45,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

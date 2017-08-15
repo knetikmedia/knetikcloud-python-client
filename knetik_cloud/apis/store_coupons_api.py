@@ -117,7 +117,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons', 'POST',
                                         path_params,
@@ -212,7 +212,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons/templates', 'POST',
                                         path_params,
@@ -308,7 +308,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons/{id}', 'DELETE',
                                         path_params,
@@ -408,7 +408,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons/templates/{id}', 'DELETE',
                                         path_params,
@@ -504,7 +504,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons/{id}', 'GET',
                                         path_params,
@@ -602,7 +602,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons/templates/{id}', 'GET',
                                         path_params,
@@ -703,7 +703,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons/templates', 'GET',
                                         path_params,
@@ -807,7 +807,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons/{id}', 'PUT',
                                         path_params,
@@ -907,7 +907,7 @@ class StoreCouponsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/coupons/templates/{id}', 'PUT',
                                         path_params,

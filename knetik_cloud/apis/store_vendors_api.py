@@ -111,7 +111,7 @@ class StoreVendorsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/vendors', 'POST',
                                         path_params,
@@ -206,7 +206,7 @@ class StoreVendorsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/vendors/templates', 'POST',
                                         path_params,
@@ -302,7 +302,7 @@ class StoreVendorsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/vendors/{id}', 'DELETE',
                                         path_params,
@@ -402,7 +402,7 @@ class StoreVendorsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/vendors/templates/{id}', 'DELETE',
                                         path_params,
@@ -596,7 +596,7 @@ class StoreVendorsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/vendors/templates/{id}', 'GET',
                                         path_params,
@@ -697,7 +697,7 @@ class StoreVendorsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/vendors/templates', 'GET',
                                         path_params,
@@ -902,7 +902,7 @@ class StoreVendorsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/vendors/{id}', 'PUT',
                                         path_params,
@@ -1002,7 +1002,7 @@ class StoreVendorsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/vendors/templates/{id}', 'PUT',
                                         path_params,

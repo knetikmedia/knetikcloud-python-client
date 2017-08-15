@@ -113,7 +113,7 @@ class BRERuleEngineCategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/categories/templates', 'POST',
                                         path_params,
@@ -215,7 +215,7 @@ class BRERuleEngineCategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/categories/templates/{id}', 'DELETE',
                                         path_params,
@@ -312,7 +312,7 @@ class BRERuleEngineCategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/categories', 'GET',
                                         path_params,
@@ -408,7 +408,7 @@ class BRERuleEngineCategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/categories/{name}', 'GET',
                                         path_params,
@@ -504,7 +504,7 @@ class BRERuleEngineCategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/categories/templates/{id}', 'GET',
                                         path_params,
@@ -605,7 +605,7 @@ class BRERuleEngineCategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/categories/templates', 'GET',
                                         path_params,
@@ -705,7 +705,7 @@ class BRERuleEngineCategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/categories/{name}', 'PUT',
                                         path_params,
@@ -805,7 +805,7 @@ class BRERuleEngineCategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/categories/templates/{id}', 'PUT',
                                         path_params,

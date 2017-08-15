@@ -113,7 +113,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges', 'POST',
                                         path_params,
@@ -217,7 +217,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/{challenge_id}/activities', 'POST',
                                         path_params,
@@ -312,7 +312,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenge-activities/templates', 'POST',
                                         path_params,
@@ -407,7 +407,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/templates', 'POST',
                                         path_params,
@@ -503,7 +503,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/{id}', 'DELETE',
                                         path_params,
@@ -608,7 +608,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/{challenge_id}/activities/{id}', 'DELETE',
                                         path_params,
@@ -710,7 +710,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenge-activities/templates/{id}', 'DELETE',
                                         path_params,
@@ -806,7 +806,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/events/{id}', 'DELETE',
                                         path_params,
@@ -908,7 +908,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/templates/{id}', 'DELETE',
                                         path_params,
@@ -1313,7 +1313,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenge-activities/templates/{id}', 'GET',
                                         path_params,
@@ -1414,7 +1414,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenge-activities/templates', 'GET',
                                         path_params,
@@ -1723,7 +1723,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/templates/{id}', 'GET',
                                         path_params,
@@ -1824,7 +1824,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/templates', 'GET',
                                         path_params,
@@ -2043,7 +2043,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/{id}', 'PUT',
                                         path_params,
@@ -2152,7 +2152,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/{challenge_id}/activities/{id}', 'PUT',
                                         path_params,
@@ -2252,7 +2252,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenge-activities/templates/{id}', 'PUT',
                                         path_params,
@@ -2352,7 +2352,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/challenges/templates/{id}', 'PUT',
                                         path_params,

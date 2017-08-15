@@ -113,7 +113,7 @@ class BRERuleEngineGlobalsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/globals/definitions', 'POST',
                                         path_params,
@@ -211,7 +211,7 @@ class BRERuleEngineGlobalsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/globals/definitions/{id}', 'DELETE',
                                         path_params,
@@ -307,7 +307,7 @@ class BRERuleEngineGlobalsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/globals/definitions/{id}', 'GET',
                                         path_params,
@@ -408,7 +408,7 @@ class BRERuleEngineGlobalsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/globals/definitions', 'GET',
                                         path_params,
@@ -510,7 +510,7 @@ class BRERuleEngineGlobalsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/bre/globals/definitions/{id}', 'PUT',
                                         path_params,

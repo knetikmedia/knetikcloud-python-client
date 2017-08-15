@@ -35,10 +35,113 @@ class AmazonWebServicesS3Api(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def get_download_url(self, **kwargs):
+        """
+        Get a temporary signed S3 URL for download
+        To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_download_url(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str bucket: S3 bucket name
+        :param str path: The path to the file relative the bucket (the s3 object key)
+        :param int expiration: The number of seconds this URL will be valid. Default to 60
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_download_url_with_http_info(**kwargs)
+        else:
+            (data) = self.get_download_url_with_http_info(**kwargs)
+            return data
+
+    def get_download_url_with_http_info(self, **kwargs):
+        """
+        Get a temporary signed S3 URL for download
+        To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_download_url_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str bucket: S3 bucket name
+        :param str path: The path to the file relative the bucket (the s3 object key)
+        :param int expiration: The number of seconds this URL will be valid. Default to 60
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['bucket', 'path', 'expiration']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_download_url" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'bucket' in params:
+            query_params.append(('bucket', params['bucket']))
+        if 'path' in params:
+            query_params.append(('path', params['path']))
+        if 'expiration' in params:
+            query_params.append(('expiration', params['expiration']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api('/amazon/s3/downloadurl', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='str',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_signed_s3_url(self, **kwargs):
         """
-        Get a signed S3 URL
-        Requires the file name and file content type (i.e., 'video/mpeg')
+        Get a signed S3 URL for upload
+        Requires the file name and file content type (i.e., 'video/mpeg'). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_signed_s3_url(async=True)
@@ -60,8 +163,8 @@ class AmazonWebServicesS3Api(object):
 
     def get_signed_s3_url_with_http_info(self, **kwargs):
         """
-        Get a signed S3 URL
-        Requires the file name and file content type (i.e., 'video/mpeg')
+        Get a signed S3 URL for upload
+        Requires the file name and file content type (i.e., 'video/mpeg'). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_signed_s3_url_with_http_info(async=True)
@@ -117,7 +220,7 @@ class AmazonWebServicesS3Api(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/amazon/s3/signedposturl', 'GET',
                                         path_params,

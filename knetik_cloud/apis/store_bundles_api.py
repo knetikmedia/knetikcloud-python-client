@@ -117,7 +117,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/bundles', 'POST',
                                         path_params,
@@ -212,7 +212,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/bundles/templates', 'POST',
                                         path_params,
@@ -308,7 +308,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/bundles/{id}', 'DELETE',
                                         path_params,
@@ -408,7 +408,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/bundles/templates/{id}', 'DELETE',
                                         path_params,
@@ -807,7 +807,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/bundles/{id}', 'PUT',
                                         path_params,
@@ -907,7 +907,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/store/bundles/templates/{id}', 'PUT',
                                         path_params,

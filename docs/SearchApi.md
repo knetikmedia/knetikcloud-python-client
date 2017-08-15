@@ -26,12 +26,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.SearchApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.SearchApi()
 type = 'type_example' # str | The index type
 id = 'id_example' # str | The ID of the object
 object = NULL # object | The object to add (optional)
@@ -57,7 +53,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -81,12 +77,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.SearchApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.SearchApi()
 mappings = [knetik_cloud.SearchReferenceMapping()] # list[SearchReferenceMapping] | The mappings to add (optional)
 
 try: 
@@ -108,7 +100,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -132,12 +124,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.SearchApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.SearchApi()
 type = 'type_example' # str | The index type
 id = 'id_example' # str | The ID of the object to delete
 
@@ -161,7 +149,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -185,12 +173,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.SearchApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.SearchApi()
 type = 'type_example' # str | The index type
 
 try: 
@@ -212,7 +196,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

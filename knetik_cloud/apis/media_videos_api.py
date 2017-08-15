@@ -120,7 +120,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{id}/whitelist', 'POST',
                                         path_params,
@@ -213,7 +213,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos', 'POST',
                                         path_params,
@@ -313,7 +313,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/comments', 'POST',
                                         path_params,
@@ -413,7 +413,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/contributors', 'POST',
                                         path_params,
@@ -513,7 +513,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/moderation', 'POST',
                                         path_params,
@@ -613,7 +613,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/related', 'POST',
                                         path_params,
@@ -713,7 +713,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/dispositions', 'POST',
                                         path_params,
@@ -809,7 +809,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{id}', 'DELETE',
                                         path_params,
@@ -912,7 +912,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/comments/{id}', 'DELETE',
                                         path_params,
@@ -1008,7 +1008,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/dispositions/{disposition_id}', 'DELETE',
                                         path_params,
@@ -1104,7 +1104,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/moderation', 'DELETE',
                                         path_params,
@@ -1207,7 +1207,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/related/{id}', 'DELETE',
                                         path_params,
@@ -1315,7 +1315,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/videos', 'GET',
                                         path_params,
@@ -1411,7 +1411,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{id}', 'GET',
                                         path_params,
@@ -1977,7 +1977,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/whitelist/{id}', 'DELETE',
                                         path_params,
@@ -2080,7 +2080,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/contributors/{id}', 'DELETE',
                                         path_params,
@@ -2180,7 +2180,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{id}', 'PUT',
                                         path_params,
@@ -2287,7 +2287,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/comments/{id}/content', 'PUT',
                                         path_params,
@@ -2394,7 +2394,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/media/videos/{video_id}/related/{id}/relationship_details', 'PUT',
                                         path_params,

@@ -31,12 +31,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentArticlesApi()
 article_resource = knetik_cloud.ArticleResource() # ArticleResource | The new article (optional)
 
 try: 
@@ -59,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -83,12 +79,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentArticlesApi()
 article_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The article template resource object (optional)
 
 try: 
@@ -111,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -133,12 +125,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentArticlesApi()
 id = 'id_example' # str | The article id
 
 try: 
@@ -160,7 +148,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -184,12 +172,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentArticlesApi()
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -213,7 +197,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -281,12 +265,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentArticlesApi()
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -309,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -331,12 +311,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentArticlesApi()
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -363,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -373,7 +349,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_articles**
-> PageResourceArticleResource get_articles(filter_category=filter_category, filter_tagset=filter_tagset, filter_tag_intersection=filter_tag_intersection, filter_tag_exclusion=filter_tag_exclusion, filter_title=filter_title, size=size, page=page, order=order)
+> PageResourceArticleResource get_articles(filter_active_only=filter_active_only, filter_category=filter_category, filter_tagset=filter_tagset, filter_tag_intersection=filter_tag_intersection, filter_tag_exclusion=filter_tag_exclusion, filter_title=filter_title, size=size, page=page, order=order)
 
 List and search articles
 
@@ -389,6 +365,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = knetik_cloud.ContentArticlesApi()
+filter_active_only = true # bool | Filter for articles that are active (true) or inactive (false) (optional)
 filter_category = 'filter_category_example' # str | Filter for articles from a specific category by id (optional)
 filter_tagset = 'filter_tagset_example' # str | Filter for articles with at least one of a specified set of tags (separated by comma) (optional)
 filter_tag_intersection = 'filter_tag_intersection_example' # str | Filter for articles with all of a specified set of tags (separated by comma) (optional)
@@ -400,7 +377,7 @@ order = 'id:ASC' # str | A comma separated list of sorting requirements in prior
 
 try: 
     # List and search articles
-    api_response = api_instance.get_articles(filter_category=filter_category, filter_tagset=filter_tagset, filter_tag_intersection=filter_tag_intersection, filter_tag_exclusion=filter_tag_exclusion, filter_title=filter_title, size=size, page=page, order=order)
+    api_response = api_instance.get_articles(filter_active_only=filter_active_only, filter_category=filter_category, filter_tagset=filter_tagset, filter_tag_intersection=filter_tag_intersection, filter_tag_exclusion=filter_tag_exclusion, filter_title=filter_title, size=size, page=page, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ContentArticlesApi->get_articles: %s\n" % e)
@@ -410,6 +387,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filter_active_only** | **bool**| Filter for articles that are active (true) or inactive (false) | [optional] 
  **filter_category** | **str**| Filter for articles from a specific category by id | [optional] 
  **filter_tagset** | **str**| Filter for articles with at least one of a specified set of tags (separated by comma) | [optional] 
  **filter_tag_intersection** | **str**| Filter for articles with all of a specified set of tags (separated by comma) | [optional] 
@@ -447,12 +425,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentArticlesApi()
 id = 'id_example' # str | The article id
 article_resource = knetik_cloud.ArticleResource() # ArticleResource | The article object (optional)
 
@@ -477,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -499,12 +473,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ContentArticlesApi()
 id = 'id_example' # str | The id of the template
 article_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The article template resource object (optional)
 
@@ -529,7 +499,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

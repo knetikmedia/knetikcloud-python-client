@@ -247,7 +247,7 @@ class GamificationLeaderboardsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/leaderboards/{context_type}/{context_id}/users/{id}/rank', 'GET',
                                         path_params,

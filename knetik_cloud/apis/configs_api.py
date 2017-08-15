@@ -111,7 +111,7 @@ class ConfigsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/configs', 'POST',
                                         path_params,
@@ -207,7 +207,7 @@ class ConfigsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/configs/{name}', 'DELETE',
                                         path_params,
@@ -305,7 +305,7 @@ class ConfigsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/configs/{name}', 'GET',
                                         path_params,
@@ -410,7 +410,7 @@ class ConfigsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/configs', 'GET',
                                         path_params,
@@ -510,7 +510,7 @@ class ConfigsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/configs/{name}', 'PUT',
                                         path_params,

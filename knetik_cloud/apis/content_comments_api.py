@@ -111,7 +111,7 @@ class ContentCommentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/comments', 'POST',
                                         path_params,
@@ -207,7 +207,7 @@ class ContentCommentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/comments/{id}', 'DELETE',
                                         path_params,
@@ -617,7 +617,7 @@ class ContentCommentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/comments/{id}/content', 'PUT',
                                         path_params,

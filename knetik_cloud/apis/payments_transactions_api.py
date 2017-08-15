@@ -114,7 +114,7 @@ class PaymentsTransactionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/transactions/{id}', 'GET',
                                         path_params,
@@ -219,7 +219,7 @@ class PaymentsTransactionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/transactions', 'GET',
                                         path_params,
@@ -321,7 +321,7 @@ class PaymentsTransactionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/transactions/{id}/refunds', 'POST',
                                         path_params,

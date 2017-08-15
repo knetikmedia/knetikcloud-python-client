@@ -42,12 +42,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 id = 56 # int | The id of the user
 user_inventory_add_request = knetik_cloud.UserInventoryAddRequest() # UserInventoryAddRequest | The user inventory add request object (optional)
 
@@ -72,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -96,12 +92,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 user_id = 'user_id_example' # str | The id of the user to check for or 'me' for logged in user
 item_id = 56 # int | The id of the item
 sku = 'sku_example' # str | The specific sku of an entitlement list addition to check entitlement for. This is of very limited and specific use and should generally be left out (optional)
@@ -127,7 +119,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -149,12 +141,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 cascade = false # bool | Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
 entitlement_item = knetik_cloud.EntitlementItem() # EntitlementItem | The entitlement item object (optional)
 
@@ -179,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -203,12 +191,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 template = knetik_cloud.ItemTemplateResource() # ItemTemplateResource | The entitlement template to be created (optional)
 
 try: 
@@ -231,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -253,12 +237,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 entitlement_id = 56 # int | The id of the entitlement
 
 try: 
@@ -280,7 +260,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -304,12 +284,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 id = 'id_example' # str | The id of the template
 cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
 
@@ -333,7 +309,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -451,12 +427,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 id = 'id_example' # str | The id of the template
 
 try: 
@@ -479,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -501,12 +473,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
@@ -533,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -555,12 +523,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 id = 56 # int | The id of the user
 inactive = false # bool | If true, accepts inactive user inventories (optional) (default to false)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -599,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -621,12 +585,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 user_id = 56 # int | The id of the inventory owner or 'me' for the logged in user
 id = 56 # int | The id of the user inventory
 
@@ -651,7 +611,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -673,12 +633,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 user_id = 'user_id_example' # str | The id of the inventory owner or 'me' for the logged in user
 id = 56 # int | The id of the user inventory
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -707,7 +663,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -729,12 +685,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 inactive = false # bool | If true, accepts inactive user inventories (optional) (default to false)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
@@ -771,7 +723,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -793,12 +745,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 user_id = 56 # int | The id of the user to grant the entitlement to
 grant_request = knetik_cloud.EntitlementGrantRequest() # EntitlementGrantRequest | grantRequest
 
@@ -822,7 +770,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -844,12 +792,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 entitlement_id = 56 # int | The id of the entitlement
 cascade = false # bool | Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
 entitlement_item = knetik_cloud.EntitlementItem() # EntitlementItem | The entitlement item object (optional)
@@ -875,7 +819,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -897,12 +841,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 id = 'id_example' # str | The id of the template
 template = knetik_cloud.ItemTemplateResource() # ItemTemplateResource | The updated template (optional)
 
@@ -927,7 +867,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -949,12 +889,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 user_id = 56 # int | The id of the user
 id = 56 # int | The id of the user inventory
 data = NULL # object | The data map (optional)
@@ -980,7 +916,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1004,12 +940,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 user_id = 56 # int | user_id
 id = 56 # int | The id of the user inventory
 timestamp = 789 # int | The new expiration date as a unix timestamp in seconds. May be null (no body). (optional)
@@ -1035,7 +967,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1057,12 +989,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 user_id = 56 # int | The id of the user
 id = 56 # int | The id of the user inventory
 inventory_status = 'inventory_status_example' # str | The inventory status object (optional)
@@ -1088,7 +1016,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -1110,12 +1038,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersInventoryApi()
 user_id = 'user_id_example' # str | The id of the user to check for or 'me' for logged in user
 item_id = 56 # int | The id of the item
 sku = 'sku_example' # str | The specific sku of an entitlement_list addition to check entitlement for. This is of very limited and specific use and should generally be left out (optional)
@@ -1143,7 +1067,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

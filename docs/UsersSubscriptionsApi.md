@@ -27,12 +27,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersSubscriptionsApi()
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 
@@ -57,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,12 +75,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersSubscriptionsApi()
 user_id = 56 # int | The id of the user
 
 try: 
@@ -107,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -129,12 +121,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersSubscriptionsApi()
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 reactivate_subscription_request = knetik_cloud.ReactivateSubscriptionRequest() # ReactivateSubscriptionRequest | The reactivate subscription request object inventory (optional)
@@ -161,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -183,12 +171,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersSubscriptionsApi()
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 bill_date = 789 # int | The new bill date. Unix timestamp in seconds
@@ -214,7 +198,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -238,12 +222,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersSubscriptionsApi()
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 payment_method_id = knetik_cloud.IntWrapper() # IntWrapper | The id of the payment method (optional)
@@ -269,7 +249,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -293,12 +273,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersSubscriptionsApi()
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 status = knetik_cloud.StringWrapper() # StringWrapper | The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended')
@@ -324,7 +300,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -346,12 +322,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersSubscriptionsApi()
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 plan_id = knetik_cloud.StringWrapper() # StringWrapper | The id of the new plan. Must be from the same subscription (optional)
@@ -377,7 +349,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -401,12 +373,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.UsersSubscriptionsApi()
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
 the_override_details = knetik_cloud.SubscriptionPriceOverrideRequest() # SubscriptionPriceOverrideRequest | override (optional)
@@ -432,7 +400,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

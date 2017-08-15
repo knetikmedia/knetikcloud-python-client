@@ -127,7 +127,7 @@ class SearchApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/search/index/{type}/{id}', 'POST',
                                         path_params,
@@ -222,7 +222,7 @@ class SearchApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/search/mappings', 'POST',
                                         path_params,
@@ -327,7 +327,7 @@ class SearchApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/search/index/{type}/{id}', 'DELETE',
                                         path_params,
@@ -425,7 +425,7 @@ class SearchApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/search/index/{type}', 'DELETE',
                                         path_params,

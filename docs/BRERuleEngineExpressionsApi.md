@@ -22,12 +22,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineExpressionsApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.BRERuleEngineExpressionsApi()
 
 try: 
     # Get a list of 'lookup' type expressions
@@ -46,7 +42,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

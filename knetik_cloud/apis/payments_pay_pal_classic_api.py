@@ -113,7 +113,7 @@ class PaymentsPayPalClassicApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/payment/provider/paypal/classic/agreements/start', 'POST',
                                         path_params,
@@ -208,7 +208,7 @@ class PaymentsPayPalClassicApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/payment/provider/paypal/classic/checkout/start', 'POST',
                                         path_params,
@@ -303,7 +303,7 @@ class PaymentsPayPalClassicApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/payment/provider/paypal/classic/agreements/finish', 'POST',
                                         path_params,
@@ -398,7 +398,7 @@ class PaymentsPayPalClassicApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/payment/provider/paypal/classic/checkout/finish', 'POST',
                                         path_params,

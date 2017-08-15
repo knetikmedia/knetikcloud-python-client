@@ -121,7 +121,7 @@ class PaymentsWalletsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/wallets/{currency_code}', 'GET',
                                         path_params,
@@ -252,7 +252,7 @@ class PaymentsWalletsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/wallets/{currency_code}/transactions', 'GET',
                                         path_params,
@@ -348,7 +348,7 @@ class PaymentsWalletsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/wallets', 'GET',
                                         path_params,
@@ -436,7 +436,7 @@ class PaymentsWalletsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/wallets/totals', 'GET',
                                         path_params,
@@ -569,7 +569,7 @@ class PaymentsWalletsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/wallets/transactions', 'GET',
                                         path_params,
@@ -670,7 +670,7 @@ class PaymentsWalletsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/wallets', 'GET',
                                         path_params,
@@ -777,7 +777,7 @@ class PaymentsWalletsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/wallets/{currency_code}/balance', 'PUT',
                                         path_params,

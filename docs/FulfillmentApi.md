@@ -24,12 +24,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.FulfillmentApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.FulfillmentApi()
 type = knetik_cloud.FulfillmentType() # FulfillmentType | The fulfillment type (optional)
 
 try: 
@@ -52,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,12 +70,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.FulfillmentApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.FulfillmentApi()
 id = 56 # int | The id
 
 try: 
@@ -101,7 +93,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -219,12 +211,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.FulfillmentApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.FulfillmentApi()
 id = 56 # int | The id
 fulfillment_type = knetik_cloud.FulfillmentType() # FulfillmentType | The fulfillment type (optional)
 
@@ -248,7 +236,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

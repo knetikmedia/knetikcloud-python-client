@@ -23,12 +23,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineVariablesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.BRERuleEngineVariablesApi()
 
 try: 
     # Get a list of variable types available
@@ -47,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -71,12 +67,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineVariablesApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.BRERuleEngineVariablesApi()
 name = 'name_example' # str | The name of the type
 filter_name = 'filter_name_example' # str | Filter results by those with names starting with this string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -105,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

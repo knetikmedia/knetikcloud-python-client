@@ -20,12 +20,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingOrdersApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.ReportingOrdersApi()
 currency_code = 'currency_code_example' # str | The code for a currency to get sales data for
 granularity = 'day' # str | The time duration to aggregate by (optional) (default to day)
 filter_payment_status = 'filter_payment_status_example' # str | A payment status to filter results by, can be a comma separated list (optional)
@@ -62,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

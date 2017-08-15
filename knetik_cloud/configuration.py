@@ -51,6 +51,9 @@ class Configuration(object):
         # access token for OAuth
         self.access_token = ""
 
+        # access token for OAuth
+        self.access_token = ""
+
         # Logging Settings
         self.logger = {}
         self.logger["package_logger"] = logging.getLogger("knetik_cloud")
@@ -198,7 +201,15 @@ class Configuration(object):
         """
         return {
 
-            'OAuth2':
+            'oauth2_client_credentials_grant':
+                {
+                    'type': 'oauth2',
+                    'in': 'header',
+                    'key': 'Authorization',
+                    'value': 'Bearer ' + self.access_token
+                },
+
+            'oauth2_password_grant':
                 {
                     'type': 'oauth2',
                     'in': 'header',

@@ -111,7 +111,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/leveling', 'POST',
                                         path_params,
@@ -207,7 +207,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/leveling/{name}', 'DELETE',
                                         path_params,
@@ -303,7 +303,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/leveling/{name}', 'GET',
                                         path_params,
@@ -391,7 +391,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/leveling/triggers', 'GET',
                                         path_params,
@@ -498,7 +498,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/leveling', 'GET',
                                         path_params,
@@ -601,7 +601,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/leveling/{name}', 'GET',
                                         path_params,
@@ -715,7 +715,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/leveling', 'GET',
                                         path_params,
@@ -824,7 +824,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/leveling/{name}/progress', 'POST',
                                         path_params,
@@ -933,7 +933,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/users/{user_id}/leveling/{name}/progress', 'PUT',
                                         path_params,
@@ -1033,7 +1033,7 @@ class GamificationLevelingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/leveling/{name}', 'PUT',
                                         path_params,

@@ -29,12 +29,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 level = knetik_cloud.LevelingResource() # LevelingResource | The level schema definition (optional)
 
 try: 
@@ -57,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,12 +75,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 name = 'name_example' # str | The level schema name
 
 try: 
@@ -106,7 +98,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -128,12 +120,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 name = 'name_example' # str | The level schema name
 
 try: 
@@ -156,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -178,12 +166,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 
 try: 
     # Get the list of triggers that can be used to trigger a leveling progress update
@@ -202,7 +186,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -226,12 +210,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 filter_name = 'filter_name_example' # str | Filter for level schemas whose name contains a given string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
@@ -260,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -282,12 +262,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 user_id = 56 # int | The id of the user
 name = 'name_example' # str | The level schema name
 
@@ -312,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -336,12 +312,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 user_id = 56 # int | The id of the user
 filter_name = 'filter_name_example' # str | Filter for level schemas whose name contains a given string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -372,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -396,12 +368,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 user_id = 56 # int | The id of the user
 name = 'name_example' # str | The level schema name
 progress = knetik_cloud.IntWrapper() # IntWrapper | The amount of progress to add (optional)
@@ -427,7 +395,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -451,12 +419,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 user_id = 56 # int | The id of the user
 name = 'name_example' # str | The level schema name
 progress = knetik_cloud.IntWrapper() # IntWrapper | The new progress amount (optional)
@@ -482,7 +446,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -504,12 +468,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.GamificationLevelingApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.GamificationLevelingApi()
 name = 'name_example' # str | The level schema name
 new_level = knetik_cloud.LevelingResource() # LevelingResource | The level schema definition (optional)
 
@@ -534,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

@@ -111,7 +111,7 @@ class AuthClientsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/auth/clients', 'POST',
                                         path_params,
@@ -207,7 +207,7 @@ class AuthClientsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/auth/clients/{client_key}', 'DELETE',
                                         path_params,
@@ -303,7 +303,7 @@ class AuthClientsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/auth/clients/{client_key}', 'GET',
                                         path_params,
@@ -391,7 +391,7 @@ class AuthClientsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/auth/clients/grant-types', 'GET',
                                         path_params,
@@ -492,7 +492,7 @@ class AuthClientsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/auth/clients', 'GET',
                                         path_params,
@@ -592,7 +592,7 @@ class AuthClientsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/auth/clients/{client_key}/grant-types', 'PUT',
                                         path_params,
@@ -692,7 +692,7 @@ class AuthClientsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/auth/clients/{client_key}/redirect-uris', 'PUT',
                                         path_params,
@@ -792,7 +792,7 @@ class AuthClientsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/auth/clients/{client_key}', 'PUT',
                                         path_params,

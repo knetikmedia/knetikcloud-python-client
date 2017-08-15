@@ -25,12 +25,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsPayPalClassicApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.PaymentsPayPalClassicApi()
 request = knetik_cloud.CreateBillingAgreementRequest() # CreateBillingAgreementRequest | The request to create a PayPal billing agreement (optional)
 
 try: 
@@ -53,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -77,12 +73,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsPayPalClassicApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.PaymentsPayPalClassicApi()
 request = knetik_cloud.CreatePayPalPaymentRequest() # CreatePayPalPaymentRequest | The request to create a PayPal payment token (optional)
 
 try: 
@@ -105,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -129,12 +121,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsPayPalClassicApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.PaymentsPayPalClassicApi()
 request = knetik_cloud.FinalizeBillingAgreementRequest() # FinalizeBillingAgreementRequest | The request to finalize a PayPal billing agreement (optional)
 
 try: 
@@ -157,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -181,12 +169,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsPayPalClassicApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.PaymentsPayPalClassicApi()
 request = knetik_cloud.FinalizePayPalPaymentRequest() # FinalizePayPalPaymentRequest | The request to finalize the payment (optional)
 
 try: 
@@ -208,7 +192,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

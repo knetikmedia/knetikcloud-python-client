@@ -22,12 +22,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.AuthTokensApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.AuthTokensApi()
 username = 'username_example' # str | The username of the user (optional)
 client_id = 'client_id_example' # str | The id of the client (optional)
 
@@ -51,7 +47,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -73,12 +69,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.AuthTokensApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.AuthTokensApi()
 username = 'username_example' # str | The username of the user
 client_id = 'client_id_example' # str | The id of the client
 
@@ -103,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -127,12 +119,8 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: OAuth2
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = knetik_cloud.AuthTokensApi(knetik_cloud.ApiClient(configuration))
+api_instance = knetik_cloud.AuthTokensApi()
 filter_client_id = 'filter_client_id_example' # str | Filters for token whose client id matches provided string (optional)
 filter_username = 'filter_username_example' # str | Filters for token whose username matches provided string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -163,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

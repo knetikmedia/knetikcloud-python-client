@@ -129,7 +129,7 @@ class ReportingUsersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = ['OAuth2']
+        auth_settings = []
 
         return self.api_client.call_api('/reporting/users/registrations', 'GET',
                                         path_params,
