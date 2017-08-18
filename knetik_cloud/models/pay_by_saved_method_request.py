@@ -31,22 +31,27 @@ class PayBySavedMethodRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'payment_method': 'int'
+        'payment_method': 'int',
+        'user_id': 'int'
     }
 
     attribute_map = {
-        'payment_method': 'payment_method'
+        'payment_method': 'payment_method',
+        'user_id': 'user_id'
     }
 
-    def __init__(self, payment_method=None):
+    def __init__(self, payment_method=None, user_id=None):
         """
         PayBySavedMethodRequest - a model defined in Swagger
         """
 
         self._payment_method = None
+        self._user_id = None
         self.discriminator = None
 
         self.payment_method = payment_method
+        if user_id is not None:
+          self.user_id = user_id
 
     @property
     def payment_method(self):
@@ -72,6 +77,29 @@ class PayBySavedMethodRequest(object):
             raise ValueError("Invalid value for `payment_method`, must not be `None`")
 
         self._payment_method = payment_method
+
+    @property
+    def user_id(self):
+        """
+        Gets the user_id of this PayBySavedMethodRequest.
+        The id of a user to bill. Must have PAYMENTS_ADMIN permission
+
+        :return: The user_id of this PayBySavedMethodRequest.
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """
+        Sets the user_id of this PayBySavedMethodRequest.
+        The id of a user to bill. Must have PAYMENTS_ADMIN permission
+
+        :param user_id: The user_id of this PayBySavedMethodRequest.
+        :type: int
+        """
+
+        self._user_id = user_id
 
     def to_dict(self):
         """
