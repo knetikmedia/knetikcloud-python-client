@@ -118,7 +118,7 @@ class PaymentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/payment-methods', 'POST',
                                         path_params,
@@ -221,7 +221,7 @@ class PaymentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/payment-methods/{id}', 'DELETE',
                                         path_params,
@@ -324,7 +324,7 @@ class PaymentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/payment-methods/{id}', 'GET',
                                         path_params,
@@ -448,7 +448,7 @@ class PaymentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/payment-methods', 'GET',
                                         path_params,
@@ -541,7 +541,7 @@ class PaymentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/payment/authorizations', 'POST',
                                         path_params,
@@ -637,7 +637,7 @@ class PaymentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/payment/authorizations/{id}/capture', 'POST',
                                         path_params,
@@ -744,7 +744,7 @@ class PaymentsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/payment-methods/{id}', 'PUT',
                                         path_params,

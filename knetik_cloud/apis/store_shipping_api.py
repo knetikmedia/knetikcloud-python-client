@@ -117,7 +117,7 @@ class StoreShippingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/shipping', 'POST',
                                         path_params,
@@ -212,7 +212,7 @@ class StoreShippingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/shipping/templates', 'POST',
                                         path_params,
@@ -308,7 +308,7 @@ class StoreShippingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/shipping/{id}', 'DELETE',
                                         path_params,
@@ -408,7 +408,7 @@ class StoreShippingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/shipping/templates/{id}', 'DELETE',
                                         path_params,
@@ -602,7 +602,7 @@ class StoreShippingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/shipping/templates/{id}', 'GET',
                                         path_params,
@@ -703,7 +703,7 @@ class StoreShippingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/shipping/templates', 'GET',
                                         path_params,
@@ -807,7 +807,7 @@ class StoreShippingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/shipping/{id}', 'PUT',
                                         path_params,
@@ -907,7 +907,7 @@ class StoreShippingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/shipping/templates/{id}', 'PUT',
                                         path_params,

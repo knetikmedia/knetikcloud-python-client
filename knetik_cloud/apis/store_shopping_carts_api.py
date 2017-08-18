@@ -118,7 +118,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/custom-discounts', 'POST',
                                         path_params,
@@ -218,7 +218,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/discounts', 'POST',
                                         path_params,
@@ -320,7 +320,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/items', 'POST',
                                         path_params,
@@ -515,7 +515,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}', 'GET',
                                         path_params,
@@ -620,7 +620,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts', 'GET',
                                         path_params,
@@ -716,7 +716,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/shippable', 'GET',
                                         path_params,
@@ -814,7 +814,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/countries', 'GET',
                                         path_params,
@@ -917,7 +917,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/discounts/{code}', 'DELETE',
                                         path_params,
@@ -1019,7 +1019,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/currency', 'PUT',
                                         path_params,
@@ -1119,7 +1119,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/owner', 'PUT',
                                         path_params,
@@ -1221,7 +1221,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/items', 'PUT',
                                         path_params,
@@ -1321,7 +1321,7 @@ class StoreShoppingCartsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/carts/{id}/shipping-address', 'PUT',
                                         path_params,

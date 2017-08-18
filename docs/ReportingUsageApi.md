@@ -25,8 +25,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoint. Removes the url and method from the result object (optional) (default to false)
@@ -61,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -83,8 +90,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoint. Removes the url and method from the result object (optional) (default to false)
@@ -119,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -141,8 +155,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoint. Removes the url and method from the result object (optional) (default to false)
@@ -177,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -199,8 +220,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoint. Removes the url and method from the result object (optional) (default to false)
@@ -235,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -257,8 +285,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 combine_endpoints = false # bool | Whether to combine counts from different endpoints. Removes the url and method from the result object (optional) (default to false)
@@ -293,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -315,8 +350,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.ReportingUsageApi()
+api_instance = knetik_cloud.ReportingUsageApi(knetik_cloud.ApiClient(configuration))
 start_date = 789 # int | The beginning of the range being requested, unix timestamp in seconds
 end_date = 789 # int | The ending of the range being requested, unix timestamp in seconds
 
@@ -341,7 +383,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

@@ -26,8 +26,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment method is being created
 payment_method = knetik_cloud.PaymentMethodResource() # PaymentMethodResource | Payment method being created (optional)
 
@@ -52,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -74,8 +81,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment method is being updated
 id = 56 # int | ID of the payment method being deleted
 
@@ -99,7 +113,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -121,8 +135,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment method is being retrieved
 id = 56 # int | ID of the payment method being retrieved
 
@@ -147,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -169,8 +190,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment methods are being retrieved
 filter_name = 'filter_name_example' # str | Filter for payment methods whose name starts with a given string (optional)
 filter_payment_type = 'filter_payment_type_example' # str | Filter for payment methods with a specific payment type (optional)
@@ -207,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -229,8 +257,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 request = knetik_cloud.PaymentAuthorizationResource() # PaymentAuthorizationResource | Payment authorization request (optional)
 
 try: 
@@ -253,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -275,8 +310,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 id = 56 # int | ID of the payment authorization to capture
 
 try: 
@@ -298,7 +340,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -320,8 +362,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.PaymentsApi()
+api_instance = knetik_cloud.PaymentsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | ID of the user for whom the payment method is being updated
 id = 56 # int | ID of the payment method being updated
 payment_method = knetik_cloud.PaymentMethodResource() # PaymentMethodResource | The updated payment method data (optional)
@@ -348,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

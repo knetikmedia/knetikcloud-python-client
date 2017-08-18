@@ -29,8 +29,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role_resource = knetik_cloud.RoleResource() # RoleResource | The role resource object (optional)
 
 try: 
@@ -53,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -75,8 +82,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role = 'role_example' # str | The role value
 force = true # bool | If true, removes role from users/clients (optional)
 
@@ -100,7 +114,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -122,8 +136,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 client_key = 'client_key_example' # str | The client key
 
 try: 
@@ -146,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -168,8 +189,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role = 'role_example' # str | The role value
 
 try: 
@@ -192,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -214,8 +242,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 filter_name = 'filter_name_example' # str | Filter for roles that have a name starting with specified string (optional)
 filter_role = 'filter_role_example' # str | Filter for roles that have a role starting with specified string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -246,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -268,8 +303,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The user's id
 
 try: 
@@ -292,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -314,8 +356,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 client_key = 'client_key_example' # str | The client key
 roles_list = [knetik_cloud.list[str]()] # list[str] | The list of unique roles (optional)
 
@@ -340,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -362,8 +411,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role = 'role_example' # str | The role value
 permissions_list = [knetik_cloud.list[str]()] # list[str] | The list of unique permissions (optional)
 
@@ -388,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -410,8 +466,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The user's id
 roles_list = [knetik_cloud.list[str]()] # list[str] | The list of unique roles (optional)
 
@@ -436,7 +499,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -458,8 +521,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AuthRolesApi()
+api_instance = knetik_cloud.AuthRolesApi(knetik_cloud.ApiClient(configuration))
 role = 'role_example' # str | The role value
 role_resource = knetik_cloud.RoleResource() # RoleResource | The role resource object (optional)
 
@@ -484,7 +554,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

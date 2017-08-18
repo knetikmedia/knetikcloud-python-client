@@ -121,7 +121,7 @@ class UsersSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}', 'GET',
                                         path_params,
@@ -217,7 +217,7 @@ class UsersSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions', 'GET',
                                         path_params,
@@ -324,7 +324,7 @@ class UsersSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}/reactivate', 'POST',
                                         path_params,
@@ -434,7 +434,7 @@ class UsersSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}/bill-date', 'PUT',
                                         path_params,
@@ -543,7 +543,7 @@ class UsersSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}/payment-method', 'PUT',
                                         path_params,
@@ -655,7 +655,7 @@ class UsersSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}/status', 'PUT',
                                         path_params,
@@ -762,7 +762,7 @@ class UsersSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}/plan', 'PUT',
                                         path_params,
@@ -871,7 +871,7 @@ class UsersSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/subscriptions/{inventory_id}/price-override', 'PUT',
                                         path_params,

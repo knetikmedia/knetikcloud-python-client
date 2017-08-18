@@ -111,7 +111,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions', 'POST',
                                         path_params,
@@ -206,7 +206,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions/templates', 'POST',
                                         path_params,
@@ -311,7 +311,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions/{id}/plans/{plan_id}', 'DELETE',
                                         path_params,
@@ -411,7 +411,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions/templates/{id}', 'DELETE',
                                         path_params,
@@ -605,7 +605,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions/templates/{id}', 'GET',
                                         path_params,
@@ -706,7 +706,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions/templates', 'GET',
                                         path_params,
@@ -895,7 +895,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions/process', 'POST',
                                         path_params,
@@ -997,7 +997,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions/{id}', 'PUT',
                                         path_params,
@@ -1097,7 +1097,7 @@ class StoreSubscriptionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/subscriptions/templates/{id}', 'PUT',
                                         path_params,

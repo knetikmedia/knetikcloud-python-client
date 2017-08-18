@@ -28,8 +28,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineRulesApi()
+api_instance = knetik_cloud.BRERuleEngineRulesApi(knetik_cloud.ApiClient(configuration))
 bre_rule = knetik_cloud.BreRule() # BreRule | The BRE rule object (optional)
 
 try: 
@@ -52,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -76,8 +83,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineRulesApi()
+api_instance = knetik_cloud.BRERuleEngineRulesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the rule
 
 try: 
@@ -99,7 +113,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -121,8 +135,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineRulesApi()
+api_instance = knetik_cloud.BRERuleEngineRulesApi(knetik_cloud.ApiClient(configuration))
 expression = knetik_cloud.Expressionobject() # Expressionobject | The expression (optional)
 
 try: 
@@ -145,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -167,8 +188,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineRulesApi()
+api_instance = knetik_cloud.BRERuleEngineRulesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the rule
 
 try: 
@@ -191,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -213,8 +241,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineRulesApi()
+api_instance = knetik_cloud.BRERuleEngineRulesApi(knetik_cloud.ApiClient(configuration))
 filter_name = 'filter_name_example' # str | Filter for rules containing the given name (optional)
 filter_enabled = null # bool | Filter for rules by active status, null for both (optional) (default to null)
 filter_system = true # bool | Filter for rules that are system rules when true, or not when false. Leave off for both mixed (optional)
@@ -251,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -275,8 +310,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineRulesApi()
+api_instance = knetik_cloud.BRERuleEngineRulesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the rule
 enabled = knetik_cloud.BooleanResource() # BooleanResource | The boolean value (optional)
 
@@ -300,7 +342,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -324,8 +366,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.BRERuleEngineRulesApi()
+api_instance = knetik_cloud.BRERuleEngineRulesApi(knetik_cloud.ApiClient(configuration))
 id = 'id_example' # str | The id of the rule
 bre_rule = knetik_cloud.BreRule() # BreRule | The BRE rule object (optional)
 
@@ -350,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

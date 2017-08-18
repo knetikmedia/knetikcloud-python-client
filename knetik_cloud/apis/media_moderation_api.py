@@ -114,7 +114,7 @@ class MediaModerationApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/moderation/reports/{id}', 'GET',
                                         path_params,
@@ -221,7 +221,7 @@ class MediaModerationApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/moderation/reports', 'GET',
                                         path_params,
@@ -323,7 +323,7 @@ class MediaModerationApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/moderation/reports/{id}', 'PUT',
                                         path_params,

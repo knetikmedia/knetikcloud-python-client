@@ -118,7 +118,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{question_id}/answers', 'POST',
                                         path_params,
@@ -218,7 +218,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{id}/tags', 'POST',
                                         path_params,
@@ -345,7 +345,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/tags', 'POST',
                                         path_params,
@@ -440,7 +440,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/import', 'POST',
                                         path_params,
@@ -533,7 +533,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions', 'POST',
                                         path_params,
@@ -628,7 +628,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/templates', 'POST',
                                         path_params,
@@ -726,7 +726,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/import/{id}', 'DELETE',
                                         path_params,
@@ -822,7 +822,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{id}', 'DELETE',
                                         path_params,
@@ -925,7 +925,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{question_id}/answers/{id}', 'DELETE',
                                         path_params,
@@ -1027,7 +1027,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/templates/{id}', 'DELETE',
                                         path_params,
@@ -1123,7 +1123,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/import/{id}', 'GET',
                                         path_params,
@@ -1240,7 +1240,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/import', 'GET',
                                         path_params,
@@ -1336,7 +1336,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{id}', 'GET',
                                         path_params,
@@ -1439,7 +1439,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{question_id}/answers/{id}', 'GET',
                                         path_params,
@@ -1535,7 +1535,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{question_id}/answers', 'GET',
                                         path_params,
@@ -1630,7 +1630,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/delta', 'GET',
                                         path_params,
@@ -1726,7 +1726,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{id}/tags', 'GET',
                                         path_params,
@@ -1822,7 +1822,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/templates/{id}', 'GET',
                                         path_params,
@@ -1923,7 +1923,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/templates', 'GET',
                                         path_params,
@@ -2056,7 +2056,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions', 'GET',
                                         path_params,
@@ -2175,7 +2175,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/count', 'GET',
                                         path_params,
@@ -2280,7 +2280,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/import/{id}/process', 'POST',
                                         path_params,
@@ -2383,7 +2383,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{id}/tags/{tag}', 'DELETE',
                                         path_params,
@@ -2513,7 +2513,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/tags/{tag}', 'DELETE',
                                         path_params,
@@ -2616,7 +2616,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/tags', 'GET',
                                         path_params,
@@ -2718,7 +2718,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/import/{id}', 'PUT',
                                         path_params,
@@ -2818,7 +2818,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{id}', 'PUT',
                                         path_params,
@@ -2925,7 +2925,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/{question_id}/answers/{id}', 'PUT',
                                         path_params,
@@ -3025,7 +3025,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions/templates/{id}', 'PUT',
                                         path_params,
@@ -3148,7 +3148,7 @@ class GamificationTriviaApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/trivia/questions', 'PUT',
                                         path_params,

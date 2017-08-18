@@ -113,7 +113,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices', 'POST',
                                         path_params,
@@ -297,7 +297,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}', 'GET',
                                         path_params,
@@ -401,7 +401,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}/logs', 'GET',
                                         path_params,
@@ -560,7 +560,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices', 'GET',
                                         path_params,
@@ -748,7 +748,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}/payments', 'POST',
                                         path_params,
@@ -867,7 +867,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status', 'PUT',
                                         path_params,
@@ -967,7 +967,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}/external-ref', 'PUT',
                                         path_params,
@@ -1079,7 +1079,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}/items/{sku}/fulfillment-status', 'PUT',
                                         path_params,
@@ -1179,7 +1179,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}/order-notes', 'PUT',
                                         path_params,
@@ -1281,7 +1281,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}/payment-status', 'PUT',
                                         path_params,
@@ -1381,7 +1381,7 @@ class InvoicesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/invoices/{id}/billing-address', 'PUT',
                                         path_params,

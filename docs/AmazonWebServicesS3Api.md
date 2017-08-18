@@ -23,8 +23,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AmazonWebServicesS3Api()
+api_instance = knetik_cloud.AmazonWebServicesS3Api(knetik_cloud.ApiClient(configuration))
 bucket = 'bucket_example' # str | S3 bucket name (optional)
 path = 'path_example' # str | The path to the file relative the bucket (the s3 object key) (optional)
 expiration = 60 # int | The number of seconds this URL will be valid. Default to 60 (optional) (default to 60)
@@ -51,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -75,8 +82,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.AmazonWebServicesS3Api()
+api_instance = knetik_cloud.AmazonWebServicesS3Api(knetik_cloud.ApiClient(configuration))
 filename = 'filename_example' # str | The file name (optional)
 content_type = 'content_type_example' # str | The content type (optional)
 
@@ -101,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

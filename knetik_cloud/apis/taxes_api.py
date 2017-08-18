@@ -111,7 +111,7 @@ class TaxesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/tax/countries', 'POST',
                                         path_params,
@@ -211,7 +211,7 @@ class TaxesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/tax/countries/{country_code_iso3}/states', 'POST',
                                         path_params,
@@ -307,7 +307,7 @@ class TaxesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/tax/countries/{country_code_iso3}', 'DELETE',
                                         path_params,
@@ -410,7 +410,7 @@ class TaxesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/tax/countries/{country_code_iso3}/states/{state_code}', 'DELETE',
                                         path_params,
@@ -1025,7 +1025,7 @@ class TaxesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/tax/countries/{country_code_iso3}', 'PUT',
                                         path_params,
@@ -1132,7 +1132,7 @@ class TaxesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/tax/countries/{country_code_iso3}/states/{state_code}', 'PUT',
                                         path_params,

@@ -120,7 +120,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{id}/inventory', 'POST',
                                         path_params,
@@ -229,7 +229,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/entitlements/{item_id}/check', 'GET',
                                         path_params,
@@ -326,7 +326,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/entitlements', 'POST',
                                         path_params,
@@ -421,7 +421,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/entitlements/templates', 'POST',
                                         path_params,
@@ -517,7 +517,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/entitlements/{entitlement_id}', 'DELETE',
                                         path_params,
@@ -619,7 +619,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/entitlements/templates/{id}', 'DELETE',
                                         path_params,
@@ -912,7 +912,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/entitlements/templates/{id}', 'GET',
                                         path_params,
@@ -1013,7 +1013,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/entitlements/templates', 'GET',
                                         path_params,
@@ -1141,7 +1141,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{id}/inventory', 'GET',
                                         path_params,
@@ -1244,7 +1244,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/inventory/{id}', 'GET',
                                         path_params,
@@ -1355,7 +1355,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/inventory/{id}/log', 'GET',
                                         path_params,
@@ -1476,7 +1476,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/inventories', 'GET',
                                         path_params,
@@ -1579,7 +1579,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/entitlements', 'POST',
                                         path_params,
@@ -1683,7 +1683,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/entitlements/{entitlement_id}', 'PUT',
                                         path_params,
@@ -1783,7 +1783,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/entitlements/templates/{id}', 'PUT',
                                         path_params,
@@ -1890,7 +1890,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/inventory/{id}/behavior-data', 'PUT',
                                         path_params,
@@ -1999,7 +1999,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/inventory/{id}/expires', 'PUT',
                                         path_params,
@@ -2106,7 +2106,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/inventory/{id}/status', 'PUT',
                                         path_params,
@@ -2217,7 +2217,7 @@ class UsersInventoryApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/entitlements/{item_id}/use', 'POST',
                                         path_params,

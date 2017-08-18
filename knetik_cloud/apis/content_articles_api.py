@@ -113,7 +113,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles', 'POST',
                                         path_params,
@@ -208,7 +208,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles/templates', 'POST',
                                         path_params,
@@ -304,7 +304,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles/{id}', 'DELETE',
                                         path_params,
@@ -406,7 +406,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles/templates/{id}', 'DELETE',
                                         path_params,
@@ -598,7 +598,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles/templates/{id}', 'GET',
                                         path_params,
@@ -699,7 +699,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles/templates', 'GET',
                                         path_params,
@@ -926,7 +926,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles/{id}', 'PUT',
                                         path_params,
@@ -1026,7 +1026,7 @@ class ContentArticlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles/templates/{id}', 'PUT',
                                         path_params,

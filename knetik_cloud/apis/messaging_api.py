@@ -111,7 +111,7 @@ class MessagingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/messaging/raw-email', 'POST',
                                         path_params,
@@ -206,7 +206,7 @@ class MessagingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/messaging/raw-sms', 'POST',
                                         path_params,
@@ -299,7 +299,7 @@ class MessagingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/messaging/templated-email', 'POST',
                                         path_params,
@@ -394,7 +394,7 @@ class MessagingApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/messaging/templated-sms', 'POST',
                                         path_params,

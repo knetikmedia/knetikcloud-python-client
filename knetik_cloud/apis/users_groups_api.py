@@ -121,7 +121,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/{unique_name}/members', 'POST',
                                         path_params,
@@ -224,7 +224,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/{unique_name}/members/batch-add', 'POST',
                                         path_params,
@@ -317,7 +317,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups', 'POST',
                                         path_params,
@@ -412,7 +412,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/templates', 'POST',
                                         path_params,
@@ -508,7 +508,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/{unique_name}', 'DELETE',
                                         path_params,
@@ -610,7 +610,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/templates/{id}', 'DELETE',
                                         path_params,
@@ -1013,7 +1013,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/templates/{id}', 'GET',
                                         path_params,
@@ -1114,7 +1114,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/templates', 'GET',
                                         path_params,
@@ -1313,7 +1313,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/{unique_name}/members/{user_id}', 'DELETE',
                                         path_params,
@@ -1413,7 +1413,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/{unique_name}', 'PUT',
                                         path_params,
@@ -1523,7 +1523,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/{unique_name}/members/{user_id}/status', 'PUT',
                                         path_params,
@@ -1623,7 +1623,7 @@ class UsersGroupsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/templates/{id}', 'PUT',
                                         path_params,

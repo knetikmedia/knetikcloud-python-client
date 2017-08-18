@@ -113,7 +113,7 @@ class BRERuleEngineRulesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/rules', 'POST',
                                         path_params,
@@ -211,7 +211,7 @@ class BRERuleEngineRulesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/rules/{id}', 'DELETE',
                                         path_params,
@@ -304,7 +304,7 @@ class BRERuleEngineRulesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/rules/expression-as-string', 'POST',
                                         path_params,
@@ -400,7 +400,7 @@ class BRERuleEngineRulesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/rules/{id}', 'GET',
                                         path_params,
@@ -521,7 +521,7 @@ class BRERuleEngineRulesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/rules', 'GET',
                                         path_params,
@@ -623,7 +623,7 @@ class BRERuleEngineRulesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/rules/{id}/enabled', 'PUT',
                                         path_params,
@@ -725,7 +725,7 @@ class BRERuleEngineRulesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/rules/{id}', 'PUT',
                                         path_params,

@@ -111,7 +111,7 @@ class AuthPermissionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/permissions', 'POST',
                                         path_params,
@@ -211,7 +211,7 @@ class AuthPermissionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/permissions/{permission}', 'DELETE',
                                         path_params,
@@ -307,7 +307,7 @@ class AuthPermissionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/permissions/{permission}', 'GET',
                                         path_params,
@@ -408,7 +408,7 @@ class AuthPermissionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/permissions', 'GET',
                                         path_params,
@@ -508,7 +508,7 @@ class AuthPermissionsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/permissions/{permission}', 'PUT',
                                         path_params,

@@ -111,7 +111,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/roles', 'POST',
                                         path_params,
@@ -211,7 +211,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/roles/{role}', 'DELETE',
                                         path_params,
@@ -307,7 +307,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/clients/{client_key}/roles', 'GET',
                                         path_params,
@@ -403,7 +403,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/roles/{role}', 'GET',
                                         path_params,
@@ -512,7 +512,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/roles', 'GET',
                                         path_params,
@@ -608,7 +608,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/users/{user_id}/roles', 'GET',
                                         path_params,
@@ -708,7 +708,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/clients/{client_key}/roles', 'PUT',
                                         path_params,
@@ -808,7 +808,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/roles/{role}/permissions', 'PUT',
                                         path_params,
@@ -908,7 +908,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/users/{user_id}/roles', 'PUT',
                                         path_params,
@@ -1008,7 +1008,7 @@ class AuthRolesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/auth/roles/{role}', 'PUT',
                                         path_params,

@@ -123,7 +123,7 @@ class UsersFriendshipsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/friends/{id}', 'POST',
                                         path_params,
@@ -227,7 +227,7 @@ class UsersFriendshipsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/friends', 'GET',
                                         path_params,
@@ -325,7 +325,7 @@ class UsersFriendshipsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/invite-token', 'GET',
                                         path_params,
@@ -431,7 +431,7 @@ class UsersFriendshipsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/invites', 'GET',
                                         path_params,
@@ -533,7 +533,7 @@ class UsersFriendshipsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/friends/tokens', 'POST',
                                         path_params,
@@ -636,7 +636,7 @@ class UsersFriendshipsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/friends/{id}', 'DELETE',
                                         path_params,

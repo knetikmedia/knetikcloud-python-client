@@ -111,7 +111,7 @@ class CategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/categories', 'POST',
                                         path_params,
@@ -206,7 +206,7 @@ class CategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/categories/templates', 'POST',
                                         path_params,
@@ -302,7 +302,7 @@ class CategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/categories/{id}', 'DELETE',
                                         path_params,
@@ -404,7 +404,7 @@ class CategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/categories/templates/{id}', 'DELETE',
                                         path_params,
@@ -705,7 +705,7 @@ class CategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/categories/templates/{id}', 'GET',
                                         path_params,
@@ -806,7 +806,7 @@ class CategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/categories/templates', 'GET',
                                         path_params,
@@ -1003,7 +1003,7 @@ class CategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/categories/{id}', 'PUT',
                                         path_params,
@@ -1103,7 +1103,7 @@ class CategoriesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/categories/templates/{id}', 'PUT',
                                         path_params,

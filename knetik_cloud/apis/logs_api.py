@@ -111,7 +111,7 @@ class LogsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/audit/logs', 'POST',
                                         path_params,
@@ -207,7 +207,7 @@ class LogsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/logs/event-log/{id}', 'GET',
                                         path_params,
@@ -320,7 +320,7 @@ class LogsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/logs/event-log', 'GET',
                                         path_params,
@@ -416,7 +416,7 @@ class LogsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/logs/forward-log/{id}', 'GET',
                                         path_params,
@@ -529,7 +529,7 @@ class LogsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/logs/forward-log', 'GET',
                                         path_params,
@@ -625,7 +625,7 @@ class LogsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/audit/logs/{id}', 'GET',
                                         path_params,
@@ -734,7 +734,7 @@ class LogsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/audit/logs', 'GET',
                                         path_params,

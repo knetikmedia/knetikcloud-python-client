@@ -113,7 +113,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements', 'POST',
                                         path_params,
@@ -208,7 +208,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/templates', 'POST',
                                         path_params,
@@ -306,7 +306,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/{name}', 'DELETE',
                                         path_params,
@@ -408,7 +408,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/templates/{id}', 'DELETE',
                                         path_params,
@@ -504,7 +504,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/{name}', 'GET',
                                         path_params,
@@ -600,7 +600,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/templates/{id}', 'GET',
                                         path_params,
@@ -701,7 +701,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/templates', 'GET',
                                         path_params,
@@ -789,7 +789,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/triggers', 'GET',
                                         path_params,
@@ -906,7 +906,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements', 'GET',
                                         path_params,
@@ -1004,7 +1004,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/derived/{name}', 'GET',
                                         path_params,
@@ -1109,7 +1109,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/achievements/{achievement_name}', 'GET',
                                         path_params,
@@ -1227,7 +1227,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/achievements', 'GET',
                                         path_params,
@@ -1345,7 +1345,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/achievements/{achievement_name}', 'GET',
                                         path_params,
@@ -1456,7 +1456,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/achievements', 'GET',
                                         path_params,
@@ -1565,7 +1565,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/achievements/{achievement_name}/progress', 'POST',
                                         path_params,
@@ -1674,7 +1674,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/{user_id}/achievements/{achievement_name}/progress', 'PUT',
                                         path_params,
@@ -1776,7 +1776,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/{name}', 'PUT',
                                         path_params,
@@ -1876,7 +1876,7 @@ class GamificationAchievementsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/achievements/templates/{id}', 'PUT',
                                         path_params,

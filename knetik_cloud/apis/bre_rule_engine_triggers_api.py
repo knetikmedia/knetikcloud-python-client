@@ -113,7 +113,7 @@ class BRERuleEngineTriggersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/triggers', 'POST',
                                         path_params,
@@ -211,7 +211,7 @@ class BRERuleEngineTriggersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/triggers/{event_name}', 'DELETE',
                                         path_params,
@@ -307,7 +307,7 @@ class BRERuleEngineTriggersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/triggers/{event_name}', 'GET',
                                         path_params,
@@ -424,7 +424,7 @@ class BRERuleEngineTriggersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/triggers', 'GET',
                                         path_params,
@@ -526,7 +526,7 @@ class BRERuleEngineTriggersApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/bre/triggers/{event_name}', 'PUT',
                                         path_params,

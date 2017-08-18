@@ -113,7 +113,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items/templates', 'POST',
                                         path_params,
@@ -212,7 +212,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items', 'POST',
                                         path_params,
@@ -312,7 +312,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items/templates/{id}', 'DELETE',
                                         path_params,
@@ -408,7 +408,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items/{id}', 'DELETE',
                                         path_params,
@@ -496,7 +496,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items/behaviors', 'GET',
                                         path_params,
@@ -594,7 +594,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items/templates/{id}', 'GET',
                                         path_params,
@@ -695,7 +695,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items/templates', 'GET',
                                         path_params,
@@ -1154,7 +1154,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/quick-buy', 'POST',
                                         path_params,
@@ -1254,7 +1254,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items/templates/{id}', 'PUT',
                                         path_params,
@@ -1358,7 +1358,7 @@ class StoreApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/items/{id}', 'PUT',
                                         path_params,
