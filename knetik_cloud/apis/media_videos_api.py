@@ -1515,7 +1515,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/media/videos/{video_id}/comments', 'GET',
                                         path_params,
@@ -1619,7 +1619,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/media/videos/{video_id}/dispositions', 'GET',
                                         path_params,
@@ -1723,7 +1723,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/media/videos/{video_id}/related', 'GET',
                                         path_params,
@@ -1872,7 +1872,7 @@ class MediaVideosApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/media/videos', 'GET',
                                         path_params,

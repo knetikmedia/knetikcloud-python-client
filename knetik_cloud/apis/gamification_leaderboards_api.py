@@ -135,7 +135,7 @@ class GamificationLeaderboardsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/leaderboards/{context_type}/{context_id}', 'GET',
                                         path_params,
@@ -247,7 +247,7 @@ class GamificationLeaderboardsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/leaderboards/{context_type}/{context_id}/users/{id}/rank', 'GET',
                                         path_params,
@@ -335,7 +335,7 @@ class GamificationLeaderboardsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/leaderboards/strategies', 'GET',
                                         path_params,

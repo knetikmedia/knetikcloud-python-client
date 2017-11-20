@@ -198,7 +198,7 @@ class CampaignsChallengesApi(object):
 
         query_params = []
         if 'validate_settings' in params:
-            query_params.append(('validateSettings', params['validate_settings']))
+            query_params.append(('validate_settings', params['validate_settings']))
 
         header_params = {}
 
@@ -1004,7 +1004,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/challenges/{id}', 'GET',
                                         path_params,
@@ -1112,7 +1112,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/challenges/{challenge_id}/activities', 'GET',
                                         path_params,
@@ -1217,7 +1217,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/challenges/{challenge_id}/activities/{id}', 'GET',
                                         path_params,
@@ -1510,7 +1510,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/challenges/events/{id}', 'GET',
                                         path_params,
@@ -1627,7 +1627,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/challenges/events', 'GET',
                                         path_params,
@@ -1937,7 +1937,7 @@ class CampaignsChallengesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/challenges', 'GET',
                                         path_params,
@@ -2069,6 +2069,7 @@ class CampaignsChallengesApi(object):
         :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
+        :param bool validate_settings: Whether to validate the settings being sent against the available settings on the base activity.
         :return: ChallengeActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2093,12 +2094,13 @@ class CampaignsChallengesApi(object):
         :param int id: The challenge_activity id (required)
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
+        :param bool validate_settings: Whether to validate the settings being sent against the available settings on the base activity.
         :return: ChallengeActivityResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id', 'challenge_id', 'challenge_activity_resource']
+        all_params = ['id', 'challenge_id', 'challenge_activity_resource', 'validate_settings']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2130,6 +2132,8 @@ class CampaignsChallengesApi(object):
             path_params['challenge_id'] = params['challenge_id']
 
         query_params = []
+        if 'validate_settings' in params:
+            query_params.append(('validateSettings', params['validate_settings']))
 
         header_params = {}
 

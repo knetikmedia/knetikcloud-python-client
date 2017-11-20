@@ -106,7 +106,7 @@ class LocationsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/location/countries', 'GET',
                                         path_params,
@@ -196,7 +196,7 @@ class LocationsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/location/geolocation/country', 'GET',
                                         path_params,
@@ -292,7 +292,7 @@ class LocationsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/location/countries/{country_code_iso3}/states', 'GET',
                                         path_params,
@@ -382,7 +382,7 @@ class LocationsApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/location/geolocation/currency', 'GET',
                                         path_params,

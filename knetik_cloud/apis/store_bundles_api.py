@@ -504,7 +504,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/bundles/{id}', 'GET',
                                         path_params,
@@ -602,7 +602,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/bundles/templates/{id}', 'GET',
                                         path_params,
@@ -703,7 +703,7 @@ class StoreBundlesApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/store/bundles/templates', 'GET',
                                         path_params,
