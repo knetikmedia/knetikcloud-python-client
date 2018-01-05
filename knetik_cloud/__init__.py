@@ -141,7 +141,6 @@ from .models.location_log_resource import LocationLogResource
 from .models.lookup_resource import LookupResource
 from .models.maintenance import Maintenance
 from .models.map_resource import MapResource
-from .models.mapstringobject import Mapstringobject
 from .models.metric_resource import MetricResource
 from .models.model_property import ModelProperty
 from .models.mongo_database_config import MongoDatabaseConfig
@@ -196,7 +195,6 @@ from .models.page_resource_invoice_resource import PageResourceInvoiceResource
 from .models.page_resource_item_template_resource import PageResourceItemTemplateResource
 from .models.page_resource_leveling_resource import PageResourceLevelingResource
 from .models.page_resource_location_log_resource import PageResourceLocationLogResource
-from .models.page_resource_mapstringobject import PageResourceMapstringobject
 from .models.page_resource_oauth_access_token_resource import PageResourceOauthAccessTokenResource
 from .models.page_resource_object_resource import PageResourceObjectResource
 from .models.page_resource_payment_method_type_resource import PageResourcePaymentMethodTypeResource

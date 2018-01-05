@@ -730,6 +730,101 @@ class MediaVideosApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def create_video_template(self, **kwargs):
+        """
+        Create a video template
+        Video Templates define a type of video and the properties they have
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_video_template(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param TemplateResource video_template_resource: The video template resource object
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.create_video_template_with_http_info(**kwargs)
+        else:
+            (data) = self.create_video_template_with_http_info(**kwargs)
+            return data
+
+    def create_video_template_with_http_info(self, **kwargs):
+        """
+        Create a video template
+        Video Templates define a type of video and the properties they have
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_video_template_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param TemplateResource video_template_resource: The video template resource object
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['video_template_resource']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_video_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'video_template_resource' in params:
+            body_params = params['video_template_resource']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/media/videos/templates', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TemplateResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def delete_video(self, id, **kwargs):
         """
         Deletes a video from the system if no resources are attached to it
@@ -1210,6 +1305,108 @@ class MediaVideosApi(object):
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/media/videos/{video_id}/related/{id}', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def delete_video_template(self, id, **kwargs):
+        """
+        Delete a video template
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_template(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: The id of the template (required)
+        :param str cascade: The value needed to delete used templates
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.delete_video_template_with_http_info(id, **kwargs)
+        else:
+            (data) = self.delete_video_template_with_http_info(id, **kwargs)
+            return data
+
+    def delete_video_template_with_http_info(self, id, **kwargs):
+        """
+        Delete a video template
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_video_template_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: The id of the template (required)
+        :param str cascade: The value needed to delete used templates
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'cascade']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_video_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `delete_video_template`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+        if 'cascade' in params:
+            query_params.append(('cascade', params['cascade']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/media/videos/templates/{id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -1733,6 +1930,203 @@ class MediaVideosApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='PageResourceVideoRelationshipResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_video_template(self, id, **kwargs):
+        """
+        Get a single video template
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_template(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: The id of the template (required)
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_video_template_with_http_info(id, **kwargs)
+        else:
+            (data) = self.get_video_template_with_http_info(id, **kwargs)
+            return data
+
+    def get_video_template_with_http_info(self, id, **kwargs):
+        """
+        Get a single video template
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_template_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: The id of the template (required)
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_video_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_video_template`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/media/videos/templates/{id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TemplateResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_video_templates(self, **kwargs):
+        """
+        List and search video templates
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_templates(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int size: The number of objects returned per page
+        :param int page: The number of the page returned, starting with 1
+        :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+        :return: PageResourceTemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_video_templates_with_http_info(**kwargs)
+        else:
+            (data) = self.get_video_templates_with_http_info(**kwargs)
+            return data
+
+    def get_video_templates_with_http_info(self, **kwargs):
+        """
+        List and search video templates
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_video_templates_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int size: The number of objects returned per page
+        :param int page: The number of the page returned, starting with 1
+        :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+        :return: PageResourceTemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['size', 'page', 'order']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_video_templates" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'size' in params:
+            query_params.append(('size', params['size']))
+        if 'page' in params:
+            query_params.append(('page', params['page']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/media/videos/templates', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PageResourceTemplateResource',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -2404,6 +2798,106 @@ class MediaVideosApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_video_template(self, id, **kwargs):
+        """
+        Update a video template
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_video_template(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: The id of the template (required)
+        :param TemplateResource video_template_resource: The video template resource object
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_video_template_with_http_info(id, **kwargs)
+        else:
+            (data) = self.update_video_template_with_http_info(id, **kwargs)
+            return data
+
+    def update_video_template_with_http_info(self, id, **kwargs):
+        """
+        Update a video template
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_video_template_with_http_info(id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str id: The id of the template (required)
+        :param TemplateResource video_template_resource: The video template resource object
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id', 'video_template_resource']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_video_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `update_video_template`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'video_template_resource' in params:
+            body_params = params['video_template_resource']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/media/videos/templates/{id}', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TemplateResource',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

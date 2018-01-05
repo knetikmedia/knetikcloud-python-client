@@ -63,14 +63,6 @@ class TestContentCommentsApi(unittest.TestCase):
         """
         pass
 
-    def test_search_comments(self):
-        """
-        Test case for search_comments
-
-        Search the comment index
-        """
-        pass
-
     def test_update_comment(self):
         """
         Test case for update_comment

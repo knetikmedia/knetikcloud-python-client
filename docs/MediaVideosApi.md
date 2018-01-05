@@ -1,6 +1,6 @@
 # knetik_cloud.MediaVideosApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,22 +11,27 @@ Method | HTTP request | Description
 [**add_video_flag**](MediaVideosApi.md#add_video_flag) | **POST** /media/videos/{video_id}/moderation | Add a new flag
 [**add_video_relationships**](MediaVideosApi.md#add_video_relationships) | **POST** /media/videos/{video_id}/related | Adds one or more existing videos as related to this one
 [**create_video_disposition**](MediaVideosApi.md#create_video_disposition) | **POST** /media/videos/{video_id}/dispositions | Create a video disposition
+[**create_video_template**](MediaVideosApi.md#create_video_template) | **POST** /media/videos/templates | Create a video template
 [**delete_video**](MediaVideosApi.md#delete_video) | **DELETE** /media/videos/{id} | Deletes a video from the system if no resources are attached to it
 [**delete_video_comment**](MediaVideosApi.md#delete_video_comment) | **DELETE** /media/videos/{video_id}/comments/{id} | Delete a video comment
 [**delete_video_disposition**](MediaVideosApi.md#delete_video_disposition) | **DELETE** /media/videos/{video_id}/dispositions/{disposition_id} | Delete a video disposition
 [**delete_video_flag**](MediaVideosApi.md#delete_video_flag) | **DELETE** /media/videos/{video_id}/moderation | Delete a flag
 [**delete_video_relationship**](MediaVideosApi.md#delete_video_relationship) | **DELETE** /media/videos/{video_id}/related/{id} | Delete a video&#39;s relationship
+[**delete_video_template**](MediaVideosApi.md#delete_video_template) | **DELETE** /media/videos/templates/{id} | Delete a video template
 [**get_user_videos**](MediaVideosApi.md#get_user_videos) | **GET** /users/{user_id}/videos | Get user videos
 [**get_video**](MediaVideosApi.md#get_video) | **GET** /media/videos/{id} | Loads a specific video details
 [**get_video_comments**](MediaVideosApi.md#get_video_comments) | **GET** /media/videos/{video_id}/comments | Returns a page of comments for a video
 [**get_video_dispositions**](MediaVideosApi.md#get_video_dispositions) | **GET** /media/videos/{video_id}/dispositions | Returns a page of dispositions for a video
 [**get_video_relationships**](MediaVideosApi.md#get_video_relationships) | **GET** /media/videos/{video_id}/related | Returns a page of video relationships
+[**get_video_template**](MediaVideosApi.md#get_video_template) | **GET** /media/videos/templates/{id} | Get a single video template
+[**get_video_templates**](MediaVideosApi.md#get_video_templates) | **GET** /media/videos/templates | List and search video templates
 [**get_videos**](MediaVideosApi.md#get_videos) | **GET** /media/videos | Search videos using the documented filters
 [**remove_user_from_video_whitelist**](MediaVideosApi.md#remove_user_from_video_whitelist) | **DELETE** /media/videos/{video_id}/whitelist/{id} | Removes a user from a video&#39;s whitelist
 [**remove_video_contributor**](MediaVideosApi.md#remove_video_contributor) | **DELETE** /media/videos/{video_id}/contributors/{id} | Removes a contributor from a video
 [**update_video**](MediaVideosApi.md#update_video) | **PUT** /media/videos/{id} | Modifies a video&#39;s details
 [**update_video_comment**](MediaVideosApi.md#update_video_comment) | **PUT** /media/videos/{video_id}/comments/{id}/content | Update a video comment
 [**update_video_relationship**](MediaVideosApi.md#update_video_relationship) | **PUT** /media/videos/{video_id}/related/{id}/relationship_details | Update a video&#39;s relationship details
+[**update_video_template**](MediaVideosApi.md#update_video_template) | **PUT** /media/videos/templates/{id} | Update a video template
 [**view_video**](MediaVideosApi.md#view_video) | **POST** /media/videos/{id}/views | Increment a video&#39;s view count
 
 
@@ -413,6 +418,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_video_template**
+> TemplateResource create_video_template(video_template_resource=video_template_resource)
+
+Create a video template
+
+Video Templates define a type of video and the properties they have
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
+video_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The video template resource object (optional)
+
+try: 
+    # Create a video template
+    api_response = api_instance.create_video_template(video_template_resource=video_template_resource)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MediaVideosApi->create_video_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **video_template_resource** | [**TemplateResource**](TemplateResource.md)| The video template resource object | [optional] 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_video**
 > delete_video(id)
 
@@ -661,6 +721,62 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **video_id** | **int**| The video id | 
  **id** | **int**| The relationship id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_video_template**
+> delete_video_template(id, cascade=cascade)
+
+Delete a video template
+
+If cascade = 'detach', it will force delete the template even if it's attached to other objects
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
+id = 'id_example' # str | The id of the template
+cascade = 'cascade_example' # str | The value needed to delete used templates (optional)
+
+try: 
+    # Delete a video template
+    api_instance.delete_video_template(id, cascade=cascade)
+except ApiException as e:
+    print("Exception when calling MediaVideosApi->delete_video_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id of the template | 
+ **cascade** | **str**| The value needed to delete used templates | [optional] 
 
 ### Return type
 
@@ -948,6 +1064,116 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PageResourceVideoRelationshipResource**](PageResourceVideoRelationshipResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_video_template**
+> TemplateResource get_video_template(id)
+
+Get a single video template
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
+id = 'id_example' # str | The id of the template
+
+try: 
+    # Get a single video template
+    api_response = api_instance.get_video_template(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MediaVideosApi->get_video_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id of the template | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_video_templates**
+> PageResourceTemplateResource get_video_templates(size=size, page=page, order=order)
+
+List and search video templates
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
+size = 25 # int | The number of objects returned per page (optional) (default to 25)
+page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
+order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
+
+try: 
+    # List and search video templates
+    api_response = api_instance.get_video_templates(size=size, page=page, order=order)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MediaVideosApi->get_video_templates: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+
+### Return type
+
+[**PageResourceTemplateResource**](PageResourceTemplateResource.md)
 
 ### Authorization
 
@@ -1305,6 +1531,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_video_template**
+> TemplateResource update_video_template(id, video_template_resource=video_template_resource)
+
+Update a video template
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.MediaVideosApi(knetik_cloud.ApiClient(configuration))
+id = 'id_example' # str | The id of the template
+video_template_resource = knetik_cloud.TemplateResource() # TemplateResource | The video template resource object (optional)
+
+try: 
+    # Update a video template
+    api_response = api_instance.update_video_template(id, video_template_resource=video_template_resource)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MediaVideosApi->update_video_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id of the template | 
+ **video_template_resource** | [**TemplateResource**](TemplateResource.md)| The video template resource object | [optional] 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
 
 ### Authorization
 

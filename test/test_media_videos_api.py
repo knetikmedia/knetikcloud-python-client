@@ -87,6 +87,14 @@ class TestMediaVideosApi(unittest.TestCase):
         """
         pass
 
+    def test_create_video_template(self):
+        """
+        Test case for create_video_template
+
+        Create a video template
+        """
+        pass
+
     def test_delete_video(self):
         """
         Test case for delete_video
@@ -127,6 +135,14 @@ class TestMediaVideosApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_video_template(self):
+        """
+        Test case for delete_video_template
+
+        Delete a video template
+        """
+        pass
+
     def test_get_user_videos(self):
         """
         Test case for get_user_videos
@@ -164,6 +180,22 @@ class TestMediaVideosApi(unittest.TestCase):
         Test case for get_video_relationships
 
         Returns a page of video relationships
+        """
+        pass
+
+    def test_get_video_template(self):
+        """
+        Test case for get_video_template
+
+        Get a single video template
+        """
+        pass
+
+    def test_get_video_templates(self):
+        """
+        Test case for get_video_templates
+
+        List and search video templates
         """
         pass
 
@@ -212,6 +244,14 @@ class TestMediaVideosApi(unittest.TestCase):
         Test case for update_video_relationship
 
         Update a video's relationship details
+        """
+        pass
+
+    def test_update_video_template(self):
+        """
+        Test case for update_video_template
+
+        Update a video template
         """
         pass
 

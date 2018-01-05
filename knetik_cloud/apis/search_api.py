@@ -35,10 +35,1083 @@ class SearchApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def search_count_get(self, type, **kwargs):
+        """
+        Count matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_count_get(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_count_get_with_http_info(type, **kwargs)
+        else:
+            (data) = self.search_count_get_with_http_info(type, **kwargs)
+            return data
+
+    def search_count_get_with_http_info(self, type, **kwargs):
+        """
+        Count matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_count_get_with_http_info(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_count_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_count_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/count/{type}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_count_post(self, type, **kwargs):
+        """
+        Count matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_count_post(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_count_post_with_http_info(type, **kwargs)
+        else:
+            (data) = self.search_count_post_with_http_info(type, **kwargs)
+            return data
+
+    def search_count_post_with_http_info(self, type, **kwargs):
+        """
+        Count matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_count_post_with_http_info(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'query']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_count_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_count_post`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/count/{type}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_count_with_template_get(self, type, template, **kwargs):
+        """
+        Count matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_count_with_template_get(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_count_with_template_get_with_http_info(type, template, **kwargs)
+        else:
+            (data) = self.search_count_with_template_get_with_http_info(type, template, **kwargs)
+            return data
+
+    def search_count_with_template_get_with_http_info(self, type, template, **kwargs):
+        """
+        Count matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_count_with_template_get_with_http_info(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'template']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_count_with_template_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_count_with_template_get`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_count_with_template_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/count/{type}/{template}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_count_with_template_post(self, type, template, **kwargs):
+        """
+        Count matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_count_with_template_post(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_count_with_template_post_with_http_info(type, template, **kwargs)
+        else:
+            (data) = self.search_count_with_template_post_with_http_info(type, template, **kwargs)
+            return data
+
+    def search_count_with_template_post_with_http_info(self, type, template, **kwargs):
+        """
+        Count matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_count_with_template_post_with_http_info(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'template', 'query']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_count_with_template_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_count_with_template_post`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_count_with_template_post`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/count/{type}/{template}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_document_get(self, type, id, **kwargs):
+        """
+        Get document with no template
+        This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_document_get(type, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_document_get_with_http_info(type, id, **kwargs)
+        else:
+            (data) = self.search_document_get_with_http_info(type, id, **kwargs)
+            return data
+
+    def search_document_get_with_http_info(self, type, id, **kwargs):
+        """
+        Get document with no template
+        This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_document_get_with_http_info(type, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_document_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_document_get`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `search_document_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/documents/{type}/{id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_document_with_template_get(self, type, id, template, **kwargs):
+        """
+        Get document with a template
+        This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_document_with_template_get(type, id, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_document_with_template_get_with_http_info(type, id, template, **kwargs)
+        else:
+            (data) = self.search_document_with_template_get_with_http_info(type, id, template, **kwargs)
+            return data
+
+    def search_document_with_template_get_with_http_info(self, type, id, template, **kwargs):
+        """
+        Get document with a template
+        This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_document_with_template_get_with_http_info(type, id, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'id', 'template']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_document_with_template_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_document_with_template_get`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `search_document_with_template_get`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_document_with_template_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'id' in params:
+            path_params['id'] = params['id']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/documents/{type}/{template}/{id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_explain_get(self, type, id, **kwargs):
+        """
+        Explain matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_explain_get(type, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_explain_get_with_http_info(type, id, **kwargs)
+        else:
+            (data) = self.search_explain_get_with_http_info(type, id, **kwargs)
+            return data
+
+    def search_explain_get_with_http_info(self, type, id, **kwargs):
+        """
+        Explain matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_explain_get_with_http_info(type, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_explain_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_explain_get`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `search_explain_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/explain/{type}/{id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_explain_post(self, type, id, **kwargs):
+        """
+        Explain matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_explain_post(type, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_explain_post_with_http_info(type, id, **kwargs)
+        else:
+            (data) = self.search_explain_post_with_http_info(type, id, **kwargs)
+            return data
+
+    def search_explain_post_with_http_info(self, type, id, **kwargs):
+        """
+        Explain matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_explain_post_with_http_info(type, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'id', 'query']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_explain_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_explain_post`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `search_explain_post`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/explain/{type}/{id}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_explain_with_template_get(self, type, id, template, **kwargs):
+        """
+        Explain matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_explain_with_template_get(type, id, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_explain_with_template_get_with_http_info(type, id, template, **kwargs)
+        else:
+            (data) = self.search_explain_with_template_get_with_http_info(type, id, template, **kwargs)
+            return data
+
+    def search_explain_with_template_get_with_http_info(self, type, id, template, **kwargs):
+        """
+        Explain matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_explain_with_template_get_with_http_info(type, id, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'id', 'template']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_explain_with_template_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_explain_with_template_get`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `search_explain_with_template_get`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_explain_with_template_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'id' in params:
+            path_params['id'] = params['id']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/explain/{type}/{template}/{id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_explain_with_template_post(self, type, id, template, **kwargs):
+        """
+        Explain matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_explain_with_template_post(type, id, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_explain_with_template_post_with_http_info(type, id, template, **kwargs)
+        else:
+            (data) = self.search_explain_with_template_post_with_http_info(type, id, template, **kwargs)
+            return data
+
+    def search_explain_with_template_post_with_http_info(self, type, id, template, **kwargs):
+        """
+        Explain matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_explain_with_template_post_with_http_info(type, id, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str id: The index id (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'id', 'template', 'query']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_explain_with_template_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_explain_with_template_post`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `search_explain_with_template_post`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_explain_with_template_post`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'id' in params:
+            path_params['id'] = params['id']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/explain/{type}/{template}/{id}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def search_index(self, type, **kwargs):
         """
         Search an index with no template
-        The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
+        This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.search_index(type, async=True)
@@ -47,9 +1120,7 @@ class SearchApi(object):
         :param async bool
         :param str type: The index type (required)
         :param object query: The query to be used for the search
-        :param int size: The number of documents returned per page
-        :param int page: The number of the page returned, starting with 1
-        :return: PageResourceMapstringobject
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -63,7 +1134,7 @@ class SearchApi(object):
     def search_index_with_http_info(self, type, **kwargs):
         """
         Search an index with no template
-        The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
+        This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.search_index_with_http_info(type, async=True)
@@ -72,14 +1143,12 @@ class SearchApi(object):
         :param async bool
         :param str type: The index type (required)
         :param object query: The query to be used for the search
-        :param int size: The number of documents returned per page
-        :param int page: The number of the page returned, starting with 1
-        :return: PageResourceMapstringobject
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['type', 'query', 'size', 'page']
+        all_params = ['type', 'query']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -106,10 +1175,6 @@ class SearchApi(object):
             path_params['type'] = params['type']
 
         query_params = []
-        if 'size' in params:
-            query_params.append(('size', params['size']))
-        if 'page' in params:
-            query_params.append(('page', params['page']))
 
         header_params = {}
 
@@ -137,7 +1202,7 @@ class SearchApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='PageResourceMapstringobject',
+                                        response_type='object',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -145,53 +1210,45 @@ class SearchApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def search_index_with_template(self, type, template, **kwargs):
+    def search_index_get(self, type, **kwargs):
         """
-        Search an index with a template
-        The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
+        Search an index with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_index_with_template(type, template, async=True)
+        >>> thread = api.search_index_get(type, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str type: The index type (required)
-        :param str template: The index template (required)
-        :param object query: The query to be used for the search
-        :param int size: The number of documents returned per page
-        :param int page: The number of the page returned, starting with 1
-        :return: PageResourceMapstringobject
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.search_index_with_template_with_http_info(type, template, **kwargs)
+            return self.search_index_get_with_http_info(type, **kwargs)
         else:
-            (data) = self.search_index_with_template_with_http_info(type, template, **kwargs)
+            (data) = self.search_index_get_with_http_info(type, **kwargs)
             return data
 
-    def search_index_with_template_with_http_info(self, type, template, **kwargs):
+    def search_index_get_with_http_info(self, type, **kwargs):
         """
-        Search an index with a template
-        The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
+        Search an index with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.search_index_with_template_with_http_info(type, template, async=True)
+        >>> thread = api.search_index_get_with_http_info(type, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str type: The index type (required)
-        :param str template: The index template (required)
-        :param object query: The query to be used for the search
-        :param int size: The number of documents returned per page
-        :param int page: The number of the page returned, starting with 1
-        :return: PageResourceMapstringobject
+        :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['type', 'template', 'query', 'size', 'page']
+        all_params = ['type']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -202,16 +1259,116 @@ class SearchApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method search_index_with_template" % key
+                    " to method search_index_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'type' is set
         if ('type' not in params) or (params['type'] is None):
-            raise ValueError("Missing the required parameter `type` when calling `search_index_with_template`")
+            raise ValueError("Missing the required parameter `type` when calling `search_index_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/index/{type}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_index_with_template_get(self, type, template, **kwargs):
+        """
+        Search an index with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_index_with_template_get(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_index_with_template_get_with_http_info(type, template, **kwargs)
+        else:
+            (data) = self.search_index_with_template_get_with_http_info(type, template, **kwargs)
+            return data
+
+    def search_index_with_template_get_with_http_info(self, type, template, **kwargs):
+        """
+        Search an index with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_index_with_template_get_with_http_info(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'template']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_index_with_template_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_index_with_template_get`")
         # verify the required parameter 'template' is set
         if ('template' not in params) or (params['template'] is None):
-            raise ValueError("Missing the required parameter `template` when calling `search_index_with_template`")
+            raise ValueError("Missing the required parameter `template` when calling `search_index_with_template_get`")
 
 
         collection_formats = {}
@@ -223,10 +1380,113 @@ class SearchApi(object):
             path_params['template'] = params['template']
 
         query_params = []
-        if 'size' in params:
-            query_params.append(('size', params['size']))
-        if 'page' in params:
-            query_params.append(('page', params['page']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/index/{type}/{template}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_index_with_template_post(self, type, template, **kwargs):
+        """
+        Search an index with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_index_with_template_post(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_index_with_template_post_with_http_info(type, template, **kwargs)
+        else:
+            (data) = self.search_index_with_template_post_with_http_info(type, template, **kwargs)
+            return data
+
+    def search_index_with_template_post_with_http_info(self, type, template, **kwargs):
+        """
+        Search an index with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_index_with_template_post_with_http_info(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'template', 'query']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_index_with_template_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_index_with_template_post`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_index_with_template_post`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
 
         header_params = {}
 
@@ -245,7 +1505,7 @@ class SearchApi(object):
             select_header_content_type(['application/json'])
 
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/search/index/{type}/{template}', 'POST',
                                         path_params,
@@ -254,7 +1514,714 @@ class SearchApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='PageResourceMapstringobject',
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_indices_get(self, **kwargs):
+        """
+        Get indices
+        This is a 1 to 1 mapping of a ElasticSearch call to _cat/indices for indices.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_indices_get(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_indices_get_with_http_info(**kwargs)
+        else:
+            (data) = self.search_indices_get_with_http_info(**kwargs)
+            return data
+
+    def search_indices_get_with_http_info(self, **kwargs):
+        """
+        Get indices
+        This is a 1 to 1 mapping of a ElasticSearch call to _cat/indices for indices.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_indices_get_with_http_info(async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_indices_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/indices', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_mappings_get(self, type, **kwargs):
+        """
+        Get mapping with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_mappings_get(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_mappings_get_with_http_info(type, **kwargs)
+        else:
+            (data) = self.search_mappings_get_with_http_info(type, **kwargs)
+            return data
+
+    def search_mappings_get_with_http_info(self, type, **kwargs):
+        """
+        Get mapping with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_mappings_get_with_http_info(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_mappings_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_mappings_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/mappings/{type}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_mappings_with_template_get(self, type, template, **kwargs):
+        """
+        Get mapping with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_mappings_with_template_get(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_mappings_with_template_get_with_http_info(type, template, **kwargs)
+        else:
+            (data) = self.search_mappings_with_template_get_with_http_info(type, template, **kwargs)
+            return data
+
+    def search_mappings_with_template_get_with_http_info(self, type, template, **kwargs):
+        """
+        Get mapping with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_mappings_with_template_get_with_http_info(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'template']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_mappings_with_template_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_mappings_with_template_get`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_mappings_with_template_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/mappings/{type}/{template}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_validate_get(self, type, **kwargs):
+        """
+        Validate matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_validate_get(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_validate_get_with_http_info(type, **kwargs)
+        else:
+            (data) = self.search_validate_get_with_http_info(type, **kwargs)
+            return data
+
+    def search_validate_get_with_http_info(self, type, **kwargs):
+        """
+        Validate matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_validate_get_with_http_info(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_validate_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_validate_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/validate/{type}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_validate_post(self, type, **kwargs):
+        """
+        Validate matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_validate_post(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_validate_post_with_http_info(type, **kwargs)
+        else:
+            (data) = self.search_validate_post_with_http_info(type, **kwargs)
+            return data
+
+    def search_validate_post_with_http_info(self, type, **kwargs):
+        """
+        Validate matches with no template
+        This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_validate_post_with_http_info(type, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'query']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_validate_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_validate_post`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/validate/{type}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_validate_with_template_get(self, type, template, **kwargs):
+        """
+        Validate matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_validate_with_template_get(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_validate_with_template_get_with_http_info(type, template, **kwargs)
+        else:
+            (data) = self.search_validate_with_template_get_with_http_info(type, template, **kwargs)
+            return data
+
+    def search_validate_with_template_get_with_http_info(self, type, template, **kwargs):
+        """
+        Validate matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_validate_with_template_get_with_http_info(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'template']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_validate_with_template_get" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_validate_with_template_get`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_validate_with_template_get`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/validate/{type}/{template}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_validate_with_template_post(self, type, template, **kwargs):
+        """
+        Validate matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_validate_with_template_post(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_validate_with_template_post_with_http_info(type, template, **kwargs)
+        else:
+            (data) = self.search_validate_with_template_post_with_http_info(type, template, **kwargs)
+            return data
+
+    def search_validate_with_template_post_with_http_info(self, type, template, **kwargs):
+        """
+        Validate matches with a template
+        This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html'>API guide</a>
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_validate_with_template_post_with_http_info(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'template', 'query']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_validate_with_template_post" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_validate_with_template_post`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_validate_with_template_post`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/search/validate/{type}/{template}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='object',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

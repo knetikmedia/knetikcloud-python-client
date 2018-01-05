@@ -31,6 +31,86 @@ class TestSearchApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_search_count_get(self):
+        """
+        Test case for search_count_get
+
+        Count matches with no template
+        """
+        pass
+
+    def test_search_count_post(self):
+        """
+        Test case for search_count_post
+
+        Count matches with no template
+        """
+        pass
+
+    def test_search_count_with_template_get(self):
+        """
+        Test case for search_count_with_template_get
+
+        Count matches with a template
+        """
+        pass
+
+    def test_search_count_with_template_post(self):
+        """
+        Test case for search_count_with_template_post
+
+        Count matches with a template
+        """
+        pass
+
+    def test_search_document_get(self):
+        """
+        Test case for search_document_get
+
+        Get document with no template
+        """
+        pass
+
+    def test_search_document_with_template_get(self):
+        """
+        Test case for search_document_with_template_get
+
+        Get document with a template
+        """
+        pass
+
+    def test_search_explain_get(self):
+        """
+        Test case for search_explain_get
+
+        Explain matches with no template
+        """
+        pass
+
+    def test_search_explain_post(self):
+        """
+        Test case for search_explain_post
+
+        Explain matches with no template
+        """
+        pass
+
+    def test_search_explain_with_template_get(self):
+        """
+        Test case for search_explain_with_template_get
+
+        Explain matches with a template
+        """
+        pass
+
+    def test_search_explain_with_template_post(self):
+        """
+        Test case for search_explain_with_template_post
+
+        Explain matches with a template
+        """
+        pass
+
     def test_search_index(self):
         """
         Test case for search_index
@@ -39,11 +119,83 @@ class TestSearchApi(unittest.TestCase):
         """
         pass
 
-    def test_search_index_with_template(self):
+    def test_search_index_get(self):
         """
-        Test case for search_index_with_template
+        Test case for search_index_get
+
+        Search an index with no template
+        """
+        pass
+
+    def test_search_index_with_template_get(self):
+        """
+        Test case for search_index_with_template_get
 
         Search an index with a template
+        """
+        pass
+
+    def test_search_index_with_template_post(self):
+        """
+        Test case for search_index_with_template_post
+
+        Search an index with a template
+        """
+        pass
+
+    def test_search_indices_get(self):
+        """
+        Test case for search_indices_get
+
+        Get indices
+        """
+        pass
+
+    def test_search_mappings_get(self):
+        """
+        Test case for search_mappings_get
+
+        Get mapping with no template
+        """
+        pass
+
+    def test_search_mappings_with_template_get(self):
+        """
+        Test case for search_mappings_with_template_get
+
+        Get mapping with a template
+        """
+        pass
+
+    def test_search_validate_get(self):
+        """
+        Test case for search_validate_get
+
+        Validate matches with no template
+        """
+        pass
+
+    def test_search_validate_post(self):
+        """
+        Test case for search_validate_post
+
+        Validate matches with no template
+        """
+        pass
+
+    def test_search_validate_with_template_get(self):
+        """
+        Test case for search_validate_with_template_get
+
+        Validate matches with a template
+        """
+        pass
+
+    def test_search_validate_with_template_post(self):
+        """
+        Test case for search_validate_with_template_post
+
+        Validate matches with a template
         """
         pass
 

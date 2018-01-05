@@ -32,6 +32,7 @@ class VideoResource(object):
     """
     swagger_types = {
         'active': 'bool',
+        'additional_properties': 'dict(str, ModelProperty)',
         'author': 'SimpleReferenceResourcelong',
         'authored': 'int',
         'banned': 'bool',
@@ -54,6 +55,7 @@ class VideoResource(object):
         'short_description': 'str',
         'size': 'int',
         'tags': 'list[str]',
+        'template': 'str',
         'thumbnail': 'str',
         'updated_date': 'int',
         'uploader': 'SimpleUserResource',
@@ -63,6 +65,7 @@ class VideoResource(object):
 
     attribute_map = {
         'active': 'active',
+        'additional_properties': 'additional_properties',
         'author': 'author',
         'authored': 'authored',
         'banned': 'banned',
@@ -85,6 +88,7 @@ class VideoResource(object):
         'short_description': 'short_description',
         'size': 'size',
         'tags': 'tags',
+        'template': 'template',
         'thumbnail': 'thumbnail',
         'updated_date': 'updated_date',
         'uploader': 'uploader',
@@ -92,12 +96,13 @@ class VideoResource(object):
         'width': 'width'
     }
 
-    def __init__(self, active=None, author=None, authored=None, banned=None, category=None, comments=None, contributors=None, created_date=None, embed=None, extension=None, height=None, id=None, length=None, location=None, long_description=None, mime_type=None, name=None, priority=None, privacy=None, published=None, short_description=None, size=None, tags=None, thumbnail=None, updated_date=None, uploader=None, views=None, width=None):
+    def __init__(self, active=None, additional_properties=None, author=None, authored=None, banned=None, category=None, comments=None, contributors=None, created_date=None, embed=None, extension=None, height=None, id=None, length=None, location=None, long_description=None, mime_type=None, name=None, priority=None, privacy=None, published=None, short_description=None, size=None, tags=None, template=None, thumbnail=None, updated_date=None, uploader=None, views=None, width=None):
         """
         VideoResource - a model defined in Swagger
         """
 
         self._active = None
+        self._additional_properties = None
         self._author = None
         self._authored = None
         self._banned = None
@@ -120,6 +125,7 @@ class VideoResource(object):
         self._short_description = None
         self._size = None
         self._tags = None
+        self._template = None
         self._thumbnail = None
         self._updated_date = None
         self._uploader = None
@@ -129,6 +135,8 @@ class VideoResource(object):
 
         if active is not None:
           self.active = active
+        if additional_properties is not None:
+          self.additional_properties = additional_properties
         if author is not None:
           self.author = author
         if authored is not None:
@@ -167,6 +175,8 @@ class VideoResource(object):
           self.size = size
         if tags is not None:
           self.tags = tags
+        if template is not None:
+          self.template = template
         if thumbnail is not None:
           self.thumbnail = thumbnail
         if updated_date is not None:
@@ -199,6 +209,29 @@ class VideoResource(object):
         """
 
         self._active = active
+
+    @property
+    def additional_properties(self):
+        """
+        Gets the additional_properties of this VideoResource.
+        A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type
+
+        :return: The additional_properties of this VideoResource.
+        :rtype: dict(str, ModelProperty)
+        """
+        return self._additional_properties
+
+    @additional_properties.setter
+    def additional_properties(self, additional_properties):
+        """
+        Sets the additional_properties of this VideoResource.
+        A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type
+
+        :param additional_properties: The additional_properties of this VideoResource.
+        :type: dict(str, ModelProperty)
+        """
+
+        self._additional_properties = additional_properties
 
     @property
     def author(self):
@@ -723,6 +756,29 @@ class VideoResource(object):
         """
 
         self._tags = tags
+
+    @property
+    def template(self):
+        """
+        Gets the template of this VideoResource.
+        A video template this video is validated against (private). May be null and no validation of additional_properties will be done
+
+        :return: The template of this VideoResource.
+        :rtype: str
+        """
+        return self._template
+
+    @template.setter
+    def template(self, template):
+        """
+        Sets the template of this VideoResource.
+        A video template this video is validated against (private). May be null and no validation of additional_properties will be done
+
+        :param template: The template of this VideoResource.
+        :type: str
+        """
+
+        self._template = template
 
     @property
     def thumbnail(self):

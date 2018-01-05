@@ -34,7 +34,7 @@ class Configuration(object):
         Constructor
         """
         # Default Base url
-        self.host = "https://sandbox.knetikcloud.com"
+        self.host = "https://devsandbox.knetikcloud.com"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 

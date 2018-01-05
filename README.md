@@ -94,7 +94,7 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -245,7 +245,6 @@ Class | Method | HTTP request | Description
 *ContentCommentsApi* | [**delete_comment**](docs/ContentCommentsApi.md#delete_comment) | **DELETE** /comments/{id} | Delete a comment
 *ContentCommentsApi* | [**get_comment**](docs/ContentCommentsApi.md#get_comment) | **GET** /comments/{id} | Return a comment
 *ContentCommentsApi* | [**get_comments**](docs/ContentCommentsApi.md#get_comments) | **GET** /comments | Returns a page of comments
-*ContentCommentsApi* | [**search_comments**](docs/ContentCommentsApi.md#search_comments) | **POST** /comments/search | Search the comment index
 *ContentCommentsApi* | [**update_comment**](docs/ContentCommentsApi.md#update_comment) | **PUT** /comments/{id}/content | Update a comment
 *ContentPollsApi* | [**answer_poll**](docs/ContentPollsApi.md#answer_poll) | **POST** /media/polls/{id}/response | Add your vote to a poll
 *ContentPollsApi* | [**create_poll**](docs/ContentPollsApi.md#create_poll) | **POST** /media/polls | Create a new poll
@@ -396,22 +395,27 @@ Class | Method | HTTP request | Description
 *MediaVideosApi* | [**add_video_flag**](docs/MediaVideosApi.md#add_video_flag) | **POST** /media/videos/{video_id}/moderation | Add a new flag
 *MediaVideosApi* | [**add_video_relationships**](docs/MediaVideosApi.md#add_video_relationships) | **POST** /media/videos/{video_id}/related | Adds one or more existing videos as related to this one
 *MediaVideosApi* | [**create_video_disposition**](docs/MediaVideosApi.md#create_video_disposition) | **POST** /media/videos/{video_id}/dispositions | Create a video disposition
+*MediaVideosApi* | [**create_video_template**](docs/MediaVideosApi.md#create_video_template) | **POST** /media/videos/templates | Create a video template
 *MediaVideosApi* | [**delete_video**](docs/MediaVideosApi.md#delete_video) | **DELETE** /media/videos/{id} | Deletes a video from the system if no resources are attached to it
 *MediaVideosApi* | [**delete_video_comment**](docs/MediaVideosApi.md#delete_video_comment) | **DELETE** /media/videos/{video_id}/comments/{id} | Delete a video comment
 *MediaVideosApi* | [**delete_video_disposition**](docs/MediaVideosApi.md#delete_video_disposition) | **DELETE** /media/videos/{video_id}/dispositions/{disposition_id} | Delete a video disposition
 *MediaVideosApi* | [**delete_video_flag**](docs/MediaVideosApi.md#delete_video_flag) | **DELETE** /media/videos/{video_id}/moderation | Delete a flag
 *MediaVideosApi* | [**delete_video_relationship**](docs/MediaVideosApi.md#delete_video_relationship) | **DELETE** /media/videos/{video_id}/related/{id} | Delete a video&#39;s relationship
+*MediaVideosApi* | [**delete_video_template**](docs/MediaVideosApi.md#delete_video_template) | **DELETE** /media/videos/templates/{id} | Delete a video template
 *MediaVideosApi* | [**get_user_videos**](docs/MediaVideosApi.md#get_user_videos) | **GET** /users/{user_id}/videos | Get user videos
 *MediaVideosApi* | [**get_video**](docs/MediaVideosApi.md#get_video) | **GET** /media/videos/{id} | Loads a specific video details
 *MediaVideosApi* | [**get_video_comments**](docs/MediaVideosApi.md#get_video_comments) | **GET** /media/videos/{video_id}/comments | Returns a page of comments for a video
 *MediaVideosApi* | [**get_video_dispositions**](docs/MediaVideosApi.md#get_video_dispositions) | **GET** /media/videos/{video_id}/dispositions | Returns a page of dispositions for a video
 *MediaVideosApi* | [**get_video_relationships**](docs/MediaVideosApi.md#get_video_relationships) | **GET** /media/videos/{video_id}/related | Returns a page of video relationships
+*MediaVideosApi* | [**get_video_template**](docs/MediaVideosApi.md#get_video_template) | **GET** /media/videos/templates/{id} | Get a single video template
+*MediaVideosApi* | [**get_video_templates**](docs/MediaVideosApi.md#get_video_templates) | **GET** /media/videos/templates | List and search video templates
 *MediaVideosApi* | [**get_videos**](docs/MediaVideosApi.md#get_videos) | **GET** /media/videos | Search videos using the documented filters
 *MediaVideosApi* | [**remove_user_from_video_whitelist**](docs/MediaVideosApi.md#remove_user_from_video_whitelist) | **DELETE** /media/videos/{video_id}/whitelist/{id} | Removes a user from a video&#39;s whitelist
 *MediaVideosApi* | [**remove_video_contributor**](docs/MediaVideosApi.md#remove_video_contributor) | **DELETE** /media/videos/{video_id}/contributors/{id} | Removes a contributor from a video
 *MediaVideosApi* | [**update_video**](docs/MediaVideosApi.md#update_video) | **PUT** /media/videos/{id} | Modifies a video&#39;s details
 *MediaVideosApi* | [**update_video_comment**](docs/MediaVideosApi.md#update_video_comment) | **PUT** /media/videos/{video_id}/comments/{id}/content | Update a video comment
 *MediaVideosApi* | [**update_video_relationship**](docs/MediaVideosApi.md#update_video_relationship) | **PUT** /media/videos/{video_id}/related/{id}/relationship_details | Update a video&#39;s relationship details
+*MediaVideosApi* | [**update_video_template**](docs/MediaVideosApi.md#update_video_template) | **PUT** /media/videos/templates/{id} | Update a video template
 *MediaVideosApi* | [**view_video**](docs/MediaVideosApi.md#view_video) | **POST** /media/videos/{id}/views | Increment a video&#39;s view count
 *MessagingApi* | [**send_raw_email**](docs/MessagingApi.md#send_raw_email) | **POST** /messaging/raw-email | Send a raw email to one or more users
 *MessagingApi* | [**send_raw_push**](docs/MessagingApi.md#send_raw_push) | **POST** /messaging/raw-push | Send a raw push notification
@@ -475,8 +479,27 @@ Class | Method | HTTP request | Description
 *ReportingUsageApi* | [**get_usage_by_year**](docs/ReportingUsageApi.md#get_usage_by_year) | **GET** /reporting/usage/year | Returns aggregated endpoint usage information by year
 *ReportingUsageApi* | [**get_usage_endpoints**](docs/ReportingUsageApi.md#get_usage_endpoints) | **GET** /reporting/usage/endpoints | Returns list of endpoints called (method and url)
 *ReportingUsersApi* | [**get_user_registrations**](docs/ReportingUsersApi.md#get_user_registrations) | **GET** /reporting/users/registrations | Get user registration info
+*SearchApi* | [**search_count_get**](docs/SearchApi.md#search_count_get) | **GET** /search/count/{type} | Count matches with no template
+*SearchApi* | [**search_count_post**](docs/SearchApi.md#search_count_post) | **POST** /search/count/{type} | Count matches with no template
+*SearchApi* | [**search_count_with_template_get**](docs/SearchApi.md#search_count_with_template_get) | **GET** /search/count/{type}/{template} | Count matches with a template
+*SearchApi* | [**search_count_with_template_post**](docs/SearchApi.md#search_count_with_template_post) | **POST** /search/count/{type}/{template} | Count matches with a template
+*SearchApi* | [**search_document_get**](docs/SearchApi.md#search_document_get) | **GET** /search/documents/{type}/{id} | Get document with no template
+*SearchApi* | [**search_document_with_template_get**](docs/SearchApi.md#search_document_with_template_get) | **GET** /search/documents/{type}/{template}/{id} | Get document with a template
+*SearchApi* | [**search_explain_get**](docs/SearchApi.md#search_explain_get) | **GET** /search/explain/{type}/{id} | Explain matches with no template
+*SearchApi* | [**search_explain_post**](docs/SearchApi.md#search_explain_post) | **POST** /search/explain/{type}/{id} | Explain matches with no template
+*SearchApi* | [**search_explain_with_template_get**](docs/SearchApi.md#search_explain_with_template_get) | **GET** /search/explain/{type}/{template}/{id} | Explain matches with a template
+*SearchApi* | [**search_explain_with_template_post**](docs/SearchApi.md#search_explain_with_template_post) | **POST** /search/explain/{type}/{template}/{id} | Explain matches with a template
 *SearchApi* | [**search_index**](docs/SearchApi.md#search_index) | **POST** /search/index/{type} | Search an index with no template
-*SearchApi* | [**search_index_with_template**](docs/SearchApi.md#search_index_with_template) | **POST** /search/index/{type}/{template} | Search an index with a template
+*SearchApi* | [**search_index_get**](docs/SearchApi.md#search_index_get) | **GET** /search/index/{type} | Search an index with no template
+*SearchApi* | [**search_index_with_template_get**](docs/SearchApi.md#search_index_with_template_get) | **GET** /search/index/{type}/{template} | Search an index with a template
+*SearchApi* | [**search_index_with_template_post**](docs/SearchApi.md#search_index_with_template_post) | **POST** /search/index/{type}/{template} | Search an index with a template
+*SearchApi* | [**search_indices_get**](docs/SearchApi.md#search_indices_get) | **GET** /search/indices | Get indices
+*SearchApi* | [**search_mappings_get**](docs/SearchApi.md#search_mappings_get) | **GET** /search/mappings/{type} | Get mapping with no template
+*SearchApi* | [**search_mappings_with_template_get**](docs/SearchApi.md#search_mappings_with_template_get) | **GET** /search/mappings/{type}/{template} | Get mapping with a template
+*SearchApi* | [**search_validate_get**](docs/SearchApi.md#search_validate_get) | **GET** /search/validate/{type} | Validate matches with no template
+*SearchApi* | [**search_validate_post**](docs/SearchApi.md#search_validate_post) | **POST** /search/validate/{type} | Validate matches with no template
+*SearchApi* | [**search_validate_with_template_get**](docs/SearchApi.md#search_validate_with_template_get) | **GET** /search/validate/{type}/{template} | Validate matches with a template
+*SearchApi* | [**search_validate_with_template_post**](docs/SearchApi.md#search_validate_with_template_post) | **POST** /search/validate/{type}/{template} | Validate matches with a template
 *SocialFacebookApi* | [**link_accounts**](docs/SocialFacebookApi.md#link_accounts) | **POST** /social/facebook/users | Link facebook account
 *SocialGoogleApi* | [**link_accounts1**](docs/SocialGoogleApi.md#link_accounts1) | **POST** /social/google/users | Link google account
 *StoreApi* | [**create_item_template**](docs/StoreApi.md#create_item_template) | **POST** /store/items/templates | Create an item template
@@ -798,7 +821,6 @@ Class | Method | HTTP request | Description
  - [LookupResource](docs/LookupResource.md)
  - [Maintenance](docs/Maintenance.md)
  - [MapResource](docs/MapResource.md)
- - [Mapstringobject](docs/Mapstringobject.md)
  - [MetricResource](docs/MetricResource.md)
  - [ModelProperty](docs/ModelProperty.md)
  - [MongoDatabaseConfig](docs/MongoDatabaseConfig.md)
@@ -853,7 +875,6 @@ Class | Method | HTTP request | Description
  - [PageResourceItemTemplateResource](docs/PageResourceItemTemplateResource.md)
  - [PageResourceLevelingResource](docs/PageResourceLevelingResource.md)
  - [PageResourceLocationLogResource](docs/PageResourceLocationLogResource.md)
- - [PageResourceMapstringobject](docs/PageResourceMapstringobject.md)
  - [PageResourceOauthAccessTokenResource](docs/PageResourceOauthAccessTokenResource.md)
  - [PageResourceObjectResource](docs/PageResourceObjectResource.md)
  - [PageResourcePaymentMethodTypeResource](docs/PageResourcePaymentMethodTypeResource.md)
