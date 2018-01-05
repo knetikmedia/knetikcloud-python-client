@@ -39,6 +39,7 @@ class GroupResource(object):
         'parent': 'str',
         'status': 'str',
         'sub_member_count': 'int',
+        'tags': 'list[str]',
         'template': 'str',
         'unique_name': 'str'
     }
@@ -52,11 +53,12 @@ class GroupResource(object):
         'parent': 'parent',
         'status': 'status',
         'sub_member_count': 'sub_member_count',
+        'tags': 'tags',
         'template': 'template',
         'unique_name': 'unique_name'
     }
 
-    def __init__(self, additional_properties=None, description=None, member_count=None, message_of_the_day=None, name=None, parent=None, status=None, sub_member_count=None, template=None, unique_name=None):
+    def __init__(self, additional_properties=None, description=None, member_count=None, message_of_the_day=None, name=None, parent=None, status=None, sub_member_count=None, tags=None, template=None, unique_name=None):
         """
         GroupResource - a model defined in Swagger
         """
@@ -69,6 +71,7 @@ class GroupResource(object):
         self._parent = None
         self._status = None
         self._sub_member_count = None
+        self._tags = None
         self._template = None
         self._unique_name = None
         self.discriminator = None
@@ -87,9 +90,12 @@ class GroupResource(object):
         self.status = status
         if sub_member_count is not None:
           self.sub_member_count = sub_member_count
+        if tags is not None:
+          self.tags = tags
         if template is not None:
           self.template = template
-        self.unique_name = unique_name
+        if unique_name is not None:
+          self.unique_name = unique_name
 
     @property
     def additional_properties(self):
@@ -286,6 +292,29 @@ class GroupResource(object):
         self._sub_member_count = sub_member_count
 
     @property
+    def tags(self):
+        """
+        Gets the tags of this GroupResource.
+        Tags for search
+
+        :return: The tags of this GroupResource.
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """
+        Sets the tags of this GroupResource.
+        Tags for search
+
+        :param tags: The tags of this GroupResource.
+        :type: list[str]
+        """
+
+        self._tags = tags
+
+    @property
     def template(self):
         """
         Gets the template of this GroupResource.
@@ -312,7 +341,7 @@ class GroupResource(object):
     def unique_name(self):
         """
         Gets the unique_name of this GroupResource.
-        Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created
+        Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created. Default: random UUID
 
         :return: The unique_name of this GroupResource.
         :rtype: str
@@ -323,13 +352,11 @@ class GroupResource(object):
     def unique_name(self, unique_name):
         """
         Sets the unique_name of this GroupResource.
-        Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created
+        Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created. Default: random UUID
 
         :param unique_name: The unique_name of this GroupResource.
         :type: str
         """
-        if unique_name is None:
-            raise ValueError("Invalid value for `unique_name`, must not be `None`")
 
         self._unique_name = unique_name
 

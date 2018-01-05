@@ -19,32 +19,24 @@ import unittest
 
 import knetik_cloud
 from knetik_cloud.rest import ApiException
-from knetik_cloud.apis.search_api import SearchApi
+from knetik_cloud.models.simple_group_resource import SimpleGroupResource
 
 
-class TestSearchApi(unittest.TestCase):
-    """ SearchApi unit test stubs """
+class TestSimpleGroupResource(unittest.TestCase):
+    """ SimpleGroupResource unit test stubs """
 
     def setUp(self):
-        self.api = knetik_cloud.apis.search_api.SearchApi()
+        pass
 
     def tearDown(self):
         pass
 
-    def test_search_index(self):
+    def testSimpleGroupResource(self):
         """
-        Test case for search_index
-
-        Search an index with no template
+        Test SimpleGroupResource
         """
-        pass
-
-    def test_search_index_with_template(self):
-        """
-        Test case for search_index_with_template
-
-        Search an index with a template
-        """
+        # FIXME: construct object with mandatory attributes with example values
+        #model = knetik_cloud.models.simple_group_resource.SimpleGroupResource()
         pass
 
 

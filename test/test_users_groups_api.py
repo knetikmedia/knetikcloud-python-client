@@ -75,7 +75,7 @@ class TestUsersGroupsApi(unittest.TestCase):
         """
         Test case for delete_group
 
-        Removes a group from the system IF no resources are attached to it
+        Removes a group from the system
         """
         pass
 
@@ -100,6 +100,14 @@ class TestUsersGroupsApi(unittest.TestCase):
         Test case for get_group
 
         Loads a specific group's details
+        """
+        pass
+
+    def test_get_group_ancestors(self):
+        """
+        Test case for get_group_ancestors
+
+        Get group ancestors
         """
         pass
 

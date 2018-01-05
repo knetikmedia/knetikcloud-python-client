@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_object_item**
-> update_object_item(template_id, entitlement_id, cascade=cascade, object_item=object_item)
+> update_object_item(template_id, object_id, cascade=cascade, object_item=object_item)
 
 Update an object
 
@@ -485,13 +485,13 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = knetik_cloud.ObjectsApi(knetik_cloud.ApiClient(configuration))
 template_id = 'template_id_example' # str | The id of the template this object is part of
-entitlement_id = 56 # int | The id of the entitlement
+object_id = 56 # int | The id of the object
 cascade = false # bool | Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. (optional) (default to false)
-object_item = knetik_cloud.EntitlementItem() # EntitlementItem | The object item object (optional)
+object_item = knetik_cloud.ObjectResource() # ObjectResource | The object item object (optional)
 
 try: 
     # Update an object
-    api_instance.update_object_item(template_id, entitlement_id, cascade=cascade, object_item=object_item)
+    api_instance.update_object_item(template_id, object_id, cascade=cascade, object_item=object_item)
 except ApiException as e:
     print("Exception when calling ObjectsApi->update_object_item: %s\n" % e)
 ```
@@ -501,9 +501,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template_id** | **str**| The id of the template this object is part of | 
- **entitlement_id** | **int**| The id of the entitlement | 
+ **object_id** | **int**| The id of the object | 
  **cascade** | **bool**| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **object_item** | [**EntitlementItem**](EntitlementItem.md)| The object item object | [optional] 
+ **object_item** | [**ObjectResource**](ObjectResource.md)| The object item object | [optional] 
 
 ### Return type
 

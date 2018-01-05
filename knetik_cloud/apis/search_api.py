@@ -37,7 +37,7 @@ class SearchApi(object):
 
     def search_index(self, type, **kwargs):
         """
-        Search an index
+        Search an index with no template
         The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -62,7 +62,7 @@ class SearchApi(object):
 
     def search_index_with_http_info(self, type, **kwargs):
         """
-        Search an index
+        Search an index with no template
         The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
@@ -131,6 +131,123 @@ class SearchApi(object):
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/search/index/{type}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PageResourceMapstringobject',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def search_index_with_template(self, type, template, **kwargs):
+        """
+        Search an index with a template
+        The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_index_with_template(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :param int size: The number of documents returned per page
+        :param int page: The number of the page returned, starting with 1
+        :return: PageResourceMapstringobject
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.search_index_with_template_with_http_info(type, template, **kwargs)
+        else:
+            (data) = self.search_index_with_template_with_http_info(type, template, **kwargs)
+            return data
+
+    def search_index_with_template_with_http_info(self, type, template, **kwargs):
+        """
+        Search an index with a template
+        The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.search_index_with_template_with_http_info(type, template, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type: The index type (required)
+        :param str template: The index template (required)
+        :param object query: The query to be used for the search
+        :param int size: The number of documents returned per page
+        :param int page: The number of the page returned, starting with 1
+        :return: PageResourceMapstringobject
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type', 'template', 'query', 'size', 'page']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method search_index_with_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type' is set
+        if ('type' not in params) or (params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `search_index_with_template`")
+        # verify the required parameter 'template' is set
+        if ('template' not in params) or (params['template'] is None):
+            raise ValueError("Missing the required parameter `template` when calling `search_index_with_template`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type' in params:
+            path_params['type'] = params['type']
+        if 'template' in params:
+            path_params['template'] = params['template']
+
+        query_params = []
+        if 'size' in params:
+            query_params.append(('size', params['size']))
+        if 'page' in params:
+            query_params.append(('page', params['page']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'query' in params:
+            body_params = params['query']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api('/search/index/{type}/{template}', 'POST',
                                         path_params,
                                         query_params,
                                         header_params,

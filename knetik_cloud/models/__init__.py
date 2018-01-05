@@ -273,6 +273,7 @@ from .schedule import Schedule
 from .selected_setting_request import SelectedSettingRequest
 from .selected_setting_resource import SelectedSettingResource
 from .setting_option import SettingOption
+from .simple_group_resource import SimpleGroupResource
 from .simple_reference_resourceint import SimpleReferenceResourceint
 from .simple_reference_resourcelong import SimpleReferenceResourcelong
 from .simple_reference_resourceobject import SimpleReferenceResourceobject

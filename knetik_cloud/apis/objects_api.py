@@ -847,49 +847,49 @@ class ObjectsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def update_object_item(self, template_id, entitlement_id, **kwargs):
+    def update_object_item(self, template_id, object_id, **kwargs):
         """
         Update an object
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_object_item(template_id, entitlement_id, async=True)
+        >>> thread = api.update_object_item(template_id, object_id, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str template_id: The id of the template this object is part of (required)
-        :param int entitlement_id: The id of the entitlement (required)
+        :param int object_id: The id of the object (required)
         :param bool cascade: Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
-        :param EntitlementItem object_item: The object item object
+        :param ObjectResource object_item: The object item object
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.update_object_item_with_http_info(template_id, entitlement_id, **kwargs)
+            return self.update_object_item_with_http_info(template_id, object_id, **kwargs)
         else:
-            (data) = self.update_object_item_with_http_info(template_id, entitlement_id, **kwargs)
+            (data) = self.update_object_item_with_http_info(template_id, object_id, **kwargs)
             return data
 
-    def update_object_item_with_http_info(self, template_id, entitlement_id, **kwargs):
+    def update_object_item_with_http_info(self, template_id, object_id, **kwargs):
         """
         Update an object
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_object_item_with_http_info(template_id, entitlement_id, async=True)
+        >>> thread = api.update_object_item_with_http_info(template_id, object_id, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str template_id: The id of the template this object is part of (required)
-        :param int entitlement_id: The id of the entitlement (required)
+        :param int object_id: The id of the object (required)
         :param bool cascade: Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
-        :param EntitlementItem object_item: The object item object
+        :param ObjectResource object_item: The object item object
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['template_id', 'entitlement_id', 'cascade', 'object_item']
+        all_params = ['template_id', 'object_id', 'cascade', 'object_item']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -907,9 +907,9 @@ class ObjectsApi(object):
         # verify the required parameter 'template_id' is set
         if ('template_id' not in params) or (params['template_id'] is None):
             raise ValueError("Missing the required parameter `template_id` when calling `update_object_item`")
-        # verify the required parameter 'entitlement_id' is set
-        if ('entitlement_id' not in params) or (params['entitlement_id'] is None):
-            raise ValueError("Missing the required parameter `entitlement_id` when calling `update_object_item`")
+        # verify the required parameter 'object_id' is set
+        if ('object_id' not in params) or (params['object_id'] is None):
+            raise ValueError("Missing the required parameter `object_id` when calling `update_object_item`")
 
 
         collection_formats = {}
@@ -917,8 +917,8 @@ class ObjectsApi(object):
         path_params = {}
         if 'template_id' in params:
             path_params['template_id'] = params['template_id']
-        if 'entitlement_id' in params:
-            path_params['entitlement_id'] = params['entitlement_id']
+        if 'object_id' in params:
+            path_params['object_id'] = params['object_id']
 
         query_params = []
         if 'cascade' in params:

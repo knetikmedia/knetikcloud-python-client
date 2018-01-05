@@ -117,7 +117,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_currencies**
-> PageResourceCurrencyResource get_currencies(filter_enabled_currencies=filter_enabled_currencies, filter_type=filter_type, size=size, page=page, order=order)
+> PageResourceCurrencyResource get_currencies(filter_default=filter_default, filter_enabled_currencies=filter_enabled_currencies, filter_type=filter_type, size=size, page=page, order=order)
 
 List and search currencies
 
@@ -138,6 +138,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = knetik_cloud.CurrenciesApi(knetik_cloud.ApiClient(configuration))
+filter_default = true # bool | Filter for the one currency that is set as default (true), or all that are not (false) (optional)
 filter_enabled_currencies = true # bool | Filter for alternate currencies setup explicitely in system config (optional)
 filter_type = 'filter_type_example' # str | Filter currencies by type.  Allowable values: ('virtual', 'real') (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -146,7 +147,7 @@ order = 'name:ASC' # str | A comma separated list of sorting requirements in pri
 
 try: 
     # List and search currencies
-    api_response = api_instance.get_currencies(filter_enabled_currencies=filter_enabled_currencies, filter_type=filter_type, size=size, page=page, order=order)
+    api_response = api_instance.get_currencies(filter_default=filter_default, filter_enabled_currencies=filter_enabled_currencies, filter_type=filter_type, size=size, page=page, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CurrenciesApi->get_currencies: %s\n" % e)
@@ -156,6 +157,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filter_default** | **bool**| Filter for the one currency that is set as default (true), or all that are not (false) | [optional] 
  **filter_enabled_currencies** | **bool**| Filter for alternate currencies setup explicitely in system config | [optional] 
  **filter_type** | **str**| Filter currencies by type.  Allowable values: (&#39;virtual&#39;, &#39;real&#39;) | [optional] 
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]

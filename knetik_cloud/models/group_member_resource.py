@@ -32,56 +32,56 @@ class GroupMemberResource(object):
     """
     swagger_types = {
         'additional_properties': 'dict(str, ModelProperty)',
-        'avatar_url': 'str',
-        'display_name': 'str',
-        'id': 'int',
+        'group': 'SimpleGroupResource',
+        'implicit': 'bool',
+        'membership_id': 'int',
         'order': 'str',
         'status': 'str',
         'template': 'str',
-        'username': 'str'
+        'user': 'SimpleUserResource'
     }
 
     attribute_map = {
         'additional_properties': 'additional_properties',
-        'avatar_url': 'avatar_url',
-        'display_name': 'display_name',
-        'id': 'id',
+        'group': 'group',
+        'implicit': 'implicit',
+        'membership_id': 'membership_id',
         'order': 'order',
         'status': 'status',
         'template': 'template',
-        'username': 'username'
+        'user': 'user'
     }
 
-    def __init__(self, additional_properties=None, avatar_url=None, display_name=None, id=None, order=None, status=None, template=None, username=None):
+    def __init__(self, additional_properties=None, group=None, implicit=None, membership_id=None, order=None, status=None, template=None, user=None):
         """
         GroupMemberResource - a model defined in Swagger
         """
 
         self._additional_properties = None
-        self._avatar_url = None
-        self._display_name = None
-        self._id = None
+        self._group = None
+        self._implicit = None
+        self._membership_id = None
         self._order = None
         self._status = None
         self._template = None
-        self._username = None
+        self._user = None
         self.discriminator = None
 
         if additional_properties is not None:
           self.additional_properties = additional_properties
-        if avatar_url is not None:
-          self.avatar_url = avatar_url
-        if display_name is not None:
-          self.display_name = display_name
-        self.id = id
+        if group is not None:
+          self.group = group
+        if implicit is not None:
+          self.implicit = implicit
+        if membership_id is not None:
+          self.membership_id = membership_id
         if order is not None:
           self.order = order
         if status is not None:
           self.status = status
         if template is not None:
           self.template = template
-        if username is not None:
-          self.username = username
+        self.user = user
 
     @property
     def additional_properties(self):
@@ -107,75 +107,73 @@ class GroupMemberResource(object):
         self._additional_properties = additional_properties
 
     @property
-    def avatar_url(self):
+    def group(self):
         """
-        Gets the avatar_url of this GroupMemberResource.
-        The url of the user's avatar image
+        Gets the group of this GroupMemberResource.
+        The group. Id is the unique name
 
-        :return: The avatar_url of this GroupMemberResource.
-        :rtype: str
+        :return: The group of this GroupMemberResource.
+        :rtype: SimpleGroupResource
         """
-        return self._avatar_url
+        return self._group
 
-    @avatar_url.setter
-    def avatar_url(self, avatar_url):
+    @group.setter
+    def group(self, group):
         """
-        Sets the avatar_url of this GroupMemberResource.
-        The url of the user's avatar image
+        Sets the group of this GroupMemberResource.
+        The group. Id is the unique name
 
-        :param avatar_url: The avatar_url of this GroupMemberResource.
-        :type: str
+        :param group: The group of this GroupMemberResource.
+        :type: SimpleGroupResource
         """
 
-        self._avatar_url = avatar_url
+        self._group = group
 
     @property
-    def display_name(self):
+    def implicit(self):
         """
-        Gets the display_name of this GroupMemberResource.
-        The public username of the user
+        Gets the implicit of this GroupMemberResource.
+        Whether this membership is explicit (the user was added directly to the group) or implicit (the user was added only to one or more child groups)
 
-        :return: The display_name of this GroupMemberResource.
-        :rtype: str
+        :return: The implicit of this GroupMemberResource.
+        :rtype: bool
         """
-        return self._display_name
+        return self._implicit
 
-    @display_name.setter
-    def display_name(self, display_name):
+    @implicit.setter
+    def implicit(self, implicit):
         """
-        Sets the display_name of this GroupMemberResource.
-        The public username of the user
+        Sets the implicit of this GroupMemberResource.
+        Whether this membership is explicit (the user was added directly to the group) or implicit (the user was added only to one or more child groups)
 
-        :param display_name: The display_name of this GroupMemberResource.
-        :type: str
+        :param implicit: The implicit of this GroupMemberResource.
+        :type: bool
         """
 
-        self._display_name = display_name
+        self._implicit = implicit
 
     @property
-    def id(self):
+    def membership_id(self):
         """
-        Gets the id of this GroupMemberResource.
-        The id of the user
+        Gets the membership_id of this GroupMemberResource.
+        The id of the membership entry
 
-        :return: The id of this GroupMemberResource.
+        :return: The membership_id of this GroupMemberResource.
         :rtype: int
         """
-        return self._id
+        return self._membership_id
 
-    @id.setter
-    def id(self, id):
+    @membership_id.setter
+    def membership_id(self, membership_id):
         """
-        Sets the id of this GroupMemberResource.
-        The id of the user
+        Sets the membership_id of this GroupMemberResource.
+        The id of the membership entry
 
-        :param id: The id of this GroupMemberResource.
+        :param membership_id: The membership_id of this GroupMemberResource.
         :type: int
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")
 
-        self._id = id
+        self._membership_id = membership_id
 
     @property
     def order(self):
@@ -253,27 +251,29 @@ class GroupMemberResource(object):
         self._template = template
 
     @property
-    def username(self):
+    def user(self):
         """
-        Gets the username of this GroupMemberResource.
-        The username of the user
+        Gets the user of this GroupMemberResource.
+        The user
 
-        :return: The username of this GroupMemberResource.
-        :rtype: str
+        :return: The user of this GroupMemberResource.
+        :rtype: SimpleUserResource
         """
-        return self._username
+        return self._user
 
-    @username.setter
-    def username(self, username):
+    @user.setter
+    def user(self, user):
         """
-        Sets the username of this GroupMemberResource.
-        The username of the user
+        Sets the user of this GroupMemberResource.
+        The user
 
-        :param username: The username of this GroupMemberResource.
-        :type: str
+        :param user: The user of this GroupMemberResource.
+        :type: SimpleUserResource
         """
+        if user is None:
+            raise ValueError("Invalid value for `user`, must not be `None`")
 
-        self._username = username
+        self._user = user
 
     def to_dict(self):
         """

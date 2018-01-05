@@ -526,7 +526,8 @@ class UsersGroupsApi(object):
 
     def delete_group(self, unique_name, **kwargs):
         """
-        Removes a group from the system IF no resources are attached to it
+        Removes a group from the system
+        All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_group(unique_name, async=True)
@@ -547,7 +548,8 @@ class UsersGroupsApi(object):
 
     def delete_group_with_http_info(self, unique_name, **kwargs):
         """
-        Removes a group from the system IF no resources are attached to it
+        Removes a group from the system
+        All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_group_with_http_info(unique_name, async=True)
@@ -913,6 +915,104 @@ class UsersGroupsApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='GroupResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_group_ancestors(self, unique_name, **kwargs):
+        """
+        Get group ancestors
+        Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_ancestors(unique_name, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str unique_name: The group unique name (required)
+        :return: list[GroupResource]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_group_ancestors_with_http_info(unique_name, **kwargs)
+        else:
+            (data) = self.get_group_ancestors_with_http_info(unique_name, **kwargs)
+            return data
+
+    def get_group_ancestors_with_http_info(self, unique_name, **kwargs):
+        """
+        Get group ancestors
+        Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_ancestors_with_http_info(unique_name, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str unique_name: The group unique name (required)
+        :return: list[GroupResource]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['unique_name']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_group_ancestors" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'unique_name' is set
+        if ('unique_name' not in params) or (params['unique_name'] is None):
+            raise ValueError("Missing the required parameter `unique_name` when calling `get_group_ancestors`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'unique_name' in params:
+            path_params['unique_name'] = params['unique_name']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api('/users/groups/{unique_name}/ancestors', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='list[GroupResource]',
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),
@@ -1856,6 +1956,7 @@ class UsersGroupsApi(object):
     def update_group(self, unique_name, **kwargs):
         """
         Update a group
+        If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group(unique_name, async=True)
@@ -1878,6 +1979,7 @@ class UsersGroupsApi(object):
     def update_group_with_http_info(self, unique_name, **kwargs):
         """
         Update a group
+        If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_with_http_info(unique_name, async=True)

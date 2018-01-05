@@ -4,13 +4,14 @@ All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**search_index**](SearchApi.md#search_index) | **POST** /search/index/{type} | Search an index
+[**search_index**](SearchApi.md#search_index) | **POST** /search/index/{type} | Search an index with no template
+[**search_index_with_template**](SearchApi.md#search_index_with_template) | **POST** /search/index/{type}/{template} | Search an index with a template
 
 
 # **search_index**
 > PageResourceMapstringobject search_index(type, query=query, size=size, page=page)
 
-Search an index
+Search an index with no template
 
 The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
 
@@ -37,7 +38,7 @@ size = 25 # int | The number of documents returned per page (optional) (default 
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
 
 try: 
-    # Search an index
+    # Search an index with no template
     api_response = api_instance.search_index(type, query=query, size=size, page=page)
     pprint(api_response)
 except ApiException as e:
@@ -60,6 +61,62 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_index_with_template**
+> PageResourceMapstringobject search_index_with_template(type, template, query=query, size=size, page=page)
+
+Search an index with a template
+
+The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = knetik_cloud.SearchApi()
+type = 'type_example' # str | The index type
+template = 'template_example' # str | The index template
+query = NULL # object | The query to be used for the search (optional)
+size = 25 # int | The number of documents returned per page (optional) (default to 25)
+page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
+
+try: 
+    # Search an index with a template
+    api_response = api_instance.search_index_with_template(type, template, query=query, size=size, page=page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_index_with_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | **str**| The index type | 
+ **template** | **str**| The index template | 
+ **query** | **object**| The query to be used for the search | [optional] 
+ **size** | **int**| The number of documents returned per page | [optional] [default to 25]
+ **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
+
+### Return type
+
+[**PageResourceMapstringobject**](PageResourceMapstringobject.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

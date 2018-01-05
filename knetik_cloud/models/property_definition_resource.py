@@ -31,15 +31,25 @@ class PropertyDefinitionResource(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'description': 'str',
         'field_list': 'PropertyFieldListResource',
+        'friendly_name': 'str',
         'name': 'str',
+        'option_label_path': 'str',
+        'option_value_path': 'str',
+        'options_url': 'str',
         'required': 'bool',
         'type': 'str'
     }
 
     attribute_map = {
+        'description': 'description',
         'field_list': 'field_list',
+        'friendly_name': 'friendly_name',
         'name': 'name',
+        'option_label_path': 'option_label_path',
+        'option_value_path': 'option_value_path',
+        'options_url': 'options_url',
         'required': 'required',
         'type': 'type'
     }
@@ -64,22 +74,60 @@ class PropertyDefinitionResource(object):
         'integer': 'IntegerPropertyDefinitionResource'
     }
 
-    def __init__(self, field_list=None, name=None, required=None, type=None):
+    def __init__(self, description=None, field_list=None, friendly_name=None, name=None, option_label_path=None, option_value_path=None, options_url=None, required=None, type=None):
         """
         PropertyDefinitionResource - a model defined in Swagger
         """
 
+        self._description = None
         self._field_list = None
+        self._friendly_name = None
         self._name = None
+        self._option_label_path = None
+        self._option_value_path = None
+        self._options_url = None
         self._required = None
         self._type = None
         self.discriminator = 'type'
 
+        if description is not None:
+          self.description = description
         if field_list is not None:
           self.field_list = field_list
+        if friendly_name is not None:
+          self.friendly_name = friendly_name
         self.name = name
+        if option_label_path is not None:
+          self.option_label_path = option_label_path
+        if option_value_path is not None:
+          self.option_value_path = option_value_path
+        if options_url is not None:
+          self.options_url = options_url
         self.required = required
         self.type = type
+
+    @property
+    def description(self):
+        """
+        Gets the description of this PropertyDefinitionResource.
+        The description of the property
+
+        :return: The description of this PropertyDefinitionResource.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """
+        Sets the description of this PropertyDefinitionResource.
+        The description of the property
+
+        :param description: The description of this PropertyDefinitionResource.
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def field_list(self):
@@ -105,6 +153,29 @@ class PropertyDefinitionResource(object):
         self._field_list = field_list
 
     @property
+    def friendly_name(self):
+        """
+        Gets the friendly_name of this PropertyDefinitionResource.
+        The friendly front-facing name of the property
+
+        :return: The friendly_name of this PropertyDefinitionResource.
+        :rtype: str
+        """
+        return self._friendly_name
+
+    @friendly_name.setter
+    def friendly_name(self, friendly_name):
+        """
+        Sets the friendly_name of this PropertyDefinitionResource.
+        The friendly front-facing name of the property
+
+        :param friendly_name: The friendly_name of this PropertyDefinitionResource.
+        :type: str
+        """
+
+        self._friendly_name = friendly_name
+
+    @property
     def name(self):
         """
         Gets the name of this PropertyDefinitionResource.
@@ -128,6 +199,75 @@ class PropertyDefinitionResource(object):
             raise ValueError("Invalid value for `name`, must not be `None`")
 
         self._name = name
+
+    @property
+    def option_label_path(self):
+        """
+        Gets the option_label_path of this PropertyDefinitionResource.
+        The JSON path to the option label
+
+        :return: The option_label_path of this PropertyDefinitionResource.
+        :rtype: str
+        """
+        return self._option_label_path
+
+    @option_label_path.setter
+    def option_label_path(self, option_label_path):
+        """
+        Sets the option_label_path of this PropertyDefinitionResource.
+        The JSON path to the option label
+
+        :param option_label_path: The option_label_path of this PropertyDefinitionResource.
+        :type: str
+        """
+
+        self._option_label_path = option_label_path
+
+    @property
+    def option_value_path(self):
+        """
+        Gets the option_value_path of this PropertyDefinitionResource.
+        The JSON path to the option value
+
+        :return: The option_value_path of this PropertyDefinitionResource.
+        :rtype: str
+        """
+        return self._option_value_path
+
+    @option_value_path.setter
+    def option_value_path(self, option_value_path):
+        """
+        Sets the option_value_path of this PropertyDefinitionResource.
+        The JSON path to the option value
+
+        :param option_value_path: The option_value_path of this PropertyDefinitionResource.
+        :type: str
+        """
+
+        self._option_value_path = option_value_path
+
+    @property
+    def options_url(self):
+        """
+        Gets the options_url of this PropertyDefinitionResource.
+        URL of service containing the property options (assumed JSON array)
+
+        :return: The options_url of this PropertyDefinitionResource.
+        :rtype: str
+        """
+        return self._options_url
+
+    @options_url.setter
+    def options_url(self, options_url):
+        """
+        Sets the options_url of this PropertyDefinitionResource.
+        URL of service containing the property options (assumed JSON array)
+
+        :param options_url: The options_url of this PropertyDefinitionResource.
+        :type: str
+        """
+
+        self._options_url = options_url
 
     @property
     def required(self):

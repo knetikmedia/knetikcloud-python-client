@@ -233,6 +233,7 @@ class CurrenciesApi(object):
         >>> result = thread.get()
 
         :param async bool
+        :param bool filter_default: Filter for the one currency that is set as default (true), or all that are not (false)
         :param bool filter_enabled_currencies: Filter for alternate currencies setup explicitely in system config
         :param str filter_type: Filter currencies by type.  Allowable values: ('virtual', 'real')
         :param int size: The number of objects returned per page
@@ -258,6 +259,7 @@ class CurrenciesApi(object):
         >>> result = thread.get()
 
         :param async bool
+        :param bool filter_default: Filter for the one currency that is set as default (true), or all that are not (false)
         :param bool filter_enabled_currencies: Filter for alternate currencies setup explicitely in system config
         :param str filter_type: Filter currencies by type.  Allowable values: ('virtual', 'real')
         :param int size: The number of objects returned per page
@@ -268,7 +270,7 @@ class CurrenciesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['filter_enabled_currencies', 'filter_type', 'size', 'page', 'order']
+        all_params = ['filter_default', 'filter_enabled_currencies', 'filter_type', 'size', 'page', 'order']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -290,6 +292,8 @@ class CurrenciesApi(object):
         path_params = {}
 
         query_params = []
+        if 'filter_default' in params:
+            query_params.append(('filter_default', params['filter_default']))
         if 'filter_enabled_currencies' in params:
             query_params.append(('filter_enabled_currencies', params['filter_enabled_currencies']))
         if 'filter_type' in params:

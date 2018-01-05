@@ -37,9 +37,11 @@ class BreRule(object):
         'description': 'str',
         'enabled': 'bool',
         'end_date': 'int',
+        'evaluation_count': 'int',
         'event_name': 'str',
         'id': 'str',
         'name': 'str',
+        'run_count': 'int',
         'sort': 'int',
         'start_date': 'int',
         'system_rule': 'bool'
@@ -52,15 +54,17 @@ class BreRule(object):
         'description': 'description',
         'enabled': 'enabled',
         'end_date': 'end_date',
+        'evaluation_count': 'evaluation_count',
         'event_name': 'event_name',
         'id': 'id',
         'name': 'name',
+        'run_count': 'run_count',
         'sort': 'sort',
         'start_date': 'start_date',
         'system_rule': 'system_rule'
     }
 
-    def __init__(self, actions=None, condition=None, condition_text=None, description=None, enabled=None, end_date=None, event_name=None, id=None, name=None, sort=None, start_date=None, system_rule=None):
+    def __init__(self, actions=None, condition=None, condition_text=None, description=None, enabled=None, end_date=None, evaluation_count=None, event_name=None, id=None, name=None, run_count=None, sort=None, start_date=None, system_rule=None):
         """
         BreRule - a model defined in Swagger
         """
@@ -71,9 +75,11 @@ class BreRule(object):
         self._description = None
         self._enabled = None
         self._end_date = None
+        self._evaluation_count = None
         self._event_name = None
         self._id = None
         self._name = None
+        self._run_count = None
         self._sort = None
         self._start_date = None
         self._system_rule = None
@@ -90,10 +96,14 @@ class BreRule(object):
           self.enabled = enabled
         if end_date is not None:
           self.end_date = end_date
+        if evaluation_count is not None:
+          self.evaluation_count = evaluation_count
         self.event_name = event_name
         if id is not None:
           self.id = id
         self.name = name
+        if run_count is not None:
+          self.run_count = run_count
         if sort is not None:
           self.sort = sort
         if start_date is not None:
@@ -242,6 +252,29 @@ class BreRule(object):
         self._end_date = end_date
 
     @property
+    def evaluation_count(self):
+        """
+        Gets the evaluation_count of this BreRule.
+        How many times the rule has been evaluated (it's conditions checked, whether it then runs or not)
+
+        :return: The evaluation_count of this BreRule.
+        :rtype: int
+        """
+        return self._evaluation_count
+
+    @evaluation_count.setter
+    def evaluation_count(self, evaluation_count):
+        """
+        Sets the evaluation_count of this BreRule.
+        How many times the rule has been evaluated (it's conditions checked, whether it then runs or not)
+
+        :param evaluation_count: The evaluation_count of this BreRule.
+        :type: int
+        """
+
+        self._evaluation_count = evaluation_count
+
+    @property
     def event_name(self):
         """
         Gets the event_name of this BreRule.
@@ -313,6 +346,29 @@ class BreRule(object):
             raise ValueError("Invalid value for `name`, must not be `None`")
 
         self._name = name
+
+    @property
+    def run_count(self):
+        """
+        Gets the run_count of this BreRule.
+        How many times the rule has run
+
+        :return: The run_count of this BreRule.
+        :rtype: int
+        """
+        return self._run_count
+
+    @run_count.setter
+    def run_count(self, run_count):
+        """
+        Sets the run_count of this BreRule.
+        How many times the rule has run
+
+        :param run_count: The run_count of this BreRule.
+        :type: int
+        """
+
+        self._run_count = run_count
 
     @property
     def sort(self):

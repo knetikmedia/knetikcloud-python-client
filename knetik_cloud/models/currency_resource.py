@@ -34,6 +34,7 @@ class CurrencyResource(object):
         'active': 'bool',
         'code': 'str',
         'created_date': 'int',
+        'default_currency': 'bool',
         'factor': 'float',
         'icon': 'str',
         'name': 'str',
@@ -45,6 +46,7 @@ class CurrencyResource(object):
         'active': 'active',
         'code': 'code',
         'created_date': 'created_date',
+        'default_currency': 'default_currency',
         'factor': 'factor',
         'icon': 'icon',
         'name': 'name',
@@ -52,7 +54,7 @@ class CurrencyResource(object):
         'updated_date': 'updated_date'
     }
 
-    def __init__(self, active=None, code=None, created_date=None, factor=None, icon=None, name=None, type=None, updated_date=None):
+    def __init__(self, active=None, code=None, created_date=None, default_currency=None, factor=None, icon=None, name=None, type=None, updated_date=None):
         """
         CurrencyResource - a model defined in Swagger
         """
@@ -60,6 +62,7 @@ class CurrencyResource(object):
         self._active = None
         self._code = None
         self._created_date = None
+        self._default_currency = None
         self._factor = None
         self._icon = None
         self._name = None
@@ -72,6 +75,8 @@ class CurrencyResource(object):
         self.code = code
         if created_date is not None:
           self.created_date = created_date
+        if default_currency is not None:
+          self.default_currency = default_currency
         self.factor = factor
         if icon is not None:
           self.icon = icon
@@ -153,10 +158,33 @@ class CurrencyResource(object):
         self._created_date = created_date
 
     @property
+    def default_currency(self):
+        """
+        Gets the default_currency of this CurrencyResource.
+        Whether this is the default currency. All real money wallets will be in this currency, and the 'factor' on each currency is in relation to the default. There must be one default currency and the current will be changed if you set another as the default. Cannot be combined with virtual currency. Take extreme caution when changing
+
+        :return: The default_currency of this CurrencyResource.
+        :rtype: bool
+        """
+        return self._default_currency
+
+    @default_currency.setter
+    def default_currency(self, default_currency):
+        """
+        Sets the default_currency of this CurrencyResource.
+        Whether this is the default currency. All real money wallets will be in this currency, and the 'factor' on each currency is in relation to the default. There must be one default currency and the current will be changed if you set another as the default. Cannot be combined with virtual currency. Take extreme caution when changing
+
+        :param default_currency: The default_currency of this CurrencyResource.
+        :type: bool
+        """
+
+        self._default_currency = default_currency
+
+    @property
     def factor(self):
         """
         Gets the factor of this CurrencyResource.
-        The decimal to multiply the system base currency (from config 'currency') to localize to this one. Should be 1 for the base currency itself.
+        The decimal to multiply the default currency to localize to this one. Should be 1 for the default currency itself.
 
         :return: The factor of this CurrencyResource.
         :rtype: float
@@ -167,7 +195,7 @@ class CurrencyResource(object):
     def factor(self, factor):
         """
         Sets the factor of this CurrencyResource.
-        The decimal to multiply the system base currency (from config 'currency') to localize to this one. Should be 1 for the base currency itself.
+        The decimal to multiply the default currency to localize to this one. Should be 1 for the default currency itself.
 
         :param factor: The factor of this CurrencyResource.
         :type: float
