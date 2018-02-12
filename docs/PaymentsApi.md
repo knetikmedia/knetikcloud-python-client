@@ -1,6 +1,6 @@
 # knetik_cloud.PaymentsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 > PaymentMethodResource create_payment_method(user_id, payment_method=payment_method)
 
 Create a new payment method for a user
+
+<b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 
 ### Example 
 ```python
@@ -75,6 +77,8 @@ Name | Type | Description  | Notes
 
 Delete an existing payment method for a user
 
+<b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -119,7 +123,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -128,6 +132,8 @@ void (empty response body)
 > PaymentMethodResource get_payment_method(user_id, id)
 
 Get a single payment method for a user
+
+<b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 
 ### Example 
 ```python
@@ -174,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -183,6 +189,8 @@ Name | Type | Description  | Notes
 > PaymentMethodTypeResource get_payment_method_type(id)
 
 Get a single payment method type
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -227,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -236,6 +244,8 @@ Name | Type | Description  | Notes
 > PageResourcePaymentMethodTypeResource get_payment_method_types(filter_name=filter_name, size=size, page=page, order=order)
 
 Get all payment method types
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -286,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -295,6 +305,8 @@ Name | Type | Description  | Notes
 > list[PaymentMethodResource] get_payment_methods(user_id, filter_name=filter_name, filter_payment_type=filter_payment_type, filter_payment_method_type_id=filter_payment_method_type_id, filter_payment_method_type_name=filter_payment_method_type_name, size=size, page=page, order=order)
 
 Get all payment methods for a user
+
+<b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 
 ### Example 
 ```python
@@ -353,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -362,6 +374,8 @@ Name | Type | Description  | Notes
 > PaymentAuthorizationResource payment_authorization(request=request)
 
 Authorize payment of an invoice for later capture
+
+<b>Permissions Needed:</b> PAYMENTS_ADMIN or PAYMENTS_USER
 
 ### Example 
 ```python
@@ -416,6 +430,8 @@ Name | Type | Description  | Notes
 
 Capture an existing invoice payment authorization
 
+<b>Permissions Needed:</b> PAYMENTS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -467,6 +483,8 @@ void (empty response body)
 > PaymentMethodResource update_payment_method(user_id, id, payment_method=payment_method)
 
 Update an existing payment method for a user
+
+<b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
 
 ### Example 
 ```python

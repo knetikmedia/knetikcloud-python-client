@@ -38,7 +38,7 @@ class StoreApi(object):
     def create_item_template(self, **kwargs):
         """
         Create an item template
-        Item Templates define a type of item and the properties they have.
+        Item Templates define a type of item and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_item_template(async=True)
@@ -60,7 +60,7 @@ class StoreApi(object):
     def create_item_template_with_http_info(self, **kwargs):
         """
         Create an item template
-        Item Templates define a type of item and the properties they have.
+        Item Templates define a type of item and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_item_template_with_http_info(async=True)
@@ -133,7 +133,7 @@ class StoreApi(object):
     def create_store_item(self, **kwargs):
         """
         Create a store item
-        SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \"parameters\" field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:<br /> {..., parameters: [[{item: 1, skus: [\"SKU-1\"]}]]}<br /> If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints.
+        SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \"parameters\" field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:<br /> {..., parameters: [[{item: 1, skus: [\"SKU-1\"]}]]}<br /> If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints. <br><br><b>Permissions Needed:</b> STORE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_store_item(async=True)
@@ -156,7 +156,7 @@ class StoreApi(object):
     def create_store_item_with_http_info(self, **kwargs):
         """
         Create a store item
-        SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \"parameters\" field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:<br /> {..., parameters: [[{item: 1, skus: [\"SKU-1\"]}]]}<br /> If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints.
+        SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \"parameters\" field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:<br /> {..., parameters: [[{item: 1, skus: [\"SKU-1\"]}]]}<br /> If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints. <br><br><b>Permissions Needed:</b> STORE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_store_item_with_http_info(async=True)
@@ -232,6 +232,7 @@ class StoreApi(object):
     def delete_item_template(self, id, **kwargs):
         """
         Delete an item template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_item_template(id, async=True)
@@ -254,6 +255,7 @@ class StoreApi(object):
     def delete_item_template_with_http_info(self, id, **kwargs):
         """
         Delete an item template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_item_template_with_http_info(id, async=True)
@@ -307,10 +309,6 @@ class StoreApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -332,6 +330,7 @@ class StoreApi(object):
     def delete_store_item(self, id, **kwargs):
         """
         Delete a store item
+        <b>Permissions Needed:</b> STORE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_store_item(id, async=True)
@@ -353,6 +352,7 @@ class StoreApi(object):
     def delete_store_item_with_http_info(self, id, **kwargs):
         """
         Delete a store item
+        <b>Permissions Needed:</b> STORE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_store_item_with_http_info(id, async=True)
@@ -403,10 +403,6 @@ class StoreApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -428,6 +424,7 @@ class StoreApi(object):
     def get_behaviors(self, **kwargs):
         """
         List available item behaviors
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_behaviors(async=True)
@@ -448,6 +445,7 @@ class StoreApi(object):
     def get_behaviors_with_http_info(self, **kwargs):
         """
         List available item behaviors
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_behaviors_with_http_info(async=True)
@@ -491,10 +489,6 @@ class StoreApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -516,7 +510,7 @@ class StoreApi(object):
     def get_item_template(self, id, **kwargs):
         """
         Get a single item template
-        Item Templates define a type of item and the properties they have.
+        Item Templates define a type of item and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_item_template(id, async=True)
@@ -538,7 +532,7 @@ class StoreApi(object):
     def get_item_template_with_http_info(self, id, **kwargs):
         """
         Get a single item template
-        Item Templates define a type of item and the properties they have.
+        Item Templates define a type of item and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_item_template_with_http_info(id, async=True)
@@ -589,10 +583,6 @@ class StoreApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -614,6 +604,7 @@ class StoreApi(object):
     def get_item_templates(self, **kwargs):
         """
         List and search item templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_item_templates(async=True)
@@ -637,6 +628,7 @@ class StoreApi(object):
     def get_item_templates_with_http_info(self, **kwargs):
         """
         List and search item templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_item_templates_with_http_info(async=True)
@@ -690,10 +682,6 @@ class StoreApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -715,6 +703,7 @@ class StoreApi(object):
     def get_store_item(self, id, **kwargs):
         """
         Get a single store item
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_store_item(id, async=True)
@@ -736,6 +725,7 @@ class StoreApi(object):
     def get_store_item_with_http_info(self, id, **kwargs):
         """
         Get a single store item
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_store_item_with_http_info(id, async=True)
@@ -786,10 +776,6 @@ class StoreApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -811,7 +797,7 @@ class StoreApi(object):
     def get_store_items(self, **kwargs):
         """
         List and search store items
-        If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller's country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase.
+        If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller's country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase. br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_store_items(async=True)
@@ -849,7 +835,7 @@ class StoreApi(object):
     def get_store_items_with_http_info(self, **kwargs):
         """
         List and search store items
-        If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller's country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase.
+        If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller's country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase. br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_store_items_with_http_info(async=True)
@@ -945,10 +931,6 @@ class StoreApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -970,7 +952,7 @@ class StoreApi(object):
     def quick_buy(self, **kwargs):
         """
         One-step purchase and pay for a single SKU item from a user's wallet
-        Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted
+        Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted. <br><br><b>Permissions Needed:</b> PAYMENTS_USER and owner, or PAYMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.quick_buy(async=True)
@@ -992,7 +974,7 @@ class StoreApi(object):
     def quick_buy_with_http_info(self, **kwargs):
         """
         One-step purchase and pay for a single SKU item from a user's wallet
-        Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted
+        Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted. <br><br><b>Permissions Needed:</b> PAYMENTS_USER and owner, or PAYMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.quick_buy_with_http_info(async=True)
@@ -1065,6 +1047,7 @@ class StoreApi(object):
     def update_item_template(self, id, **kwargs):
         """
         Update an item template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_item_template(id, async=True)
@@ -1087,6 +1070,7 @@ class StoreApi(object):
     def update_item_template_with_http_info(self, id, **kwargs):
         """
         Update an item template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_item_template_with_http_info(id, async=True)
@@ -1165,6 +1149,7 @@ class StoreApi(object):
     def update_store_item(self, id, **kwargs):
         """
         Update a store item
+        <b>Permissions Needed:</b> STORE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_store_item(id, async=True)
@@ -1188,6 +1173,7 @@ class StoreApi(object):
     def update_store_item_with_http_info(self, id, **kwargs):
         """
         Update a store item
+        <b>Permissions Needed:</b> STORE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_store_item_with_http_info(id, async=True)

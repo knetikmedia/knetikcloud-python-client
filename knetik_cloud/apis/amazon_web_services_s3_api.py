@@ -38,7 +38,7 @@ class AmazonWebServicesS3Api(object):
     def get_download_url(self, **kwargs):
         """
         Get a temporary signed S3 URL for download
-        To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details.
+        To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details. <br><br><b>Permissions Needed:</b> S3_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_download_url(async=True)
@@ -62,7 +62,7 @@ class AmazonWebServicesS3Api(object):
     def get_download_url_with_http_info(self, **kwargs):
         """
         Get a temporary signed S3 URL for download
-        To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details.
+        To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details. <br><br><b>Permissions Needed:</b> S3_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_download_url_with_http_info(async=True)
@@ -116,10 +116,6 @@ class AmazonWebServicesS3Api(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -141,7 +137,7 @@ class AmazonWebServicesS3Api(object):
     def get_signed_s3_url(self, **kwargs):
         """
         Get a signed S3 URL for upload
-        Requires the file name and file content type (i.e., 'video/mpeg'). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after.
+        Requires the file name and file content type (i.e., 'video/mpeg'). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after. <br><br><b>Permissions Needed:</b> S3_USER or S3_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_signed_s3_url(async=True)
@@ -164,7 +160,7 @@ class AmazonWebServicesS3Api(object):
     def get_signed_s3_url_with_http_info(self, **kwargs):
         """
         Get a signed S3 URL for upload
-        Requires the file name and file content type (i.e., 'video/mpeg'). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after.
+        Requires the file name and file content type (i.e., 'video/mpeg'). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after. <br><br><b>Permissions Needed:</b> S3_USER or S3_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_signed_s3_url_with_http_info(async=True)
@@ -214,10 +210,6 @@ class AmazonWebServicesS3Api(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

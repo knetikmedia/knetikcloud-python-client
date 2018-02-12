@@ -38,6 +38,7 @@ class GamificationTriviaApi(object):
     def add_question_answers(self, question_id, **kwargs):
         """
         Add an answer to a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_question_answers(question_id, async=True)
@@ -60,6 +61,7 @@ class GamificationTriviaApi(object):
     def add_question_answers_with_http_info(self, question_id, **kwargs):
         """
         Add an answer to a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_question_answers_with_http_info(question_id, async=True)
@@ -138,6 +140,7 @@ class GamificationTriviaApi(object):
     def add_question_tag(self, id, **kwargs):
         """
         Add a tag to a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_question_tag(id, async=True)
@@ -160,6 +163,7 @@ class GamificationTriviaApi(object):
     def add_question_tag_with_http_info(self, id, **kwargs):
         """
         Add a tag to a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_question_tag_with_http_info(id, async=True)
@@ -238,7 +242,7 @@ class GamificationTriviaApi(object):
     def add_tag_to_questions_batch(self, **kwargs):
         """
         Add a tag to a batch of questions
-        All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated.
+        All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_tag_to_questions_batch(async=True)
@@ -268,7 +272,7 @@ class GamificationTriviaApi(object):
     def add_tag_to_questions_batch_with_http_info(self, **kwargs):
         """
         Add a tag to a batch of questions
-        All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated.
+        All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_tag_to_questions_batch_with_http_info(async=True)
@@ -365,7 +369,7 @@ class GamificationTriviaApi(object):
     def create_import_job(self, **kwargs):
         """
         Create an import job
-        Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
+        Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_import_job(async=True)
@@ -387,7 +391,7 @@ class GamificationTriviaApi(object):
     def create_import_job_with_http_info(self, **kwargs):
         """
         Create an import job
-        Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
+        Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_import_job_with_http_info(async=True)
@@ -460,6 +464,7 @@ class GamificationTriviaApi(object):
     def create_question(self, **kwargs):
         """
         Create a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_question(async=True)
@@ -481,6 +486,7 @@ class GamificationTriviaApi(object):
     def create_question_with_http_info(self, **kwargs):
         """
         Create a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_question_with_http_info(async=True)
@@ -553,7 +559,7 @@ class GamificationTriviaApi(object):
     def create_question_template(self, **kwargs):
         """
         Create a question template
-        Question templates define a type of question and the properties they have
+        Question templates define a type of question and the properties they have. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_question_template(async=True)
@@ -575,7 +581,7 @@ class GamificationTriviaApi(object):
     def create_question_template_with_http_info(self, **kwargs):
         """
         Create a question template
-        Question templates define a type of question and the properties they have
+        Question templates define a type of question and the properties they have. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_question_template_with_http_info(async=True)
@@ -648,7 +654,7 @@ class GamificationTriviaApi(object):
     def delete_import_job(self, id, **kwargs):
         """
         Delete an import job
-        Also deletes all questions that were imported by it
+        Also deletes all questions that were imported by it. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_import_job(id, async=True)
@@ -670,7 +676,7 @@ class GamificationTriviaApi(object):
     def delete_import_job_with_http_info(self, id, **kwargs):
         """
         Delete an import job
-        Also deletes all questions that were imported by it
+        Also deletes all questions that were imported by it. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_import_job_with_http_info(id, async=True)
@@ -721,10 +727,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -746,6 +748,7 @@ class GamificationTriviaApi(object):
     def delete_question(self, id, **kwargs):
         """
         Delete a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_question(id, async=True)
@@ -767,6 +770,7 @@ class GamificationTriviaApi(object):
     def delete_question_with_http_info(self, id, **kwargs):
         """
         Delete a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_question_with_http_info(id, async=True)
@@ -817,10 +821,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -842,6 +842,7 @@ class GamificationTriviaApi(object):
     def delete_question_answers(self, question_id, id, **kwargs):
         """
         Remove an answer from a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_question_answers(question_id, id, async=True)
@@ -864,6 +865,7 @@ class GamificationTriviaApi(object):
     def delete_question_answers_with_http_info(self, question_id, id, **kwargs):
         """
         Remove an answer from a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_question_answers_with_http_info(question_id, id, async=True)
@@ -920,10 +922,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -945,7 +943,7 @@ class GamificationTriviaApi(object):
     def delete_question_template(self, id, **kwargs):
         """
         Delete a question template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_question_template(id, async=True)
@@ -968,7 +966,7 @@ class GamificationTriviaApi(object):
     def delete_question_template_with_http_info(self, id, **kwargs):
         """
         Delete a question template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_question_template_with_http_info(id, async=True)
@@ -1022,10 +1020,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1047,6 +1041,7 @@ class GamificationTriviaApi(object):
     def get_import_job(self, id, **kwargs):
         """
         Get an import job
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_import_job(id, async=True)
@@ -1068,6 +1063,7 @@ class GamificationTriviaApi(object):
     def get_import_job_with_http_info(self, id, **kwargs):
         """
         Get an import job
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_import_job_with_http_info(id, async=True)
@@ -1118,10 +1114,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1143,6 +1135,7 @@ class GamificationTriviaApi(object):
     def get_import_jobs(self, **kwargs):
         """
         Get a list of import job
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_import_jobs(async=True)
@@ -1170,6 +1163,7 @@ class GamificationTriviaApi(object):
     def get_import_jobs_with_http_info(self, **kwargs):
         """
         Get a list of import job
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_import_jobs_with_http_info(async=True)
@@ -1235,10 +1229,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1260,6 +1250,7 @@ class GamificationTriviaApi(object):
     def get_question(self, id, **kwargs):
         """
         Get a single question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question(id, async=True)
@@ -1281,6 +1272,7 @@ class GamificationTriviaApi(object):
     def get_question_with_http_info(self, id, **kwargs):
         """
         Get a single question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_with_http_info(id, async=True)
@@ -1331,10 +1323,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1356,6 +1344,7 @@ class GamificationTriviaApi(object):
     def get_question_answer(self, question_id, id, **kwargs):
         """
         Get an answer for a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_answer(question_id, id, async=True)
@@ -1378,6 +1367,7 @@ class GamificationTriviaApi(object):
     def get_question_answer_with_http_info(self, question_id, id, **kwargs):
         """
         Get an answer for a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_answer_with_http_info(question_id, id, async=True)
@@ -1434,10 +1424,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1459,6 +1445,7 @@ class GamificationTriviaApi(object):
     def get_question_answers(self, question_id, **kwargs):
         """
         List the answers available for a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_answers(question_id, async=True)
@@ -1480,6 +1467,7 @@ class GamificationTriviaApi(object):
     def get_question_answers_with_http_info(self, question_id, **kwargs):
         """
         List the answers available for a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_answers_with_http_info(question_id, async=True)
@@ -1530,10 +1518,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1555,7 +1539,7 @@ class GamificationTriviaApi(object):
     def get_question_deltas(self, **kwargs):
         """
         List question deltas in ascending order of updated date
-        The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
+        The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_deltas(async=True)
@@ -1577,7 +1561,7 @@ class GamificationTriviaApi(object):
     def get_question_deltas_with_http_info(self, **kwargs):
         """
         List question deltas in ascending order of updated date
-        The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
+        The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_deltas_with_http_info(async=True)
@@ -1625,10 +1609,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1650,6 +1630,7 @@ class GamificationTriviaApi(object):
     def get_question_tags(self, id, **kwargs):
         """
         List the tags for a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_tags(id, async=True)
@@ -1671,6 +1652,7 @@ class GamificationTriviaApi(object):
     def get_question_tags_with_http_info(self, id, **kwargs):
         """
         List the tags for a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_tags_with_http_info(id, async=True)
@@ -1721,10 +1703,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1746,6 +1724,7 @@ class GamificationTriviaApi(object):
     def get_question_template(self, id, **kwargs):
         """
         Get a single question template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_template(id, async=True)
@@ -1767,6 +1746,7 @@ class GamificationTriviaApi(object):
     def get_question_template_with_http_info(self, id, **kwargs):
         """
         Get a single question template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_template_with_http_info(id, async=True)
@@ -1817,10 +1797,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1842,6 +1818,7 @@ class GamificationTriviaApi(object):
     def get_question_templates(self, **kwargs):
         """
         List and search question templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_templates(async=True)
@@ -1865,6 +1842,7 @@ class GamificationTriviaApi(object):
     def get_question_templates_with_http_info(self, **kwargs):
         """
         List and search question templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_question_templates_with_http_info(async=True)
@@ -1918,10 +1896,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1943,6 +1917,7 @@ class GamificationTriviaApi(object):
     def get_questions(self, **kwargs):
         """
         List and search questions
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_questions(async=True)
@@ -1974,6 +1949,7 @@ class GamificationTriviaApi(object):
     def get_questions_with_http_info(self, **kwargs):
         """
         List and search questions
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_questions_with_http_info(async=True)
@@ -2051,10 +2027,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2076,7 +2048,7 @@ class GamificationTriviaApi(object):
     def get_questions_count(self, **kwargs):
         """
         Count questions based on filters
-        This is also provided by the list endpoint so you don't need to call this for pagination purposes
+        This is also provided by the list endpoint so you don't need to call this for pagination purposes. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_questions_count(async=True)
@@ -2104,7 +2076,7 @@ class GamificationTriviaApi(object):
     def get_questions_count_with_http_info(self, **kwargs):
         """
         Count questions based on filters
-        This is also provided by the list endpoint so you don't need to call this for pagination purposes
+        This is also provided by the list endpoint so you don't need to call this for pagination purposes. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_questions_count_with_http_info(async=True)
@@ -2170,10 +2142,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2195,7 +2163,7 @@ class GamificationTriviaApi(object):
     def process_import_job(self, id, publish_now, **kwargs):
         """
         Start processing an import job
-        Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'.
+        Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.process_import_job(id, publish_now, async=True)
@@ -2218,7 +2186,7 @@ class GamificationTriviaApi(object):
     def process_import_job_with_http_info(self, id, publish_now, **kwargs):
         """
         Start processing an import job
-        Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'.
+        Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.process_import_job_with_http_info(id, publish_now, async=True)
@@ -2300,6 +2268,7 @@ class GamificationTriviaApi(object):
     def remove_question_tag(self, id, tag, **kwargs):
         """
         Remove a tag from a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_question_tag(id, tag, async=True)
@@ -2322,6 +2291,7 @@ class GamificationTriviaApi(object):
     def remove_question_tag_with_http_info(self, id, tag, **kwargs):
         """
         Remove a tag from a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_question_tag_with_http_info(id, tag, async=True)
@@ -2378,10 +2348,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2403,7 +2369,7 @@ class GamificationTriviaApi(object):
     def remove_tag_to_questions_batch(self, tag, **kwargs):
         """
         Remove a tag from a batch of questions
-        ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
+        ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_tag_to_questions_batch(tag, async=True)
@@ -2433,7 +2399,7 @@ class GamificationTriviaApi(object):
     def remove_tag_to_questions_batch_with_http_info(self, tag, **kwargs):
         """
         Remove a tag from a batch of questions
-        ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
+        ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_tag_to_questions_batch_with_http_info(tag, async=True)
@@ -2508,10 +2474,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2533,7 +2495,7 @@ class GamificationTriviaApi(object):
     def search_question_tags(self, **kwargs):
         """
         List and search tags by the beginning of the string
-        For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
+        For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.search_question_tags(async=True)
@@ -2557,7 +2519,7 @@ class GamificationTriviaApi(object):
     def search_question_tags_with_http_info(self, **kwargs):
         """
         List and search tags by the beginning of the string
-        For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
+        For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.search_question_tags_with_http_info(async=True)
@@ -2611,10 +2573,6 @@ class GamificationTriviaApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2636,7 +2594,7 @@ class GamificationTriviaApi(object):
     def update_import_job(self, id, **kwargs):
         """
         Update an import job
-        Changes should be made before process is started for there to be any effect.
+        Changes should be made before process is started for there to be any effect. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_import_job(id, async=True)
@@ -2659,7 +2617,7 @@ class GamificationTriviaApi(object):
     def update_import_job_with_http_info(self, id, **kwargs):
         """
         Update an import job
-        Changes should be made before process is started for there to be any effect.
+        Changes should be made before process is started for there to be any effect. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_import_job_with_http_info(id, async=True)
@@ -2738,6 +2696,7 @@ class GamificationTriviaApi(object):
     def update_question(self, id, **kwargs):
         """
         Update a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_question(id, async=True)
@@ -2760,6 +2719,7 @@ class GamificationTriviaApi(object):
     def update_question_with_http_info(self, id, **kwargs):
         """
         Update a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_question_with_http_info(id, async=True)
@@ -2838,6 +2798,7 @@ class GamificationTriviaApi(object):
     def update_question_answer(self, question_id, id, **kwargs):
         """
         Update an answer for a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_question_answer(question_id, id, async=True)
@@ -2861,6 +2822,7 @@ class GamificationTriviaApi(object):
     def update_question_answer_with_http_info(self, question_id, id, **kwargs):
         """
         Update an answer for a question
+        <b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_question_answer_with_http_info(question_id, id, async=True)
@@ -2945,6 +2907,7 @@ class GamificationTriviaApi(object):
     def update_question_template(self, id, **kwargs):
         """
         Update a question template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_question_template(id, async=True)
@@ -2967,6 +2930,7 @@ class GamificationTriviaApi(object):
     def update_question_template_with_http_info(self, id, **kwargs):
         """
         Update a question template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_question_template_with_http_info(id, async=True)
@@ -3045,7 +3009,7 @@ class GamificationTriviaApi(object):
     def update_questions_in_bulk(self, **kwargs):
         """
         Bulk update questions
-        Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
+        Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_questions_in_bulk(async=True)
@@ -3074,7 +3038,7 @@ class GamificationTriviaApi(object):
     def update_questions_in_bulk_with_http_info(self, **kwargs):
         """
         Bulk update questions
-        Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
+        Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_questions_in_bulk_with_http_info(async=True)

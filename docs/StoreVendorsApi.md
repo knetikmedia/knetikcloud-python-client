@@ -1,6 +1,6 @@
 # knetik_cloud.StoreVendorsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 > VendorResource create_vendor(vendor=vendor)
 
 Create a vendor
+
+<b>Permissions Needed:</b> VENDORS_ADMIN
 
 ### Example 
 ```python
@@ -74,7 +76,7 @@ Name | Type | Description  | Notes
 
 Create a vendor template
 
-Vendor Templates define a type of vendor and the properties they have.
+Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -129,6 +131,8 @@ Name | Type | Description  | Notes
 
 Delete a vendor
 
+<b>Permissions Needed:</b> VENDORS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -171,7 +175,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -180,6 +184,8 @@ void (empty response body)
 > delete_vendor_template(id, cascade=cascade)
 
 Delete a vendor template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -225,7 +231,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -234,6 +240,8 @@ void (empty response body)
 > VendorResource get_vendor(id)
 
 Get a single vendor
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -278,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -288,7 +296,7 @@ Name | Type | Description  | Notes
 
 Get a single vendor template
 
-Vendor Templates define a type of vendor and the properties they have.
+Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -333,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -342,6 +350,8 @@ Name | Type | Description  | Notes
 > PageResourceItemTemplateResource get_vendor_templates(size=size, page=page, order=order)
 
 List and search vendor templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -362,7 +372,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = knetik_cloud.StoreVendorsApi(knetik_cloud.ApiClient(configuration))
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
-order = '1' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to 1)
+order = 'order_example' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 
 try: 
     # List and search vendor templates
@@ -378,7 +388,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to 1]
+ **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
 
 ### Return type
 
@@ -390,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -399,6 +409,8 @@ Name | Type | Description  | Notes
 > PageResourceVendorResource get_vendors(filter_name=filter_name, size=size, page=page, order=order)
 
 List and search vendors
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -449,7 +461,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -458,6 +470,8 @@ Name | Type | Description  | Notes
 > VendorResource update_vendor(id, vendor=vendor)
 
 Update a vendor
+
+<b>Permissions Needed:</b> VENDORS_ADMIN
 
 ### Example 
 ```python
@@ -513,6 +527,8 @@ Name | Type | Description  | Notes
 > ItemTemplateResource update_vendor_template(id, vendor_template_resource=vendor_template_resource)
 
 Update a vendor template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python

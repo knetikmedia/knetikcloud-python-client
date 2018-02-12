@@ -38,7 +38,7 @@ class PaymentsPayPalClassicApi(object):
     def create_pay_pal_billing_agreement_url(self, **kwargs):
         """
         Create a PayPal Classic billing agreement for the user
-        Returns the token that should be used to forward the user to PayPal so they can accept the agreement.
+        Returns the token that should be used to forward the user to PayPal so they can accept the agreement. <br><br><b>Permissions Needed:</b> PAYPAL_CLASSIC_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_pay_pal_billing_agreement_url(async=True)
@@ -60,7 +60,7 @@ class PaymentsPayPalClassicApi(object):
     def create_pay_pal_billing_agreement_url_with_http_info(self, **kwargs):
         """
         Create a PayPal Classic billing agreement for the user
-        Returns the token that should be used to forward the user to PayPal so they can accept the agreement.
+        Returns the token that should be used to forward the user to PayPal so they can accept the agreement. <br><br><b>Permissions Needed:</b> PAYPAL_CLASSIC_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_pay_pal_billing_agreement_url_with_http_info(async=True)
@@ -133,7 +133,7 @@ class PaymentsPayPalClassicApi(object):
     def create_pay_pal_express_checkout(self, **kwargs):
         """
         Create a payment token for PayPal express checkout
-        Returns the token that should be used to forward the user to PayPal so they can complete the checkout.
+        Returns the token that should be used to forward the user to PayPal so they can complete the checkout. <br><br><b>Permissions Needed:</b> PAYPAL_CLASSIC_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_pay_pal_express_checkout(async=True)
@@ -155,7 +155,7 @@ class PaymentsPayPalClassicApi(object):
     def create_pay_pal_express_checkout_with_http_info(self, **kwargs):
         """
         Create a payment token for PayPal express checkout
-        Returns the token that should be used to forward the user to PayPal so they can complete the checkout.
+        Returns the token that should be used to forward the user to PayPal so they can complete the checkout. <br><br><b>Permissions Needed:</b> PAYPAL_CLASSIC_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_pay_pal_express_checkout_with_http_info(async=True)
@@ -228,7 +228,7 @@ class PaymentsPayPalClassicApi(object):
     def finalize_pay_pal_billing_agreement(self, **kwargs):
         """
         Finalizes a billing agreement after the user has accepted through PayPal
-        Returns the ID of the new payment method created for the user for the billing agreement.
+        Returns the ID of the new payment method created for the user for the billing agreement. <br><br><b>Permissions Needed:</b> PAYPAL_CLASSIC_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.finalize_pay_pal_billing_agreement(async=True)
@@ -250,7 +250,7 @@ class PaymentsPayPalClassicApi(object):
     def finalize_pay_pal_billing_agreement_with_http_info(self, **kwargs):
         """
         Finalizes a billing agreement after the user has accepted through PayPal
-        Returns the ID of the new payment method created for the user for the billing agreement.
+        Returns the ID of the new payment method created for the user for the billing agreement. <br><br><b>Permissions Needed:</b> PAYPAL_CLASSIC_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.finalize_pay_pal_billing_agreement_with_http_info(async=True)
@@ -323,7 +323,7 @@ class PaymentsPayPalClassicApi(object):
     def finalize_pay_pal_checkout(self, **kwargs):
         """
         Finalizes a payment after the user has completed checkout with PayPal
-        The invoice will be marked paid/failed by asynchronous IPN callback.
+        The invoice will be marked paid/failed by asynchronous IPN callback. <br><br><b>Permissions Needed:</b> PAYPAL_CLASSIC_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.finalize_pay_pal_checkout(async=True)
@@ -345,7 +345,7 @@ class PaymentsPayPalClassicApi(object):
     def finalize_pay_pal_checkout_with_http_info(self, **kwargs):
         """
         Finalizes a payment after the user has completed checkout with PayPal
-        The invoice will be marked paid/failed by asynchronous IPN callback.
+        The invoice will be marked paid/failed by asynchronous IPN callback. <br><br><b>Permissions Needed:</b> PAYPAL_CLASSIC_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.finalize_pay_pal_checkout_with_http_info(async=True)

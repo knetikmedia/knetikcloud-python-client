@@ -1,6 +1,6 @@
 # knetik_cloud.CurrenciesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > CurrencyResource create_currency(currency=currency)
 
 Create a currency
+
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
 
 ### Example 
 ```python
@@ -69,6 +71,8 @@ Name | Type | Description  | Notes
 
 Delete a currency
 
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -111,7 +115,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -120,6 +124,8 @@ void (empty response body)
 > PageResourceCurrencyResource get_currencies(filter_default=filter_default, filter_enabled_currencies=filter_enabled_currencies, filter_type=filter_type, size=size, page=page, order=order)
 
 List and search currencies
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -174,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -183,6 +189,8 @@ Name | Type | Description  | Notes
 > CurrencyResource get_currency(code)
 
 Get a single currency
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -227,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -236,6 +244,8 @@ Name | Type | Description  | Notes
 > update_currency(code, currency=currency)
 
 Update a currency
+
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
 
 ### Example 
 ```python

@@ -38,6 +38,7 @@ class ReportingSubscriptionsApi(object):
     def get_subscription_reports(self, **kwargs):
         """
         Get a list of available subscription reports in most recent first order
+        <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_reports(async=True)
@@ -60,6 +61,7 @@ class ReportingSubscriptionsApi(object):
     def get_subscription_reports_with_http_info(self, **kwargs):
         """
         Get a list of available subscription reports in most recent first order
+        <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_reports_with_http_info(async=True)
@@ -109,10 +111,6 @@ class ReportingSubscriptionsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

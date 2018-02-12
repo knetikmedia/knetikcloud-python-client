@@ -95,6 +95,14 @@ class TestUsersGroupsApi(unittest.TestCase):
         """
         pass
 
+    def test_disable_group_notification(self):
+        """
+        Test case for disable_group_notification
+
+        Enable or disable notification of group messages
+        """
+        pass
+
     def test_get_group(self):
         """
         Test case for get_group
@@ -143,6 +151,14 @@ class TestUsersGroupsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_group_messages(self):
+        """
+        Test case for get_group_messages
+
+        Get a list of group messages
+        """
+        pass
+
     def test_get_group_template(self):
         """
         Test case for get_group_template
@@ -172,6 +188,14 @@ class TestUsersGroupsApi(unittest.TestCase):
         Test case for list_groups
 
         List and search groups
+        """
+        pass
+
+    def test_post_group_message(self):
+        """
+        Test case for post_group_message
+
+        Send a group message
         """
         pass
 

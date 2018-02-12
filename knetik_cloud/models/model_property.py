@@ -40,22 +40,22 @@ class ModelProperty(object):
 
     discriminator_value_class_map = {
         'map': 'MapProperty',
-        'file_group': 'FileGroupProperty',
         'integer': 'IntegerProperty',
-        'boolean': 'BooleanProperty',
         'file': 'FileProperty',
-        'audio': 'AudioProperty',
         'text': 'TextProperty',
         'double': 'DoubleProperty',
         'date': 'DateProperty',
+        'audio_group': 'AudioGroupProperty',
+        'image': 'ImageProperty',
+        'video_group': 'VideoGroupProperty',
+        'formatted_text': 'FormattedTextProperty',
+        'file_group': 'FileGroupProperty',
+        'boolean': 'BooleanProperty',
+        'audio': 'AudioProperty',
         'long': 'LongProperty',
         'image_group': 'ImageGroupProperty',
         'list': 'ListProperty',
-        'audio_group': 'AudioGroupProperty',
-        'video': 'VideoProperty',
-        'image': 'ImageProperty',
-        'video_group': 'VideoGroupProperty',
-        'formatted_text': 'FormattedTextProperty'
+        'video': 'VideoProperty'
     }
 
     def __init__(self, type=None):

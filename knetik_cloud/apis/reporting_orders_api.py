@@ -38,6 +38,7 @@ class ReportingOrdersApi(object):
     def get_invoice_reports(self, currency_code, **kwargs):
         """
         Retrieve invoice counts aggregated by time ranges
+        <b>Permissions Needed:</b> REPORTING_ORDERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invoice_reports(currency_code, async=True)
@@ -66,6 +67,7 @@ class ReportingOrdersApi(object):
     def get_invoice_reports_with_http_info(self, currency_code, **kwargs):
         """
         Retrieve invoice counts aggregated by time ranges
+        <b>Permissions Needed:</b> REPORTING_ORDERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invoice_reports_with_http_info(currency_code, async=True)
@@ -136,10 +138,6 @@ class ReportingOrdersApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

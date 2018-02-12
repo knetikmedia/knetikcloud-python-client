@@ -38,7 +38,7 @@ class UsersFriendshipsApi(object):
     def add_friend(self, user_id, id, **kwargs):
         """
         Add a friend
-        As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship.
+        As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_friend(user_id, id, async=True)
@@ -61,7 +61,7 @@ class UsersFriendshipsApi(object):
     def add_friend_with_http_info(self, user_id, id, **kwargs):
         """
         Add a friend
-        As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship.
+        As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_friend_with_http_info(user_id, id, async=True)
@@ -143,6 +143,7 @@ class UsersFriendshipsApi(object):
     def get_friends(self, user_id, **kwargs):
         """
         Get friends list
+        <b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_friends(user_id, async=True)
@@ -168,6 +169,7 @@ class UsersFriendshipsApi(object):
     def get_friends_with_http_info(self, user_id, **kwargs):
         """
         Get friends list
+        <b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_friends_with_http_info(user_id, async=True)
@@ -230,10 +232,6 @@ class UsersFriendshipsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -255,7 +253,7 @@ class UsersFriendshipsApi(object):
     def get_invite_token(self, user_id, **kwargs):
         """
         Returns the invite token
-        This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required
+        This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)flow instead if confirmation is required
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invite_token(user_id, async=True)
@@ -277,7 +275,7 @@ class UsersFriendshipsApi(object):
     def get_invite_token_with_http_info(self, user_id, **kwargs):
         """
         Returns the invite token
-        This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required
+        This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)flow instead if confirmation is required
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invite_token_with_http_info(user_id, async=True)
@@ -328,10 +326,6 @@ class UsersFriendshipsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -353,7 +347,7 @@ class UsersFriendshipsApi(object):
     def get_invites(self, user_id, **kwargs):
         """
         Get pending invites
-        Invites that the specified user received
+        Invites that the specified user received. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invites(user_id, async=True)
@@ -377,7 +371,7 @@ class UsersFriendshipsApi(object):
     def get_invites_with_http_info(self, user_id, **kwargs):
         """
         Get pending invites
-        Invites that the specified user received
+        Invites that the specified user received. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invites_with_http_info(user_id, async=True)
@@ -434,10 +428,6 @@ class UsersFriendshipsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -459,7 +449,7 @@ class UsersFriendshipsApi(object):
     def redeem_friendship_token(self, user_id, **kwargs):
         """
         Redeem friendship token
-        Immediately connects the requested user with the user mapped by the provided invite token
+        Immediately connects the requested user with the user mapped by the provided invite token. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.redeem_friendship_token(user_id, async=True)
@@ -482,7 +472,7 @@ class UsersFriendshipsApi(object):
     def redeem_friendship_token_with_http_info(self, user_id, **kwargs):
         """
         Redeem friendship token
-        Immediately connects the requested user with the user mapped by the provided invite token
+        Immediately connects the requested user with the user mapped by the provided invite token. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.redeem_friendship_token_with_http_info(user_id, async=True)
@@ -561,6 +551,7 @@ class UsersFriendshipsApi(object):
     def remove_or_decline_friend(self, user_id, id, **kwargs):
         """
         Remove or decline a friend
+        <b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_or_decline_friend(user_id, id, async=True)
@@ -583,6 +574,7 @@ class UsersFriendshipsApi(object):
     def remove_or_decline_friend_with_http_info(self, user_id, id, **kwargs):
         """
         Remove or decline a friend
+        <b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_or_decline_friend_with_http_info(user_id, id, async=True)
@@ -638,10 +630,6 @@ class UsersFriendshipsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

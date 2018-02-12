@@ -33,8 +33,10 @@ class CreateActivityOccurrenceRequest(object):
     swagger_types = {
         'activity_id': 'int',
         'challenge_activity_id': 'int',
+        'core_settings': 'CoreActivityOccurrenceSettings',
         'entitlement': 'ItemIdRequest',
         'event_id': 'int',
+        'host': 'int',
         'settings': 'list[SelectedSettingRequest]',
         'simulated': 'bool',
         'status': 'str',
@@ -44,23 +46,27 @@ class CreateActivityOccurrenceRequest(object):
     attribute_map = {
         'activity_id': 'activity_id',
         'challenge_activity_id': 'challenge_activity_id',
+        'core_settings': 'core_settings',
         'entitlement': 'entitlement',
         'event_id': 'event_id',
+        'host': 'host',
         'settings': 'settings',
         'simulated': 'simulated',
         'status': 'status',
         'users': 'users'
     }
 
-    def __init__(self, activity_id=None, challenge_activity_id=None, entitlement=None, event_id=None, settings=None, simulated=None, status=None, users=None):
+    def __init__(self, activity_id=None, challenge_activity_id=None, core_settings=None, entitlement=None, event_id=None, host=None, settings=None, simulated=None, status=None, users=None):
         """
         CreateActivityOccurrenceRequest - a model defined in Swagger
         """
 
         self._activity_id = None
         self._challenge_activity_id = None
+        self._core_settings = None
         self._entitlement = None
         self._event_id = None
+        self._host = None
         self._settings = None
         self._simulated = None
         self._status = None
@@ -71,10 +77,14 @@ class CreateActivityOccurrenceRequest(object):
           self.activity_id = activity_id
         if challenge_activity_id is not None:
           self.challenge_activity_id = challenge_activity_id
+        if core_settings is not None:
+          self.core_settings = core_settings
         if entitlement is not None:
           self.entitlement = entitlement
         if event_id is not None:
           self.event_id = event_id
+        if host is not None:
+          self.host = host
         if settings is not None:
           self.settings = settings
         if simulated is not None:
@@ -131,6 +141,29 @@ class CreateActivityOccurrenceRequest(object):
         self._challenge_activity_id = challenge_activity_id
 
     @property
+    def core_settings(self):
+        """
+        Gets the core_settings of this CreateActivityOccurrenceRequest.
+        Defines core settings about the activity that affect how it can be created/played by users.
+
+        :return: The core_settings of this CreateActivityOccurrenceRequest.
+        :rtype: CoreActivityOccurrenceSettings
+        """
+        return self._core_settings
+
+    @core_settings.setter
+    def core_settings(self, core_settings):
+        """
+        Sets the core_settings of this CreateActivityOccurrenceRequest.
+        Defines core settings about the activity that affect how it can be created/played by users.
+
+        :param core_settings: The core_settings of this CreateActivityOccurrenceRequest.
+        :type: CoreActivityOccurrenceSettings
+        """
+
+        self._core_settings = core_settings
+
+    @property
     def entitlement(self):
         """
         Gets the entitlement of this CreateActivityOccurrenceRequest.
@@ -175,6 +208,29 @@ class CreateActivityOccurrenceRequest(object):
         """
 
         self._event_id = event_id
+
+    @property
+    def host(self):
+        """
+        Gets the host of this CreateActivityOccurrenceRequest.
+        The host of the occurrence, if not a participant (will be left out of users array). Must be the caller that creates the occurrence unless admin. Requires activity/challenge to allow host_option of 'non_player' if not admin as well
+
+        :return: The host of this CreateActivityOccurrenceRequest.
+        :rtype: int
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """
+        Sets the host of this CreateActivityOccurrenceRequest.
+        The host of the occurrence, if not a participant (will be left out of users array). Must be the caller that creates the occurrence unless admin. Requires activity/challenge to allow host_option of 'non_player' if not admin as well
+
+        :param host: The host of this CreateActivityOccurrenceRequest.
+        :type: int
+        """
+
+        self._host = host
 
     @property
     def settings(self):
@@ -242,7 +298,7 @@ class CreateActivityOccurrenceRequest(object):
         :param status: The status of this CreateActivityOccurrenceRequest.
         :type: str
         """
-        allowed_values = ["SETUP", "OPEN", "PLAYING", "FINISHED", "ABANDONED"]
+        allowed_values = ["SETUP", "OPEN", "LAUNCHING", "PLAYING", "FINISHED", "ABANDONED"]
         if status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"

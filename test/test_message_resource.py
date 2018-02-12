@@ -19,11 +19,11 @@ import unittest
 
 import knetik_cloud
 from knetik_cloud.rest import ApiException
-from knetik_cloud.models.io_config import IOConfig
+from knetik_cloud.models.message_resource import MessageResource
 
 
-class TestIOConfig(unittest.TestCase):
-    """ IOConfig unit test stubs """
+class TestMessageResource(unittest.TestCase):
+    """ MessageResource unit test stubs """
 
     def setUp(self):
         pass
@@ -31,12 +31,12 @@ class TestIOConfig(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testIOConfig(self):
+    def testMessageResource(self):
         """
-        Test IOConfig
+        Test MessageResource
         """
         # FIXME: construct object with mandatory attributes with example values
-        #model = knetik_cloud.models.io_config.IOConfig()
+        #model = knetik_cloud.models.message_resource.MessageResource()
         pass
 
 

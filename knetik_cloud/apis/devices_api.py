@@ -38,6 +38,7 @@ class DevicesApi(object):
     def add_device_users(self, user_resources, id, **kwargs):
         """
         Add device users
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_device_users(user_resources, id, async=True)
@@ -60,6 +61,7 @@ class DevicesApi(object):
     def add_device_users_with_http_info(self, user_resources, id, **kwargs):
         """
         Add device users
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_device_users_with_http_info(user_resources, id, async=True)
@@ -141,6 +143,7 @@ class DevicesApi(object):
     def create_device(self, device, **kwargs):
         """
         Create a device
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_device(device, async=True)
@@ -162,6 +165,7 @@ class DevicesApi(object):
     def create_device_with_http_info(self, device, **kwargs):
         """
         Create a device
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_device_with_http_info(device, async=True)
@@ -237,7 +241,7 @@ class DevicesApi(object):
     def create_device_template(self, **kwargs):
         """
         Create a device template
-        Device Templates define a type of device and the properties they have
+        Device Templates define a type of device and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_device_template(async=True)
@@ -259,7 +263,7 @@ class DevicesApi(object):
     def create_device_template_with_http_info(self, **kwargs):
         """
         Create a device template
-        Device Templates define a type of device and the properties they have
+        Device Templates define a type of device and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_device_template_with_http_info(async=True)
@@ -332,6 +336,7 @@ class DevicesApi(object):
     def delete_device(self, id, **kwargs):
         """
         Delete a device
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_device(id, async=True)
@@ -353,6 +358,7 @@ class DevicesApi(object):
     def delete_device_with_http_info(self, id, **kwargs):
         """
         Delete a device
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_device_with_http_info(id, async=True)
@@ -403,10 +409,6 @@ class DevicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -428,7 +430,7 @@ class DevicesApi(object):
     def delete_device_template(self, id, **kwargs):
         """
         Delete an device template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_device_template(id, async=True)
@@ -451,7 +453,7 @@ class DevicesApi(object):
     def delete_device_template_with_http_info(self, id, **kwargs):
         """
         Delete an device template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_device_template_with_http_info(id, async=True)
@@ -505,10 +507,6 @@ class DevicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -530,6 +528,7 @@ class DevicesApi(object):
     def delete_device_user(self, id, user_id, **kwargs):
         """
         Delete a device user
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_device_user(id, user_id, async=True)
@@ -552,6 +551,7 @@ class DevicesApi(object):
     def delete_device_user_with_http_info(self, id, user_id, **kwargs):
         """
         Delete a device user
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_device_user_with_http_info(id, user_id, async=True)
@@ -608,10 +608,6 @@ class DevicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -633,6 +629,7 @@ class DevicesApi(object):
     def delete_device_users(self, id, **kwargs):
         """
         Delete all device users
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_device_users(id, async=True)
@@ -655,6 +652,7 @@ class DevicesApi(object):
     def delete_device_users_with_http_info(self, id, **kwargs):
         """
         Delete all device users
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_device_users_with_http_info(id, async=True)
@@ -708,10 +706,6 @@ class DevicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -733,6 +727,7 @@ class DevicesApi(object):
     def get_device(self, id, **kwargs):
         """
         Get a single device
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_device(id, async=True)
@@ -754,6 +749,7 @@ class DevicesApi(object):
     def get_device_with_http_info(self, id, **kwargs):
         """
         Get a single device
+        <b>Permissions Needed:</b> DEVICES_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_device_with_http_info(id, async=True)
@@ -804,10 +800,6 @@ class DevicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -829,6 +821,7 @@ class DevicesApi(object):
     def get_device_template(self, id, **kwargs):
         """
         Get a single device template
+        <b>Permissions Needed:</b> description
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_device_template(id, async=True)
@@ -850,6 +843,7 @@ class DevicesApi(object):
     def get_device_template_with_http_info(self, id, **kwargs):
         """
         Get a single device template
+        <b>Permissions Needed:</b> description
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_device_template_with_http_info(id, async=True)
@@ -900,10 +894,6 @@ class DevicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -925,6 +915,7 @@ class DevicesApi(object):
     def get_device_templates(self, **kwargs):
         """
         List and search device templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or DEVICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_device_templates(async=True)
@@ -948,6 +939,7 @@ class DevicesApi(object):
     def get_device_templates_with_http_info(self, **kwargs):
         """
         List and search device templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or DEVICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_device_templates_with_http_info(async=True)
@@ -1001,10 +993,6 @@ class DevicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1026,7 +1014,7 @@ class DevicesApi(object):
     def get_devices(self, **kwargs):
         """
         List and search devices
-        Get a list of devices with optional filtering
+        Get a list of devices with optional filtering. <br><br><b>Permissions Needed:</b> DEVICES_ADMIN or user
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_devices(async=True)
@@ -1056,7 +1044,7 @@ class DevicesApi(object):
     def get_devices_with_http_info(self, **kwargs):
         """
         List and search devices
-        Get a list of devices with optional filtering
+        Get a list of devices with optional filtering. <br><br><b>Permissions Needed:</b> DEVICES_ADMIN or user
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_devices_with_http_info(async=True)
@@ -1128,10 +1116,6 @@ class DevicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1153,6 +1137,7 @@ class DevicesApi(object):
     def update_device(self, device, id, **kwargs):
         """
         Update a device
+        <b>Permissions Needed:</b> CUSTOMERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_device(device, id, async=True)
@@ -1175,6 +1160,7 @@ class DevicesApi(object):
     def update_device_with_http_info(self, device, id, **kwargs):
         """
         Update a device
+        <b>Permissions Needed:</b> CUSTOMERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_device_with_http_info(device, id, async=True)
@@ -1256,6 +1242,7 @@ class DevicesApi(object):
     def update_device_template(self, id, **kwargs):
         """
         Update an device template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_device_template(id, async=True)
@@ -1278,6 +1265,7 @@ class DevicesApi(object):
     def update_device_template_with_http_info(self, id, **kwargs):
         """
         Update an device template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_device_template_with_http_info(id, async=True)

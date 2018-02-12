@@ -38,6 +38,7 @@ class CurrenciesApi(object):
     def create_currency(self, **kwargs):
         """
         Create a currency
+        <b>Permissions Needed:</b> CURRENCIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_currency(async=True)
@@ -59,6 +60,7 @@ class CurrenciesApi(object):
     def create_currency_with_http_info(self, **kwargs):
         """
         Create a currency
+        <b>Permissions Needed:</b> CURRENCIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_currency_with_http_info(async=True)
@@ -131,6 +133,7 @@ class CurrenciesApi(object):
     def delete_currency(self, code, **kwargs):
         """
         Delete a currency
+        <b>Permissions Needed:</b> CURRENCIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_currency(code, async=True)
@@ -152,6 +155,7 @@ class CurrenciesApi(object):
     def delete_currency_with_http_info(self, code, **kwargs):
         """
         Delete a currency
+        <b>Permissions Needed:</b> CURRENCIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_currency_with_http_info(code, async=True)
@@ -202,10 +206,6 @@ class CurrenciesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class CurrenciesApi(object):
     def get_currencies(self, **kwargs):
         """
         List and search currencies
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_currencies(async=True)
@@ -253,6 +254,7 @@ class CurrenciesApi(object):
     def get_currencies_with_http_info(self, **kwargs):
         """
         List and search currencies
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_currencies_with_http_info(async=True)
@@ -315,10 +317,6 @@ class CurrenciesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -340,6 +338,7 @@ class CurrenciesApi(object):
     def get_currency(self, code, **kwargs):
         """
         Get a single currency
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_currency(code, async=True)
@@ -361,6 +360,7 @@ class CurrenciesApi(object):
     def get_currency_with_http_info(self, code, **kwargs):
         """
         Get a single currency
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_currency_with_http_info(code, async=True)
@@ -411,10 +411,6 @@ class CurrenciesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -436,6 +432,7 @@ class CurrenciesApi(object):
     def update_currency(self, code, **kwargs):
         """
         Update a currency
+        <b>Permissions Needed:</b> CURRENCIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_currency(code, async=True)
@@ -458,6 +455,7 @@ class CurrenciesApi(object):
     def update_currency_with_http_info(self, code, **kwargs):
         """
         Update a currency
+        <b>Permissions Needed:</b> CURRENCIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_currency_with_http_info(code, async=True)

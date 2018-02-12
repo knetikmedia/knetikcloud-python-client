@@ -38,6 +38,7 @@ class PaymentsTransactionsApi(object):
     def get_transaction(self, id, **kwargs):
         """
         Get the details for a single transaction
+        <b>Permissions Needed:</b> TRANSACTIONS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_transaction(id, async=True)
@@ -59,6 +60,7 @@ class PaymentsTransactionsApi(object):
     def get_transaction_with_http_info(self, id, **kwargs):
         """
         Get the details for a single transaction
+        <b>Permissions Needed:</b> TRANSACTIONS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_transaction_with_http_info(id, async=True)
@@ -109,10 +111,6 @@ class PaymentsTransactionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -134,6 +132,7 @@ class PaymentsTransactionsApi(object):
     def get_transactions(self, **kwargs):
         """
         List and search transactions
+        <b>Permissions Needed:</b> TRANSACTIONS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_transactions(async=True)
@@ -158,6 +157,7 @@ class PaymentsTransactionsApi(object):
     def get_transactions_with_http_info(self, **kwargs):
         """
         List and search transactions
+        <b>Permissions Needed:</b> TRANSACTIONS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_transactions_with_http_info(async=True)
@@ -214,10 +214,6 @@ class PaymentsTransactionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -239,7 +235,7 @@ class PaymentsTransactionsApi(object):
     def refund_transaction(self, id, **kwargs):
         """
         Refund a payment transaction, in full or in part
-        Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds.
+        Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds. <br><br><b>Permissions Needed:</b> PAYMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.refund_transaction(id, async=True)
@@ -262,7 +258,7 @@ class PaymentsTransactionsApi(object):
     def refund_transaction_with_http_info(self, id, **kwargs):
         """
         Refund a payment transaction, in full or in part
-        Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds.
+        Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds. <br><br><b>Permissions Needed:</b> PAYMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.refund_transaction_with_http_info(id, async=True)

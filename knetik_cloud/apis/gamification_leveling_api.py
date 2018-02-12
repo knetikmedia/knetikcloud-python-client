@@ -38,6 +38,7 @@ class GamificationLevelingApi(object):
     def create_level(self, **kwargs):
         """
         Create a level schema
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_level(async=True)
@@ -59,6 +60,7 @@ class GamificationLevelingApi(object):
     def create_level_with_http_info(self, **kwargs):
         """
         Create a level schema
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_level_with_http_info(async=True)
@@ -131,6 +133,7 @@ class GamificationLevelingApi(object):
     def delete_level(self, name, **kwargs):
         """
         Delete a level
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_level(name, async=True)
@@ -152,6 +155,7 @@ class GamificationLevelingApi(object):
     def delete_level_with_http_info(self, name, **kwargs):
         """
         Delete a level
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_level_with_http_info(name, async=True)
@@ -202,10 +206,6 @@ class GamificationLevelingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class GamificationLevelingApi(object):
     def get_level(self, name, **kwargs):
         """
         Retrieve a level
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_level(name, async=True)
@@ -248,6 +249,7 @@ class GamificationLevelingApi(object):
     def get_level_with_http_info(self, name, **kwargs):
         """
         Retrieve a level
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_level_with_http_info(name, async=True)
@@ -298,10 +300,6 @@ class GamificationLevelingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -323,6 +321,7 @@ class GamificationLevelingApi(object):
     def get_level_triggers(self, **kwargs):
         """
         Get the list of triggers that can be used to trigger a leveling progress update
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_level_triggers(async=True)
@@ -343,6 +342,7 @@ class GamificationLevelingApi(object):
     def get_level_triggers_with_http_info(self, **kwargs):
         """
         Get the list of triggers that can be used to trigger a leveling progress update
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_level_triggers_with_http_info(async=True)
@@ -386,10 +386,6 @@ class GamificationLevelingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -411,7 +407,7 @@ class GamificationLevelingApi(object):
     def get_levels(self, **kwargs):
         """
         List and search levels
-        Get a list of levels schemas with optional filtering
+        Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_levels(async=True)
@@ -436,7 +432,7 @@ class GamificationLevelingApi(object):
     def get_levels_with_http_info(self, **kwargs):
         """
         List and search levels
-        Get a list of levels schemas with optional filtering
+        Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_levels_with_http_info(async=True)
@@ -493,10 +489,6 @@ class GamificationLevelingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -518,6 +510,7 @@ class GamificationLevelingApi(object):
     def get_user_level(self, user_id, name, **kwargs):
         """
         Get a user's progress for a given level schema
+        <b>Permissions Needed:</b> LEVELING_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_level(user_id, name, async=True)
@@ -540,6 +533,7 @@ class GamificationLevelingApi(object):
     def get_user_level_with_http_info(self, user_id, name, **kwargs):
         """
         Get a user's progress for a given level schema
+        <b>Permissions Needed:</b> LEVELING_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_level_with_http_info(user_id, name, async=True)
@@ -596,10 +590,6 @@ class GamificationLevelingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -621,7 +611,7 @@ class GamificationLevelingApi(object):
     def get_user_levels(self, user_id, **kwargs):
         """
         Get a user's progress for all level schemas
-        Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
+        Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_levels(user_id, async=True)
@@ -647,7 +637,7 @@ class GamificationLevelingApi(object):
     def get_user_levels_with_http_info(self, user_id, **kwargs):
         """
         Get a user's progress for all level schemas
-        Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
+        Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_levels_with_http_info(user_id, async=True)
@@ -710,10 +700,6 @@ class GamificationLevelingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -735,7 +721,7 @@ class GamificationLevelingApi(object):
     def increment_progress(self, user_id, name, **kwargs):
         """
         Update or create a leveling progress record for a user
-        If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+        If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.increment_progress(user_id, name, async=True)
@@ -759,7 +745,7 @@ class GamificationLevelingApi(object):
     def increment_progress_with_http_info(self, user_id, name, **kwargs):
         """
         Update or create a leveling progress record for a user
-        If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+        If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.increment_progress_with_http_info(user_id, name, async=True)
@@ -844,7 +830,7 @@ class GamificationLevelingApi(object):
     def set_progress(self, user_id, name, **kwargs):
         """
         Set leveling progress for a user
-        If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+        If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_progress(user_id, name, async=True)
@@ -868,7 +854,7 @@ class GamificationLevelingApi(object):
     def set_progress_with_http_info(self, user_id, name, **kwargs):
         """
         Set leveling progress for a user
-        If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+        If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_progress_with_http_info(user_id, name, async=True)
@@ -953,6 +939,7 @@ class GamificationLevelingApi(object):
     def update_level(self, name, **kwargs):
         """
         Update a level
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_level(name, async=True)
@@ -975,6 +962,7 @@ class GamificationLevelingApi(object):
     def update_level_with_http_info(self, name, **kwargs):
         """
         Update a level
+        <b>Permissions Needed:</b> LEVELING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_level_with_http_info(name, async=True)

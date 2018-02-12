@@ -1,6 +1,6 @@
 # knetik_cloud.BRERuleEngineTriggersApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create a trigger
 
-Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
+Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 
 ### Example 
 ```python
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 Delete a trigger
 
-May fail if there are existing rules against it. Cannot delete core triggers
+May fail if there are existing rules against it. Cannot delete core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 
 ### Example 
 ```python
@@ -115,7 +115,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -124,6 +124,8 @@ void (empty response body)
 > BreTriggerResource get_bre_trigger(event_name)
 
 Get a single trigger
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
 
 ### Example 
 ```python
@@ -168,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -177,6 +179,8 @@ Name | Type | Description  | Notes
 > PageResourceBreTriggerResource get_bre_triggers(filter_system=filter_system, filter_category=filter_category, filter_tags=filter_tags, filter_name=filter_name, filter_search=filter_search, size=size, page=page)
 
 List triggers
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
 
 ### Example 
 ```python
@@ -233,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -243,7 +247,7 @@ Name | Type | Description  | Notes
 
 Update a trigger
 
-May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
+May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 
 ### Example 
 ```python

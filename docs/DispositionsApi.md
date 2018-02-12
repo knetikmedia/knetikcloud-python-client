@@ -1,6 +1,6 @@
 # knetik_cloud.DispositionsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > DispositionResource add_disposition(disposition=disposition)
 
 Add a new disposition
+
+<b>Permissions Needed:</b> DISPOSITIONS_USER and user, or DISPOSITIONS_ADMIN
 
 ### Example 
 ```python
@@ -69,6 +71,8 @@ Name | Type | Description  | Notes
 
 Delete a disposition
 
+<b>Permissions Needed:</b> DISPOSITIONS_USER and owner, or DISPOSITIONS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -111,7 +115,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -120,6 +124,8 @@ void (empty response body)
 > DispositionResource get_disposition(id)
 
 Returns a disposition
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -164,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -173,6 +179,8 @@ Name | Type | Description  | Notes
 > list[DispositionCount] get_disposition_counts(filter_context=filter_context, filter_owner=filter_owner)
 
 Returns a list of disposition counts
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -219,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -228,6 +236,8 @@ Name | Type | Description  | Notes
 > PageResourceDispositionResource get_dispositions(filter_context=filter_context, filter_owner=filter_owner, size=size, page=page, order=order)
 
 Returns a page of dispositions
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -280,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

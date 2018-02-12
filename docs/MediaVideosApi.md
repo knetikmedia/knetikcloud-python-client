@@ -1,6 +1,6 @@
 # knetik_cloud.MediaVideosApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,7 +40,7 @@ Method | HTTP request | Description
 
 Adds a user to a video's whitelist
 
-Whitelisted users can view video regardless of privacy setting.
+Whitelisted users can view video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -96,6 +96,8 @@ void (empty response body)
 
 Adds a new video in the system
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -148,6 +150,8 @@ Name | Type | Description  | Notes
 > CommentResource add_video_comment(video_id, comment_resource=comment_resource)
 
 Add a new video comment
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -204,6 +208,8 @@ Name | Type | Description  | Notes
 
 Adds a contributor to a video
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -257,6 +263,8 @@ void (empty response body)
 > FlagResource add_video_flag(video_id, reason=reason)
 
 Add a new flag
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -313,6 +321,8 @@ Name | Type | Description  | Notes
 
 Adds one or more existing videos as related to this one
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -367,6 +377,8 @@ Name | Type | Description  | Notes
 > DispositionResource create_video_disposition(video_id, disposition_resource=disposition_resource)
 
 Create a video disposition
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -423,7 +435,7 @@ Name | Type | Description  | Notes
 
 Create a video template
 
-Video Templates define a type of video and the properties they have
+Video Templates define a type of video and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -478,6 +490,8 @@ Name | Type | Description  | Notes
 
 Deletes a video from the system if no resources are attached to it
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -520,7 +534,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -529,6 +543,8 @@ void (empty response body)
 > delete_video_comment(video_id, id)
 
 Delete a video comment
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -574,7 +590,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -583,6 +599,8 @@ void (empty response body)
 > delete_video_disposition(disposition_id)
 
 Delete a video disposition
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -626,7 +644,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -635,6 +653,8 @@ void (empty response body)
 > delete_video_flag(video_id)
 
 Delete a flag
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -678,7 +698,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -687,6 +707,8 @@ void (empty response body)
 > delete_video_relationship(video_id, id)
 
 Delete a video's relationship
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -732,7 +754,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -742,7 +764,7 @@ void (empty response body)
 
 Delete a video template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -788,7 +810,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -797,6 +819,8 @@ void (empty response body)
 > PageResourceVideoResource get_user_videos(user_id, exclude_flagged=exclude_flagged, size=size, page=page)
 
 Get user videos
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -847,7 +871,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -856,6 +880,8 @@ Name | Type | Description  | Notes
 > VideoResource get_video(id)
 
 Loads a specific video details
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -900,7 +926,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -909,6 +935,8 @@ Name | Type | Description  | Notes
 > PageResourceCommentResource get_video_comments(video_id, size=size, page=page)
 
 Returns a page of comments for a video
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -957,7 +985,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -966,6 +994,8 @@ Name | Type | Description  | Notes
 > PageResourceDispositionResource get_video_dispositions(video_id, size=size, page=page)
 
 Returns a page of dispositions for a video
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -1014,7 +1044,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1023,6 +1053,8 @@ Name | Type | Description  | Notes
 > PageResourceVideoRelationshipResource get_video_relationships(video_id, size=size, page=page)
 
 Returns a page of video relationships
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -1071,7 +1103,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1080,6 +1112,8 @@ Name | Type | Description  | Notes
 > TemplateResource get_video_template(id)
 
 Get a single video template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -1124,7 +1158,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1133,6 +1167,8 @@ Name | Type | Description  | Notes
 > PageResourceTemplateResource get_video_templates(size=size, page=page, order=order)
 
 List and search video templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -1181,7 +1217,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1190,6 +1226,8 @@ Name | Type | Description  | Notes
 > PageResourceVideoResource get_videos(exclude_flagged=exclude_flagged, filter_videos_by_uploader=filter_videos_by_uploader, filter_category=filter_category, filter_tagset=filter_tagset, filter_videos_by_name=filter_videos_by_name, filter_videos_by_contributor=filter_videos_by_contributor, filter_videos_by_author=filter_videos_by_author, filter_has_author=filter_has_author, filter_has_uploader=filter_has_uploader, filter_related_to=filter_related_to, filter_friends=filter_friends, filter_disposition=filter_disposition, size=size, page=page, order=order)
 
 Search videos using the documented filters
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -1262,7 +1300,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1272,7 +1310,7 @@ Name | Type | Description  | Notes
 
 Removes a user from a video's whitelist
 
-Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
+Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -1318,7 +1356,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1327,6 +1365,8 @@ void (empty response body)
 > remove_video_contributor(video_id, id)
 
 Removes a contributor from a video
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -1372,7 +1412,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1381,6 +1421,8 @@ void (empty response body)
 > update_video(id, video_resource=video_resource)
 
 Modifies a video's details
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -1435,6 +1477,8 @@ void (empty response body)
 > update_video_comment(video_id, id, content=content)
 
 Update a video comment
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Example 
 ```python
@@ -1492,6 +1536,8 @@ void (empty response body)
 
 Update a video's relationship details
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -1548,6 +1594,8 @@ void (empty response body)
 
 Update a video template
 
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -1602,6 +1650,8 @@ Name | Type | Description  | Notes
 > view_video(id)
 
 Increment a video's view count
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python

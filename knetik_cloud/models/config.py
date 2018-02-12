@@ -67,7 +67,7 @@ class Config(object):
     def description(self):
         """
         Gets the description of this Config.
-        The description of the config.  Max 140 characters
+        The description of the config.  Max 255 characters
 
         :return: The description of this Config.
         :rtype: str
@@ -78,7 +78,7 @@ class Config(object):
     def description(self, description):
         """
         Sets the description of this Config.
-        The description of the config.  Max 140 characters
+        The description of the config.  Max 255 characters
 
         :param description: The description of this Config.
         :type: str

@@ -38,6 +38,7 @@ class LocationsApi(object):
     def get_countries(self, **kwargs):
         """
         Get a list of countries
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_countries(async=True)
@@ -58,6 +59,7 @@ class LocationsApi(object):
     def get_countries_with_http_info(self, **kwargs):
         """
         Get a list of countries
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_countries_with_http_info(async=True)
@@ -101,10 +103,6 @@ class LocationsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -126,7 +124,7 @@ class LocationsApi(object):
     def get_country_by_geo_location(self, **kwargs):
         """
         Get the iso3 code of your country
-        Determined by geo ip location
+        Determined by geo ip location. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_country_by_geo_location(async=True)
@@ -147,7 +145,7 @@ class LocationsApi(object):
     def get_country_by_geo_location_with_http_info(self, **kwargs):
         """
         Get the iso3 code of your country
-        Determined by geo ip location
+        Determined by geo ip location. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_country_by_geo_location_with_http_info(async=True)
@@ -191,10 +189,6 @@ class LocationsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -216,6 +210,7 @@ class LocationsApi(object):
     def get_country_states(self, country_code_iso3, **kwargs):
         """
         Get a list of a country's states
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_country_states(country_code_iso3, async=True)
@@ -237,6 +232,7 @@ class LocationsApi(object):
     def get_country_states_with_http_info(self, country_code_iso3, **kwargs):
         """
         Get a list of a country's states
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_country_states_with_http_info(country_code_iso3, async=True)
@@ -287,10 +283,6 @@ class LocationsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -312,7 +304,7 @@ class LocationsApi(object):
     def get_currency_by_geo_location(self, **kwargs):
         """
         Get the currency information of your country
-        Determined by geo ip location, currency to country mapping and a fallback setting
+        Determined by geo ip location, currency to country mapping and a fallback setting. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_currency_by_geo_location(async=True)
@@ -333,7 +325,7 @@ class LocationsApi(object):
     def get_currency_by_geo_location_with_http_info(self, **kwargs):
         """
         Get the currency information of your country
-        Determined by geo ip location, currency to country mapping and a fallback setting
+        Determined by geo ip location, currency to country mapping and a fallback setting. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_currency_by_geo_location_with_http_info(async=True)
@@ -376,10 +368,6 @@ class LocationsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

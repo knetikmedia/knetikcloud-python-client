@@ -1,6 +1,6 @@
 # knetik_cloud.MediaArtistsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Adds a new artist in the system
 
-Adds a new artist in the system. Use specific media contributions endpoint to add contributions
+Adds a new artist in the system. Use specific media contributions endpoint to add contributions. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 Create an artist template
 
-Artist Templates define a type of artist and the properties they have
+Artist Templates define a type of artist and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -131,6 +131,8 @@ Name | Type | Description  | Notes
 
 Removes an artist from the system IF no resources are attached to it
 
+<b>Permissions Needed:</b> ARTISTS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -173,7 +175,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -183,7 +185,7 @@ void (empty response body)
 
 Delete an artist template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -229,7 +231,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -238,6 +240,8 @@ void (empty response body)
 > ArtistResource get_artist(id, show_contributions=show_contributions)
 
 Loads a specific artist details
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -284,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -293,6 +297,8 @@ Name | Type | Description  | Notes
 > TemplateResource get_artist_template(id)
 
 Get a single artist template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
 
 ### Example 
 ```python
@@ -337,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -346,6 +352,8 @@ Name | Type | Description  | Notes
 > PageResourceTemplateResource get_artist_templates(size=size, page=page, order=order)
 
 List and search artist templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
 
 ### Example 
 ```python
@@ -394,7 +402,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -403,6 +411,8 @@ Name | Type | Description  | Notes
 > PageResourceArtistResource get_artists(filter_artists_by_name=filter_artists_by_name, size=size, page=page, order=order)
 
 Search for artists
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -453,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -462,6 +472,8 @@ Name | Type | Description  | Notes
 > update_artist(id, artist_resource=artist_resource)
 
 Modifies an artist details
+
+<b>Permissions Needed:</b> ARTISTS_ADMIN
 
 ### Example 
 ```python
@@ -516,6 +528,8 @@ void (empty response body)
 > TemplateResource update_artist_template(id, artist_template_resource=artist_template_resource)
 
 Update an artist template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python

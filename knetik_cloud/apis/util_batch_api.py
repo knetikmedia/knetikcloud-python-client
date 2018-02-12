@@ -38,7 +38,7 @@ class UtilBatchApi(object):
     def get_batch(self, token, **kwargs):
         """
         Get batch result with token
-        Tokens expire in 24 hours
+        Tokens expire in 24 hours. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_batch(token, async=True)
@@ -60,7 +60,7 @@ class UtilBatchApi(object):
     def get_batch_with_http_info(self, token, **kwargs):
         """
         Get batch result with token
-        Tokens expire in 24 hours
+        Tokens expire in 24 hours. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_batch_with_http_info(token, async=True)
@@ -111,10 +111,6 @@ class UtilBatchApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -136,7 +132,7 @@ class UtilBatchApi(object):
     def send_batch(self, **kwargs):
         """
         Request to run API call given the method, content type, path url, and body of request
-        Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service
+        Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.send_batch(async=True)
@@ -158,7 +154,7 @@ class UtilBatchApi(object):
     def send_batch_with_http_info(self, **kwargs):
         """
         Request to run API call given the method, content type, path url, and body of request
-        Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service
+        Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.send_batch_with_http_info(async=True)

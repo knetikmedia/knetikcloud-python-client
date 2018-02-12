@@ -44,10 +44,10 @@ class Behavior(object):
         'time_period_gettable': 'TimePeriodGettable',
         'expirable': 'Expirable',
         'fulfillable': 'Fulfillable',
-        'consumable': 'Consumable',
-        'pre_req_entitlement': 'PreReqEntitlement',
         'guest_playable': 'GuestPlayable',
         'limited_gettable': 'LimitedGettable',
+        'consumable': 'Consumable',
+        'pre_req_entitlement': 'PreReqEntitlement',
         'time_period_usable': 'TimePeriodUsable',
         'spendable': 'Spendable',
         'price_overridable': 'PriceOverridable'

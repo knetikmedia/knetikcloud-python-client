@@ -43,7 +43,7 @@ class TestBRERuleEngineExpressionsApi(unittest.TestCase):
         """
         Test case for get_bre_expressions
 
-        Get a list of supported expressions to use in conditions or actions.
+        Get a list of supported expressions to use in conditions or actions
         """
         pass
 

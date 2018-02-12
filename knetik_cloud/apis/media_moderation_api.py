@@ -38,6 +38,7 @@ class MediaModerationApi(object):
     def add_flag(self, **kwargs):
         """
         Add a flag
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_flag(async=True)
@@ -59,6 +60,7 @@ class MediaModerationApi(object):
     def add_flag_with_http_info(self, **kwargs):
         """
         Add a flag
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_flag_with_http_info(async=True)
@@ -131,6 +133,7 @@ class MediaModerationApi(object):
     def delete_flag(self, **kwargs):
         """
         Delete a flag
+        <b>Permissions Needed:</b> MODERATION_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_flag(async=True)
@@ -154,6 +157,7 @@ class MediaModerationApi(object):
     def delete_flag_with_http_info(self, **kwargs):
         """
         Delete a flag
+        <b>Permissions Needed:</b> MODERATION_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_flag_with_http_info(async=True)
@@ -207,10 +211,6 @@ class MediaModerationApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -232,6 +232,7 @@ class MediaModerationApi(object):
     def get_flags(self, **kwargs):
         """
         Returns a page of flags
+        <b>Permissions Needed:</b> MODERATION_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_flags(async=True)
@@ -257,6 +258,7 @@ class MediaModerationApi(object):
     def get_flags_with_http_info(self, **kwargs):
         """
         Returns a page of flags
+        <b>Permissions Needed:</b> MODERATION_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_flags_with_http_info(async=True)
@@ -316,10 +318,6 @@ class MediaModerationApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -341,6 +339,7 @@ class MediaModerationApi(object):
     def get_moderation_report(self, id, **kwargs):
         """
         Get a flag report
+        <b>Permissions Needed:</b> MODERATION_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_moderation_report(id, async=True)
@@ -362,6 +361,7 @@ class MediaModerationApi(object):
     def get_moderation_report_with_http_info(self, id, **kwargs):
         """
         Get a flag report
+        <b>Permissions Needed:</b> MODERATION_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_moderation_report_with_http_info(id, async=True)
@@ -412,10 +412,6 @@ class MediaModerationApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -437,7 +433,7 @@ class MediaModerationApi(object):
     def get_moderation_reports(self, **kwargs):
         """
         Returns a page of flag reports
-        Context can be either a free-form string or a pre-defined context name
+        Context can be either a free-form string or a pre-defined context name. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_moderation_reports(async=True)
@@ -463,7 +459,7 @@ class MediaModerationApi(object):
     def get_moderation_reports_with_http_info(self, **kwargs):
         """
         Returns a page of flag reports
-        Context can be either a free-form string or a pre-defined context name
+        Context can be either a free-form string or a pre-defined context name. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_moderation_reports_with_http_info(async=True)
@@ -523,10 +519,6 @@ class MediaModerationApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -548,7 +540,7 @@ class MediaModerationApi(object):
     def update_moderation_report(self, id, **kwargs):
         """
         Update a flag report
-        Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason.
+        Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_moderation_report(id, async=True)
@@ -571,7 +563,7 @@ class MediaModerationApi(object):
     def update_moderation_report_with_http_info(self, id, **kwargs):
         """
         Update a flag report
-        Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason.
+        Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_moderation_report_with_http_info(id, async=True)

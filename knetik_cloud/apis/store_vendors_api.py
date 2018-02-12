@@ -38,6 +38,7 @@ class StoreVendorsApi(object):
     def create_vendor(self, **kwargs):
         """
         Create a vendor
+        <b>Permissions Needed:</b> VENDORS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_vendor(async=True)
@@ -59,6 +60,7 @@ class StoreVendorsApi(object):
     def create_vendor_with_http_info(self, **kwargs):
         """
         Create a vendor
+        <b>Permissions Needed:</b> VENDORS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_vendor_with_http_info(async=True)
@@ -131,7 +133,7 @@ class StoreVendorsApi(object):
     def create_vendor_template(self, **kwargs):
         """
         Create a vendor template
-        Vendor Templates define a type of vendor and the properties they have.
+        Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_vendor_template(async=True)
@@ -153,7 +155,7 @@ class StoreVendorsApi(object):
     def create_vendor_template_with_http_info(self, **kwargs):
         """
         Create a vendor template
-        Vendor Templates define a type of vendor and the properties they have.
+        Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_vendor_template_with_http_info(async=True)
@@ -226,6 +228,7 @@ class StoreVendorsApi(object):
     def delete_vendor(self, id, **kwargs):
         """
         Delete a vendor
+        <b>Permissions Needed:</b> VENDORS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_vendor(id, async=True)
@@ -247,6 +250,7 @@ class StoreVendorsApi(object):
     def delete_vendor_with_http_info(self, id, **kwargs):
         """
         Delete a vendor
+        <b>Permissions Needed:</b> VENDORS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_vendor_with_http_info(id, async=True)
@@ -297,10 +301,6 @@ class StoreVendorsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -322,6 +322,7 @@ class StoreVendorsApi(object):
     def delete_vendor_template(self, id, **kwargs):
         """
         Delete a vendor template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_vendor_template(id, async=True)
@@ -344,6 +345,7 @@ class StoreVendorsApi(object):
     def delete_vendor_template_with_http_info(self, id, **kwargs):
         """
         Delete a vendor template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_vendor_template_with_http_info(id, async=True)
@@ -397,10 +399,6 @@ class StoreVendorsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -422,6 +420,7 @@ class StoreVendorsApi(object):
     def get_vendor(self, id, **kwargs):
         """
         Get a single vendor
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_vendor(id, async=True)
@@ -443,6 +442,7 @@ class StoreVendorsApi(object):
     def get_vendor_with_http_info(self, id, **kwargs):
         """
         Get a single vendor
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_vendor_with_http_info(id, async=True)
@@ -493,10 +493,6 @@ class StoreVendorsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -518,7 +514,7 @@ class StoreVendorsApi(object):
     def get_vendor_template(self, id, **kwargs):
         """
         Get a single vendor template
-        Vendor Templates define a type of vendor and the properties they have.
+        Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_vendor_template(id, async=True)
@@ -540,7 +536,7 @@ class StoreVendorsApi(object):
     def get_vendor_template_with_http_info(self, id, **kwargs):
         """
         Get a single vendor template
-        Vendor Templates define a type of vendor and the properties they have.
+        Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_vendor_template_with_http_info(id, async=True)
@@ -591,10 +587,6 @@ class StoreVendorsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -616,6 +608,7 @@ class StoreVendorsApi(object):
     def get_vendor_templates(self, **kwargs):
         """
         List and search vendor templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_vendor_templates(async=True)
@@ -639,6 +632,7 @@ class StoreVendorsApi(object):
     def get_vendor_templates_with_http_info(self, **kwargs):
         """
         List and search vendor templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_vendor_templates_with_http_info(async=True)
@@ -692,10 +686,6 @@ class StoreVendorsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -717,6 +707,7 @@ class StoreVendorsApi(object):
     def get_vendors(self, **kwargs):
         """
         List and search vendors
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_vendors(async=True)
@@ -741,6 +732,7 @@ class StoreVendorsApi(object):
     def get_vendors_with_http_info(self, **kwargs):
         """
         List and search vendors
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_vendors_with_http_info(async=True)
@@ -797,10 +789,6 @@ class StoreVendorsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -822,6 +810,7 @@ class StoreVendorsApi(object):
     def update_vendor(self, id, **kwargs):
         """
         Update a vendor
+        <b>Permissions Needed:</b> VENDORS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_vendor(id, async=True)
@@ -844,6 +833,7 @@ class StoreVendorsApi(object):
     def update_vendor_with_http_info(self, id, **kwargs):
         """
         Update a vendor
+        <b>Permissions Needed:</b> VENDORS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_vendor_with_http_info(id, async=True)
@@ -922,6 +912,7 @@ class StoreVendorsApi(object):
     def update_vendor_template(self, id, **kwargs):
         """
         Update a vendor template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_vendor_template(id, async=True)
@@ -944,6 +935,7 @@ class StoreVendorsApi(object):
     def update_vendor_template_with_http_info(self, id, **kwargs):
         """
         Update a vendor template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_vendor_template_with_http_info(id, async=True)

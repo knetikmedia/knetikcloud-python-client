@@ -38,7 +38,7 @@ class BRERuleEngineGlobalsApi(object):
     def create_bre_global(self, **kwargs):
         """
         Create a global definition
-        Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use.
+        Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_bre_global(async=True)
@@ -60,7 +60,7 @@ class BRERuleEngineGlobalsApi(object):
     def create_bre_global_with_http_info(self, **kwargs):
         """
         Create a global definition
-        Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use.
+        Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_bre_global_with_http_info(async=True)
@@ -133,7 +133,7 @@ class BRERuleEngineGlobalsApi(object):
     def delete_bre_global(self, id, **kwargs):
         """
         Delete a global
-        May fail if there are existing rules against it. Cannot delete core globals
+        May fail if there are existing rules against it. Cannot delete core globals. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_bre_global(id, async=True)
@@ -155,7 +155,7 @@ class BRERuleEngineGlobalsApi(object):
     def delete_bre_global_with_http_info(self, id, **kwargs):
         """
         Delete a global
-        May fail if there are existing rules against it. Cannot delete core globals
+        May fail if there are existing rules against it. Cannot delete core globals. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_bre_global_with_http_info(id, async=True)
@@ -206,10 +206,6 @@ class BRERuleEngineGlobalsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -231,6 +227,7 @@ class BRERuleEngineGlobalsApi(object):
     def get_bre_global(self, id, **kwargs):
         """
         Get a single global definition
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_global(id, async=True)
@@ -252,6 +249,7 @@ class BRERuleEngineGlobalsApi(object):
     def get_bre_global_with_http_info(self, id, **kwargs):
         """
         Get a single global definition
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_global_with_http_info(id, async=True)
@@ -302,10 +300,6 @@ class BRERuleEngineGlobalsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -327,6 +321,7 @@ class BRERuleEngineGlobalsApi(object):
     def get_bre_globals(self, **kwargs):
         """
         List global definitions
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_globals(async=True)
@@ -350,6 +345,7 @@ class BRERuleEngineGlobalsApi(object):
     def get_bre_globals_with_http_info(self, **kwargs):
         """
         List global definitions
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_globals_with_http_info(async=True)
@@ -403,10 +399,6 @@ class BRERuleEngineGlobalsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -428,7 +420,7 @@ class BRERuleEngineGlobalsApi(object):
     def update_bre_global(self, id, **kwargs):
         """
         Update a global definition
-        May fail if new parameters mismatch requirements of existing rules. Cannot update core globals
+        May fail if new parameters mismatch requirements of existing rules. Cannot update core globals. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_global(id, async=True)
@@ -451,7 +443,7 @@ class BRERuleEngineGlobalsApi(object):
     def update_bre_global_with_http_info(self, id, **kwargs):
         """
         Update a global definition
-        May fail if new parameters mismatch requirements of existing rules. Cannot update core globals
+        May fail if new parameters mismatch requirements of existing rules. Cannot update core globals. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_global_with_http_info(id, async=True)

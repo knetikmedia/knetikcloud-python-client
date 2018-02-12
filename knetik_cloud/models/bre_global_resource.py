@@ -221,7 +221,7 @@ class BreGlobalResource(object):
     def type(self):
         """
         Gets the type of this BreGlobalResource.
-        The variable type the global stores. See the See Bre Variables enpoint for list
+        The variable type the global stores. See the BRE variables endpoint for list
 
         :return: The type of this BreGlobalResource.
         :rtype: str
@@ -232,7 +232,7 @@ class BreGlobalResource(object):
     def type(self, type):
         """
         Sets the type of this BreGlobalResource.
-        The variable type the global stores. See the See Bre Variables enpoint for list
+        The variable type the global stores. See the BRE variables endpoint for list
 
         :param type: The type of this BreGlobalResource.
         :type: str

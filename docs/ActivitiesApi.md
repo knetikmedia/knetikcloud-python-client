@@ -1,9 +1,10 @@
 # knetik_cloud.ActivitiesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_user**](ActivitiesApi.md#add_user) | **POST** /activity-occurrences/{activity_occurrence_id}/users | Add a user to an occurrence
 [**create_activity**](ActivitiesApi.md#create_activity) | **POST** /activities | Create an activity
 [**create_activity_occurrence**](ActivitiesApi.md#create_activity_occurrence) | **POST** /activity-occurrences | Create a new activity occurrence. Ex: start a game
 [**create_activity_template**](ActivitiesApi.md#create_activity_template) | **POST** /activities/templates | Create a activity template
@@ -15,16 +16,82 @@ Method | HTTP request | Description
 [**get_activity_template**](ActivitiesApi.md#get_activity_template) | **GET** /activities/templates/{id} | Get a single activity template
 [**get_activity_templates**](ActivitiesApi.md#get_activity_templates) | **GET** /activities/templates | List and search activity templates
 [**list_activity_occurrences**](ActivitiesApi.md#list_activity_occurrences) | **GET** /activity-occurrences | List activity occurrences
+[**remove_user**](ActivitiesApi.md#remove_user) | **DELETE** /activity-occurrences/{activity_occurrence_id}/users/{user_id} | Remove a user from an occurrence
 [**set_activity_occurrence_results**](ActivitiesApi.md#set_activity_occurrence_results) | **POST** /activity-occurrences/{activity_occurrence_id}/results | Sets the status of an activity occurrence to FINISHED and logs metrics
+[**set_activity_occurrence_settings**](ActivitiesApi.md#set_activity_occurrence_settings) | **PUT** /activity-occurrences/{activity_occurrence_id}/settings | Sets the settings of an activity occurrence
+[**set_user_status**](ActivitiesApi.md#set_user_status) | **PUT** /activity-occurrences/{activity_occurrence_id}/users/{user_id}/status | Set a user&#39;s status within an occurrence
 [**update_activity**](ActivitiesApi.md#update_activity) | **PUT** /activities/{id} | Update an activity
-[**update_activity_occurrence**](ActivitiesApi.md#update_activity_occurrence) | **PUT** /activity-occurrences/{activity_occurrence_id}/status | Updated the status of an activity occurrence
+[**update_activity_occurrence_status**](ActivitiesApi.md#update_activity_occurrence_status) | **PUT** /activity-occurrences/{activity_occurrence_id}/status | Update the status of an activity occurrence
 [**update_activity_template**](ActivitiesApi.md#update_activity_template) | **PUT** /activities/templates/{id} | Update an activity template
 
+
+# **add_user**
+> ActivityOccurrenceResource add_user(activity_occurrence_id, test=test, bypass_restrictions=bypass_restrictions, user_id=user_id)
+
+Add a user to an occurrence
+
+If called with no body, defaults to the user making the call.
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ActivitiesApi(knetik_cloud.ApiClient(configuration))
+activity_occurrence_id = 789 # int | The id of the activity occurrence
+test = false # bool | if true, indicates that the user should NOT be added. This can be used to test for eligibility (optional) (default to false)
+bypass_restrictions = false # bool | if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN (optional) (default to false)
+user_id = knetik_cloud.IntWrapper() # IntWrapper | The id of the user, or null for 'caller' (optional)
+
+try: 
+    # Add a user to an occurrence
+    api_response = api_instance.add_user(activity_occurrence_id, test=test, bypass_restrictions=bypass_restrictions, user_id=user_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ActivitiesApi->add_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activity_occurrence_id** | **int**| The id of the activity occurrence | 
+ **test** | **bool**| if true, indicates that the user should NOT be added. This can be used to test for eligibility | [optional] [default to false]
+ **bypass_restrictions** | **bool**| if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN | [optional] [default to false]
+ **user_id** | [**IntWrapper**](IntWrapper.md)| The id of the user, or null for &#39;caller&#39; | [optional] 
+
+### Return type
+
+[**ActivityOccurrenceResource**](ActivityOccurrenceResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_activity**
 > ActivityResource create_activity(activity_resource=activity_resource)
 
 Create an activity
+
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -79,7 +146,7 @@ Name | Type | Description  | Notes
 
 Create a new activity occurrence. Ex: start a game
 
-Has to enforce extra rules if not used as an admin
+Has to enforce extra rules if not used as an admin. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -136,7 +203,7 @@ Name | Type | Description  | Notes
 
 Create a activity template
 
-Activity Templates define a type of activity and the properties they have
+Activity Templates define a type of activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -191,6 +258,8 @@ Name | Type | Description  | Notes
 
 Delete an activity
 
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -233,7 +302,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -243,7 +312,7 @@ void (empty response body)
 
 Delete a activity template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -289,7 +358,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -298,6 +367,8 @@ void (empty response body)
 > PageResourceBareActivityResource get_activities(filter_template=filter_template, filter_name=filter_name, filter_id=filter_id, size=size, page=page, order=order)
 
 List activity definitions
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -352,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -361,6 +432,8 @@ Name | Type | Description  | Notes
 > ActivityResource get_activity(id)
 
 Get a single activity
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -405,7 +478,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -414,6 +487,8 @@ Name | Type | Description  | Notes
 > ActivityOccurrenceResource get_activity_occurrence_details(activity_occurrence_id)
 
 Load a single activity occurrence details
+
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -458,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -467,6 +542,8 @@ Name | Type | Description  | Notes
 > TemplateResource get_activity_template(id)
 
 Get a single activity template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -511,7 +588,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -520,6 +597,8 @@ Name | Type | Description  | Notes
 > PageResourceTemplateResource get_activity_templates(size=size, page=page, order=order)
 
 List and search activity templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -568,7 +647,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -577,6 +656,8 @@ Name | Type | Description  | Notes
 > PageResourceActivityOccurrenceResource list_activity_occurrences(filter_activity=filter_activity, filter_status=filter_status, filter_event=filter_event, filter_challenge=filter_challenge, size=size, page=page, order=order)
 
 List activity occurrences
+
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -596,7 +677,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = knetik_cloud.ActivitiesApi(knetik_cloud.ApiClient(configuration))
 filter_activity = 'filter_activity_example' # str | Filter for occurrences of the given activity ID (optional)
-filter_status = 'filter_status_example' # str | Filter for occurrences of the given activity ID (optional)
+filter_status = 'filter_status_example' # str | Filter for occurrences in the given status (optional)
 filter_event = 56 # int | Filter for occurrences played during the given event (optional)
 filter_challenge = 56 # int | Filter for occurrences played within the given challenge (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
@@ -616,7 +697,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filter_activity** | **str**| Filter for occurrences of the given activity ID | [optional] 
- **filter_status** | **str**| Filter for occurrences of the given activity ID | [optional] 
+ **filter_status** | **str**| Filter for occurrences in the given status | [optional] 
  **filter_event** | **int**| Filter for occurrences played during the given event | [optional] 
  **filter_challenge** | **int**| Filter for occurrences played within the given challenge | [optional] 
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]
@@ -633,7 +714,65 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **remove_user**
+> remove_user(activity_occurrence_id, user_id, ban=ban, bypass_restrictions=bypass_restrictions)
+
+Remove a user from an occurrence
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ActivitiesApi(knetik_cloud.ApiClient(configuration))
+activity_occurrence_id = 789 # int | The id of the activity occurrence
+user_id = 'user_id_example' # str | The id of the user, or 'me'
+ban = false # bool | if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin (optional) (default to false)
+bypass_restrictions = false # bool | if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN (optional) (default to false)
+
+try: 
+    # Remove a user from an occurrence
+    api_instance.remove_user(activity_occurrence_id, user_id, ban=ban, bypass_restrictions=bypass_restrictions)
+except ApiException as e:
+    print("Exception when calling ActivitiesApi->remove_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activity_occurrence_id** | **int**| The id of the activity occurrence | 
+ **user_id** | **str**| The id of the user, or &#39;me&#39; | 
+ **ban** | **bool**| if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin | [optional] [default to false]
+ **bypass_restrictions** | **bool**| if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN | [optional] [default to false]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -642,6 +781,8 @@ Name | Type | Description  | Notes
 > ActivityOccurrenceResults set_activity_occurrence_results(activity_occurrence_id, activity_occurrence_results=activity_occurrence_results)
 
 Sets the status of an activity occurrence to FINISHED and logs metrics
+
+In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
 
 ### Example 
 ```python
@@ -693,10 +834,124 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **set_activity_occurrence_settings**
+> ActivityOccurrenceResource set_activity_occurrence_settings(activity_occurrence_id, settings=settings)
+
+Sets the settings of an activity occurrence
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ActivitiesApi(knetik_cloud.ApiClient(configuration))
+activity_occurrence_id = 789 # int | The id of the activity occurrence
+settings = knetik_cloud.ActivityOccurrenceSettingsResource() # ActivityOccurrenceSettingsResource | The new settings (optional)
+
+try: 
+    # Sets the settings of an activity occurrence
+    api_response = api_instance.set_activity_occurrence_settings(activity_occurrence_id, settings=settings)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ActivitiesApi->set_activity_occurrence_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activity_occurrence_id** | **int**| The id of the activity occurrence | 
+ **settings** | [**ActivityOccurrenceSettingsResource**](ActivityOccurrenceSettingsResource.md)| The new settings | [optional] 
+
+### Return type
+
+[**ActivityOccurrenceResource**](ActivityOccurrenceResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_user_status**
+> ActivityUserResource set_user_status(activity_occurrence_id, user_id, status=status)
+
+Set a user's status within an occurrence
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ActivitiesApi(knetik_cloud.ApiClient(configuration))
+activity_occurrence_id = 789 # int | The id of the activity occurrence
+user_id = 'user_id_example' # str | The id of the user
+status = 'status_example' # str | The new status (optional)
+
+try: 
+    # Set a user's status within an occurrence
+    api_response = api_instance.set_user_status(activity_occurrence_id, user_id, status=status)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ActivitiesApi->set_user_status: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activity_occurrence_id** | **int**| The id of the activity occurrence | 
+ **user_id** | **str**| The id of the user | 
+ **status** | **str**| The new status | [optional] 
+
+### Return type
+
+[**ActivityUserResource**](ActivityUserResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_activity**
 > ActivityResource update_activity(id, activity_resource=activity_resource)
 
 Update an activity
+
+<b>Permissions Needed:</b> ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -748,12 +1003,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_activity_occurrence**
-> update_activity_occurrence(activity_occurrence_id, activity_occurrence_status=activity_occurrence_status)
+# **update_activity_occurrence_status**
+> update_activity_occurrence_status(activity_occurrence_id, activity_occurrence_status=activity_occurrence_status)
 
-Updated the status of an activity occurrence
+Update the status of an activity occurrence
 
-If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Aternatively, see results endpoint to finish and record all metrics at once.
+If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
 
 ### Example 
 ```python
@@ -773,13 +1028,13 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = knetik_cloud.ActivitiesApi(knetik_cloud.ApiClient(configuration))
 activity_occurrence_id = 789 # int | The id of the activity occurrence
-activity_occurrence_status = 'activity_occurrence_status_example' # str | The activity occurrence status object (optional)
+activity_occurrence_status = knetik_cloud.ValueWrapperstring() # ValueWrapperstring | The activity occurrence status object (optional)
 
 try: 
-    # Updated the status of an activity occurrence
-    api_instance.update_activity_occurrence(activity_occurrence_id, activity_occurrence_status=activity_occurrence_status)
+    # Update the status of an activity occurrence
+    api_instance.update_activity_occurrence_status(activity_occurrence_id, activity_occurrence_status=activity_occurrence_status)
 except ApiException as e:
-    print("Exception when calling ActivitiesApi->update_activity_occurrence: %s\n" % e)
+    print("Exception when calling ActivitiesApi->update_activity_occurrence_status: %s\n" % e)
 ```
 
 ### Parameters
@@ -787,7 +1042,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activity_occurrence_id** | **int**| The id of the activity occurrence | 
- **activity_occurrence_status** | **str**| The activity occurrence status object | [optional] 
+ **activity_occurrence_status** | [**ValueWrapperstring**](ValueWrapperstring.md)| The activity occurrence status object | [optional] 
 
 ### Return type
 
@@ -808,6 +1063,8 @@ void (empty response body)
 > TemplateResource update_activity_template(id, activity_template_resource=activity_template_resource)
 
 Update an activity template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python

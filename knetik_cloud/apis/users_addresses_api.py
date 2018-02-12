@@ -38,6 +38,7 @@ class UsersAddressesApi(object):
     def create_address(self, user_id, **kwargs):
         """
         Create a new address
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_address(user_id, async=True)
@@ -60,6 +61,7 @@ class UsersAddressesApi(object):
     def create_address_with_http_info(self, user_id, **kwargs):
         """
         Create a new address
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_address_with_http_info(user_id, async=True)
@@ -138,6 +140,7 @@ class UsersAddressesApi(object):
     def delete_address(self, user_id, id, **kwargs):
         """
         Delete an address
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_address(user_id, id, async=True)
@@ -160,6 +163,7 @@ class UsersAddressesApi(object):
     def delete_address_with_http_info(self, user_id, id, **kwargs):
         """
         Delete an address
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_address_with_http_info(user_id, id, async=True)
@@ -216,10 +220,6 @@ class UsersAddressesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -241,6 +241,7 @@ class UsersAddressesApi(object):
     def get_address(self, user_id, id, **kwargs):
         """
         Get a single address
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_address(user_id, id, async=True)
@@ -263,6 +264,7 @@ class UsersAddressesApi(object):
     def get_address_with_http_info(self, user_id, id, **kwargs):
         """
         Get a single address
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_address_with_http_info(user_id, id, async=True)
@@ -319,10 +321,6 @@ class UsersAddressesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -344,6 +342,7 @@ class UsersAddressesApi(object):
     def get_addresses(self, user_id, **kwargs):
         """
         List and search addresses
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_addresses(user_id, async=True)
@@ -368,6 +367,7 @@ class UsersAddressesApi(object):
     def get_addresses_with_http_info(self, user_id, **kwargs):
         """
         List and search addresses
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_addresses_with_http_info(user_id, async=True)
@@ -427,10 +427,6 @@ class UsersAddressesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -452,6 +448,7 @@ class UsersAddressesApi(object):
     def update_address(self, user_id, id, **kwargs):
         """
         Update an address
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_address(user_id, id, async=True)
@@ -475,6 +472,7 @@ class UsersAddressesApi(object):
     def update_address_with_http_info(self, user_id, id, **kwargs):
         """
         Update an address
+        <b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_address_with_http_info(user_id, id, async=True)

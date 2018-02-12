@@ -38,7 +38,7 @@ class GamificationAchievementsApi(object):
     def create_achievement(self, **kwargs):
         """
         Create a new achievement definition
-        If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API.
+        If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_achievement(async=True)
@@ -60,7 +60,7 @@ class GamificationAchievementsApi(object):
     def create_achievement_with_http_info(self, **kwargs):
         """
         Create a new achievement definition
-        If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API.
+        If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_achievement_with_http_info(async=True)
@@ -133,7 +133,7 @@ class GamificationAchievementsApi(object):
     def create_achievement_template(self, **kwargs):
         """
         Create an achievement template
-        Achievement templates define a type of achievement and the properties they have
+        Achievement templates define a type of achievement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_achievement_template(async=True)
@@ -155,7 +155,7 @@ class GamificationAchievementsApi(object):
     def create_achievement_template_with_http_info(self, **kwargs):
         """
         Create an achievement template
-        Achievement templates define a type of achievement and the properties they have
+        Achievement templates define a type of achievement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_achievement_template_with_http_info(async=True)
@@ -228,7 +228,7 @@ class GamificationAchievementsApi(object):
     def delete_achievement(self, name, **kwargs):
         """
         Delete an achievement definition
-        Will also disable the associated generated rule, if any.
+        Will also disable the associated generated rule, if any. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_achievement(name, async=True)
@@ -250,7 +250,7 @@ class GamificationAchievementsApi(object):
     def delete_achievement_with_http_info(self, name, **kwargs):
         """
         Delete an achievement definition
-        Will also disable the associated generated rule, if any.
+        Will also disable the associated generated rule, if any. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_achievement_with_http_info(name, async=True)
@@ -301,10 +301,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -326,7 +322,7 @@ class GamificationAchievementsApi(object):
     def delete_achievement_template(self, id, **kwargs):
         """
         Delete an achievement template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_achievement_template(id, async=True)
@@ -349,7 +345,7 @@ class GamificationAchievementsApi(object):
     def delete_achievement_template_with_http_info(self, id, **kwargs):
         """
         Delete an achievement template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_achievement_template_with_http_info(id, async=True)
@@ -403,10 +399,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -428,6 +420,7 @@ class GamificationAchievementsApi(object):
     def get_achievement(self, name, **kwargs):
         """
         Get a single achievement definition
+        <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievement(name, async=True)
@@ -449,6 +442,7 @@ class GamificationAchievementsApi(object):
     def get_achievement_with_http_info(self, name, **kwargs):
         """
         Get a single achievement definition
+        <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievement_with_http_info(name, async=True)
@@ -499,10 +493,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -524,6 +514,7 @@ class GamificationAchievementsApi(object):
     def get_achievement_template(self, id, **kwargs):
         """
         Get a single achievement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievement_template(id, async=True)
@@ -545,6 +536,7 @@ class GamificationAchievementsApi(object):
     def get_achievement_template_with_http_info(self, id, **kwargs):
         """
         Get a single achievement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievement_template_with_http_info(id, async=True)
@@ -595,10 +587,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -620,6 +608,7 @@ class GamificationAchievementsApi(object):
     def get_achievement_templates(self, **kwargs):
         """
         List and search achievement templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievement_templates(async=True)
@@ -643,6 +632,7 @@ class GamificationAchievementsApi(object):
     def get_achievement_templates_with_http_info(self, **kwargs):
         """
         List and search achievement templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievement_templates_with_http_info(async=True)
@@ -696,10 +686,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -721,6 +707,7 @@ class GamificationAchievementsApi(object):
     def get_achievement_triggers(self, **kwargs):
         """
         Get the list of triggers that can be used to trigger an achievement progress update
+        <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievement_triggers(async=True)
@@ -741,6 +728,7 @@ class GamificationAchievementsApi(object):
     def get_achievement_triggers_with_http_info(self, **kwargs):
         """
         Get the list of triggers that can be used to trigger an achievement progress update
+        <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievement_triggers_with_http_info(async=True)
@@ -784,10 +772,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -809,6 +793,7 @@ class GamificationAchievementsApi(object):
     def get_achievements(self, **kwargs):
         """
         Get all achievement definitions in the system
+        <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievements(async=True)
@@ -836,6 +821,7 @@ class GamificationAchievementsApi(object):
     def get_achievements_with_http_info(self, **kwargs):
         """
         Get all achievement definitions in the system
+        <b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_achievements_with_http_info(async=True)
@@ -901,10 +887,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -926,7 +908,7 @@ class GamificationAchievementsApi(object):
     def get_derived_achievements(self, name, **kwargs):
         """
         Get a list of derived achievements
-        Used by other services that depend on achievements
+        Used by other services that depend on achievements.  <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_derived_achievements(name, async=True)
@@ -948,7 +930,7 @@ class GamificationAchievementsApi(object):
     def get_derived_achievements_with_http_info(self, name, **kwargs):
         """
         Get a list of derived achievements
-        Used by other services that depend on achievements
+        Used by other services that depend on achievements.  <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_derived_achievements_with_http_info(name, async=True)
@@ -999,10 +981,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1024,7 +1002,7 @@ class GamificationAchievementsApi(object):
     def get_user_achievement_progress(self, user_id, achievement_name, **kwargs):
         """
         Retrieve progress on a given achievement for a given user
-        Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+        Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_achievement_progress(user_id, achievement_name, async=True)
@@ -1047,7 +1025,7 @@ class GamificationAchievementsApi(object):
     def get_user_achievement_progress_with_http_info(self, user_id, achievement_name, **kwargs):
         """
         Retrieve progress on a given achievement for a given user
-        Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+        Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_achievement_progress_with_http_info(user_id, achievement_name, async=True)
@@ -1104,10 +1082,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1129,7 +1103,7 @@ class GamificationAchievementsApi(object):
     def get_user_achievements_progress(self, user_id, **kwargs):
         """
         Retrieve progress on achievements for a given user
-        Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+        Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_achievements_progress(user_id, async=True)
@@ -1156,7 +1130,7 @@ class GamificationAchievementsApi(object):
     def get_user_achievements_progress_with_http_info(self, user_id, **kwargs):
         """
         Retrieve progress on achievements for a given user
-        Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+        Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_achievements_progress_with_http_info(user_id, async=True)
@@ -1222,10 +1196,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1247,7 +1217,7 @@ class GamificationAchievementsApi(object):
     def get_users_achievement_progress(self, achievement_name, **kwargs):
         """
         Retrieve progress on a given achievement for all users
-        Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
+        Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_users_achievement_progress(achievement_name, async=True)
@@ -1274,7 +1244,7 @@ class GamificationAchievementsApi(object):
     def get_users_achievement_progress_with_http_info(self, achievement_name, **kwargs):
         """
         Retrieve progress on a given achievement for all users
-        Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
+        Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_users_achievement_progress_with_http_info(achievement_name, async=True)
@@ -1340,10 +1310,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1365,7 +1331,7 @@ class GamificationAchievementsApi(object):
     def get_users_achievements_progress(self, **kwargs):
         """
         Retrieve progress on achievements for all users
-        Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
+        Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_users_achievements_progress(async=True)
@@ -1391,7 +1357,7 @@ class GamificationAchievementsApi(object):
     def get_users_achievements_progress_with_http_info(self, **kwargs):
         """
         Retrieve progress on achievements for all users
-        Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
+        Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_users_achievements_progress_with_http_info(async=True)
@@ -1451,10 +1417,6 @@ class GamificationAchievementsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1476,7 +1438,7 @@ class GamificationAchievementsApi(object):
     def increment_achievement_progress(self, user_id, achievement_name, **kwargs):
         """
         Increment an achievement progress record for a user
-        If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+        If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.increment_achievement_progress(user_id, achievement_name, async=True)
@@ -1500,7 +1462,7 @@ class GamificationAchievementsApi(object):
     def increment_achievement_progress_with_http_info(self, user_id, achievement_name, **kwargs):
         """
         Increment an achievement progress record for a user
-        If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+        If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.increment_achievement_progress_with_http_info(user_id, achievement_name, async=True)
@@ -1585,7 +1547,7 @@ class GamificationAchievementsApi(object):
     def set_achievement_progress(self, user_id, achievement_name, **kwargs):
         """
         Set an achievement progress record for a user
-        If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+        If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_achievement_progress(user_id, achievement_name, async=True)
@@ -1609,7 +1571,7 @@ class GamificationAchievementsApi(object):
     def set_achievement_progress_with_http_info(self, user_id, achievement_name, **kwargs):
         """
         Set an achievement progress record for a user
-        If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
+        If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_achievement_progress_with_http_info(user_id, achievement_name, async=True)
@@ -1694,7 +1656,7 @@ class GamificationAchievementsApi(object):
     def update_achievement(self, name, **kwargs):
         """
         Update an achievement definition
-        The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version.
+        The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_achievement(name, async=True)
@@ -1717,7 +1679,7 @@ class GamificationAchievementsApi(object):
     def update_achievement_with_http_info(self, name, **kwargs):
         """
         Update an achievement definition
-        The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version.
+        The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version. <br><br><b>Permissions Needed:</b> ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_achievement_with_http_info(name, async=True)
@@ -1796,6 +1758,7 @@ class GamificationAchievementsApi(object):
     def update_achievement_template(self, id, **kwargs):
         """
         Update an achievement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_achievement_template(id, async=True)
@@ -1818,6 +1781,7 @@ class GamificationAchievementsApi(object):
     def update_achievement_template_with_http_info(self, id, **kwargs):
         """
         Update an achievement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_achievement_template_with_http_info(id, async=True)

@@ -38,7 +38,7 @@ class ReportingRevenueApi(object):
     def get_item_revenue(self, currency_code, **kwargs):
         """
         Get item revenue info
-        Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range
+        Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_item_revenue(currency_code, async=True)
@@ -62,7 +62,7 @@ class ReportingRevenueApi(object):
     def get_item_revenue_with_http_info(self, currency_code, **kwargs):
         """
         Get item revenue info
-        Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range
+        Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_item_revenue_with_http_info(currency_code, async=True)
@@ -119,10 +119,6 @@ class ReportingRevenueApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -144,7 +140,7 @@ class ReportingRevenueApi(object):
     def get_refund_revenue(self, currency_code, **kwargs):
         """
         Get refund revenue info
-        Get basic info about revenue loss from refunds (for all item types), summed up within a time range.
+        Get basic info about revenue loss from refunds (for all item types), summed up within a time range. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_refund_revenue(currency_code, async=True)
@@ -168,7 +164,7 @@ class ReportingRevenueApi(object):
     def get_refund_revenue_with_http_info(self, currency_code, **kwargs):
         """
         Get refund revenue info
-        Get basic info about revenue loss from refunds (for all item types), summed up within a time range.
+        Get basic info about revenue loss from refunds (for all item types), summed up within a time range. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_refund_revenue_with_http_info(currency_code, async=True)
@@ -225,10 +221,6 @@ class ReportingRevenueApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -250,7 +242,7 @@ class ReportingRevenueApi(object):
     def get_revenue_by_country(self, currency_code, **kwargs):
         """
         Get revenue info by country
-        Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top
+        Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_revenue_by_country(currency_code, async=True)
@@ -276,7 +268,7 @@ class ReportingRevenueApi(object):
     def get_revenue_by_country_with_http_info(self, currency_code, **kwargs):
         """
         Get revenue info by country
-        Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top
+        Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_revenue_by_country_with_http_info(currency_code, async=True)
@@ -339,10 +331,6 @@ class ReportingRevenueApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -364,7 +352,7 @@ class ReportingRevenueApi(object):
     def get_revenue_by_item(self, currency_code, **kwargs):
         """
         Get revenue info by item
-        Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top
+        Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_revenue_by_item(currency_code, async=True)
@@ -390,7 +378,7 @@ class ReportingRevenueApi(object):
     def get_revenue_by_item_with_http_info(self, currency_code, **kwargs):
         """
         Get revenue info by item
-        Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top
+        Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_revenue_by_item_with_http_info(currency_code, async=True)
@@ -453,10 +441,6 @@ class ReportingRevenueApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -478,7 +462,7 @@ class ReportingRevenueApi(object):
     def get_subscription_revenue(self, currency_code, **kwargs):
         """
         Get subscription revenue info
-        Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range
+        Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_revenue(currency_code, async=True)
@@ -502,7 +486,7 @@ class ReportingRevenueApi(object):
     def get_subscription_revenue_with_http_info(self, currency_code, **kwargs):
         """
         Get subscription revenue info
-        Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range
+        Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range. <br><br><b>Permissions Needed:</b> REPORTING_REVENUE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_revenue_with_http_info(currency_code, async=True)
@@ -558,10 +542,6 @@ class ReportingRevenueApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

@@ -38,7 +38,7 @@ class BRERuleEngineRulesApi(object):
     def create_bre_rule(self, **kwargs):
         """
         Create a rule
-        Rules define which actions to run when a given event verifies the specified condition. Full list of predicates and other type of expressions can be found at GET /bre/expressions/
+        Rules define which actions to run when a given event verifies the specified condition. Full list of predicates and other type of expressions can be found at GET /bre/expressions/. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_bre_rule(async=True)
@@ -60,7 +60,7 @@ class BRERuleEngineRulesApi(object):
     def create_bre_rule_with_http_info(self, **kwargs):
         """
         Create a rule
-        Rules define which actions to run when a given event verifies the specified condition. Full list of predicates and other type of expressions can be found at GET /bre/expressions/
+        Rules define which actions to run when a given event verifies the specified condition. Full list of predicates and other type of expressions can be found at GET /bre/expressions/. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_bre_rule_with_http_info(async=True)
@@ -133,7 +133,7 @@ class BRERuleEngineRulesApi(object):
     def delete_bre_rule(self, id, **kwargs):
         """
         Delete a rule
-        May fail if there are existing rules against it. Cannot delete core rules
+        May fail if there are existing rules against it. Cannot delete core rules. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_bre_rule(id, async=True)
@@ -155,7 +155,7 @@ class BRERuleEngineRulesApi(object):
     def delete_bre_rule_with_http_info(self, id, **kwargs):
         """
         Delete a rule
-        May fail if there are existing rules against it. Cannot delete core rules
+        May fail if there are existing rules against it. Cannot delete core rules. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_bre_rule_with_http_info(id, async=True)
@@ -206,10 +206,6 @@ class BRERuleEngineRulesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -231,6 +227,7 @@ class BRERuleEngineRulesApi(object):
     def get_bre_expression_as_string(self, **kwargs):
         """
         Returns a string representation of the provided expression
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_expression_as_string(async=True)
@@ -252,6 +249,7 @@ class BRERuleEngineRulesApi(object):
     def get_bre_expression_as_string_with_http_info(self, **kwargs):
         """
         Returns a string representation of the provided expression
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_expression_as_string_with_http_info(async=True)
@@ -324,6 +322,7 @@ class BRERuleEngineRulesApi(object):
     def get_bre_rule(self, id, **kwargs):
         """
         Get a single rule
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_rule(id, async=True)
@@ -345,6 +344,7 @@ class BRERuleEngineRulesApi(object):
     def get_bre_rule_with_http_info(self, id, **kwargs):
         """
         Get a single rule
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_rule_with_http_info(id, async=True)
@@ -395,10 +395,6 @@ class BRERuleEngineRulesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -420,6 +416,7 @@ class BRERuleEngineRulesApi(object):
     def get_bre_rules(self, **kwargs):
         """
         List rules
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_rules(async=True)
@@ -448,6 +445,7 @@ class BRERuleEngineRulesApi(object):
     def get_bre_rules_with_http_info(self, **kwargs):
         """
         List rules
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_rules_with_http_info(async=True)
@@ -516,10 +514,6 @@ class BRERuleEngineRulesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -541,7 +535,7 @@ class BRERuleEngineRulesApi(object):
     def set_bre_rule(self, id, **kwargs):
         """
         Enable or disable a rule
-        This is helpful for turning off systems rules which cannot be deleted or modified otherwise
+        This is helpful for turning off systems rules which cannot be deleted or modified otherwise. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_bre_rule(id, async=True)
@@ -564,7 +558,7 @@ class BRERuleEngineRulesApi(object):
     def set_bre_rule_with_http_info(self, id, **kwargs):
         """
         Enable or disable a rule
-        This is helpful for turning off systems rules which cannot be deleted or modified otherwise
+        This is helpful for turning off systems rules which cannot be deleted or modified otherwise. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_bre_rule_with_http_info(id, async=True)
@@ -643,7 +637,7 @@ class BRERuleEngineRulesApi(object):
     def update_bre_rule(self, id, **kwargs):
         """
         Update a rule
-        Cannot update system rules
+        Cannot update system rules. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_rule(id, async=True)
@@ -666,7 +660,7 @@ class BRERuleEngineRulesApi(object):
     def update_bre_rule_with_http_info(self, id, **kwargs):
         """
         Update a rule
-        Cannot update system rules
+        Cannot update system rules. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_rule_with_http_info(id, async=True)

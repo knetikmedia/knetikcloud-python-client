@@ -38,6 +38,7 @@ class DispositionsApi(object):
     def add_disposition(self, **kwargs):
         """
         Add a new disposition
+        <b>Permissions Needed:</b> DISPOSITIONS_USER and user, or DISPOSITIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_disposition(async=True)
@@ -59,6 +60,7 @@ class DispositionsApi(object):
     def add_disposition_with_http_info(self, **kwargs):
         """
         Add a new disposition
+        <b>Permissions Needed:</b> DISPOSITIONS_USER and user, or DISPOSITIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_disposition_with_http_info(async=True)
@@ -131,6 +133,7 @@ class DispositionsApi(object):
     def delete_disposition(self, id, **kwargs):
         """
         Delete a disposition
+        <b>Permissions Needed:</b> DISPOSITIONS_USER and owner, or DISPOSITIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_disposition(id, async=True)
@@ -152,6 +155,7 @@ class DispositionsApi(object):
     def delete_disposition_with_http_info(self, id, **kwargs):
         """
         Delete a disposition
+        <b>Permissions Needed:</b> DISPOSITIONS_USER and owner, or DISPOSITIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_disposition_with_http_info(id, async=True)
@@ -202,10 +206,6 @@ class DispositionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class DispositionsApi(object):
     def get_disposition(self, id, **kwargs):
         """
         Returns a disposition
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_disposition(id, async=True)
@@ -248,6 +249,7 @@ class DispositionsApi(object):
     def get_disposition_with_http_info(self, id, **kwargs):
         """
         Returns a disposition
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_disposition_with_http_info(id, async=True)
@@ -298,10 +300,6 @@ class DispositionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -323,6 +321,7 @@ class DispositionsApi(object):
     def get_disposition_counts(self, **kwargs):
         """
         Returns a list of disposition counts
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_disposition_counts(async=True)
@@ -345,6 +344,7 @@ class DispositionsApi(object):
     def get_disposition_counts_with_http_info(self, **kwargs):
         """
         Returns a list of disposition counts
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_disposition_counts_with_http_info(async=True)
@@ -395,10 +395,6 @@ class DispositionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -420,6 +416,7 @@ class DispositionsApi(object):
     def get_dispositions(self, **kwargs):
         """
         Returns a page of dispositions
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_dispositions(async=True)
@@ -445,6 +442,7 @@ class DispositionsApi(object):
     def get_dispositions_with_http_info(self, **kwargs):
         """
         Returns a page of dispositions
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_dispositions_with_http_info(async=True)
@@ -503,10 +501,6 @@ class DispositionsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

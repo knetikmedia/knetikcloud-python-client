@@ -38,7 +38,7 @@ class StoreCouponsApi(object):
     def create_coupon_item(self, **kwargs):
         """
         Create a coupon item
-        SKUs have to be unique in the entire store.
+        SKUs have to be unique in the entire store. <br><br><b>Permissions Needed:</b> COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_coupon_item(async=True)
@@ -61,7 +61,7 @@ class StoreCouponsApi(object):
     def create_coupon_item_with_http_info(self, **kwargs):
         """
         Create a coupon item
-        SKUs have to be unique in the entire store.
+        SKUs have to be unique in the entire store. <br><br><b>Permissions Needed:</b> COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_coupon_item_with_http_info(async=True)
@@ -137,7 +137,7 @@ class StoreCouponsApi(object):
     def create_coupon_template(self, **kwargs):
         """
         Create a coupon template
-        Coupon Templates define a type of coupon and the properties they have.
+        Coupon Templates define a type of coupon and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_coupon_template(async=True)
@@ -159,7 +159,7 @@ class StoreCouponsApi(object):
     def create_coupon_template_with_http_info(self, **kwargs):
         """
         Create a coupon template
-        Coupon Templates define a type of coupon and the properties they have.
+        Coupon Templates define a type of coupon and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_coupon_template_with_http_info(async=True)
@@ -232,6 +232,7 @@ class StoreCouponsApi(object):
     def delete_coupon_item(self, id, **kwargs):
         """
         Delete a coupon item
+        <b>Permissions Needed:</b> COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_coupon_item(id, async=True)
@@ -253,6 +254,7 @@ class StoreCouponsApi(object):
     def delete_coupon_item_with_http_info(self, id, **kwargs):
         """
         Delete a coupon item
+        <b>Permissions Needed:</b> COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_coupon_item_with_http_info(id, async=True)
@@ -303,10 +305,6 @@ class StoreCouponsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -328,6 +326,7 @@ class StoreCouponsApi(object):
     def delete_coupon_template(self, id, **kwargs):
         """
         Delete a coupon template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_coupon_template(id, async=True)
@@ -350,6 +349,7 @@ class StoreCouponsApi(object):
     def delete_coupon_template_with_http_info(self, id, **kwargs):
         """
         Delete a coupon template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_coupon_template_with_http_info(id, async=True)
@@ -403,10 +403,6 @@ class StoreCouponsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -428,6 +424,7 @@ class StoreCouponsApi(object):
     def get_coupon_item(self, id, **kwargs):
         """
         Get a single coupon item
+        <b>Permissions Needed:</b> COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_coupon_item(id, async=True)
@@ -449,6 +446,7 @@ class StoreCouponsApi(object):
     def get_coupon_item_with_http_info(self, id, **kwargs):
         """
         Get a single coupon item
+        <b>Permissions Needed:</b> COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_coupon_item_with_http_info(id, async=True)
@@ -499,10 +497,6 @@ class StoreCouponsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -524,6 +518,7 @@ class StoreCouponsApi(object):
     def get_coupon_item_by_sku(self, sku, **kwargs):
         """
         Get a coupon by sku
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_coupon_item_by_sku(sku, async=True)
@@ -545,6 +540,7 @@ class StoreCouponsApi(object):
     def get_coupon_item_by_sku_with_http_info(self, sku, **kwargs):
         """
         Get a coupon by sku
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_coupon_item_by_sku_with_http_info(sku, async=True)
@@ -595,10 +591,6 @@ class StoreCouponsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -620,7 +612,7 @@ class StoreCouponsApi(object):
     def get_coupon_template(self, id, **kwargs):
         """
         Get a single coupon template
-        Coupon Templates define a type of coupon and the properties they have.
+        Coupon Templates define a type of coupon and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN or COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_coupon_template(id, async=True)
@@ -642,7 +634,7 @@ class StoreCouponsApi(object):
     def get_coupon_template_with_http_info(self, id, **kwargs):
         """
         Get a single coupon template
-        Coupon Templates define a type of coupon and the properties they have.
+        Coupon Templates define a type of coupon and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN or COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_coupon_template_with_http_info(id, async=True)
@@ -693,10 +685,6 @@ class StoreCouponsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -718,6 +706,7 @@ class StoreCouponsApi(object):
     def get_coupon_templates(self, **kwargs):
         """
         List and search coupon templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_coupon_templates(async=True)
@@ -741,6 +730,7 @@ class StoreCouponsApi(object):
     def get_coupon_templates_with_http_info(self, **kwargs):
         """
         List and search coupon templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_coupon_templates_with_http_info(async=True)
@@ -794,10 +784,6 @@ class StoreCouponsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -819,6 +805,7 @@ class StoreCouponsApi(object):
     def update_coupon_item(self, id, **kwargs):
         """
         Update a coupon item
+        <b>Permissions Needed:</b> COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_coupon_item(id, async=True)
@@ -842,6 +829,7 @@ class StoreCouponsApi(object):
     def update_coupon_item_with_http_info(self, id, **kwargs):
         """
         Update a coupon item
+        <b>Permissions Needed:</b> COUPONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_coupon_item_with_http_info(id, async=True)
@@ -923,6 +911,7 @@ class StoreCouponsApi(object):
     def update_coupon_template(self, id, **kwargs):
         """
         Update a coupon template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_coupon_template(id, async=True)
@@ -945,6 +934,7 @@ class StoreCouponsApi(object):
     def update_coupon_template_with_http_info(self, id, **kwargs):
         """
         Update a coupon template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_coupon_template_with_http_info(id, async=True)

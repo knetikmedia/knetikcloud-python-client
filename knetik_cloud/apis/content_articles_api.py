@@ -38,7 +38,7 @@ class ContentArticlesApi(object):
     def create_article(self, **kwargs):
         """
         Create a new article
-        Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+        Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.<br><br><b>Permissions:</b> ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_article(async=True)
@@ -60,7 +60,7 @@ class ContentArticlesApi(object):
     def create_article_with_http_info(self, **kwargs):
         """
         Create a new article
-        Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+        Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.<br><br><b>Permissions:</b> ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_article_with_http_info(async=True)
@@ -133,7 +133,7 @@ class ContentArticlesApi(object):
     def create_article_template(self, **kwargs):
         """
         Create an article template
-        Article Templates define a type of article and the properties they have
+        Article Templates define a type of article and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_article_template(async=True)
@@ -155,7 +155,7 @@ class ContentArticlesApi(object):
     def create_article_template_with_http_info(self, **kwargs):
         """
         Create an article template
-        Article Templates define a type of article and the properties they have
+        Article Templates define a type of article and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_article_template_with_http_info(async=True)
@@ -228,6 +228,7 @@ class ContentArticlesApi(object):
     def delete_article(self, id, **kwargs):
         """
         Delete an existing article
+        <b>Permissions Needed:</b> ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_article(id, async=True)
@@ -249,6 +250,7 @@ class ContentArticlesApi(object):
     def delete_article_with_http_info(self, id, **kwargs):
         """
         Delete an existing article
+        <b>Permissions Needed:</b> ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_article_with_http_info(id, async=True)
@@ -299,10 +301,6 @@ class ContentArticlesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -324,7 +322,7 @@ class ContentArticlesApi(object):
     def delete_article_template(self, id, **kwargs):
         """
         Delete an article template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_article_template(id, async=True)
@@ -347,7 +345,7 @@ class ContentArticlesApi(object):
     def delete_article_template_with_http_info(self, id, **kwargs):
         """
         Delete an article template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_article_template_with_http_info(id, async=True)
@@ -401,10 +399,6 @@ class ContentArticlesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -426,6 +420,7 @@ class ContentArticlesApi(object):
     def get_article(self, id, **kwargs):
         """
         Get a single article
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_article(id, async=True)
@@ -447,6 +442,7 @@ class ContentArticlesApi(object):
     def get_article_with_http_info(self, id, **kwargs):
         """
         Get a single article
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_article_with_http_info(id, async=True)
@@ -497,10 +493,6 @@ class ContentArticlesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -522,6 +514,7 @@ class ContentArticlesApi(object):
     def get_article_template(self, id, **kwargs):
         """
         Get a single article template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_article_template(id, async=True)
@@ -543,6 +536,7 @@ class ContentArticlesApi(object):
     def get_article_template_with_http_info(self, id, **kwargs):
         """
         Get a single article template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_article_template_with_http_info(id, async=True)
@@ -593,10 +587,6 @@ class ContentArticlesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -618,6 +608,7 @@ class ContentArticlesApi(object):
     def get_article_templates(self, **kwargs):
         """
         List and search article templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_article_templates(async=True)
@@ -641,6 +632,7 @@ class ContentArticlesApi(object):
     def get_article_templates_with_http_info(self, **kwargs):
         """
         List and search article templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_article_templates_with_http_info(async=True)
@@ -694,10 +686,6 @@ class ContentArticlesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -719,7 +707,7 @@ class ContentArticlesApi(object):
     def get_articles(self, **kwargs):
         """
         List and search articles
-        Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
+        Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_articles(async=True)
@@ -749,7 +737,7 @@ class ContentArticlesApi(object):
     def get_articles_with_http_info(self, **kwargs):
         """
         List and search articles
-        Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
+        Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_articles_with_http_info(async=True)
@@ -821,10 +809,6 @@ class ContentArticlesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -846,6 +830,7 @@ class ContentArticlesApi(object):
     def update_article(self, id, **kwargs):
         """
         Update an existing article
+        <b>Permissions Needed:</b> ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_article(id, async=True)
@@ -868,6 +853,7 @@ class ContentArticlesApi(object):
     def update_article_with_http_info(self, id, **kwargs):
         """
         Update an existing article
+        <b>Permissions Needed:</b> ARTICLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_article_with_http_info(id, async=True)
@@ -946,6 +932,7 @@ class ContentArticlesApi(object):
     def update_article_template(self, id, **kwargs):
         """
         Update an article template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_article_template(id, async=True)
@@ -968,6 +955,7 @@ class ContentArticlesApi(object):
     def update_article_template_with_http_info(self, id, **kwargs):
         """
         Update an article template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_article_template_with_http_info(id, async=True)

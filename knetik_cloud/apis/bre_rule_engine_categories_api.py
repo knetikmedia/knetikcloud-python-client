@@ -38,7 +38,7 @@ class BRERuleEngineCategoriesApi(object):
     def create_bre_category_template(self, **kwargs):
         """
         Create a BRE category template
-        Templates define a type of BRE category and the properties they have
+        Templates define a type of BRE category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_bre_category_template(async=True)
@@ -60,7 +60,7 @@ class BRERuleEngineCategoriesApi(object):
     def create_bre_category_template_with_http_info(self, **kwargs):
         """
         Create a BRE category template
-        Templates define a type of BRE category and the properties they have
+        Templates define a type of BRE category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_bre_category_template_with_http_info(async=True)
@@ -133,7 +133,7 @@ class BRERuleEngineCategoriesApi(object):
     def delete_bre_category_template(self, id, **kwargs):
         """
         Delete a BRE category template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_bre_category_template(id, async=True)
@@ -156,7 +156,7 @@ class BRERuleEngineCategoriesApi(object):
     def delete_bre_category_template_with_http_info(self, id, **kwargs):
         """
         Delete a BRE category template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_bre_category_template_with_http_info(id, async=True)
@@ -210,10 +210,6 @@ class BRERuleEngineCategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -235,6 +231,7 @@ class BRERuleEngineCategoriesApi(object):
     def get_bre_categories(self, **kwargs):
         """
         List categories
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_categories(async=True)
@@ -257,6 +254,7 @@ class BRERuleEngineCategoriesApi(object):
     def get_bre_categories_with_http_info(self, **kwargs):
         """
         List categories
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_categories_with_http_info(async=True)
@@ -307,10 +305,6 @@ class BRERuleEngineCategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -332,6 +326,7 @@ class BRERuleEngineCategoriesApi(object):
     def get_bre_category(self, name, **kwargs):
         """
         Get a single category
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_category(name, async=True)
@@ -353,6 +348,7 @@ class BRERuleEngineCategoriesApi(object):
     def get_bre_category_with_http_info(self, name, **kwargs):
         """
         Get a single category
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_category_with_http_info(name, async=True)
@@ -403,10 +399,6 @@ class BRERuleEngineCategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -428,6 +420,7 @@ class BRERuleEngineCategoriesApi(object):
     def get_bre_category_template(self, id, **kwargs):
         """
         Get a single BRE category template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_category_template(id, async=True)
@@ -449,6 +442,7 @@ class BRERuleEngineCategoriesApi(object):
     def get_bre_category_template_with_http_info(self, id, **kwargs):
         """
         Get a single BRE category template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_category_template_with_http_info(id, async=True)
@@ -499,10 +493,6 @@ class BRERuleEngineCategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -524,6 +514,7 @@ class BRERuleEngineCategoriesApi(object):
     def get_bre_category_templates(self, **kwargs):
         """
         List and search BRE category templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_category_templates(async=True)
@@ -547,6 +538,7 @@ class BRERuleEngineCategoriesApi(object):
     def get_bre_category_templates_with_http_info(self, **kwargs):
         """
         List and search BRE category templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_category_templates_with_http_info(async=True)
@@ -600,10 +592,6 @@ class BRERuleEngineCategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -625,6 +613,7 @@ class BRERuleEngineCategoriesApi(object):
     def update_bre_category(self, name, **kwargs):
         """
         Update a category
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_category(name, async=True)
@@ -647,6 +636,7 @@ class BRERuleEngineCategoriesApi(object):
     def update_bre_category_with_http_info(self, name, **kwargs):
         """
         Update a category
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_category_with_http_info(name, async=True)
@@ -725,6 +715,7 @@ class BRERuleEngineCategoriesApi(object):
     def update_bre_category_template(self, id, **kwargs):
         """
         Update a BRE category template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_category_template(id, async=True)
@@ -747,6 +738,7 @@ class BRERuleEngineCategoriesApi(object):
     def update_bre_category_template_with_http_info(self, id, **kwargs):
         """
         Update a BRE category template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_category_template_with_http_info(id, async=True)

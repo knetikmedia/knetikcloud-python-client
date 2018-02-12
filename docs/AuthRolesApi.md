@@ -1,6 +1,6 @@
 # knetik_cloud.AuthRolesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 > RoleResource create_role(role_resource=role_resource)
 
 Create a new role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```python
@@ -74,6 +76,8 @@ Name | Type | Description  | Notes
 
 Delete a role
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -118,7 +122,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -127,6 +131,8 @@ void (empty response body)
 > list[RoleResource] get_client_roles(client_key)
 
 Get roles for a client
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```python
@@ -171,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -180,6 +186,8 @@ Name | Type | Description  | Notes
 > RoleResource get_role(role)
 
 Get a single role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```python
@@ -224,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -233,6 +241,8 @@ Name | Type | Description  | Notes
 > PageResourceRoleResource get_roles(filter_name=filter_name, filter_role=filter_role, size=size, page=page, order=order)
 
 List and search roles
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```python
@@ -285,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -294,6 +304,8 @@ Name | Type | Description  | Notes
 > list[RoleResource] get_user_roles(user_id)
 
 Get roles for a user
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```python
@@ -338,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -347,6 +359,8 @@ Name | Type | Description  | Notes
 > ClientResource set_client_roles(client_key, roles_list=roles_list)
 
 Set roles for a client
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```python
@@ -403,6 +417,8 @@ Name | Type | Description  | Notes
 
 Set permissions for a role
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -458,6 +474,8 @@ Name | Type | Description  | Notes
 
 Set roles for a user
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -512,6 +530,8 @@ Name | Type | Description  | Notes
 > RoleResource update_role(role, role_resource=role_resource)
 
 Update a role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Example 
 ```python

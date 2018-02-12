@@ -31,6 +31,54 @@ class TestMessagingApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_compile_message_template(self):
+        """
+        Test case for compile_message_template
+
+        Compile a message template
+        """
+        pass
+
+    def test_create_message_template(self):
+        """
+        Test case for create_message_template
+
+        Create a message template
+        """
+        pass
+
+    def test_delete_message_template(self):
+        """
+        Test case for delete_message_template
+
+        Delete an existing message template
+        """
+        pass
+
+    def test_get_message_template(self):
+        """
+        Test case for get_message_template
+
+        Get a single message template
+        """
+        pass
+
+    def test_get_message_templates(self):
+        """
+        Test case for get_message_templates
+
+        List and search message templates
+        """
+        pass
+
+    def test_send_message1(self):
+        """
+        Test case for send_message1
+
+        Send a message
+        """
+        pass
+
     def test_send_raw_email(self):
         """
         Test case for send_raw_email
@@ -76,6 +124,22 @@ class TestMessagingApi(unittest.TestCase):
         Test case for send_templated_sms
 
         Send a new templated SMS
+        """
+        pass
+
+    def test_send_websocket(self):
+        """
+        Test case for send_websocket
+
+        Send a websocket message
+        """
+        pass
+
+    def test_update_message_template(self):
+        """
+        Test case for update_message_template
+
+        Update an existing message template
         """
         pass
 

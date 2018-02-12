@@ -1,6 +1,6 @@
 # knetik_cloud.ContentPollsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,6 +22,8 @@ Method | HTTP request | Description
 > PollResponseResource answer_poll(id, answer_key=answer_key)
 
 Add your vote to a poll
+
+<b>Permissions Needed:</b> POLLS_ADMIN or POLLS_USER
 
 ### Example 
 ```python
@@ -78,7 +80,7 @@ Name | Type | Description  | Notes
 
 Create a new poll
 
-Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end. <br><br><b>Permissions Needed:</b> POLLS_ADMIN
 
 ### Example 
 ```python
@@ -133,7 +135,7 @@ Name | Type | Description  | Notes
 
 Create a poll template
 
-Poll templates define a type of poll and the properties they have
+Poll templates define a type of poll and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -188,6 +190,8 @@ Name | Type | Description  | Notes
 
 Delete an existing poll
 
+<b>Permissions Needed:</b> POLLS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -230,7 +234,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -240,7 +244,7 @@ void (empty response body)
 
 Delete a poll template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -286,7 +290,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -295,6 +299,8 @@ void (empty response body)
 > PollResource get_poll(id)
 
 Get a single poll
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -339,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -348,6 +354,8 @@ Name | Type | Description  | Notes
 > PollResponseResource get_poll_answer(id)
 
 Get poll answer
+
+<b>Permissions Needed:</b> POLLS_ADMIN or POLLS_USER
 
 ### Example 
 ```python
@@ -392,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -401,6 +409,8 @@ Name | Type | Description  | Notes
 > TemplateResource get_poll_template(id)
 
 Get a single poll template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or POLLS_ADMIN
 
 ### Example 
 ```python
@@ -445,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -454,6 +464,8 @@ Name | Type | Description  | Notes
 > PageResourceTemplateResource get_poll_templates(size=size, page=page, order=order)
 
 List and search poll templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or POLLS_ADMIN
 
 ### Example 
 ```python
@@ -502,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -512,7 +524,7 @@ Name | Type | Description  | Notes
 
 List and search polls
 
-Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -567,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -576,6 +588,8 @@ Name | Type | Description  | Notes
 > PollResource update_poll(id, poll_resource=poll_resource)
 
 Update an existing poll
+
+<b>Permissions Needed:</b> POLLS_ADMIN
 
 ### Example 
 ```python
@@ -631,6 +645,8 @@ Name | Type | Description  | Notes
 > TemplateResource update_poll_template(id, poll_template_resource=poll_template_resource)
 
 Update a poll template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python

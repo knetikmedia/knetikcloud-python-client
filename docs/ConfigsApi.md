@@ -1,6 +1,6 @@
 # knetik_cloud.ConfigsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > Config create_config(config=config)
 
 Create a new config
+
+<b>Permissions Needed:</b> TOPICS_ADMIN
 
 ### Example 
 ```python
@@ -69,6 +71,8 @@ Name | Type | Description  | Notes
 
 Delete an existing config
 
+<b>Permissions Needed:</b> CONFIGS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -111,7 +115,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -121,7 +125,7 @@ void (empty response body)
 
 Get a single config
 
-Only configs that are public readable will be shown without admin access
+Only configs that are public readable will be shown without admin access. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -166,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -175,6 +179,8 @@ Name | Type | Description  | Notes
 > PageResourceConfig get_configs(filter_search=filter_search, size=size, page=page, order=order)
 
 List and search configs
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -196,7 +202,7 @@ api_instance = knetik_cloud.ConfigsApi(knetik_cloud.ApiClient(configuration))
 filter_search = 'filter_search_example' # str | Filter for configs whose name contains the given string (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned (optional) (default to 1)
-order = '1' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to 1)
+order = 'order_example' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 
 try: 
     # List and search configs
@@ -213,7 +219,7 @@ Name | Type | Description  | Notes
  **filter_search** | **str**| Filter for configs whose name contains the given string | [optional] 
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int**| The number of the page returned | [optional] [default to 1]
- **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to 1]
+ **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
 
 ### Return type
 
@@ -225,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -234,6 +240,8 @@ Name | Type | Description  | Notes
 > update_config(name, config=config)
 
 Update an existing config
+
+<b>Permissions Needed:</b> CONFIGS_ADMIN
 
 ### Example 
 ```python

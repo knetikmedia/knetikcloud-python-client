@@ -38,6 +38,7 @@ class ReportingUsageApi(object):
     def get_usage_by_day(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by day
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_day(start_date, end_date, async=True)
@@ -65,6 +66,7 @@ class ReportingUsageApi(object):
     def get_usage_by_day_with_http_info(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by day
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_day_with_http_info(start_date, end_date, async=True)
@@ -136,10 +138,6 @@ class ReportingUsageApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -161,6 +159,7 @@ class ReportingUsageApi(object):
     def get_usage_by_hour(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by hour
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_hour(start_date, end_date, async=True)
@@ -188,6 +187,7 @@ class ReportingUsageApi(object):
     def get_usage_by_hour_with_http_info(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by hour
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_hour_with_http_info(start_date, end_date, async=True)
@@ -259,10 +259,6 @@ class ReportingUsageApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -284,6 +280,7 @@ class ReportingUsageApi(object):
     def get_usage_by_minute(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by minute
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_minute(start_date, end_date, async=True)
@@ -311,6 +308,7 @@ class ReportingUsageApi(object):
     def get_usage_by_minute_with_http_info(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by minute
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_minute_with_http_info(start_date, end_date, async=True)
@@ -382,10 +380,6 @@ class ReportingUsageApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -407,6 +401,7 @@ class ReportingUsageApi(object):
     def get_usage_by_month(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by month
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_month(start_date, end_date, async=True)
@@ -434,6 +429,7 @@ class ReportingUsageApi(object):
     def get_usage_by_month_with_http_info(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by month
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_month_with_http_info(start_date, end_date, async=True)
@@ -505,10 +501,6 @@ class ReportingUsageApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -530,6 +522,7 @@ class ReportingUsageApi(object):
     def get_usage_by_year(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by year
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_year(start_date, end_date, async=True)
@@ -557,6 +550,7 @@ class ReportingUsageApi(object):
     def get_usage_by_year_with_http_info(self, start_date, end_date, **kwargs):
         """
         Returns aggregated endpoint usage information by year
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_by_year_with_http_info(start_date, end_date, async=True)
@@ -628,10 +622,6 @@ class ReportingUsageApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -653,6 +643,7 @@ class ReportingUsageApi(object):
     def get_usage_endpoints(self, start_date, end_date, **kwargs):
         """
         Returns list of endpoints called (method and url)
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_endpoints(start_date, end_date, async=True)
@@ -675,6 +666,7 @@ class ReportingUsageApi(object):
     def get_usage_endpoints_with_http_info(self, start_date, end_date, **kwargs):
         """
         Returns list of endpoints called (method and url)
+        <b>Permissions Needed:</b> USAGE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_usage_endpoints_with_http_info(start_date, end_date, async=True)
@@ -730,10 +722,6 @@ class ReportingUsageApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

@@ -38,6 +38,7 @@ class UsersApi(object):
     def add_user_tag(self, user_id, tag, **kwargs):
         """
         Add a tag to a user
+        <b>Permissions Needed:</b> USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_user_tag(user_id, tag, async=True)
@@ -60,6 +61,7 @@ class UsersApi(object):
     def add_user_tag_with_http_info(self, user_id, tag, **kwargs):
         """
         Add a tag to a user
+        <b>Permissions Needed:</b> USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_user_tag_with_http_info(user_id, tag, async=True)
@@ -141,7 +143,7 @@ class UsersApi(object):
     def create_user_template(self, **kwargs):
         """
         Create a user template
-        User Templates define a type of user and the properties they have
+        User Templates define a type of user and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_user_template(async=True)
@@ -163,7 +165,7 @@ class UsersApi(object):
     def create_user_template_with_http_info(self, **kwargs):
         """
         Create a user template
-        User Templates define a type of user and the properties they have
+        User Templates define a type of user and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_user_template_with_http_info(async=True)
@@ -236,7 +238,7 @@ class UsersApi(object):
     def delete_user_template(self, id, **kwargs):
         """
         Delete a user template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_user_template(id, async=True)
@@ -259,7 +261,7 @@ class UsersApi(object):
     def delete_user_template_with_http_info(self, id, **kwargs):
         """
         Delete a user template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_user_template_with_http_info(id, async=True)
@@ -313,10 +315,6 @@ class UsersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -335,10 +333,112 @@ class UsersApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_direct_messages1(self, recipient_id, **kwargs):
+        """
+        Get a list of direct messages with this user
+        <b>Permissions Needed:</b> ANY
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_direct_messages1(recipient_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int recipient_id: The user id (required)
+        :param int size: The number of objects returned per page
+        :param int page: The number of the page returned, starting with 1
+        :return: PageResourceChatMessageResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_direct_messages1_with_http_info(recipient_id, **kwargs)
+        else:
+            (data) = self.get_direct_messages1_with_http_info(recipient_id, **kwargs)
+            return data
+
+    def get_direct_messages1_with_http_info(self, recipient_id, **kwargs):
+        """
+        Get a list of direct messages with this user
+        <b>Permissions Needed:</b> ANY
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_direct_messages1_with_http_info(recipient_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int recipient_id: The user id (required)
+        :param int size: The number of objects returned per page
+        :param int page: The number of the page returned, starting with 1
+        :return: PageResourceChatMessageResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['recipient_id', 'size', 'page']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_direct_messages1" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'recipient_id' is set
+        if ('recipient_id' not in params) or (params['recipient_id'] is None):
+            raise ValueError("Missing the required parameter `recipient_id` when calling `get_direct_messages1`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'recipient_id' in params:
+            path_params['recipient_id'] = params['recipient_id']
+
+        query_params = []
+        if 'size' in params:
+            query_params.append(('size', params['size']))
+        if 'page' in params:
+            query_params.append(('page', params['page']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/users/users/{recipient_id}/messages', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PageResourceChatMessageResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_user(self, id, **kwargs):
         """
         Get a single user
-        Additional private info is included as USERS_ADMIN
+        Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user(id, async=True)
@@ -360,7 +460,7 @@ class UsersApi(object):
     def get_user_with_http_info(self, id, **kwargs):
         """
         Get a single user
-        Additional private info is included as USERS_ADMIN
+        Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_with_http_info(id, async=True)
@@ -411,10 +511,6 @@ class UsersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -436,6 +532,7 @@ class UsersApi(object):
     def get_user_tags(self, user_id, **kwargs):
         """
         List tags for a user
+        <b>Permissions Needed:</b> USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_tags(user_id, async=True)
@@ -457,6 +554,7 @@ class UsersApi(object):
     def get_user_tags_with_http_info(self, user_id, **kwargs):
         """
         List tags for a user
+        <b>Permissions Needed:</b> USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_tags_with_http_info(user_id, async=True)
@@ -507,10 +605,6 @@ class UsersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -532,6 +626,7 @@ class UsersApi(object):
     def get_user_template(self, id, **kwargs):
         """
         Get a single user template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_template(id, async=True)
@@ -553,6 +648,7 @@ class UsersApi(object):
     def get_user_template_with_http_info(self, id, **kwargs):
         """
         Get a single user template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_template_with_http_info(id, async=True)
@@ -603,10 +699,6 @@ class UsersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -628,6 +720,7 @@ class UsersApi(object):
     def get_user_templates(self, **kwargs):
         """
         List and search user templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_templates(async=True)
@@ -651,6 +744,7 @@ class UsersApi(object):
     def get_user_templates_with_http_info(self, **kwargs):
         """
         List and search user templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_templates_with_http_info(async=True)
@@ -704,10 +798,6 @@ class UsersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -729,7 +819,7 @@ class UsersApi(object):
     def get_users(self, **kwargs):
         """
         List and search users
-        Additional private info is included as USERS_ADMIN
+        Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_users(async=True)
@@ -765,7 +855,7 @@ class UsersApi(object):
     def get_users_with_http_info(self, **kwargs):
         """
         List and search users
-        Additional private info is included as USERS_ADMIN
+        Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_users_with_http_info(async=True)
@@ -855,10 +945,6 @@ class UsersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -880,7 +966,7 @@ class UsersApi(object):
     def password_reset(self, id, **kwargs):
         """
         Choose a new password after a reset
-        Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+        Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.password_reset(id, async=True)
@@ -903,7 +989,7 @@ class UsersApi(object):
     def password_reset_with_http_info(self, id, **kwargs):
         """
         Choose a new password after a reset
-        Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+        Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.password_reset_with_http_info(id, async=True)
@@ -979,10 +1065,110 @@ class UsersApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def post_user_message(self, recipient_id, **kwargs):
+        """
+        Send a user message
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.post_user_message(recipient_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int recipient_id: The user id (required)
+        :param ChatMessageRequest chat_message_request: The chat message request
+        :return: ChatMessageResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.post_user_message_with_http_info(recipient_id, **kwargs)
+        else:
+            (data) = self.post_user_message_with_http_info(recipient_id, **kwargs)
+            return data
+
+    def post_user_message_with_http_info(self, recipient_id, **kwargs):
+        """
+        Send a user message
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.post_user_message_with_http_info(recipient_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int recipient_id: The user id (required)
+        :param ChatMessageRequest chat_message_request: The chat message request
+        :return: ChatMessageResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['recipient_id', 'chat_message_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_user_message" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'recipient_id' is set
+        if ('recipient_id' not in params) or (params['recipient_id'] is None):
+            raise ValueError("Missing the required parameter `recipient_id` when calling `post_user_message`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'recipient_id' in params:
+            path_params['recipient_id'] = params['recipient_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'chat_message_request' in params:
+            body_params = params['chat_message_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api('/users/{recipient_id}/messages', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ChatMessageResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def register_user(self, **kwargs):
         """
         Register a new user
-        Password should be in plain text and will be encrypted on receipt. Use SSL for security
+        Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.register_user(async=True)
@@ -1004,7 +1190,7 @@ class UsersApi(object):
     def register_user_with_http_info(self, **kwargs):
         """
         Register a new user
-        Password should be in plain text and will be encrypted on receipt. Use SSL for security
+        Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.register_user_with_http_info(async=True)
@@ -1077,6 +1263,7 @@ class UsersApi(object):
     def remove_user_tag(self, user_id, tag, **kwargs):
         """
         Remove a tag from a user
+        <b>Permissions Needed:</b> USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_user_tag(user_id, tag, async=True)
@@ -1099,6 +1286,7 @@ class UsersApi(object):
     def remove_user_tag_with_http_info(self, user_id, tag, **kwargs):
         """
         Remove a tag from a user
+        <b>Permissions Needed:</b> USERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_user_tag_with_http_info(user_id, tag, async=True)
@@ -1155,10 +1343,6 @@ class UsersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1180,7 +1364,7 @@ class UsersApi(object):
     def set_password(self, id, **kwargs):
         """
         Set a user's password
-        Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+        Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> USERS_ADMIN or (USERS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_password(id, async=True)
@@ -1203,7 +1387,7 @@ class UsersApi(object):
     def set_password_with_http_info(self, id, **kwargs):
         """
         Set a user's password
-        Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+        Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> USERS_ADMIN or (USERS_USER and owner)
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_password_with_http_info(id, async=True)
@@ -1282,7 +1466,7 @@ class UsersApi(object):
     def start_password_reset(self, id, **kwargs):
         """
         Reset a user's password
-        A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
+        A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.start_password_reset(id, async=True)
@@ -1304,7 +1488,7 @@ class UsersApi(object):
     def start_password_reset_with_http_info(self, id, **kwargs):
         """
         Reset a user's password
-        A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
+        A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.start_password_reset_with_http_info(id, async=True)
@@ -1380,7 +1564,7 @@ class UsersApi(object):
     def submit_password_reset(self, **kwargs):
         """
         Reset a user's password without user id
-        A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
+        A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.submit_password_reset(async=True)
@@ -1402,7 +1586,7 @@ class UsersApi(object):
     def submit_password_reset_with_http_info(self, **kwargs):
         """
         Reset a user's password without user id
-        A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
+        A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.submit_password_reset_with_http_info(async=True)
@@ -1475,7 +1659,7 @@ class UsersApi(object):
     def update_user(self, id, **kwargs):
         """
         Update a user
-        Password will not be edited on this endpoint, use password specific endpoints.
+        Password will not be edited on this endpoint, use password specific endpoints. <br><br><b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user(id, async=True)
@@ -1498,7 +1682,7 @@ class UsersApi(object):
     def update_user_with_http_info(self, id, **kwargs):
         """
         Update a user
-        Password will not be edited on this endpoint, use password specific endpoints.
+        Password will not be edited on this endpoint, use password specific endpoints. <br><br><b>Permissions Needed:</b> USERS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_with_http_info(id, async=True)
@@ -1577,6 +1761,7 @@ class UsersApi(object):
     def update_user_template(self, id, **kwargs):
         """
         Update a user template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_template(id, async=True)
@@ -1599,6 +1784,7 @@ class UsersApi(object):
     def update_user_template_with_http_info(self, id, **kwargs):
         """
         Update a user template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_template_with_http_info(id, async=True)

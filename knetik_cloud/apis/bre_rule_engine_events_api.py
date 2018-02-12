@@ -38,7 +38,7 @@ class BRERuleEngineEventsApi(object):
     def send_bre_event(self, **kwargs):
         """
         Fire a new event, based on an existing trigger
-        Parameters within the event must match names and types from the trigger. Actual rule execution is asynchornous.  Returns request id, which will be used as the event id
+        Parameters within the event must match names and types from the trigger. Actual rule execution is asynchornous.  Returns request id, which will be used as the event id. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.send_bre_event(async=True)
@@ -60,7 +60,7 @@ class BRERuleEngineEventsApi(object):
     def send_bre_event_with_http_info(self, **kwargs):
         """
         Fire a new event, based on an existing trigger
-        Parameters within the event must match names and types from the trigger. Actual rule execution is asynchornous.  Returns request id, which will be used as the event id
+        Parameters within the event must match names and types from the trigger. Actual rule execution is asynchornous.  Returns request id, which will be used as the event id. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.send_bre_event_with_http_info(async=True)

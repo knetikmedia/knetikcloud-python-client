@@ -1,6 +1,6 @@
 # knetik_cloud.UsersGroupsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,16 +12,19 @@ Method | HTTP request | Description
 [**delete_group**](UsersGroupsApi.md#delete_group) | **DELETE** /users/groups/{unique_name} | Removes a group from the system
 [**delete_group_member_template**](UsersGroupsApi.md#delete_group_member_template) | **DELETE** /users/groups/members/templates/{id} | Delete an group member template
 [**delete_group_template**](UsersGroupsApi.md#delete_group_template) | **DELETE** /users/groups/templates/{id} | Delete a group template
+[**disable_group_notification**](UsersGroupsApi.md#disable_group_notification) | **PUT** /users/groups/{unique_name}/members/{user_id}/messages/disabled | Enable or disable notification of group messages
 [**get_group**](UsersGroupsApi.md#get_group) | **GET** /users/groups/{unique_name} | Loads a specific group&#39;s details
 [**get_group_ancestors**](UsersGroupsApi.md#get_group_ancestors) | **GET** /users/groups/{unique_name}/ancestors | Get group ancestors
 [**get_group_member**](UsersGroupsApi.md#get_group_member) | **GET** /users/groups/{unique_name}/members/{user_id} | Get a user from a group
 [**get_group_member_template**](UsersGroupsApi.md#get_group_member_template) | **GET** /users/groups/members/templates/{id} | Get a single group member template
 [**get_group_member_templates**](UsersGroupsApi.md#get_group_member_templates) | **GET** /users/groups/members/templates | List and search group member templates
 [**get_group_members**](UsersGroupsApi.md#get_group_members) | **GET** /users/groups/{unique_name}/members | Lists members of the group
+[**get_group_messages**](UsersGroupsApi.md#get_group_messages) | **GET** /users/groups/{unique_name}/messages | Get a list of group messages
 [**get_group_template**](UsersGroupsApi.md#get_group_template) | **GET** /users/groups/templates/{id} | Get a single group template
 [**get_group_templates**](UsersGroupsApi.md#get_group_templates) | **GET** /users/groups/templates | List and search group templates
 [**get_groups_for_user**](UsersGroupsApi.md#get_groups_for_user) | **GET** /users/{user_id}/groups | List groups a user is in
 [**list_groups**](UsersGroupsApi.md#list_groups) | **GET** /users/groups | List and search groups
+[**post_group_message**](UsersGroupsApi.md#post_group_message) | **POST** /users/groups/{unique_name}/messages | Send a group message
 [**remove_group_member**](UsersGroupsApi.md#remove_group_member) | **DELETE** /users/groups/{unique_name}/members/{user_id} | Removes a user from a group
 [**update_group**](UsersGroupsApi.md#update_group) | **PUT** /users/groups/{unique_name} | Update a group
 [**update_group_member_properties**](UsersGroupsApi.md#update_group_member_properties) | **PUT** /users/groups/{unique_name}/members/{user_id}/order | Change a user&#39;s order
@@ -35,6 +38,8 @@ Method | HTTP request | Description
 > GroupMemberResource add_member_to_group(unique_name, user)
 
 Adds a new member to the group
+
+<b>Permissions Needed:</b> GROUP_ADMIN or self if open
 
 ### Example 
 ```python
@@ -91,6 +96,8 @@ Name | Type | Description  | Notes
 
 Adds multiple members to the group
 
+<b>Permissions Needed:</b> GROUP_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -146,6 +153,8 @@ Name | Type | Description  | Notes
 
 Create a group
 
+<b>Permissions Needed:</b> GROUP_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -199,7 +208,7 @@ Name | Type | Description  | Notes
 
 Create an group member template
 
-GroupMember Templates define a type of group member and the properties they have
+GroupMember Templates define a type of group member and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -254,7 +263,7 @@ Name | Type | Description  | Notes
 
 Create a group template
 
-Group Templates define a type of group and the properties they have
+Group Templates define a type of group and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -309,7 +318,7 @@ Name | Type | Description  | Notes
 
 Removes a group from the system
 
-All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
+All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well. <br><br><b>Permissions Needed:</b> GROUP_ADMIN
 
 ### Example 
 ```python
@@ -353,7 +362,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -363,7 +372,7 @@ void (empty response body)
 
 Delete an group member template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -409,7 +418,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -419,7 +428,7 @@ void (empty response body)
 
 Delete a group template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -465,6 +474,62 @@ void (empty response body)
 
 ### HTTP request headers
 
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **disable_group_notification**
+> disable_group_notification(unique_name, user_id, disabled)
+
+Enable or disable notification of group messages
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+unique_name = 'unique_name_example' # str | The group unique name
+user_id = 'user_id_example' # str | The user id of the member or 'me'
+disabled = knetik_cloud.ValueWrapperboolean() # ValueWrapperboolean | disabled
+
+try: 
+    # Enable or disable notification of group messages
+    api_instance.disable_group_notification(unique_name, user_id, disabled)
+except ApiException as e:
+    print("Exception when calling UsersGroupsApi->disable_group_notification: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **unique_name** | **str**| The group unique name | 
+ **user_id** | **str**| The user id of the member or &#39;me&#39; | 
+ **disabled** | [**ValueWrapperboolean**](ValueWrapperboolean.md)| disabled | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
  - **Content-Type**: application/json
  - **Accept**: application/json
 
@@ -474,6 +539,8 @@ void (empty response body)
 > GroupResource get_group(unique_name)
 
 Loads a specific group's details
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -518,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -528,7 +595,7 @@ Name | Type | Description  | Notes
 
 Get group ancestors
 
-Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -538,8 +605,15 @@ import knetik_cloud
 from knetik_cloud.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = knetik_cloud.UsersGroupsApi()
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 unique_name = 'unique_name_example' # str | The group unique name
 
 try: 
@@ -562,11 +636,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -575,6 +649,8 @@ No authorization required
 > GroupMemberResource get_group_member(unique_name, user_id)
 
 Get a user from a group
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -621,7 +697,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -630,6 +706,8 @@ Name | Type | Description  | Notes
 > TemplateResource get_group_member_template(id)
 
 Get a single group member template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 
 ### Example 
 ```python
@@ -674,7 +752,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -683,6 +761,8 @@ Name | Type | Description  | Notes
 > PageResourceTemplateResource get_group_member_templates(size=size, page=page, order=order)
 
 List and search group member templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 
 ### Example 
 ```python
@@ -731,7 +811,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -740,6 +820,8 @@ Name | Type | Description  | Notes
 > PageResourceGroupMemberResource get_group_members(unique_name, size=size, page=page, order=order)
 
 Lists members of the group
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -790,7 +872,66 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_group_messages**
+> PageResourceChatMessageResource get_group_messages(unique_name, size=size, page=page)
+
+Get a list of group messages
+
+<b>Permissions Needed:</b> ANY
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
+unique_name = 'unique_name_example' # str | The group unique name
+size = 25 # int | The number of objects returned per page (optional) (default to 25)
+page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
+
+try: 
+    # Get a list of group messages
+    api_response = api_instance.get_group_messages(unique_name, size=size, page=page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersGroupsApi->get_group_messages: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **unique_name** | **str**| The group unique name | 
+ **size** | **int**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
+
+### Return type
+
+[**PageResourceChatMessageResource**](PageResourceChatMessageResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -799,6 +940,8 @@ Name | Type | Description  | Notes
 > TemplateResource get_group_template(id)
 
 Get a single group template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 
 ### Example 
 ```python
@@ -843,7 +986,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -852,6 +995,8 @@ Name | Type | Description  | Notes
 > PageResourceTemplateResource get_group_templates(size=size, page=page, order=order)
 
 List and search group templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
 
 ### Example 
 ```python
@@ -900,7 +1045,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -909,6 +1054,8 @@ Name | Type | Description  | Notes
 > list[str] get_groups_for_user(user_id, filter_children=filter_children)
 
 List groups a user is in
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -955,7 +1102,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -964,6 +1111,8 @@ Name | Type | Description  | Notes
 > PageResourceGroupResource list_groups(filter_template=filter_template, filter_member_count=filter_member_count, filter_name=filter_name, filter_unique_name=filter_unique_name, filter_parent=filter_parent, filter_status=filter_status, size=size, page=page, order=order)
 
 List and search groups
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -1024,6 +1173,54 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_group_message**
+> ChatMessageResource post_group_message(unique_name, chat_message_request=chat_message_request)
+
+Send a group message
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = knetik_cloud.UsersGroupsApi()
+unique_name = 'unique_name_example' # str | The group unique name
+chat_message_request = knetik_cloud.ChatMessageRequest() # ChatMessageRequest | The chat message request (optional)
+
+try: 
+    # Send a group message
+    api_response = api_instance.post_group_message(unique_name, chat_message_request=chat_message_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersGroupsApi->post_group_message: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **unique_name** | **str**| The group unique name | 
+ **chat_message_request** | [**ChatMessageRequest**](ChatMessageRequest.md)| The chat message request | [optional] 
+
+### Return type
+
+[**ChatMessageResource**](ChatMessageResource.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
  - **Content-Type**: application/json
  - **Accept**: application/json
 
@@ -1033,6 +1230,8 @@ Name | Type | Description  | Notes
 > remove_group_member(unique_name, user_id)
 
 Removes a user from a group
+
+<b>Permissions Needed:</b> GROUP_ADMIN or self if open
 
 ### Example 
 ```python
@@ -1078,7 +1277,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1088,7 +1287,7 @@ void (empty response body)
 
 Update a group
 
-If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
+If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. <br><br><b>Permissions Needed:</b> GROUP_ADMIN or admin of the group
 
 ### Example 
 ```python
@@ -1143,6 +1342,8 @@ void (empty response body)
 > update_group_member_properties(unique_name, user_id, order)
 
 Change a user's order
+
+<b>Permissions Needed:</b> GROUP_ADMIN
 
 ### Example 
 ```python
@@ -1200,6 +1401,8 @@ void (empty response body)
 
 Change a user's membership properties
 
+<b>Permissions Needed:</b> GROUP_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -1255,6 +1458,8 @@ void (empty response body)
 > update_group_member_status(unique_name, user_id, status)
 
 Change a user's status
+
+<b>Permissions Needed:</b> GROUP_ADMIN
 
 ### Example 
 ```python
@@ -1312,6 +1517,8 @@ void (empty response body)
 
 Update an group member template
 
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -1366,6 +1573,8 @@ Name | Type | Description  | Notes
 > TemplateResource update_group_template(id, group_template_resource=group_template_resource)
 
 Update a group template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python

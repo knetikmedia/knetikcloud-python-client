@@ -38,6 +38,7 @@ class UsersRelationshipsApi(object):
     def create_user_relationship(self, **kwargs):
         """
         Create a user relationship
+        <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_user_relationship(async=True)
@@ -59,6 +60,7 @@ class UsersRelationshipsApi(object):
     def create_user_relationship_with_http_info(self, **kwargs):
         """
         Create a user relationship
+        <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_user_relationship_with_http_info(async=True)
@@ -131,6 +133,7 @@ class UsersRelationshipsApi(object):
     def delete_user_relationship(self, id, **kwargs):
         """
         Delete a user relationship
+        <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_user_relationship(id, async=True)
@@ -152,6 +155,7 @@ class UsersRelationshipsApi(object):
     def delete_user_relationship_with_http_info(self, id, **kwargs):
         """
         Delete a user relationship
+        <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_user_relationship_with_http_info(id, async=True)
@@ -202,10 +206,6 @@ class UsersRelationshipsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class UsersRelationshipsApi(object):
     def get_user_relationship(self, id, **kwargs):
         """
         Get a user relationship
+        <b>Permissions Needed:</b> RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_relationship(id, async=True)
@@ -248,6 +249,7 @@ class UsersRelationshipsApi(object):
     def get_user_relationship_with_http_info(self, id, **kwargs):
         """
         Get a user relationship
+        <b>Permissions Needed:</b> RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_relationship_with_http_info(id, async=True)
@@ -298,10 +300,6 @@ class UsersRelationshipsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -323,6 +321,7 @@ class UsersRelationshipsApi(object):
     def get_user_relationships(self, **kwargs):
         """
         Get a list of user relationships
+        <b>Permissions Needed:</b> RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_relationships(async=True)
@@ -346,6 +345,7 @@ class UsersRelationshipsApi(object):
     def get_user_relationships_with_http_info(self, **kwargs):
         """
         Get a list of user relationships
+        <b>Permissions Needed:</b> RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_relationships_with_http_info(async=True)
@@ -399,10 +399,6 @@ class UsersRelationshipsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -424,6 +420,7 @@ class UsersRelationshipsApi(object):
     def update_user_relationship(self, id, **kwargs):
         """
         Update a user relationship
+        <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_relationship(id, async=True)
@@ -446,6 +443,7 @@ class UsersRelationshipsApi(object):
     def update_user_relationship_with_http_info(self, id, **kwargs):
         """
         Update a user relationship
+        <b>Permissions Needed:</b> RELATIONSHIPS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_relationship_with_http_info(id, async=True)

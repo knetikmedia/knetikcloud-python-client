@@ -38,7 +38,7 @@ class PaymentsGoogleApi(object):
     def handle_google_payment(self, **kwargs):
         """
         Mark an invoice paid with Google
-        Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful.
+        Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.handle_google_payment(async=True)
@@ -60,7 +60,7 @@ class PaymentsGoogleApi(object):
     def handle_google_payment_with_http_info(self, **kwargs):
         """
         Mark an invoice paid with Google
-        Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful.
+        Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.handle_google_payment_with_http_info(async=True)

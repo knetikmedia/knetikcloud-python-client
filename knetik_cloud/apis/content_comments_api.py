@@ -38,6 +38,7 @@ class ContentCommentsApi(object):
     def add_comment(self, **kwargs):
         """
         Add a new comment
+        <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_comment(async=True)
@@ -59,6 +60,7 @@ class ContentCommentsApi(object):
     def add_comment_with_http_info(self, **kwargs):
         """
         Add a new comment
+        <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_comment_with_http_info(async=True)
@@ -131,6 +133,7 @@ class ContentCommentsApi(object):
     def delete_comment(self, id, **kwargs):
         """
         Delete a comment
+        <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_comment(id, async=True)
@@ -152,6 +155,7 @@ class ContentCommentsApi(object):
     def delete_comment_with_http_info(self, id, **kwargs):
         """
         Delete a comment
+        <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_comment_with_http_info(id, async=True)
@@ -202,10 +206,6 @@ class ContentCommentsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class ContentCommentsApi(object):
     def get_comment(self, id, **kwargs):
         """
         Return a comment
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_comment(id, async=True)
@@ -248,6 +249,7 @@ class ContentCommentsApi(object):
     def get_comment_with_http_info(self, id, **kwargs):
         """
         Return a comment
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_comment_with_http_info(id, async=True)
@@ -298,10 +300,6 @@ class ContentCommentsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -323,6 +321,7 @@ class ContentCommentsApi(object):
     def get_comments(self, context, context_id, **kwargs):
         """
         Returns a page of comments
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_comments(context, context_id, async=True)
@@ -347,6 +346,7 @@ class ContentCommentsApi(object):
     def get_comments_with_http_info(self, context, context_id, **kwargs):
         """
         Returns a page of comments
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_comments_with_http_info(context, context_id, async=True)
@@ -409,10 +409,6 @@ class ContentCommentsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -434,6 +430,7 @@ class ContentCommentsApi(object):
     def update_comment(self, id, **kwargs):
         """
         Update a comment
+        <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_comment(id, async=True)
@@ -456,6 +453,7 @@ class ContentCommentsApi(object):
     def update_comment_with_http_info(self, id, **kwargs):
         """
         Update a comment
+        <b>Permissions Needed:</b> COMMENTS_USER or COMMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_comment_with_http_info(id, async=True)

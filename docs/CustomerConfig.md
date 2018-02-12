@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aliases** | **str** |  | [optional] 
 **database** | [**DatabaseConfig**](DatabaseConfig.md) |  | [optional] 
-**io** | [**IOConfig**](IOConfig.md) |  | [optional] 
 **name** | **str** |  | [optional] 
 **s3_config** | [**S3Config**](S3Config.md) |  | [optional] 
 

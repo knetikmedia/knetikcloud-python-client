@@ -38,7 +38,7 @@ class StoreShippingApi(object):
     def create_shipping_item(self, **kwargs):
         """
         Create a shipping item
-        A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store.
+        A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store. <br><br><b>Permissions Needed:</b> SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_shipping_item(async=True)
@@ -61,7 +61,7 @@ class StoreShippingApi(object):
     def create_shipping_item_with_http_info(self, **kwargs):
         """
         Create a shipping item
-        A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store.
+        A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store. <br><br><b>Permissions Needed:</b> SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_shipping_item_with_http_info(async=True)
@@ -232,6 +232,7 @@ class StoreShippingApi(object):
     def delete_shipping_item(self, id, **kwargs):
         """
         Delete a shipping item
+        <b>Permissions Needed:</b> SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_shipping_item(id, async=True)
@@ -253,6 +254,7 @@ class StoreShippingApi(object):
     def delete_shipping_item_with_http_info(self, id, **kwargs):
         """
         Delete a shipping item
+        <b>Permissions Needed:</b> SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_shipping_item_with_http_info(id, async=True)
@@ -303,10 +305,6 @@ class StoreShippingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -328,6 +326,7 @@ class StoreShippingApi(object):
     def delete_shipping_template(self, id, **kwargs):
         """
         Delete a shipping template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_shipping_template(id, async=True)
@@ -350,6 +349,7 @@ class StoreShippingApi(object):
     def delete_shipping_template_with_http_info(self, id, **kwargs):
         """
         Delete a shipping template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_shipping_template_with_http_info(id, async=True)
@@ -403,10 +403,6 @@ class StoreShippingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -428,6 +424,7 @@ class StoreShippingApi(object):
     def get_shipping_item(self, id, **kwargs):
         """
         Get a single shipping item
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shipping_item(id, async=True)
@@ -449,6 +446,7 @@ class StoreShippingApi(object):
     def get_shipping_item_with_http_info(self, id, **kwargs):
         """
         Get a single shipping item
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shipping_item_with_http_info(id, async=True)
@@ -499,10 +497,6 @@ class StoreShippingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -524,7 +518,7 @@ class StoreShippingApi(object):
     def get_shipping_template(self, id, **kwargs):
         """
         Get a single shipping template
-        Shipping Templates define a type of shipping and the properties they have.
+        Shipping Templates define a type of shipping and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN or SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shipping_template(id, async=True)
@@ -546,7 +540,7 @@ class StoreShippingApi(object):
     def get_shipping_template_with_http_info(self, id, **kwargs):
         """
         Get a single shipping template
-        Shipping Templates define a type of shipping and the properties they have.
+        Shipping Templates define a type of shipping and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN or SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shipping_template_with_http_info(id, async=True)
@@ -597,10 +591,6 @@ class StoreShippingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -622,6 +612,7 @@ class StoreShippingApi(object):
     def get_shipping_templates(self, **kwargs):
         """
         List and search shipping templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shipping_templates(async=True)
@@ -645,6 +636,7 @@ class StoreShippingApi(object):
     def get_shipping_templates_with_http_info(self, **kwargs):
         """
         List and search shipping templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shipping_templates_with_http_info(async=True)
@@ -698,10 +690,6 @@ class StoreShippingApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -723,6 +711,7 @@ class StoreShippingApi(object):
     def update_shipping_item(self, id, **kwargs):
         """
         Update a shipping item
+        <b>Permissions Needed:</b> SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_shipping_item(id, async=True)
@@ -746,6 +735,7 @@ class StoreShippingApi(object):
     def update_shipping_item_with_http_info(self, id, **kwargs):
         """
         Update a shipping item
+        <b>Permissions Needed:</b> SHIPPING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_shipping_item_with_http_info(id, async=True)
@@ -827,6 +817,7 @@ class StoreShippingApi(object):
     def update_shipping_template(self, id, **kwargs):
         """
         Update a shipping template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_shipping_template(id, async=True)
@@ -849,6 +840,7 @@ class StoreShippingApi(object):
     def update_shipping_template_with_http_info(self, id, **kwargs):
         """
         Update a shipping template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_shipping_template_with_http_info(id, async=True)

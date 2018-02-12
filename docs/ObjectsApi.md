@@ -1,6 +1,6 @@
 # knetik_cloud.ObjectsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 > ObjectResource create_object_item(template_id, cascade=cascade, object_item=object_item)
 
 Create an object
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -78,7 +80,7 @@ Name | Type | Description  | Notes
 
 Create an object template
 
-Object templates define a type of entitlement and the properties they have
+Object templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -133,6 +135,8 @@ Name | Type | Description  | Notes
 
 Delete an object
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -177,7 +181,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -187,7 +191,7 @@ void (empty response body)
 
 Delete an entitlement template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -233,7 +237,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,6 +246,8 @@ void (empty response body)
 > ObjectResource get_object_item(template_id, object_id)
 
 Get a single object
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -288,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -297,6 +303,8 @@ Name | Type | Description  | Notes
 > PageResourceObjectResource get_object_items(template_id, size=size, page=page, order=order)
 
 List and search objects
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -347,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -356,6 +364,8 @@ Name | Type | Description  | Notes
 > ItemTemplateResource get_object_template(id)
 
 Get a single entitlement template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Example 
 ```python
@@ -400,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -409,6 +419,8 @@ Name | Type | Description  | Notes
 > PageResourceItemTemplateResource get_object_templates(size=size, page=page, order=order)
 
 List and search entitlement templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Example 
 ```python
@@ -457,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -466,6 +478,8 @@ Name | Type | Description  | Notes
 > update_object_item(template_id, object_id, cascade=cascade, object_item=object_item)
 
 Update an object
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -524,6 +538,8 @@ void (empty response body)
 > ItemTemplateResource update_object_template(id, template=template)
 
 Update an entitlement template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python

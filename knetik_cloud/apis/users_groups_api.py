@@ -38,6 +38,7 @@ class UsersGroupsApi(object):
     def add_member_to_group(self, unique_name, user, **kwargs):
         """
         Adds a new member to the group
+        <b>Permissions Needed:</b> GROUP_ADMIN or self if open
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_member_to_group(unique_name, user, async=True)
@@ -60,6 +61,7 @@ class UsersGroupsApi(object):
     def add_member_to_group_with_http_info(self, unique_name, user, **kwargs):
         """
         Adds a new member to the group
+        <b>Permissions Needed:</b> GROUP_ADMIN or self if open
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_member_to_group_with_http_info(unique_name, user, async=True)
@@ -141,6 +143,7 @@ class UsersGroupsApi(object):
     def add_members_to_group(self, unique_name, users, **kwargs):
         """
         Adds multiple members to the group
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_members_to_group(unique_name, users, async=True)
@@ -163,6 +166,7 @@ class UsersGroupsApi(object):
     def add_members_to_group_with_http_info(self, unique_name, users, **kwargs):
         """
         Adds multiple members to the group
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_members_to_group_with_http_info(unique_name, users, async=True)
@@ -244,6 +248,7 @@ class UsersGroupsApi(object):
     def create_group(self, **kwargs):
         """
         Create a group
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_group(async=True)
@@ -265,6 +270,7 @@ class UsersGroupsApi(object):
     def create_group_with_http_info(self, **kwargs):
         """
         Create a group
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_group_with_http_info(async=True)
@@ -337,7 +343,7 @@ class UsersGroupsApi(object):
     def create_group_member_template(self, **kwargs):
         """
         Create an group member template
-        GroupMember Templates define a type of group member and the properties they have
+        GroupMember Templates define a type of group member and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_group_member_template(async=True)
@@ -359,7 +365,7 @@ class UsersGroupsApi(object):
     def create_group_member_template_with_http_info(self, **kwargs):
         """
         Create an group member template
-        GroupMember Templates define a type of group member and the properties they have
+        GroupMember Templates define a type of group member and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_group_member_template_with_http_info(async=True)
@@ -432,7 +438,7 @@ class UsersGroupsApi(object):
     def create_group_template(self, **kwargs):
         """
         Create a group template
-        Group Templates define a type of group and the properties they have
+        Group Templates define a type of group and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_group_template(async=True)
@@ -454,7 +460,7 @@ class UsersGroupsApi(object):
     def create_group_template_with_http_info(self, **kwargs):
         """
         Create a group template
-        Group Templates define a type of group and the properties they have
+        Group Templates define a type of group and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_group_template_with_http_info(async=True)
@@ -527,7 +533,7 @@ class UsersGroupsApi(object):
     def delete_group(self, unique_name, **kwargs):
         """
         Removes a group from the system
-        All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
+        All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well. <br><br><b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_group(unique_name, async=True)
@@ -549,7 +555,7 @@ class UsersGroupsApi(object):
     def delete_group_with_http_info(self, unique_name, **kwargs):
         """
         Removes a group from the system
-        All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
+        All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well. <br><br><b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_group_with_http_info(unique_name, async=True)
@@ -600,10 +606,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -625,7 +627,7 @@ class UsersGroupsApi(object):
     def delete_group_member_template(self, id, **kwargs):
         """
         Delete an group member template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_group_member_template(id, async=True)
@@ -648,7 +650,7 @@ class UsersGroupsApi(object):
     def delete_group_member_template_with_http_info(self, id, **kwargs):
         """
         Delete an group member template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_group_member_template_with_http_info(id, async=True)
@@ -702,10 +704,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -727,7 +725,7 @@ class UsersGroupsApi(object):
     def delete_group_template(self, id, **kwargs):
         """
         Delete a group template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_group_template(id, async=True)
@@ -750,7 +748,7 @@ class UsersGroupsApi(object):
     def delete_group_template_with_http_info(self, id, **kwargs):
         """
         Delete a group template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_group_template_with_http_info(id, async=True)
@@ -804,10 +802,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -826,9 +820,120 @@ class UsersGroupsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def disable_group_notification(self, unique_name, user_id, disabled, **kwargs):
+        """
+        Enable or disable notification of group messages
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.disable_group_notification(unique_name, user_id, disabled, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str unique_name: The group unique name (required)
+        :param str user_id: The user id of the member or 'me' (required)
+        :param ValueWrapperboolean disabled: disabled (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.disable_group_notification_with_http_info(unique_name, user_id, disabled, **kwargs)
+        else:
+            (data) = self.disable_group_notification_with_http_info(unique_name, user_id, disabled, **kwargs)
+            return data
+
+    def disable_group_notification_with_http_info(self, unique_name, user_id, disabled, **kwargs):
+        """
+        Enable or disable notification of group messages
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.disable_group_notification_with_http_info(unique_name, user_id, disabled, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str unique_name: The group unique name (required)
+        :param str user_id: The user id of the member or 'me' (required)
+        :param ValueWrapperboolean disabled: disabled (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['unique_name', 'user_id', 'disabled']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method disable_group_notification" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'unique_name' is set
+        if ('unique_name' not in params) or (params['unique_name'] is None):
+            raise ValueError("Missing the required parameter `unique_name` when calling `disable_group_notification`")
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `disable_group_notification`")
+        # verify the required parameter 'disabled' is set
+        if ('disabled' not in params) or (params['disabled'] is None):
+            raise ValueError("Missing the required parameter `disabled` when calling `disable_group_notification`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'unique_name' in params:
+            path_params['unique_name'] = params['unique_name']
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'disabled' in params:
+            body_params = params['disabled']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/users/groups/{unique_name}/members/{user_id}/messages/disabled', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_group(self, unique_name, **kwargs):
         """
         Loads a specific group's details
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group(unique_name, async=True)
@@ -850,6 +955,7 @@ class UsersGroupsApi(object):
     def get_group_with_http_info(self, unique_name, **kwargs):
         """
         Loads a specific group's details
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_with_http_info(unique_name, async=True)
@@ -900,10 +1006,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -925,7 +1027,7 @@ class UsersGroupsApi(object):
     def get_group_ancestors(self, unique_name, **kwargs):
         """
         Get group ancestors
-        Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+        Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_ancestors(unique_name, async=True)
@@ -947,7 +1049,7 @@ class UsersGroupsApi(object):
     def get_group_ancestors_with_http_info(self, unique_name, **kwargs):
         """
         Get group ancestors
-        Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+        Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_ancestors_with_http_info(unique_name, async=True)
@@ -998,12 +1100,8 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
-        auth_settings = []
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/users/groups/{unique_name}/ancestors', 'GET',
                                         path_params,
@@ -1023,6 +1121,7 @@ class UsersGroupsApi(object):
     def get_group_member(self, unique_name, user_id, **kwargs):
         """
         Get a user from a group
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_member(unique_name, user_id, async=True)
@@ -1045,6 +1144,7 @@ class UsersGroupsApi(object):
     def get_group_member_with_http_info(self, unique_name, user_id, **kwargs):
         """
         Get a user from a group
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_member_with_http_info(unique_name, user_id, async=True)
@@ -1101,10 +1201,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1126,6 +1222,7 @@ class UsersGroupsApi(object):
     def get_group_member_template(self, id, **kwargs):
         """
         Get a single group member template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_member_template(id, async=True)
@@ -1147,6 +1244,7 @@ class UsersGroupsApi(object):
     def get_group_member_template_with_http_info(self, id, **kwargs):
         """
         Get a single group member template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_member_template_with_http_info(id, async=True)
@@ -1197,10 +1295,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1222,6 +1316,7 @@ class UsersGroupsApi(object):
     def get_group_member_templates(self, **kwargs):
         """
         List and search group member templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_member_templates(async=True)
@@ -1245,6 +1340,7 @@ class UsersGroupsApi(object):
     def get_group_member_templates_with_http_info(self, **kwargs):
         """
         List and search group member templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_member_templates_with_http_info(async=True)
@@ -1298,10 +1394,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1323,6 +1415,7 @@ class UsersGroupsApi(object):
     def get_group_members(self, unique_name, **kwargs):
         """
         Lists members of the group
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_members(unique_name, async=True)
@@ -1347,6 +1440,7 @@ class UsersGroupsApi(object):
     def get_group_members_with_http_info(self, unique_name, **kwargs):
         """
         Lists members of the group
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_members_with_http_info(unique_name, async=True)
@@ -1406,10 +1500,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1428,9 +1518,112 @@ class UsersGroupsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_group_messages(self, unique_name, **kwargs):
+        """
+        Get a list of group messages
+        <b>Permissions Needed:</b> ANY
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_messages(unique_name, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str unique_name: The group unique name (required)
+        :param int size: The number of objects returned per page
+        :param int page: The number of the page returned, starting with 1
+        :return: PageResourceChatMessageResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_group_messages_with_http_info(unique_name, **kwargs)
+        else:
+            (data) = self.get_group_messages_with_http_info(unique_name, **kwargs)
+            return data
+
+    def get_group_messages_with_http_info(self, unique_name, **kwargs):
+        """
+        Get a list of group messages
+        <b>Permissions Needed:</b> ANY
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_group_messages_with_http_info(unique_name, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str unique_name: The group unique name (required)
+        :param int size: The number of objects returned per page
+        :param int page: The number of the page returned, starting with 1
+        :return: PageResourceChatMessageResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['unique_name', 'size', 'page']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_group_messages" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'unique_name' is set
+        if ('unique_name' not in params) or (params['unique_name'] is None):
+            raise ValueError("Missing the required parameter `unique_name` when calling `get_group_messages`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'unique_name' in params:
+            path_params['unique_name'] = params['unique_name']
+
+        query_params = []
+        if 'size' in params:
+            query_params.append(('size', params['size']))
+        if 'page' in params:
+            query_params.append(('page', params['page']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/users/groups/{unique_name}/messages', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PageResourceChatMessageResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def get_group_template(self, id, **kwargs):
         """
         Get a single group template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_template(id, async=True)
@@ -1452,6 +1645,7 @@ class UsersGroupsApi(object):
     def get_group_template_with_http_info(self, id, **kwargs):
         """
         Get a single group template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_template_with_http_info(id, async=True)
@@ -1502,10 +1696,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1527,6 +1717,7 @@ class UsersGroupsApi(object):
     def get_group_templates(self, **kwargs):
         """
         List and search group templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_templates(async=True)
@@ -1550,6 +1741,7 @@ class UsersGroupsApi(object):
     def get_group_templates_with_http_info(self, **kwargs):
         """
         List and search group templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_group_templates_with_http_info(async=True)
@@ -1603,10 +1795,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1628,6 +1816,7 @@ class UsersGroupsApi(object):
     def get_groups_for_user(self, user_id, **kwargs):
         """
         List groups a user is in
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_groups_for_user(user_id, async=True)
@@ -1650,6 +1839,7 @@ class UsersGroupsApi(object):
     def get_groups_for_user_with_http_info(self, user_id, **kwargs):
         """
         List groups a user is in
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_groups_for_user_with_http_info(user_id, async=True)
@@ -1703,10 +1893,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1728,6 +1914,7 @@ class UsersGroupsApi(object):
     def list_groups(self, **kwargs):
         """
         List and search groups
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.list_groups(async=True)
@@ -1757,6 +1944,7 @@ class UsersGroupsApi(object):
     def list_groups_with_http_info(self, **kwargs):
         """
         List and search groups
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.list_groups_with_http_info(async=True)
@@ -1828,10 +2016,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1850,9 +2034,110 @@ class UsersGroupsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def post_group_message(self, unique_name, **kwargs):
+        """
+        Send a group message
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.post_group_message(unique_name, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str unique_name: The group unique name (required)
+        :param ChatMessageRequest chat_message_request: The chat message request
+        :return: ChatMessageResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.post_group_message_with_http_info(unique_name, **kwargs)
+        else:
+            (data) = self.post_group_message_with_http_info(unique_name, **kwargs)
+            return data
+
+    def post_group_message_with_http_info(self, unique_name, **kwargs):
+        """
+        Send a group message
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.post_group_message_with_http_info(unique_name, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str unique_name: The group unique name (required)
+        :param ChatMessageRequest chat_message_request: The chat message request
+        :return: ChatMessageResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['unique_name', 'chat_message_request']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_group_message" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'unique_name' is set
+        if ('unique_name' not in params) or (params['unique_name'] is None):
+            raise ValueError("Missing the required parameter `unique_name` when calling `post_group_message`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'unique_name' in params:
+            path_params['unique_name'] = params['unique_name']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'chat_message_request' in params:
+            body_params = params['chat_message_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api('/users/groups/{unique_name}/messages', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ChatMessageResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def remove_group_member(self, unique_name, user_id, **kwargs):
         """
         Removes a user from a group
+        <b>Permissions Needed:</b> GROUP_ADMIN or self if open
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_group_member(unique_name, user_id, async=True)
@@ -1875,6 +2160,7 @@ class UsersGroupsApi(object):
     def remove_group_member_with_http_info(self, unique_name, user_id, **kwargs):
         """
         Removes a user from a group
+        <b>Permissions Needed:</b> GROUP_ADMIN or self if open
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_group_member_with_http_info(unique_name, user_id, async=True)
@@ -1931,10 +2217,6 @@ class UsersGroupsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1956,7 +2238,7 @@ class UsersGroupsApi(object):
     def update_group(self, unique_name, **kwargs):
         """
         Update a group
-        If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
+        If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. <br><br><b>Permissions Needed:</b> GROUP_ADMIN or admin of the group
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group(unique_name, async=True)
@@ -1979,7 +2261,7 @@ class UsersGroupsApi(object):
     def update_group_with_http_info(self, unique_name, **kwargs):
         """
         Update a group
-        If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
+        If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. <br><br><b>Permissions Needed:</b> GROUP_ADMIN or admin of the group
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_with_http_info(unique_name, async=True)
@@ -2058,6 +2340,7 @@ class UsersGroupsApi(object):
     def update_group_member_properties(self, unique_name, user_id, order, **kwargs):
         """
         Change a user's order
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_member_properties(unique_name, user_id, order, async=True)
@@ -2081,6 +2364,7 @@ class UsersGroupsApi(object):
     def update_group_member_properties_with_http_info(self, unique_name, user_id, order, **kwargs):
         """
         Change a user's order
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_member_properties_with_http_info(unique_name, user_id, order, async=True)
@@ -2168,6 +2452,7 @@ class UsersGroupsApi(object):
     def update_group_member_properties1(self, unique_name, user_id, properties, **kwargs):
         """
         Change a user's membership properties
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_member_properties1(unique_name, user_id, properties, async=True)
@@ -2191,6 +2476,7 @@ class UsersGroupsApi(object):
     def update_group_member_properties1_with_http_info(self, unique_name, user_id, properties, **kwargs):
         """
         Change a user's membership properties
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_member_properties1_with_http_info(unique_name, user_id, properties, async=True)
@@ -2278,6 +2564,7 @@ class UsersGroupsApi(object):
     def update_group_member_status(self, unique_name, user_id, status, **kwargs):
         """
         Change a user's status
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_member_status(unique_name, user_id, status, async=True)
@@ -2301,6 +2588,7 @@ class UsersGroupsApi(object):
     def update_group_member_status_with_http_info(self, unique_name, user_id, status, **kwargs):
         """
         Change a user's status
+        <b>Permissions Needed:</b> GROUP_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_member_status_with_http_info(unique_name, user_id, status, async=True)
@@ -2388,6 +2676,7 @@ class UsersGroupsApi(object):
     def update_group_member_template(self, id, **kwargs):
         """
         Update an group member template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_member_template(id, async=True)
@@ -2410,6 +2699,7 @@ class UsersGroupsApi(object):
     def update_group_member_template_with_http_info(self, id, **kwargs):
         """
         Update an group member template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_member_template_with_http_info(id, async=True)
@@ -2488,6 +2778,7 @@ class UsersGroupsApi(object):
     def update_group_template(self, id, **kwargs):
         """
         Update a group template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_template(id, async=True)
@@ -2510,6 +2801,7 @@ class UsersGroupsApi(object):
     def update_group_template_with_http_info(self, id, **kwargs):
         """
         Update a group template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_group_template_with_http_info(id, async=True)

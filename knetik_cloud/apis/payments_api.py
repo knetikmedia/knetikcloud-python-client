@@ -38,6 +38,7 @@ class PaymentsApi(object):
     def create_payment_method(self, user_id, **kwargs):
         """
         Create a new payment method for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_payment_method(user_id, async=True)
@@ -60,6 +61,7 @@ class PaymentsApi(object):
     def create_payment_method_with_http_info(self, user_id, **kwargs):
         """
         Create a new payment method for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_payment_method_with_http_info(user_id, async=True)
@@ -138,6 +140,7 @@ class PaymentsApi(object):
     def delete_payment_method(self, user_id, id, **kwargs):
         """
         Delete an existing payment method for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_payment_method(user_id, id, async=True)
@@ -160,6 +163,7 @@ class PaymentsApi(object):
     def delete_payment_method_with_http_info(self, user_id, id, **kwargs):
         """
         Delete an existing payment method for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_payment_method_with_http_info(user_id, id, async=True)
@@ -216,10 +220,6 @@ class PaymentsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -241,6 +241,7 @@ class PaymentsApi(object):
     def get_payment_method(self, user_id, id, **kwargs):
         """
         Get a single payment method for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_method(user_id, id, async=True)
@@ -263,6 +264,7 @@ class PaymentsApi(object):
     def get_payment_method_with_http_info(self, user_id, id, **kwargs):
         """
         Get a single payment method for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_method_with_http_info(user_id, id, async=True)
@@ -319,10 +321,6 @@ class PaymentsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -344,6 +342,7 @@ class PaymentsApi(object):
     def get_payment_method_type(self, id, **kwargs):
         """
         Get a single payment method type
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_method_type(id, async=True)
@@ -365,6 +364,7 @@ class PaymentsApi(object):
     def get_payment_method_type_with_http_info(self, id, **kwargs):
         """
         Get a single payment method type
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_method_type_with_http_info(id, async=True)
@@ -415,10 +415,6 @@ class PaymentsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -440,6 +436,7 @@ class PaymentsApi(object):
     def get_payment_method_types(self, **kwargs):
         """
         Get all payment method types
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_method_types(async=True)
@@ -464,6 +461,7 @@ class PaymentsApi(object):
     def get_payment_method_types_with_http_info(self, **kwargs):
         """
         Get all payment method types
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_method_types_with_http_info(async=True)
@@ -520,10 +518,6 @@ class PaymentsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -545,6 +539,7 @@ class PaymentsApi(object):
     def get_payment_methods(self, user_id, **kwargs):
         """
         Get all payment methods for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_methods(user_id, async=True)
@@ -573,6 +568,7 @@ class PaymentsApi(object):
     def get_payment_methods_with_http_info(self, user_id, **kwargs):
         """
         Get all payment methods for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_methods_with_http_info(user_id, async=True)
@@ -644,10 +640,6 @@ class PaymentsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -669,6 +661,7 @@ class PaymentsApi(object):
     def payment_authorization(self, **kwargs):
         """
         Authorize payment of an invoice for later capture
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or PAYMENTS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.payment_authorization(async=True)
@@ -690,6 +683,7 @@ class PaymentsApi(object):
     def payment_authorization_with_http_info(self, **kwargs):
         """
         Authorize payment of an invoice for later capture
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or PAYMENTS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.payment_authorization_with_http_info(async=True)
@@ -762,6 +756,7 @@ class PaymentsApi(object):
     def payment_capture(self, id, **kwargs):
         """
         Capture an existing invoice payment authorization
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.payment_capture(id, async=True)
@@ -783,6 +778,7 @@ class PaymentsApi(object):
     def payment_capture_with_http_info(self, id, **kwargs):
         """
         Capture an existing invoice payment authorization
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.payment_capture_with_http_info(id, async=True)
@@ -858,6 +854,7 @@ class PaymentsApi(object):
     def update_payment_method(self, user_id, id, **kwargs):
         """
         Update an existing payment method for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_payment_method(user_id, id, async=True)
@@ -881,6 +878,7 @@ class PaymentsApi(object):
     def update_payment_method_with_http_info(self, user_id, id, **kwargs):
         """
         Update an existing payment method for a user
+        <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_payment_method_with_http_info(user_id, id, async=True)

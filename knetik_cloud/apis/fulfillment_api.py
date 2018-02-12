@@ -38,6 +38,7 @@ class FulfillmentApi(object):
     def create_fulfillment_type(self, **kwargs):
         """
         Create a fulfillment type
+        <b>Permissions Needed:</b> FULFILLMENT_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_fulfillment_type(async=True)
@@ -59,6 +60,7 @@ class FulfillmentApi(object):
     def create_fulfillment_type_with_http_info(self, **kwargs):
         """
         Create a fulfillment type
+        <b>Permissions Needed:</b> FULFILLMENT_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_fulfillment_type_with_http_info(async=True)
@@ -131,6 +133,7 @@ class FulfillmentApi(object):
     def delete_fulfillment_type(self, id, **kwargs):
         """
         Delete a fulfillment type
+        <b>Permissions Needed:</b> FULFILLMENT_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_fulfillment_type(id, async=True)
@@ -152,6 +155,7 @@ class FulfillmentApi(object):
     def delete_fulfillment_type_with_http_info(self, id, **kwargs):
         """
         Delete a fulfillment type
+        <b>Permissions Needed:</b> FULFILLMENT_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_fulfillment_type_with_http_info(id, async=True)
@@ -202,10 +206,6 @@ class FulfillmentApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class FulfillmentApi(object):
     def get_fulfillment_type(self, id, **kwargs):
         """
         Get a single fulfillment type
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_fulfillment_type(id, async=True)
@@ -248,6 +249,7 @@ class FulfillmentApi(object):
     def get_fulfillment_type_with_http_info(self, id, **kwargs):
         """
         Get a single fulfillment type
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_fulfillment_type_with_http_info(id, async=True)
@@ -298,10 +300,6 @@ class FulfillmentApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -323,6 +321,7 @@ class FulfillmentApi(object):
     def get_fulfillment_types(self, **kwargs):
         """
         List and search fulfillment types
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_fulfillment_types(async=True)
@@ -346,6 +345,7 @@ class FulfillmentApi(object):
     def get_fulfillment_types_with_http_info(self, **kwargs):
         """
         List and search fulfillment types
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_fulfillment_types_with_http_info(async=True)
@@ -399,10 +399,6 @@ class FulfillmentApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -424,6 +420,7 @@ class FulfillmentApi(object):
     def update_fulfillment_type(self, id, **kwargs):
         """
         Update a fulfillment type
+        <b>Permissions Needed:</b> FULFILLMENT_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_fulfillment_type(id, async=True)
@@ -446,6 +443,7 @@ class FulfillmentApi(object):
     def update_fulfillment_type_with_http_info(self, id, **kwargs):
         """
         Update a fulfillment type
+        <b>Permissions Needed:</b> FULFILLMENT_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_fulfillment_type_with_http_info(id, async=True)

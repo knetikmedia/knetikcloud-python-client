@@ -206,7 +206,7 @@ class DeviceResource(object):
     def device_type(self):
         """
         Gets the device_type of this DeviceResource.
-        The type of device. Use mobile to specifically register mobile devices. This particular type will be used to send and receive notifications
+        The type of device. Use mobile_device to specifically register mobile devices. This particular type will be used to send and receive notifications
 
         :return: The device_type of this DeviceResource.
         :rtype: str
@@ -217,7 +217,7 @@ class DeviceResource(object):
     def device_type(self, device_type):
         """
         Sets the device_type of this DeviceResource.
-        The type of device. Use mobile to specifically register mobile devices. This particular type will be used to send and receive notifications
+        The type of device. Use mobile_device to specifically register mobile devices. This particular type will be used to send and receive notifications
 
         :param device_type: The device_type of this DeviceResource.
         :type: str
@@ -229,7 +229,7 @@ class DeviceResource(object):
     def id(self):
         """
         Gets the id of this DeviceResource.
-        The unique ID for this device
+        The unique ID for this device. Cannot be changed after creation. Default: random
 
         :return: The id of this DeviceResource.
         :rtype: str
@@ -240,7 +240,7 @@ class DeviceResource(object):
     def id(self, id):
         """
         Sets the id of this DeviceResource.
-        The unique ID for this device
+        The unique ID for this device. Cannot be changed after creation. Default: random
 
         :param id: The id of this DeviceResource.
         :type: str

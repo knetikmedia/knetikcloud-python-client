@@ -38,7 +38,7 @@ class MediaVideosApi(object):
     def add_user_to_video_whitelist(self, id, **kwargs):
         """
         Adds a user to a video's whitelist
-        Whitelisted users can view video regardless of privacy setting.
+        Whitelisted users can view video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_user_to_video_whitelist(id, async=True)
@@ -61,7 +61,7 @@ class MediaVideosApi(object):
     def add_user_to_video_whitelist_with_http_info(self, id, **kwargs):
         """
         Adds a user to a video's whitelist
-        Whitelisted users can view video regardless of privacy setting.
+        Whitelisted users can view video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_user_to_video_whitelist_with_http_info(id, async=True)
@@ -140,6 +140,7 @@ class MediaVideosApi(object):
     def add_video(self, **kwargs):
         """
         Adds a new video in the system
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video(async=True)
@@ -161,6 +162,7 @@ class MediaVideosApi(object):
     def add_video_with_http_info(self, **kwargs):
         """
         Adds a new video in the system
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_with_http_info(async=True)
@@ -233,6 +235,7 @@ class MediaVideosApi(object):
     def add_video_comment(self, video_id, **kwargs):
         """
         Add a new video comment
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_comment(video_id, async=True)
@@ -255,6 +258,7 @@ class MediaVideosApi(object):
     def add_video_comment_with_http_info(self, video_id, **kwargs):
         """
         Add a new video comment
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_comment_with_http_info(video_id, async=True)
@@ -333,6 +337,7 @@ class MediaVideosApi(object):
     def add_video_contributor(self, video_id, **kwargs):
         """
         Adds a contributor to a video
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_contributor(video_id, async=True)
@@ -355,6 +360,7 @@ class MediaVideosApi(object):
     def add_video_contributor_with_http_info(self, video_id, **kwargs):
         """
         Adds a contributor to a video
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_contributor_with_http_info(video_id, async=True)
@@ -433,6 +439,7 @@ class MediaVideosApi(object):
     def add_video_flag(self, video_id, **kwargs):
         """
         Add a new flag
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_flag(video_id, async=True)
@@ -455,6 +462,7 @@ class MediaVideosApi(object):
     def add_video_flag_with_http_info(self, video_id, **kwargs):
         """
         Add a new flag
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_flag_with_http_info(video_id, async=True)
@@ -533,6 +541,7 @@ class MediaVideosApi(object):
     def add_video_relationships(self, video_id, **kwargs):
         """
         Adds one or more existing videos as related to this one
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_relationships(video_id, async=True)
@@ -555,6 +564,7 @@ class MediaVideosApi(object):
     def add_video_relationships_with_http_info(self, video_id, **kwargs):
         """
         Adds one or more existing videos as related to this one
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_video_relationships_with_http_info(video_id, async=True)
@@ -633,6 +643,7 @@ class MediaVideosApi(object):
     def create_video_disposition(self, video_id, **kwargs):
         """
         Create a video disposition
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_video_disposition(video_id, async=True)
@@ -655,6 +666,7 @@ class MediaVideosApi(object):
     def create_video_disposition_with_http_info(self, video_id, **kwargs):
         """
         Create a video disposition
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_video_disposition_with_http_info(video_id, async=True)
@@ -733,7 +745,7 @@ class MediaVideosApi(object):
     def create_video_template(self, **kwargs):
         """
         Create a video template
-        Video Templates define a type of video and the properties they have
+        Video Templates define a type of video and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_video_template(async=True)
@@ -755,7 +767,7 @@ class MediaVideosApi(object):
     def create_video_template_with_http_info(self, **kwargs):
         """
         Create a video template
-        Video Templates define a type of video and the properties they have
+        Video Templates define a type of video and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_video_template_with_http_info(async=True)
@@ -828,6 +840,7 @@ class MediaVideosApi(object):
     def delete_video(self, id, **kwargs):
         """
         Deletes a video from the system if no resources are attached to it
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video(id, async=True)
@@ -849,6 +862,7 @@ class MediaVideosApi(object):
     def delete_video_with_http_info(self, id, **kwargs):
         """
         Deletes a video from the system if no resources are attached to it
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_with_http_info(id, async=True)
@@ -899,10 +913,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -924,6 +934,7 @@ class MediaVideosApi(object):
     def delete_video_comment(self, video_id, id, **kwargs):
         """
         Delete a video comment
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_comment(video_id, id, async=True)
@@ -946,6 +957,7 @@ class MediaVideosApi(object):
     def delete_video_comment_with_http_info(self, video_id, id, **kwargs):
         """
         Delete a video comment
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_comment_with_http_info(video_id, id, async=True)
@@ -1002,10 +1014,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1027,6 +1035,7 @@ class MediaVideosApi(object):
     def delete_video_disposition(self, disposition_id, **kwargs):
         """
         Delete a video disposition
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_disposition(disposition_id, async=True)
@@ -1048,6 +1057,7 @@ class MediaVideosApi(object):
     def delete_video_disposition_with_http_info(self, disposition_id, **kwargs):
         """
         Delete a video disposition
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_disposition_with_http_info(disposition_id, async=True)
@@ -1098,10 +1108,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1123,6 +1129,7 @@ class MediaVideosApi(object):
     def delete_video_flag(self, video_id, **kwargs):
         """
         Delete a flag
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_flag(video_id, async=True)
@@ -1144,6 +1151,7 @@ class MediaVideosApi(object):
     def delete_video_flag_with_http_info(self, video_id, **kwargs):
         """
         Delete a flag
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_flag_with_http_info(video_id, async=True)
@@ -1194,10 +1202,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1219,6 +1223,7 @@ class MediaVideosApi(object):
     def delete_video_relationship(self, video_id, id, **kwargs):
         """
         Delete a video's relationship
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_relationship(video_id, id, async=True)
@@ -1241,6 +1246,7 @@ class MediaVideosApi(object):
     def delete_video_relationship_with_http_info(self, video_id, id, **kwargs):
         """
         Delete a video's relationship
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_relationship_with_http_info(video_id, id, async=True)
@@ -1297,10 +1303,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1322,7 +1324,7 @@ class MediaVideosApi(object):
     def delete_video_template(self, id, **kwargs):
         """
         Delete a video template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_template(id, async=True)
@@ -1345,7 +1347,7 @@ class MediaVideosApi(object):
     def delete_video_template_with_http_info(self, id, **kwargs):
         """
         Delete a video template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_video_template_with_http_info(id, async=True)
@@ -1399,10 +1401,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1424,6 +1422,7 @@ class MediaVideosApi(object):
     def get_user_videos(self, user_id, **kwargs):
         """
         Get user videos
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_videos(user_id, async=True)
@@ -1448,6 +1447,7 @@ class MediaVideosApi(object):
     def get_user_videos_with_http_info(self, user_id, **kwargs):
         """
         Get user videos
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_videos_with_http_info(user_id, async=True)
@@ -1507,10 +1507,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1532,6 +1528,7 @@ class MediaVideosApi(object):
     def get_video(self, id, **kwargs):
         """
         Loads a specific video details
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video(id, async=True)
@@ -1553,6 +1550,7 @@ class MediaVideosApi(object):
     def get_video_with_http_info(self, id, **kwargs):
         """
         Loads a specific video details
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_with_http_info(id, async=True)
@@ -1603,10 +1601,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1628,6 +1622,7 @@ class MediaVideosApi(object):
     def get_video_comments(self, video_id, **kwargs):
         """
         Returns a page of comments for a video
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_comments(video_id, async=True)
@@ -1651,6 +1646,7 @@ class MediaVideosApi(object):
     def get_video_comments_with_http_info(self, video_id, **kwargs):
         """
         Returns a page of comments for a video
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_comments_with_http_info(video_id, async=True)
@@ -1707,10 +1703,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1732,6 +1724,7 @@ class MediaVideosApi(object):
     def get_video_dispositions(self, video_id, **kwargs):
         """
         Returns a page of dispositions for a video
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_dispositions(video_id, async=True)
@@ -1755,6 +1748,7 @@ class MediaVideosApi(object):
     def get_video_dispositions_with_http_info(self, video_id, **kwargs):
         """
         Returns a page of dispositions for a video
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_dispositions_with_http_info(video_id, async=True)
@@ -1811,10 +1805,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1836,6 +1826,7 @@ class MediaVideosApi(object):
     def get_video_relationships(self, video_id, **kwargs):
         """
         Returns a page of video relationships
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_relationships(video_id, async=True)
@@ -1859,6 +1850,7 @@ class MediaVideosApi(object):
     def get_video_relationships_with_http_info(self, video_id, **kwargs):
         """
         Returns a page of video relationships
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_relationships_with_http_info(video_id, async=True)
@@ -1915,10 +1907,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1940,6 +1928,7 @@ class MediaVideosApi(object):
     def get_video_template(self, id, **kwargs):
         """
         Get a single video template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_template(id, async=True)
@@ -1961,6 +1950,7 @@ class MediaVideosApi(object):
     def get_video_template_with_http_info(self, id, **kwargs):
         """
         Get a single video template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_template_with_http_info(id, async=True)
@@ -2011,10 +2001,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2036,6 +2022,7 @@ class MediaVideosApi(object):
     def get_video_templates(self, **kwargs):
         """
         List and search video templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_templates(async=True)
@@ -2059,6 +2046,7 @@ class MediaVideosApi(object):
     def get_video_templates_with_http_info(self, **kwargs):
         """
         List and search video templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_video_templates_with_http_info(async=True)
@@ -2112,10 +2100,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2137,6 +2121,7 @@ class MediaVideosApi(object):
     def get_videos(self, **kwargs):
         """
         Search videos using the documented filters
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_videos(async=True)
@@ -2172,6 +2157,7 @@ class MediaVideosApi(object):
     def get_videos_with_http_info(self, **kwargs):
         """
         Search videos using the documented filters
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_videos_with_http_info(async=True)
@@ -2261,10 +2247,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2286,7 +2268,7 @@ class MediaVideosApi(object):
     def remove_user_from_video_whitelist(self, video_id, id, **kwargs):
         """
         Removes a user from a video's whitelist
-        Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
+        Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_user_from_video_whitelist(video_id, id, async=True)
@@ -2309,7 +2291,7 @@ class MediaVideosApi(object):
     def remove_user_from_video_whitelist_with_http_info(self, video_id, id, **kwargs):
         """
         Removes a user from a video's whitelist
-        Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
+        Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_user_from_video_whitelist_with_http_info(video_id, id, async=True)
@@ -2366,10 +2348,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2391,6 +2369,7 @@ class MediaVideosApi(object):
     def remove_video_contributor(self, video_id, id, **kwargs):
         """
         Removes a contributor from a video
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_video_contributor(video_id, id, async=True)
@@ -2413,6 +2392,7 @@ class MediaVideosApi(object):
     def remove_video_contributor_with_http_info(self, video_id, id, **kwargs):
         """
         Removes a contributor from a video
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_video_contributor_with_http_info(video_id, id, async=True)
@@ -2469,10 +2449,6 @@ class MediaVideosApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -2494,6 +2470,7 @@ class MediaVideosApi(object):
     def update_video(self, id, **kwargs):
         """
         Modifies a video's details
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_video(id, async=True)
@@ -2516,6 +2493,7 @@ class MediaVideosApi(object):
     def update_video_with_http_info(self, id, **kwargs):
         """
         Modifies a video's details
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_video_with_http_info(id, async=True)
@@ -2594,6 +2572,7 @@ class MediaVideosApi(object):
     def update_video_comment(self, video_id, id, **kwargs):
         """
         Update a video comment
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_video_comment(video_id, id, async=True)
@@ -2617,6 +2596,7 @@ class MediaVideosApi(object):
     def update_video_comment_with_http_info(self, video_id, id, **kwargs):
         """
         Update a video comment
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_video_comment_with_http_info(video_id, id, async=True)
@@ -2701,6 +2681,7 @@ class MediaVideosApi(object):
     def update_video_relationship(self, video_id, relationship_id, **kwargs):
         """
         Update a video's relationship details
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_video_relationship(video_id, relationship_id, async=True)
@@ -2724,6 +2705,7 @@ class MediaVideosApi(object):
     def update_video_relationship_with_http_info(self, video_id, relationship_id, **kwargs):
         """
         Update a video's relationship details
+        <b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_video_relationship_with_http_info(video_id, relationship_id, async=True)
@@ -2808,6 +2790,7 @@ class MediaVideosApi(object):
     def update_video_template(self, id, **kwargs):
         """
         Update a video template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_video_template(id, async=True)
@@ -2830,6 +2813,7 @@ class MediaVideosApi(object):
     def update_video_template_with_http_info(self, id, **kwargs):
         """
         Update a video template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_video_template_with_http_info(id, async=True)
@@ -2908,6 +2892,7 @@ class MediaVideosApi(object):
     def view_video(self, id, **kwargs):
         """
         Increment a video's view count
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.view_video(id, async=True)
@@ -2929,6 +2914,7 @@ class MediaVideosApi(object):
     def view_video_with_http_info(self, id, **kwargs):
         """
         Increment a video's view count
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.view_video_with_http_info(id, async=True)

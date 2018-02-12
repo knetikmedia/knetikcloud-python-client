@@ -38,6 +38,7 @@ class ConfigsApi(object):
     def create_config(self, **kwargs):
         """
         Create a new config
+        <b>Permissions Needed:</b> TOPICS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_config(async=True)
@@ -59,6 +60,7 @@ class ConfigsApi(object):
     def create_config_with_http_info(self, **kwargs):
         """
         Create a new config
+        <b>Permissions Needed:</b> TOPICS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_config_with_http_info(async=True)
@@ -131,6 +133,7 @@ class ConfigsApi(object):
     def delete_config(self, name, **kwargs):
         """
         Delete an existing config
+        <b>Permissions Needed:</b> CONFIGS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_config(name, async=True)
@@ -152,6 +155,7 @@ class ConfigsApi(object):
     def delete_config_with_http_info(self, name, **kwargs):
         """
         Delete an existing config
+        <b>Permissions Needed:</b> CONFIGS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_config_with_http_info(name, async=True)
@@ -202,10 +206,6 @@ class ConfigsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,7 +227,7 @@ class ConfigsApi(object):
     def get_config(self, name, **kwargs):
         """
         Get a single config
-        Only configs that are public readable will be shown without admin access
+        Only configs that are public readable will be shown without admin access. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_config(name, async=True)
@@ -249,7 +249,7 @@ class ConfigsApi(object):
     def get_config_with_http_info(self, name, **kwargs):
         """
         Get a single config
-        Only configs that are public readable will be shown without admin access
+        Only configs that are public readable will be shown without admin access. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_config_with_http_info(name, async=True)
@@ -300,10 +300,6 @@ class ConfigsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -325,6 +321,7 @@ class ConfigsApi(object):
     def get_configs(self, **kwargs):
         """
         List and search configs
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_configs(async=True)
@@ -349,6 +346,7 @@ class ConfigsApi(object):
     def get_configs_with_http_info(self, **kwargs):
         """
         List and search configs
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_configs_with_http_info(async=True)
@@ -405,10 +403,6 @@ class ConfigsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -430,6 +424,7 @@ class ConfigsApi(object):
     def update_config(self, name, **kwargs):
         """
         Update an existing config
+        <b>Permissions Needed:</b> CONFIGS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_config(name, async=True)
@@ -452,6 +447,7 @@ class ConfigsApi(object):
     def update_config_with_http_info(self, name, **kwargs):
         """
         Update an existing config
+        <b>Permissions Needed:</b> CONFIGS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_config_with_http_info(name, async=True)

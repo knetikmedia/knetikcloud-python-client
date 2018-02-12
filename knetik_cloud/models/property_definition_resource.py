@@ -55,22 +55,22 @@ class PropertyDefinitionResource(object):
     }
 
     discriminator_value_class_map = {
-        'text': 'TextPropertyDefinitionResource',
         'image': 'ImagePropertyDefinitionResource',
-        'audio': 'AudioPropertyDefinitionResource',
-        'file_group': 'FileGroupPropertyDefinitionResource',
         'long': 'LongPropertyDefinitionResource',
         'boolean': 'BooleanPropertyDefinitionResource',
-        'video': 'VideoPropertyDefinitionResource',
         'image_group': 'ImageGroupPropertyDefinitionResource',
+        'audio_group': 'AudioGroupPropertyDefinitionResource',
+        'date': 'DatePropertyDefinitionResource',
+        'map': 'MapPropertyDefinitionResource',
+        'text': 'TextPropertyDefinitionResource',
+        'audio': 'AudioPropertyDefinitionResource',
+        'file_group': 'FileGroupPropertyDefinitionResource',
+        'video': 'VideoPropertyDefinitionResource',
         'formatted_text': 'FormattedTextPropertyDefinitionResource',
         'list': 'ListPropertyDefinitionResource',
-        'audio_group': 'AudioGroupPropertyDefinitionResource',
         'double': 'DoublePropertyDefinitionResource',
-        'date': 'DatePropertyDefinitionResource',
         'video_group': 'VideoGroupPropertyDefinitionResource',
         'file': 'FilePropertyDefinitionResource',
-        'map': 'MapPropertyDefinitionResource',
         'integer': 'IntegerPropertyDefinitionResource'
     }
 

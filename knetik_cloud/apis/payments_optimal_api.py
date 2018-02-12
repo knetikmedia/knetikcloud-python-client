@@ -38,7 +38,7 @@ class PaymentsOptimalApi(object):
     def silent_post_optimal(self, **kwargs):
         """
         Initiate silent post with Optimal
-        Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details.
+        Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details. <br><br><b>Permissions Needed:</b> OPTIMAL_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.silent_post_optimal(async=True)
@@ -60,7 +60,7 @@ class PaymentsOptimalApi(object):
     def silent_post_optimal_with_http_info(self, **kwargs):
         """
         Initiate silent post with Optimal
-        Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details.
+        Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details. <br><br><b>Permissions Needed:</b> OPTIMAL_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.silent_post_optimal_with_http_info(async=True)

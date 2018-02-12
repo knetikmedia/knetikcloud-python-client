@@ -38,6 +38,7 @@ class BRERuleEngineExpressionsApi(object):
     def get_bre_expression(self, type, **kwargs):
         """
         Lookup a specific expression
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_expression(type, async=True)
@@ -59,6 +60,7 @@ class BRERuleEngineExpressionsApi(object):
     def get_bre_expression_with_http_info(self, type, **kwargs):
         """
         Lookup a specific expression
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_expression_with_http_info(type, async=True)
@@ -109,10 +111,6 @@ class BRERuleEngineExpressionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -133,8 +131,8 @@ class BRERuleEngineExpressionsApi(object):
 
     def get_bre_expressions(self, **kwargs):
         """
-        Get a list of supported expressions to use in conditions or actions.
-        Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule.
+        Get a list of supported expressions to use in conditions or actions
+        Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_expressions(async=True)
@@ -155,8 +153,8 @@ class BRERuleEngineExpressionsApi(object):
 
     def get_bre_expressions_with_http_info(self, **kwargs):
         """
-        Get a list of supported expressions to use in conditions or actions.
-        Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule.
+        Get a list of supported expressions to use in conditions or actions
+        Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_expressions_with_http_info(async=True)
@@ -204,10 +202,6 @@ class BRERuleEngineExpressionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -229,6 +223,7 @@ class BRERuleEngineExpressionsApi(object):
     def get_expression_as_text(self, **kwargs):
         """
         Returns the textual representation of an expression
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_expression_as_text(async=True)
@@ -250,6 +245,7 @@ class BRERuleEngineExpressionsApi(object):
     def get_expression_as_text_with_http_info(self, **kwargs):
         """
         Returns the textual representation of an expression
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_expression_as_text_with_http_info(async=True)

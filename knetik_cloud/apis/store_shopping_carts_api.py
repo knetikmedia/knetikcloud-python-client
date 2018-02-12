@@ -38,6 +38,7 @@ class StoreShoppingCartsApi(object):
     def add_custom_discount(self, id, **kwargs):
         """
         Adds a custom discount to the cart
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_custom_discount(id, async=True)
@@ -60,6 +61,7 @@ class StoreShoppingCartsApi(object):
     def add_custom_discount_with_http_info(self, id, **kwargs):
         """
         Adds a custom discount to the cart
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_custom_discount_with_http_info(id, async=True)
@@ -138,6 +140,7 @@ class StoreShoppingCartsApi(object):
     def add_discount_to_cart(self, id, **kwargs):
         """
         Adds a discount coupon to the cart
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_discount_to_cart(id, async=True)
@@ -160,6 +163,7 @@ class StoreShoppingCartsApi(object):
     def add_discount_to_cart_with_http_info(self, id, **kwargs):
         """
         Adds a discount coupon to the cart
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_discount_to_cart_with_http_info(id, async=True)
@@ -238,7 +242,7 @@ class StoreShoppingCartsApi(object):
     def add_item_to_cart(self, id, **kwargs):
         """
         Add an item to the cart
-        Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
+        Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_item_to_cart(id, async=True)
@@ -261,7 +265,7 @@ class StoreShoppingCartsApi(object):
     def add_item_to_cart_with_http_info(self, id, **kwargs):
         """
         Add an item to the cart
-        Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
+        Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_item_to_cart_with_http_info(id, async=True)
@@ -340,7 +344,7 @@ class StoreShoppingCartsApi(object):
     def create_cart(self, **kwargs):
         """
         Create a cart
-        You don't have to have a user to create a cart but the API requires authentication to checkout
+        You don't have to have a user to create a cart but the API requires authentication to checkout. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_cart(async=True)
@@ -363,7 +367,7 @@ class StoreShoppingCartsApi(object):
     def create_cart_with_http_info(self, **kwargs):
         """
         Create a cart
-        You don't have to have a user to create a cart but the API requires authentication to checkout
+        You don't have to have a user to create a cart but the API requires authentication to checkout. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_cart_with_http_info(async=True)
@@ -439,6 +443,7 @@ class StoreShoppingCartsApi(object):
     def get_cart(self, id, **kwargs):
         """
         Returns the cart with the given GUID
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_cart(id, async=True)
@@ -460,6 +465,7 @@ class StoreShoppingCartsApi(object):
     def get_cart_with_http_info(self, id, **kwargs):
         """
         Returns the cart with the given GUID
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_cart_with_http_info(id, async=True)
@@ -510,10 +516,6 @@ class StoreShoppingCartsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -535,6 +537,7 @@ class StoreShoppingCartsApi(object):
     def get_carts(self, **kwargs):
         """
         Get a list of carts
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_carts(async=True)
@@ -559,6 +562,7 @@ class StoreShoppingCartsApi(object):
     def get_carts_with_http_info(self, **kwargs):
         """
         Get a list of carts
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_carts_with_http_info(async=True)
@@ -615,10 +619,6 @@ class StoreShoppingCartsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -640,6 +640,7 @@ class StoreShoppingCartsApi(object):
     def get_shippable(self, id, **kwargs):
         """
         Returns whether a cart requires shipping
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shippable(id, async=True)
@@ -661,6 +662,7 @@ class StoreShoppingCartsApi(object):
     def get_shippable_with_http_info(self, id, **kwargs):
         """
         Returns whether a cart requires shipping
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shippable_with_http_info(id, async=True)
@@ -711,10 +713,6 @@ class StoreShoppingCartsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -736,7 +734,7 @@ class StoreShoppingCartsApi(object):
     def get_shipping_countries(self, id, **kwargs):
         """
         Get the list of available shipping countries per vendor
-        Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
+        Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shipping_countries(id, async=True)
@@ -758,7 +756,7 @@ class StoreShoppingCartsApi(object):
     def get_shipping_countries_with_http_info(self, id, **kwargs):
         """
         Get the list of available shipping countries per vendor
-        Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
+        Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_shipping_countries_with_http_info(id, async=True)
@@ -809,10 +807,6 @@ class StoreShoppingCartsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -834,6 +828,7 @@ class StoreShoppingCartsApi(object):
     def remove_discount_from_cart(self, id, code, **kwargs):
         """
         Removes a discount coupon from the cart
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_discount_from_cart(id, code, async=True)
@@ -856,6 +851,7 @@ class StoreShoppingCartsApi(object):
     def remove_discount_from_cart_with_http_info(self, id, code, **kwargs):
         """
         Removes a discount coupon from the cart
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_discount_from_cart_with_http_info(id, code, async=True)
@@ -912,10 +908,6 @@ class StoreShoppingCartsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -937,7 +929,7 @@ class StoreShoppingCartsApi(object):
     def set_cart_currency(self, id, **kwargs):
         """
         Sets the currency to use for the cart
-        May be disallowed by site settings.
+        May be disallowed by site settings. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_cart_currency(id, async=True)
@@ -960,7 +952,7 @@ class StoreShoppingCartsApi(object):
     def set_cart_currency_with_http_info(self, id, **kwargs):
         """
         Sets the currency to use for the cart
-        May be disallowed by site settings.
+        May be disallowed by site settings. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_cart_currency_with_http_info(id, async=True)
@@ -1039,6 +1031,7 @@ class StoreShoppingCartsApi(object):
     def set_cart_owner(self, id, **kwargs):
         """
         Sets the owner of a cart if none is set already
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_cart_owner(id, async=True)
@@ -1061,6 +1054,7 @@ class StoreShoppingCartsApi(object):
     def set_cart_owner_with_http_info(self, id, **kwargs):
         """
         Sets the owner of a cart if none is set already
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_cart_owner_with_http_info(id, async=True)
@@ -1139,7 +1133,7 @@ class StoreShoppingCartsApi(object):
     def update_item_in_cart(self, id, **kwargs):
         """
         Changes the quantity of an item already in the cart
-        A quantity of zero will remove the item from the cart altogether.
+        A quantity of zero will remove the item from the cart altogether. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_item_in_cart(id, async=True)
@@ -1162,7 +1156,7 @@ class StoreShoppingCartsApi(object):
     def update_item_in_cart_with_http_info(self, id, **kwargs):
         """
         Changes the quantity of an item already in the cart
-        A quantity of zero will remove the item from the cart altogether.
+        A quantity of zero will remove the item from the cart altogether. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_item_in_cart_with_http_info(id, async=True)
@@ -1241,6 +1235,7 @@ class StoreShoppingCartsApi(object):
     def update_shipping_address(self, id, **kwargs):
         """
         Modifies or sets the order shipping address
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_shipping_address(id, async=True)
@@ -1263,6 +1258,7 @@ class StoreShoppingCartsApi(object):
     def update_shipping_address_with_http_info(self, id, **kwargs):
         """
         Modifies or sets the order shipping address
+        <b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_shipping_address_with_http_info(id, async=True)

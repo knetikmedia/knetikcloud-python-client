@@ -20,6 +20,7 @@ from .campaigns_api import CampaignsApi
 from .campaigns_challenges_api import CampaignsChallengesApi
 from .campaigns_rewards_api import CampaignsRewardsApi
 from .categories_api import CategoriesApi
+from .chat_api import ChatApi
 from .configs_api import ConfigsApi
 from .content_articles_api import ContentArticlesApi
 from .content_comments_api import ContentCommentsApi
@@ -40,6 +41,8 @@ from .media_artists_api import MediaArtistsApi
 from .media_moderation_api import MediaModerationApi
 from .media_videos_api import MediaVideosApi
 from .messaging_api import MessagingApi
+from .messaging_topics_api import MessagingTopicsApi
+from .notifications_api import NotificationsApi
 from .objects_api import ObjectsApi
 from .payments_api import PaymentsApi
 from .payments_apple_api import PaymentsAppleApi

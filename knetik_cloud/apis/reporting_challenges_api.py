@@ -38,7 +38,7 @@ class ReportingChallengesApi(object):
     def get_challenge_event_leaderboard(self, **kwargs):
         """
         Retrieve a challenge event leaderboard details
-        Lists all leaderboard entries with additional user details
+        Lists all leaderboard entries with additional user details. <br><br><b>Permissions Needed:</b> REPORTING_CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_event_leaderboard(async=True)
@@ -63,7 +63,7 @@ class ReportingChallengesApi(object):
     def get_challenge_event_leaderboard_with_http_info(self, **kwargs):
         """
         Retrieve a challenge event leaderboard details
-        Lists all leaderboard entries with additional user details
+        Lists all leaderboard entries with additional user details. <br><br><b>Permissions Needed:</b> REPORTING_CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_event_leaderboard_with_http_info(async=True)
@@ -120,10 +120,6 @@ class ReportingChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -145,7 +141,7 @@ class ReportingChallengesApi(object):
     def get_challenge_event_participants(self, **kwargs):
         """
         Retrieve a challenge event participant details
-        Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
+        Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation. <br><br><b>Permissions Needed:</b> REPORTING_CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_event_participants(async=True)
@@ -170,7 +166,7 @@ class ReportingChallengesApi(object):
     def get_challenge_event_participants_with_http_info(self, **kwargs):
         """
         Retrieve a challenge event participant details
-        Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
+        Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation. <br><br><b>Permissions Needed:</b> REPORTING_CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_event_participants_with_http_info(async=True)
@@ -226,10 +222,6 @@ class ReportingChallengesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

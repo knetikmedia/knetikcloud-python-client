@@ -1,6 +1,6 @@
 # knetik_cloud.AuthClientsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,6 +18,8 @@ Method | HTTP request | Description
 > ClientResource create_client(client_resource=client_resource)
 
 Create a new client
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Example 
 ```python
@@ -72,6 +74,8 @@ Name | Type | Description  | Notes
 
 Delete a client
 
+<b>Permissions Needed:</b> CLIENTS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -114,7 +118,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -123,6 +127,8 @@ void (empty response body)
 > ClientResource get_client(client_key)
 
 Get a single client
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Example 
 ```python
@@ -167,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -176,6 +182,8 @@ Name | Type | Description  | Notes
 > list[GrantTypeResource] get_client_grant_types()
 
 List available client grant types
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Example 
 ```python
@@ -216,7 +224,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -225,6 +233,8 @@ This endpoint does not need any parameter.
 > PageResourceClientResource get_clients(size=size, page=page, order=order)
 
 List and search clients
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Example 
 ```python
@@ -273,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -282,6 +292,8 @@ Name | Type | Description  | Notes
 > set_client_grant_types(client_key, grant_list=grant_list)
 
 Set grant types for a client
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Example 
 ```python
@@ -337,6 +349,8 @@ void (empty response body)
 
 Set redirect uris for a client
 
+<b>Permissions Needed:</b> CLIENTS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -390,6 +404,8 @@ void (empty response body)
 > ClientResource update_client(client_key, client_resource=client_resource)
 
 Update a client
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Example 
 ```python

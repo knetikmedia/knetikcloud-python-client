@@ -33,6 +33,7 @@ class TemplateEmailResource(object):
     swagger_types = {
         '_from': 'str',
         'recipients': 'list[int]',
+        'subject': 'str',
         'template_key': 'str',
         'template_vars': 'list[KeyValuePairstringstring]'
     }
@@ -40,17 +41,19 @@ class TemplateEmailResource(object):
     attribute_map = {
         '_from': 'from',
         'recipients': 'recipients',
+        'subject': 'subject',
         'template_key': 'template_key',
         'template_vars': 'template_vars'
     }
 
-    def __init__(self, _from=None, recipients=None, template_key=None, template_vars=None):
+    def __init__(self, _from=None, recipients=None, subject=None, template_key=None, template_vars=None):
         """
         TemplateEmailResource - a model defined in Swagger
         """
 
         self.__from = None
         self._recipients = None
+        self._subject = None
         self._template_key = None
         self._template_vars = None
         self.discriminator = None
@@ -58,6 +61,8 @@ class TemplateEmailResource(object):
         if _from is not None:
           self._from = _from
         self.recipients = recipients
+        if subject is not None:
+          self.subject = subject
         self.template_key = template_key
         if template_vars is not None:
           self.template_vars = template_vars
@@ -109,6 +114,29 @@ class TemplateEmailResource(object):
             raise ValueError("Invalid value for `recipients`, must not be `None`")
 
         self._recipients = recipients
+
+    @property
+    def subject(self):
+        """
+        Gets the subject of this TemplateEmailResource.
+        The subject for email
+
+        :return: The subject of this TemplateEmailResource.
+        :rtype: str
+        """
+        return self._subject
+
+    @subject.setter
+    def subject(self, subject):
+        """
+        Sets the subject of this TemplateEmailResource.
+        The subject for email
+
+        :param subject: The subject of this TemplateEmailResource.
+        :type: str
+        """
+
+        self._subject = subject
 
     @property
     def template_key(self):

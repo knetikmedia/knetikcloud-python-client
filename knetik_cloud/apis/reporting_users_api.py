@@ -38,7 +38,7 @@ class ReportingUsersApi(object):
     def get_user_registrations(self, **kwargs):
         """
         Get user registration info
-        Get user registration counts grouped by time range
+        Get user registration counts grouped by time range. <br><br><b>Permissions Needed:</b> REPORTING_USER_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_registrations(async=True)
@@ -64,7 +64,7 @@ class ReportingUsersApi(object):
     def get_user_registrations_with_http_info(self, **kwargs):
         """
         Get user registration info
-        Get user registration counts grouped by time range
+        Get user registration counts grouped by time range. <br><br><b>Permissions Needed:</b> REPORTING_USER_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_registrations_with_http_info(async=True)
@@ -123,10 +123,6 @@ class ReportingUsersApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

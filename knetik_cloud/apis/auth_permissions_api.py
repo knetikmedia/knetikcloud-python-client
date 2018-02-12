@@ -38,6 +38,7 @@ class AuthPermissionsApi(object):
     def create_permission(self, **kwargs):
         """
         Create a new permission
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_permission(async=True)
@@ -59,6 +60,7 @@ class AuthPermissionsApi(object):
     def create_permission_with_http_info(self, **kwargs):
         """
         Create a new permission
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_permission_with_http_info(async=True)
@@ -131,6 +133,7 @@ class AuthPermissionsApi(object):
     def delete_permission(self, permission, **kwargs):
         """
         Delete a permission
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_permission(permission, async=True)
@@ -153,6 +156,7 @@ class AuthPermissionsApi(object):
     def delete_permission_with_http_info(self, permission, **kwargs):
         """
         Delete a permission
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_permission_with_http_info(permission, async=True)
@@ -206,10 +210,6 @@ class AuthPermissionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -231,6 +231,7 @@ class AuthPermissionsApi(object):
     def get_permission(self, permission, **kwargs):
         """
         Get a single permission
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_permission(permission, async=True)
@@ -252,6 +253,7 @@ class AuthPermissionsApi(object):
     def get_permission_with_http_info(self, permission, **kwargs):
         """
         Get a single permission
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_permission_with_http_info(permission, async=True)
@@ -302,10 +304,6 @@ class AuthPermissionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -327,6 +325,7 @@ class AuthPermissionsApi(object):
     def get_permissions(self, **kwargs):
         """
         List and search permissions
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_permissions(async=True)
@@ -350,6 +349,7 @@ class AuthPermissionsApi(object):
     def get_permissions_with_http_info(self, **kwargs):
         """
         List and search permissions
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_permissions_with_http_info(async=True)
@@ -403,10 +403,6 @@ class AuthPermissionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -428,6 +424,7 @@ class AuthPermissionsApi(object):
     def update_permission(self, permission, **kwargs):
         """
         Update a permission
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_permission(permission, async=True)
@@ -450,6 +447,7 @@ class AuthPermissionsApi(object):
     def update_permission_with_http_info(self, permission, **kwargs):
         """
         Update a permission
+        <b>Permissions Needed:</b> PERMISSIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_permission_with_http_info(permission, async=True)

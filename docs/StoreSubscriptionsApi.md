@@ -1,6 +1,6 @@
 # knetik_cloud.StoreSubscriptionsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,6 +21,8 @@ Method | HTTP request | Description
 > SubscriptionResource create_subscription(subscription_resource=subscription_resource)
 
 Creates a subscription item and associated plans
+
+<b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 
 ### Example 
 ```python
@@ -75,7 +77,7 @@ Name | Type | Description  | Notes
 
 Create a subscription template
 
-Subscription Templates define a type of subscription and the properties they have.
+Subscription Templates define a type of subscription and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -130,7 +132,7 @@ Name | Type | Description  | Notes
 
 Delete a subscription plan
 
-Must not be locked or a migration target
+Must not be locked or a migration target. <br><br><b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 
 ### Example 
 ```python
@@ -176,7 +178,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -185,6 +187,8 @@ void (empty response body)
 > delete_subscription_template(id, cascade=cascade)
 
 Delete a subscription template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -230,7 +234,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -239,6 +243,8 @@ void (empty response body)
 > SubscriptionResource get_subscription(id)
 
 Retrieve a single subscription item and associated plans
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -283,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -293,7 +299,7 @@ Name | Type | Description  | Notes
 
 Get a single subscription template
 
-Subscription Templates define a type of subscription and the properties they have.
+Subscription Templates define a type of subscription and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -338,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -347,6 +353,8 @@ Name | Type | Description  | Notes
 > PageResourceSubscriptionTemplateResource get_subscription_templates(size=size, page=page, order=order)
 
 List and search subscription templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN
 
 ### Example 
 ```python
@@ -395,7 +403,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -404,6 +412,8 @@ Name | Type | Description  | Notes
 > PageResourceSubscriptionResource get_subscriptions(size=size, page=page, order=order)
 
 List available subscription items and associated plans
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -452,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -461,6 +471,8 @@ Name | Type | Description  | Notes
 > process_subscriptions()
 
 Processes subscriptions and charge dues
+
+<b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 
 ### Example 
 ```python
@@ -510,7 +522,7 @@ void (empty response body)
 
 Updates a subscription item and associated plans
 
-Will not remove plans left out
+Will not remove plans left out. <br><br><b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
 
 ### Example 
 ```python
@@ -565,6 +577,8 @@ void (empty response body)
 > SubscriptionTemplateResource update_subscription_template(id, subscription_template_resource=subscription_template_resource)
 
 Update a subscription template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python

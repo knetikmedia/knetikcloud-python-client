@@ -38,7 +38,7 @@ class UsersInventoryApi(object):
     def add_item_to_user_inventory(self, id, **kwargs):
         """
         Adds an item to the user inventory
-        The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
+        The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_item_to_user_inventory(id, async=True)
@@ -61,7 +61,7 @@ class UsersInventoryApi(object):
     def add_item_to_user_inventory_with_http_info(self, id, **kwargs):
         """
         Adds an item to the user inventory
-        The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
+        The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_item_to_user_inventory_with_http_info(id, async=True)
@@ -140,7 +140,7 @@ class UsersInventoryApi(object):
     def check_user_entitlement_item(self, user_id, item_id, **kwargs):
         """
         Check for access to an item without consuming
-        Useful for pre-check and accounts for all various buisness rules
+        Useful for pre-check and accounts for all various buisness rules. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.check_user_entitlement_item(user_id, item_id, async=True)
@@ -164,7 +164,7 @@ class UsersInventoryApi(object):
     def check_user_entitlement_item_with_http_info(self, user_id, item_id, **kwargs):
         """
         Check for access to an item without consuming
-        Useful for pre-check and accounts for all various buisness rules
+        Useful for pre-check and accounts for all various buisness rules. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.check_user_entitlement_item_with_http_info(user_id, item_id, async=True)
@@ -224,10 +224,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -249,6 +245,7 @@ class UsersInventoryApi(object):
     def create_entitlement_item(self, **kwargs):
         """
         Create an entitlement item
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_entitlement_item(async=True)
@@ -271,6 +268,7 @@ class UsersInventoryApi(object):
     def create_entitlement_item_with_http_info(self, **kwargs):
         """
         Create an entitlement item
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_entitlement_item_with_http_info(async=True)
@@ -346,7 +344,7 @@ class UsersInventoryApi(object):
     def create_entitlement_template(self, **kwargs):
         """
         Create an entitlement template
-        Entitlement templates define a type of entitlement and the properties they have
+        Entitlement templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_entitlement_template(async=True)
@@ -368,7 +366,7 @@ class UsersInventoryApi(object):
     def create_entitlement_template_with_http_info(self, **kwargs):
         """
         Create an entitlement template
-        Entitlement templates define a type of entitlement and the properties they have
+        Entitlement templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_entitlement_template_with_http_info(async=True)
@@ -441,6 +439,7 @@ class UsersInventoryApi(object):
     def delete_entitlement_item(self, entitlement_id, **kwargs):
         """
         Delete an entitlement item
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_entitlement_item(entitlement_id, async=True)
@@ -462,6 +461,7 @@ class UsersInventoryApi(object):
     def delete_entitlement_item_with_http_info(self, entitlement_id, **kwargs):
         """
         Delete an entitlement item
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_entitlement_item_with_http_info(entitlement_id, async=True)
@@ -512,10 +512,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -537,7 +533,7 @@ class UsersInventoryApi(object):
     def delete_entitlement_template(self, id, **kwargs):
         """
         Delete an entitlement template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_entitlement_template(id, async=True)
@@ -560,7 +556,7 @@ class UsersInventoryApi(object):
     def delete_entitlement_template_with_http_info(self, id, **kwargs):
         """
         Delete an entitlement template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_entitlement_template_with_http_info(id, async=True)
@@ -614,10 +610,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -639,6 +631,7 @@ class UsersInventoryApi(object):
     def get_entitlement_item(self, entitlement_id, **kwargs):
         """
         Get a single entitlement item
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_entitlement_item(entitlement_id, async=True)
@@ -660,6 +653,7 @@ class UsersInventoryApi(object):
     def get_entitlement_item_with_http_info(self, entitlement_id, **kwargs):
         """
         Get a single entitlement item
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_entitlement_item_with_http_info(entitlement_id, async=True)
@@ -710,10 +704,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -735,6 +725,7 @@ class UsersInventoryApi(object):
     def get_entitlement_items(self, **kwargs):
         """
         List and search entitlement items
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_entitlement_items(async=True)
@@ -759,6 +750,7 @@ class UsersInventoryApi(object):
     def get_entitlement_items_with_http_info(self, **kwargs):
         """
         List and search entitlement items
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_entitlement_items_with_http_info(async=True)
@@ -815,10 +807,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -840,6 +828,7 @@ class UsersInventoryApi(object):
     def get_entitlement_template(self, id, **kwargs):
         """
         Get a single entitlement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_entitlement_template(id, async=True)
@@ -861,6 +850,7 @@ class UsersInventoryApi(object):
     def get_entitlement_template_with_http_info(self, id, **kwargs):
         """
         Get a single entitlement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_entitlement_template_with_http_info(id, async=True)
@@ -911,10 +901,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -936,6 +922,7 @@ class UsersInventoryApi(object):
     def get_entitlement_templates(self, **kwargs):
         """
         List and search entitlement templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_entitlement_templates(async=True)
@@ -959,6 +946,7 @@ class UsersInventoryApi(object):
     def get_entitlement_templates_with_http_info(self, **kwargs):
         """
         List and search entitlement templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_entitlement_templates_with_http_info(async=True)
@@ -1012,10 +1000,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1037,6 +1021,7 @@ class UsersInventoryApi(object):
     def get_user_inventories(self, id, **kwargs):
         """
         List the user inventory entries for a given user
+        <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_inventories(id, async=True)
@@ -1066,6 +1051,7 @@ class UsersInventoryApi(object):
     def get_user_inventories_with_http_info(self, id, **kwargs):
         """
         List the user inventory entries for a given user
+        <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_inventories_with_http_info(id, async=True)
@@ -1140,10 +1126,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1165,13 +1147,14 @@ class UsersInventoryApi(object):
     def get_user_inventory(self, user_id, id, **kwargs):
         """
         Get an inventory entry
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_inventory(user_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param int user_id: The id of the inventory owner or 'me' for the logged in user (required)
+        :param str user_id: The id of the inventory owner or 'me' for the logged in user (required)
         :param int id: The id of the user inventory (required)
         :return: UserInventoryResource
                  If the method is called asynchronously,
@@ -1187,13 +1170,14 @@ class UsersInventoryApi(object):
     def get_user_inventory_with_http_info(self, user_id, id, **kwargs):
         """
         Get an inventory entry
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_inventory_with_http_info(user_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param int user_id: The id of the inventory owner or 'me' for the logged in user (required)
+        :param str user_id: The id of the inventory owner or 'me' for the logged in user (required)
         :param int id: The id of the user inventory (required)
         :return: UserInventoryResource
                  If the method is called asynchronously,
@@ -1243,10 +1227,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1268,6 +1248,7 @@ class UsersInventoryApi(object):
     def get_user_inventory_log(self, user_id, id, **kwargs):
         """
         List the log entries for this inventory entry
+        <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_inventory_log(user_id, id, async=True)
@@ -1292,6 +1273,7 @@ class UsersInventoryApi(object):
     def get_user_inventory_log_with_http_info(self, user_id, id, **kwargs):
         """
         List the log entries for this inventory entry
+        <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_inventory_log_with_http_info(user_id, id, async=True)
@@ -1354,10 +1336,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1379,6 +1357,7 @@ class UsersInventoryApi(object):
     def get_users_inventory(self, **kwargs):
         """
         List the user inventory entries for all users
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_users_inventory(async=True)
@@ -1407,6 +1386,7 @@ class UsersInventoryApi(object):
     def get_users_inventory_with_http_info(self, **kwargs):
         """
         List the user inventory entries for all users
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_users_inventory_with_http_info(async=True)
@@ -1475,10 +1455,6 @@ class UsersInventoryApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1500,6 +1476,7 @@ class UsersInventoryApi(object):
     def grant_user_entitlement(self, user_id, grant_request, **kwargs):
         """
         Grant an entitlement
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.grant_user_entitlement(user_id, grant_request, async=True)
@@ -1522,6 +1499,7 @@ class UsersInventoryApi(object):
     def grant_user_entitlement_with_http_info(self, user_id, grant_request, **kwargs):
         """
         Grant an entitlement
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.grant_user_entitlement_with_http_info(user_id, grant_request, async=True)
@@ -1603,6 +1581,7 @@ class UsersInventoryApi(object):
     def update_entitlement_item(self, entitlement_id, **kwargs):
         """
         Update an entitlement item
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_entitlement_item(entitlement_id, async=True)
@@ -1626,6 +1605,7 @@ class UsersInventoryApi(object):
     def update_entitlement_item_with_http_info(self, entitlement_id, **kwargs):
         """
         Update an entitlement item
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_entitlement_item_with_http_info(entitlement_id, async=True)
@@ -1707,6 +1687,7 @@ class UsersInventoryApi(object):
     def update_entitlement_template(self, id, **kwargs):
         """
         Update an entitlement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_entitlement_template(id, async=True)
@@ -1729,6 +1710,7 @@ class UsersInventoryApi(object):
     def update_entitlement_template_with_http_info(self, id, **kwargs):
         """
         Update an entitlement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_entitlement_template_with_http_info(id, async=True)
@@ -1807,6 +1789,7 @@ class UsersInventoryApi(object):
     def update_user_inventory_behavior_data(self, user_id, id, **kwargs):
         """
         Set the behavior data for an inventory entry
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_inventory_behavior_data(user_id, id, async=True)
@@ -1830,6 +1813,7 @@ class UsersInventoryApi(object):
     def update_user_inventory_behavior_data_with_http_info(self, user_id, id, **kwargs):
         """
         Set the behavior data for an inventory entry
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_inventory_behavior_data_with_http_info(user_id, id, async=True)
@@ -1914,7 +1898,7 @@ class UsersInventoryApi(object):
     def update_user_inventory_expires(self, user_id, id, **kwargs):
         """
         Set the expiration date
-        Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
+        Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_inventory_expires(user_id, id, async=True)
@@ -1938,7 +1922,7 @@ class UsersInventoryApi(object):
     def update_user_inventory_expires_with_http_info(self, user_id, id, **kwargs):
         """
         Set the expiration date
-        Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
+        Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_inventory_expires_with_http_info(user_id, id, async=True)
@@ -2023,6 +2007,7 @@ class UsersInventoryApi(object):
     def update_user_inventory_status(self, user_id, id, **kwargs):
         """
         Set the status for an inventory entry
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_inventory_status(user_id, id, async=True)
@@ -2046,6 +2031,7 @@ class UsersInventoryApi(object):
     def update_user_inventory_status_with_http_info(self, user_id, id, **kwargs):
         """
         Set the status for an inventory entry
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_user_inventory_status_with_http_info(user_id, id, async=True)
@@ -2130,6 +2116,7 @@ class UsersInventoryApi(object):
     def use_user_entitlement_item(self, user_id, item_id, **kwargs):
         """
         Use an item
+        <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.use_user_entitlement_item(user_id, item_id, async=True)
@@ -2154,6 +2141,7 @@ class UsersInventoryApi(object):
     def use_user_entitlement_item_with_http_info(self, user_id, item_id, **kwargs):
         """
         Use an item
+        <b>Permissions Needed:</b> INVENTORY_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.use_user_entitlement_item_with_http_info(user_id, item_id, async=True)

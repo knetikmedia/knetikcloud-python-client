@@ -1,0 +1,11 @@
+# WebsocketUnsubscribeEvent
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**topic** | [**Topic**](Topic.md) |  | [optional] 
+**topic_subscriber** | [**TopicSubscriber**](TopicSubscriber.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

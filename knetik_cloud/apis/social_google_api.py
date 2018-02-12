@@ -38,7 +38,7 @@ class SocialGoogleApi(object):
     def link_accounts1(self, **kwargs):
         """
         Link google account
-        Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
+        Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired. <br><br><b>Permissions Needed:</b> Non-google user token
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.link_accounts1(async=True)
@@ -60,7 +60,7 @@ class SocialGoogleApi(object):
     def link_accounts1_with_http_info(self, **kwargs):
         """
         Link google account
-        Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
+        Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired. <br><br><b>Permissions Needed:</b> Non-google user token
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.link_accounts1_with_http_info(async=True)

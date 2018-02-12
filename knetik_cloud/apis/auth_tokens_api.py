@@ -38,6 +38,7 @@ class AuthTokensApi(object):
     def delete_tokens(self, **kwargs):
         """
         Delete tokens by username, client id, or both
+        <b>Permissions Needed:</b> TOKENS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_tokens(async=True)
@@ -60,6 +61,7 @@ class AuthTokensApi(object):
     def delete_tokens_with_http_info(self, **kwargs):
         """
         Delete tokens by username, client id, or both
+        <b>Permissions Needed:</b> TOKENS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_tokens_with_http_info(async=True)
@@ -110,10 +112,6 @@ class AuthTokensApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -135,6 +133,7 @@ class AuthTokensApi(object):
     def get_token(self, username, client_id, **kwargs):
         """
         Get a single token by username and client id
+        <b>Permissions Needed:</b> TOKENS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_token(username, client_id, async=True)
@@ -157,6 +156,7 @@ class AuthTokensApi(object):
     def get_token_with_http_info(self, username, client_id, **kwargs):
         """
         Get a single token by username and client id
+        <b>Permissions Needed:</b> TOKENS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_token_with_http_info(username, client_id, async=True)
@@ -213,10 +213,6 @@ class AuthTokensApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -238,7 +234,7 @@ class AuthTokensApi(object):
     def get_tokens(self, **kwargs):
         """
         List usernames and client ids
-        Token value not shown
+        Token value not shown. <br><br><b>Permissions Needed:</b> TOKENS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_tokens(async=True)
@@ -264,7 +260,7 @@ class AuthTokensApi(object):
     def get_tokens_with_http_info(self, **kwargs):
         """
         List usernames and client ids
-        Token value not shown
+        Token value not shown. <br><br><b>Permissions Needed:</b> TOKENS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_tokens_with_http_info(async=True)
@@ -323,10 +319,6 @@ class AuthTokensApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

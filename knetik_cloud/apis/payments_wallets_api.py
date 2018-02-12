@@ -38,6 +38,7 @@ class PaymentsWalletsApi(object):
     def get_user_wallet(self, user_id, currency_code, **kwargs):
         """
         Returns the user's wallet for the given currency code
+        <b>Permissions Needed:</b> WALLETS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_wallet(user_id, currency_code, async=True)
@@ -60,6 +61,7 @@ class PaymentsWalletsApi(object):
     def get_user_wallet_with_http_info(self, user_id, currency_code, **kwargs):
         """
         Returns the user's wallet for the given currency code
+        <b>Permissions Needed:</b> WALLETS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_wallet_with_http_info(user_id, currency_code, async=True)
@@ -116,10 +118,6 @@ class PaymentsWalletsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -141,6 +139,7 @@ class PaymentsWalletsApi(object):
     def get_user_wallet_transactions(self, user_id, currency_code, **kwargs):
         """
         Retrieve a user's wallet transactions
+        <b>Permissions Needed:</b> WALLETS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_wallet_transactions(user_id, currency_code, async=True)
@@ -170,6 +169,7 @@ class PaymentsWalletsApi(object):
     def get_user_wallet_transactions_with_http_info(self, user_id, currency_code, **kwargs):
         """
         Retrieve a user's wallet transactions
+        <b>Permissions Needed:</b> WALLETS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_wallet_transactions_with_http_info(user_id, currency_code, async=True)
@@ -247,10 +247,6 @@ class PaymentsWalletsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -272,6 +268,7 @@ class PaymentsWalletsApi(object):
     def get_user_wallets(self, user_id, **kwargs):
         """
         List all of a user's wallets
+        <b>Permissions Needed:</b> WALLETS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_wallets(user_id, async=True)
@@ -293,6 +290,7 @@ class PaymentsWalletsApi(object):
     def get_user_wallets_with_http_info(self, user_id, **kwargs):
         """
         List all of a user's wallets
+        <b>Permissions Needed:</b> WALLETS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_wallets_with_http_info(user_id, async=True)
@@ -343,10 +341,6 @@ class PaymentsWalletsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -368,6 +362,7 @@ class PaymentsWalletsApi(object):
     def get_wallet_balances(self, **kwargs):
         """
         Retrieves a summation of wallet balances by currency code
+        <b>Permissions Needed:</b> WALLETS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_wallet_balances(async=True)
@@ -388,6 +383,7 @@ class PaymentsWalletsApi(object):
     def get_wallet_balances_with_http_info(self, **kwargs):
         """
         Retrieves a summation of wallet balances by currency code
+        <b>Permissions Needed:</b> WALLETS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_wallet_balances_with_http_info(async=True)
@@ -431,10 +427,6 @@ class PaymentsWalletsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -456,6 +448,7 @@ class PaymentsWalletsApi(object):
     def get_wallet_transactions(self, **kwargs):
         """
         Retrieve wallet transactions across the system
+        <b>Permissions Needed:</b> WALLETS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_wallet_transactions(async=True)
@@ -487,6 +480,7 @@ class PaymentsWalletsApi(object):
     def get_wallet_transactions_with_http_info(self, **kwargs):
         """
         Retrieve wallet transactions across the system
+        <b>Permissions Needed:</b> WALLETS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_wallet_transactions_with_http_info(async=True)
@@ -564,10 +558,6 @@ class PaymentsWalletsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -589,6 +579,7 @@ class PaymentsWalletsApi(object):
     def get_wallets(self, **kwargs):
         """
         Retrieve a list of wallets across the system
+        <b>Permissions Needed:</b> WALLETS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_wallets(async=True)
@@ -612,6 +603,7 @@ class PaymentsWalletsApi(object):
     def get_wallets_with_http_info(self, **kwargs):
         """
         Retrieve a list of wallets across the system
+        <b>Permissions Needed:</b> WALLETS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_wallets_with_http_info(async=True)
@@ -665,10 +657,6 @@ class PaymentsWalletsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -690,6 +678,7 @@ class PaymentsWalletsApi(object):
     def update_wallet_balance(self, user_id, currency_code, **kwargs):
         """
         Updates the balance for a user's wallet
+        <b>Permissions Needed:</b> WALLETS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_wallet_balance(user_id, currency_code, async=True)
@@ -713,6 +702,7 @@ class PaymentsWalletsApi(object):
     def update_wallet_balance_with_http_info(self, user_id, currency_code, **kwargs):
         """
         Updates the balance for a user's wallet
+        <b>Permissions Needed:</b> WALLETS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_wallet_balance_with_http_info(user_id, currency_code, async=True)

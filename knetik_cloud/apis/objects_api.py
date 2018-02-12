@@ -38,6 +38,7 @@ class ObjectsApi(object):
     def create_object_item(self, template_id, **kwargs):
         """
         Create an object
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_object_item(template_id, async=True)
@@ -61,6 +62,7 @@ class ObjectsApi(object):
     def create_object_item_with_http_info(self, template_id, **kwargs):
         """
         Create an object
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_object_item_with_http_info(template_id, async=True)
@@ -142,7 +144,7 @@ class ObjectsApi(object):
     def create_object_template(self, **kwargs):
         """
         Create an object template
-        Object templates define a type of entitlement and the properties they have
+        Object templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_object_template(async=True)
@@ -164,7 +166,7 @@ class ObjectsApi(object):
     def create_object_template_with_http_info(self, **kwargs):
         """
         Create an object template
-        Object templates define a type of entitlement and the properties they have
+        Object templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_object_template_with_http_info(async=True)
@@ -237,6 +239,7 @@ class ObjectsApi(object):
     def delete_object_item(self, template_id, object_id, **kwargs):
         """
         Delete an object
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_object_item(template_id, object_id, async=True)
@@ -259,6 +262,7 @@ class ObjectsApi(object):
     def delete_object_item_with_http_info(self, template_id, object_id, **kwargs):
         """
         Delete an object
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_object_item_with_http_info(template_id, object_id, async=True)
@@ -315,10 +319,6 @@ class ObjectsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -340,7 +340,7 @@ class ObjectsApi(object):
     def delete_object_template(self, id, **kwargs):
         """
         Delete an entitlement template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_object_template(id, async=True)
@@ -363,7 +363,7 @@ class ObjectsApi(object):
     def delete_object_template_with_http_info(self, id, **kwargs):
         """
         Delete an entitlement template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_object_template_with_http_info(id, async=True)
@@ -417,10 +417,6 @@ class ObjectsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -442,6 +438,7 @@ class ObjectsApi(object):
     def get_object_item(self, template_id, object_id, **kwargs):
         """
         Get a single object
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_object_item(template_id, object_id, async=True)
@@ -464,6 +461,7 @@ class ObjectsApi(object):
     def get_object_item_with_http_info(self, template_id, object_id, **kwargs):
         """
         Get a single object
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_object_item_with_http_info(template_id, object_id, async=True)
@@ -520,10 +518,6 @@ class ObjectsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -545,6 +539,7 @@ class ObjectsApi(object):
     def get_object_items(self, template_id, **kwargs):
         """
         List and search objects
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_object_items(template_id, async=True)
@@ -569,6 +564,7 @@ class ObjectsApi(object):
     def get_object_items_with_http_info(self, template_id, **kwargs):
         """
         List and search objects
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_object_items_with_http_info(template_id, async=True)
@@ -628,10 +624,6 @@ class ObjectsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -653,6 +645,7 @@ class ObjectsApi(object):
     def get_object_template(self, id, **kwargs):
         """
         Get a single entitlement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_object_template(id, async=True)
@@ -674,6 +667,7 @@ class ObjectsApi(object):
     def get_object_template_with_http_info(self, id, **kwargs):
         """
         Get a single entitlement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_object_template_with_http_info(id, async=True)
@@ -724,10 +718,6 @@ class ObjectsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -749,6 +739,7 @@ class ObjectsApi(object):
     def get_object_templates(self, **kwargs):
         """
         List and search entitlement templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_object_templates(async=True)
@@ -772,6 +763,7 @@ class ObjectsApi(object):
     def get_object_templates_with_http_info(self, **kwargs):
         """
         List and search entitlement templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_object_templates_with_http_info(async=True)
@@ -825,10 +817,6 @@ class ObjectsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -850,6 +838,7 @@ class ObjectsApi(object):
     def update_object_item(self, template_id, object_id, **kwargs):
         """
         Update an object
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_object_item(template_id, object_id, async=True)
@@ -874,6 +863,7 @@ class ObjectsApi(object):
     def update_object_item_with_http_info(self, template_id, object_id, **kwargs):
         """
         Update an object
+        <b>Permissions Needed:</b> INVENTORY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_object_item_with_http_info(template_id, object_id, async=True)
@@ -961,6 +951,7 @@ class ObjectsApi(object):
     def update_object_template(self, id, **kwargs):
         """
         Update an entitlement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_object_template(id, async=True)
@@ -983,6 +974,7 @@ class ObjectsApi(object):
     def update_object_template_with_http_info(self, id, **kwargs):
         """
         Update an entitlement template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_object_template_with_http_info(id, async=True)

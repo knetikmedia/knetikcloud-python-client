@@ -86,7 +86,8 @@ class BareActivityResource(object):
           self.short_description = short_description
         if template is not None:
           self.template = template
-        self.type = type
+        if type is not None:
+          self.type = type
         if unique_key is not None:
           self.unique_key = unique_key
         if updated_date is not None:
@@ -275,8 +276,6 @@ class BareActivityResource(object):
         :param type: The type of this BareActivityResource.
         :type: str
         """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
 
         self._type = type
 

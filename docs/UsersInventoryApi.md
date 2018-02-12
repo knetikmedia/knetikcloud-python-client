@@ -1,6 +1,6 @@
 # knetik_cloud.UsersInventoryApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,7 +32,7 @@ Method | HTTP request | Description
 
 Adds an item to the user inventory
 
-The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
+The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 Check for access to an item without consuming
 
-Useful for pre-check and accounts for all various buisness rules
+Useful for pre-check and accounts for all various buisness rules. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Example 
 ```python
@@ -137,7 +137,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,6 +146,8 @@ void (empty response body)
 > EntitlementItem create_entitlement_item(cascade=cascade, entitlement_item=entitlement_item)
 
 Create an entitlement item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -202,7 +204,7 @@ Name | Type | Description  | Notes
 
 Create an entitlement template
 
-Entitlement templates define a type of entitlement and the properties they have
+Entitlement templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -257,6 +259,8 @@ Name | Type | Description  | Notes
 
 Delete an entitlement item
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -299,7 +303,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -309,7 +313,7 @@ void (empty response body)
 
 Delete an entitlement template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -355,7 +359,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -364,6 +368,8 @@ void (empty response body)
 > EntitlementItem get_entitlement_item(entitlement_id)
 
 Get a single entitlement item
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -408,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -417,6 +423,8 @@ Name | Type | Description  | Notes
 > PageResourceEntitlementItem get_entitlement_items(filter_template=filter_template, size=size, page=page, order=order)
 
 List and search entitlement items
+
+<b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -467,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -476,6 +484,8 @@ Name | Type | Description  | Notes
 > ItemTemplateResource get_entitlement_template(id)
 
 Get a single entitlement template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Example 
 ```python
@@ -520,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -529,6 +539,8 @@ Name | Type | Description  | Notes
 > PageResourceItemTemplateResource get_entitlement_templates(size=size, page=page, order=order)
 
 List and search entitlement templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Example 
 ```python
@@ -577,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -586,6 +598,8 @@ Name | Type | Description  | Notes
 > PageResourceUserInventoryResource get_user_inventories(id, inactive=inactive, size=size, page=page, filter_item_name=filter_item_name, filter_item_id=filter_item_id, filter_username=filter_username, filter_group=filter_group, filter_date=filter_date)
 
 List the user inventory entries for a given user
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Example 
 ```python
@@ -646,7 +660,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -655,6 +669,8 @@ Name | Type | Description  | Notes
 > UserInventoryResource get_user_inventory(user_id, id)
 
 Get an inventory entry
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -673,7 +689,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
-user_id = 56 # int | The id of the inventory owner or 'me' for the logged in user
+user_id = 'user_id_example' # str | The id of the inventory owner or 'me' for the logged in user
 id = 56 # int | The id of the user inventory
 
 try: 
@@ -688,7 +704,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **int**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
+ **user_id** | **str**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
  **id** | **int**| The id of the user inventory | 
 
 ### Return type
@@ -701,7 +717,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -710,6 +726,8 @@ Name | Type | Description  | Notes
 > PageResourceUserItemLogResource get_user_inventory_log(user_id, id, size=size, page=page)
 
 List the log entries for this inventory entry
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Example 
 ```python
@@ -760,7 +778,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -769,6 +787,8 @@ Name | Type | Description  | Notes
 > PageResourceUserInventoryResource get_users_inventory(inactive=inactive, size=size, page=page, filter_item_name=filter_item_name, filter_item_id=filter_item_id, filter_username=filter_username, filter_group=filter_group, filter_date=filter_date)
 
 List the user inventory entries for all users
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -827,7 +847,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -836,6 +856,8 @@ Name | Type | Description  | Notes
 > grant_user_entitlement(user_id, grant_request)
 
 Grant an entitlement
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -890,6 +912,8 @@ void (empty response body)
 > update_entitlement_item(entitlement_id, cascade=cascade, entitlement_item=entitlement_item)
 
 Update an entitlement item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -947,6 +971,8 @@ void (empty response body)
 
 Update an entitlement template
 
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -1001,6 +1027,8 @@ Name | Type | Description  | Notes
 > update_user_inventory_behavior_data(user_id, id, data=data)
 
 Set the behavior data for an inventory entry
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -1058,7 +1086,7 @@ void (empty response body)
 
 Set the expiration date
 
-Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
+Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Example 
 ```python
@@ -1116,6 +1144,8 @@ void (empty response body)
 
 Set the status for an inventory entry
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -1171,6 +1201,8 @@ void (empty response body)
 > use_user_entitlement_item(user_id, item_id, sku=sku, info=info)
 
 Use an item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Example 
 ```python

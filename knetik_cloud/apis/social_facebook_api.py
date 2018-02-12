@@ -38,7 +38,7 @@ class SocialFacebookApi(object):
     def link_accounts(self, **kwargs):
         """
         Link facebook account
-        Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+        Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired. <br><br><b>Permissions Needed:</b> Non-facebook user token
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.link_accounts(async=True)
@@ -60,7 +60,7 @@ class SocialFacebookApi(object):
     def link_accounts_with_http_info(self, **kwargs):
         """
         Link facebook account
-        Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+        Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired. <br><br><b>Permissions Needed:</b> Non-facebook user token
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.link_accounts_with_http_info(async=True)

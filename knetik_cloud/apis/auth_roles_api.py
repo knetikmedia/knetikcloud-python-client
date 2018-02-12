@@ -38,6 +38,7 @@ class AuthRolesApi(object):
     def create_role(self, **kwargs):
         """
         Create a new role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_role(async=True)
@@ -59,6 +60,7 @@ class AuthRolesApi(object):
     def create_role_with_http_info(self, **kwargs):
         """
         Create a new role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_role_with_http_info(async=True)
@@ -131,6 +133,7 @@ class AuthRolesApi(object):
     def delete_role(self, role, **kwargs):
         """
         Delete a role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_role(role, async=True)
@@ -153,6 +156,7 @@ class AuthRolesApi(object):
     def delete_role_with_http_info(self, role, **kwargs):
         """
         Delete a role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_role_with_http_info(role, async=True)
@@ -206,10 +210,6 @@ class AuthRolesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -231,6 +231,7 @@ class AuthRolesApi(object):
     def get_client_roles(self, client_key, **kwargs):
         """
         Get roles for a client
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_client_roles(client_key, async=True)
@@ -252,6 +253,7 @@ class AuthRolesApi(object):
     def get_client_roles_with_http_info(self, client_key, **kwargs):
         """
         Get roles for a client
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_client_roles_with_http_info(client_key, async=True)
@@ -302,10 +304,6 @@ class AuthRolesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -327,6 +325,7 @@ class AuthRolesApi(object):
     def get_role(self, role, **kwargs):
         """
         Get a single role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_role(role, async=True)
@@ -348,6 +347,7 @@ class AuthRolesApi(object):
     def get_role_with_http_info(self, role, **kwargs):
         """
         Get a single role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_role_with_http_info(role, async=True)
@@ -398,10 +398,6 @@ class AuthRolesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -423,6 +419,7 @@ class AuthRolesApi(object):
     def get_roles(self, **kwargs):
         """
         List and search roles
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_roles(async=True)
@@ -448,6 +445,7 @@ class AuthRolesApi(object):
     def get_roles_with_http_info(self, **kwargs):
         """
         List and search roles
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_roles_with_http_info(async=True)
@@ -507,10 +505,6 @@ class AuthRolesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -532,6 +526,7 @@ class AuthRolesApi(object):
     def get_user_roles(self, user_id, **kwargs):
         """
         Get roles for a user
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_roles(user_id, async=True)
@@ -553,6 +548,7 @@ class AuthRolesApi(object):
     def get_user_roles_with_http_info(self, user_id, **kwargs):
         """
         Get roles for a user
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_roles_with_http_info(user_id, async=True)
@@ -603,10 +599,6 @@ class AuthRolesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -628,6 +620,7 @@ class AuthRolesApi(object):
     def set_client_roles(self, client_key, **kwargs):
         """
         Set roles for a client
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_client_roles(client_key, async=True)
@@ -650,6 +643,7 @@ class AuthRolesApi(object):
     def set_client_roles_with_http_info(self, client_key, **kwargs):
         """
         Set roles for a client
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_client_roles_with_http_info(client_key, async=True)
@@ -728,6 +722,7 @@ class AuthRolesApi(object):
     def set_permissions_for_role(self, role, **kwargs):
         """
         Set permissions for a role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_permissions_for_role(role, async=True)
@@ -750,6 +745,7 @@ class AuthRolesApi(object):
     def set_permissions_for_role_with_http_info(self, role, **kwargs):
         """
         Set permissions for a role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_permissions_for_role_with_http_info(role, async=True)
@@ -828,6 +824,7 @@ class AuthRolesApi(object):
     def set_user_roles(self, user_id, **kwargs):
         """
         Set roles for a user
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_user_roles(user_id, async=True)
@@ -850,6 +847,7 @@ class AuthRolesApi(object):
     def set_user_roles_with_http_info(self, user_id, **kwargs):
         """
         Set roles for a user
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_user_roles_with_http_info(user_id, async=True)
@@ -928,6 +926,7 @@ class AuthRolesApi(object):
     def update_role(self, role, **kwargs):
         """
         Update a role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_role(role, async=True)
@@ -950,6 +949,7 @@ class AuthRolesApi(object):
     def update_role_with_http_info(self, role, **kwargs):
         """
         Update a role
+        <b>Permissions Needed:</b> ROLES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_role_with_http_info(role, async=True)

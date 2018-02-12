@@ -38,6 +38,7 @@ class CampaignsRewardsApi(object):
     def create_reward_set(self, **kwargs):
         """
         Create a reward set
+        <b>Permissions Needed:</b> REWARDS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_reward_set(async=True)
@@ -59,6 +60,7 @@ class CampaignsRewardsApi(object):
     def create_reward_set_with_http_info(self, **kwargs):
         """
         Create a reward set
+        <b>Permissions Needed:</b> REWARDS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_reward_set_with_http_info(async=True)
@@ -131,6 +133,7 @@ class CampaignsRewardsApi(object):
     def delete_reward_set(self, id, **kwargs):
         """
         Delete a reward set
+        <b>Permissions Needed:</b> REWARDS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_reward_set(id, async=True)
@@ -152,6 +155,7 @@ class CampaignsRewardsApi(object):
     def delete_reward_set_with_http_info(self, id, **kwargs):
         """
         Delete a reward set
+        <b>Permissions Needed:</b> REWARDS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_reward_set_with_http_info(id, async=True)
@@ -202,10 +206,6 @@ class CampaignsRewardsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class CampaignsRewardsApi(object):
     def get_reward_set(self, id, **kwargs):
         """
         Get a single reward set
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_reward_set(id, async=True)
@@ -248,6 +249,7 @@ class CampaignsRewardsApi(object):
     def get_reward_set_with_http_info(self, id, **kwargs):
         """
         Get a single reward set
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_reward_set_with_http_info(id, async=True)
@@ -298,10 +300,6 @@ class CampaignsRewardsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -323,6 +321,7 @@ class CampaignsRewardsApi(object):
     def get_reward_sets(self, **kwargs):
         """
         List and search reward sets
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_reward_sets(async=True)
@@ -346,6 +345,7 @@ class CampaignsRewardsApi(object):
     def get_reward_sets_with_http_info(self, **kwargs):
         """
         List and search reward sets
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_reward_sets_with_http_info(async=True)
@@ -399,10 +399,6 @@ class CampaignsRewardsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -424,6 +420,7 @@ class CampaignsRewardsApi(object):
     def update_reward_set(self, id, **kwargs):
         """
         Update a reward set
+        <b>Permissions Needed:</b> REWARDS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_reward_set(id, async=True)
@@ -446,6 +443,7 @@ class CampaignsRewardsApi(object):
     def update_reward_set_with_http_info(self, id, **kwargs):
         """
         Update a reward set
+        <b>Permissions Needed:</b> REWARDS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_reward_set_with_http_info(id, async=True)

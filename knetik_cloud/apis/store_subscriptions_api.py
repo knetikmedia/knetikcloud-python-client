@@ -38,6 +38,7 @@ class StoreSubscriptionsApi(object):
     def create_subscription(self, **kwargs):
         """
         Creates a subscription item and associated plans
+        <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_subscription(async=True)
@@ -59,6 +60,7 @@ class StoreSubscriptionsApi(object):
     def create_subscription_with_http_info(self, **kwargs):
         """
         Creates a subscription item and associated plans
+        <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_subscription_with_http_info(async=True)
@@ -131,7 +133,7 @@ class StoreSubscriptionsApi(object):
     def create_subscription_template(self, **kwargs):
         """
         Create a subscription template
-        Subscription Templates define a type of subscription and the properties they have.
+        Subscription Templates define a type of subscription and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_subscription_template(async=True)
@@ -153,7 +155,7 @@ class StoreSubscriptionsApi(object):
     def create_subscription_template_with_http_info(self, **kwargs):
         """
         Create a subscription template
-        Subscription Templates define a type of subscription and the properties they have.
+        Subscription Templates define a type of subscription and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_subscription_template_with_http_info(async=True)
@@ -226,7 +228,7 @@ class StoreSubscriptionsApi(object):
     def delete_subscription(self, id, plan_id, **kwargs):
         """
         Delete a subscription plan
-        Must not be locked or a migration target
+        Must not be locked or a migration target. <br><br><b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_subscription(id, plan_id, async=True)
@@ -249,7 +251,7 @@ class StoreSubscriptionsApi(object):
     def delete_subscription_with_http_info(self, id, plan_id, **kwargs):
         """
         Delete a subscription plan
-        Must not be locked or a migration target
+        Must not be locked or a migration target. <br><br><b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_subscription_with_http_info(id, plan_id, async=True)
@@ -306,10 +308,6 @@ class StoreSubscriptionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -331,6 +329,7 @@ class StoreSubscriptionsApi(object):
     def delete_subscription_template(self, id, **kwargs):
         """
         Delete a subscription template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_subscription_template(id, async=True)
@@ -353,6 +352,7 @@ class StoreSubscriptionsApi(object):
     def delete_subscription_template_with_http_info(self, id, **kwargs):
         """
         Delete a subscription template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_subscription_template_with_http_info(id, async=True)
@@ -406,10 +406,6 @@ class StoreSubscriptionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -431,6 +427,7 @@ class StoreSubscriptionsApi(object):
     def get_subscription(self, id, **kwargs):
         """
         Retrieve a single subscription item and associated plans
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription(id, async=True)
@@ -452,6 +449,7 @@ class StoreSubscriptionsApi(object):
     def get_subscription_with_http_info(self, id, **kwargs):
         """
         Retrieve a single subscription item and associated plans
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_with_http_info(id, async=True)
@@ -502,10 +500,6 @@ class StoreSubscriptionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -527,7 +521,7 @@ class StoreSubscriptionsApi(object):
     def get_subscription_template(self, id, **kwargs):
         """
         Get a single subscription template
-        Subscription Templates define a type of subscription and the properties they have.
+        Subscription Templates define a type of subscription and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_template(id, async=True)
@@ -549,7 +543,7 @@ class StoreSubscriptionsApi(object):
     def get_subscription_template_with_http_info(self, id, **kwargs):
         """
         Get a single subscription template
-        Subscription Templates define a type of subscription and the properties they have.
+        Subscription Templates define a type of subscription and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_template_with_http_info(id, async=True)
@@ -600,10 +594,6 @@ class StoreSubscriptionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -625,6 +615,7 @@ class StoreSubscriptionsApi(object):
     def get_subscription_templates(self, **kwargs):
         """
         List and search subscription templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_templates(async=True)
@@ -648,6 +639,7 @@ class StoreSubscriptionsApi(object):
     def get_subscription_templates_with_http_info(self, **kwargs):
         """
         List and search subscription templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscription_templates_with_http_info(async=True)
@@ -701,10 +693,6 @@ class StoreSubscriptionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -726,6 +714,7 @@ class StoreSubscriptionsApi(object):
     def get_subscriptions(self, **kwargs):
         """
         List available subscription items and associated plans
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscriptions(async=True)
@@ -749,6 +738,7 @@ class StoreSubscriptionsApi(object):
     def get_subscriptions_with_http_info(self, **kwargs):
         """
         List available subscription items and associated plans
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_subscriptions_with_http_info(async=True)
@@ -802,10 +792,6 @@ class StoreSubscriptionsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -827,6 +813,7 @@ class StoreSubscriptionsApi(object):
     def process_subscriptions(self, **kwargs):
         """
         Processes subscriptions and charge dues
+        <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.process_subscriptions(async=True)
@@ -847,6 +834,7 @@ class StoreSubscriptionsApi(object):
     def process_subscriptions_with_http_info(self, **kwargs):
         """
         Processes subscriptions and charge dues
+        <b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.process_subscriptions_with_http_info(async=True)
@@ -915,7 +903,7 @@ class StoreSubscriptionsApi(object):
     def update_subscription(self, id, **kwargs):
         """
         Updates a subscription item and associated plans
-        Will not remove plans left out
+        Will not remove plans left out. <br><br><b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_subscription(id, async=True)
@@ -938,7 +926,7 @@ class StoreSubscriptionsApi(object):
     def update_subscription_with_http_info(self, id, **kwargs):
         """
         Updates a subscription item and associated plans
-        Will not remove plans left out
+        Will not remove plans left out. <br><br><b>Permissions Needed:</b> SUBSCRIPTIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_subscription_with_http_info(id, async=True)
@@ -1017,6 +1005,7 @@ class StoreSubscriptionsApi(object):
     def update_subscription_template(self, id, **kwargs):
         """
         Update a subscription template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_subscription_template(id, async=True)
@@ -1039,6 +1028,7 @@ class StoreSubscriptionsApi(object):
     def update_subscription_template_with_http_info(self, id, **kwargs):
         """
         Update a subscription template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_subscription_template_with_http_info(id, async=True)

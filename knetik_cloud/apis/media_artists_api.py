@@ -38,7 +38,7 @@ class MediaArtistsApi(object):
     def add_artist(self, **kwargs):
         """
         Adds a new artist in the system
-        Adds a new artist in the system. Use specific media contributions endpoint to add contributions
+        Adds a new artist in the system. Use specific media contributions endpoint to add contributions. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_artist(async=True)
@@ -60,7 +60,7 @@ class MediaArtistsApi(object):
     def add_artist_with_http_info(self, **kwargs):
         """
         Adds a new artist in the system
-        Adds a new artist in the system. Use specific media contributions endpoint to add contributions
+        Adds a new artist in the system. Use specific media contributions endpoint to add contributions. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_artist_with_http_info(async=True)
@@ -133,7 +133,7 @@ class MediaArtistsApi(object):
     def create_artist_template(self, **kwargs):
         """
         Create an artist template
-        Artist Templates define a type of artist and the properties they have
+        Artist Templates define a type of artist and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_artist_template(async=True)
@@ -155,7 +155,7 @@ class MediaArtistsApi(object):
     def create_artist_template_with_http_info(self, **kwargs):
         """
         Create an artist template
-        Artist Templates define a type of artist and the properties they have
+        Artist Templates define a type of artist and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_artist_template_with_http_info(async=True)
@@ -228,6 +228,7 @@ class MediaArtistsApi(object):
     def delete_artist(self, id, **kwargs):
         """
         Removes an artist from the system IF no resources are attached to it
+        <b>Permissions Needed:</b> ARTISTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_artist(id, async=True)
@@ -249,6 +250,7 @@ class MediaArtistsApi(object):
     def delete_artist_with_http_info(self, id, **kwargs):
         """
         Removes an artist from the system IF no resources are attached to it
+        <b>Permissions Needed:</b> ARTISTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_artist_with_http_info(id, async=True)
@@ -299,10 +301,6 @@ class MediaArtistsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -324,7 +322,7 @@ class MediaArtistsApi(object):
     def delete_artist_template(self, id, **kwargs):
         """
         Delete an artist template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_artist_template(id, async=True)
@@ -347,7 +345,7 @@ class MediaArtistsApi(object):
     def delete_artist_template_with_http_info(self, id, **kwargs):
         """
         Delete an artist template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_artist_template_with_http_info(id, async=True)
@@ -401,10 +399,6 @@ class MediaArtistsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -426,6 +420,7 @@ class MediaArtistsApi(object):
     def get_artist(self, id, **kwargs):
         """
         Loads a specific artist details
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_artist(id, async=True)
@@ -448,6 +443,7 @@ class MediaArtistsApi(object):
     def get_artist_with_http_info(self, id, **kwargs):
         """
         Loads a specific artist details
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_artist_with_http_info(id, async=True)
@@ -501,10 +497,6 @@ class MediaArtistsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -526,6 +518,7 @@ class MediaArtistsApi(object):
     def get_artist_template(self, id, **kwargs):
         """
         Get a single artist template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_artist_template(id, async=True)
@@ -547,6 +540,7 @@ class MediaArtistsApi(object):
     def get_artist_template_with_http_info(self, id, **kwargs):
         """
         Get a single artist template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_artist_template_with_http_info(id, async=True)
@@ -597,10 +591,6 @@ class MediaArtistsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -622,6 +612,7 @@ class MediaArtistsApi(object):
     def get_artist_templates(self, **kwargs):
         """
         List and search artist templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_artist_templates(async=True)
@@ -645,6 +636,7 @@ class MediaArtistsApi(object):
     def get_artist_templates_with_http_info(self, **kwargs):
         """
         List and search artist templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTISTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_artist_templates_with_http_info(async=True)
@@ -698,10 +690,6 @@ class MediaArtistsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -723,6 +711,7 @@ class MediaArtistsApi(object):
     def get_artists(self, **kwargs):
         """
         Search for artists
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_artists(async=True)
@@ -747,6 +736,7 @@ class MediaArtistsApi(object):
     def get_artists_with_http_info(self, **kwargs):
         """
         Search for artists
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_artists_with_http_info(async=True)
@@ -803,10 +793,6 @@ class MediaArtistsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -828,6 +814,7 @@ class MediaArtistsApi(object):
     def update_artist(self, id, **kwargs):
         """
         Modifies an artist details
+        <b>Permissions Needed:</b> ARTISTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_artist(id, async=True)
@@ -850,6 +837,7 @@ class MediaArtistsApi(object):
     def update_artist_with_http_info(self, id, **kwargs):
         """
         Modifies an artist details
+        <b>Permissions Needed:</b> ARTISTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_artist_with_http_info(id, async=True)
@@ -928,6 +916,7 @@ class MediaArtistsApi(object):
     def update_artist_template(self, id, **kwargs):
         """
         Update an artist template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_artist_template(id, async=True)
@@ -950,6 +939,7 @@ class MediaArtistsApi(object):
     def update_artist_template_with_http_info(self, id, **kwargs):
         """
         Update an artist template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_artist_template_with_http_info(id, async=True)

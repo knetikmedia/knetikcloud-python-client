@@ -38,6 +38,7 @@ class UtilMaintenanceApi(object):
     def delete_maintenance(self, **kwargs):
         """
         Delete maintenance info
+        <b>Permissions Needed:</b> MAINTENANCE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_maintenance(async=True)
@@ -58,6 +59,7 @@ class UtilMaintenanceApi(object):
     def delete_maintenance_with_http_info(self, **kwargs):
         """
         Delete maintenance info
+        <b>Permissions Needed:</b> MAINTENANCE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_maintenance_with_http_info(async=True)
@@ -101,10 +103,6 @@ class UtilMaintenanceApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -126,7 +124,7 @@ class UtilMaintenanceApi(object):
     def get_maintenance(self, **kwargs):
         """
         Get current maintenance info
-        Get current maintenance info. 404 if no maintenance.
+        Get current maintenance info. 404 if no maintenance. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_maintenance(async=True)
@@ -147,7 +145,7 @@ class UtilMaintenanceApi(object):
     def get_maintenance_with_http_info(self, **kwargs):
         """
         Get current maintenance info
-        Get current maintenance info. 404 if no maintenance.
+        Get current maintenance info. 404 if no maintenance. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_maintenance_with_http_info(async=True)
@@ -191,10 +189,6 @@ class UtilMaintenanceApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -216,6 +210,7 @@ class UtilMaintenanceApi(object):
     def set_maintenance(self, **kwargs):
         """
         Set current maintenance info
+        <b>Permissions Needed:</b> MAINTENANCE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_maintenance(async=True)
@@ -237,6 +232,7 @@ class UtilMaintenanceApi(object):
     def set_maintenance_with_http_info(self, **kwargs):
         """
         Set current maintenance info
+        <b>Permissions Needed:</b> MAINTENANCE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_maintenance_with_http_info(async=True)
@@ -309,6 +305,7 @@ class UtilMaintenanceApi(object):
     def update_maintenance(self, **kwargs):
         """
         Update current maintenance info
+        <b>Permissions Needed:</b> MAINTENANCE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_maintenance(async=True)
@@ -330,6 +327,7 @@ class UtilMaintenanceApi(object):
     def update_maintenance_with_http_info(self, **kwargs):
         """
         Update current maintenance info
+        <b>Permissions Needed:</b> MAINTENANCE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_maintenance_with_http_info(async=True)

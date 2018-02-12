@@ -56,9 +56,14 @@ class BroadcastableEvent(object):
 
     discriminator_value_class_map = {
         'log_level': 'LogLevelEvent',
+        'websocket_remove_topic': 'WebsocketRemoveTopicEvent',
         'new_customer': 'NewCustomerEvent',
-        'cache_clear': 'CacheClearEvent',
-        'remove_customer': 'RemoveCustomerEvent'
+        'websocket_topic_message': 'WebsocketSendTopicMessageEvent',
+        'remove_customer': 'RemoveCustomerEvent',
+        'websocket_unsubscribe': 'WebsocketUnsubscribeEvent',
+        'websocket_message': 'WebsocketSendMessageEvent',
+        'websocket_subscribe': 'WebsocketSubscribeEvent',
+        'cache_clear': 'CacheClearEvent'
     }
 
     def __init__(self, client=None, customer=None, do_not_broadcast=None, section=None, source=None, specifics=None, synchronous=None, timestamp=None, type=None):

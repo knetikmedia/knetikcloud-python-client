@@ -1,11 +1,11 @@
 # knetik_cloud.BRERuleEngineExpressionsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_bre_expression**](BRERuleEngineExpressionsApi.md#get_bre_expression) | **GET** /bre/expressions/{type} | Lookup a specific expression
-[**get_bre_expressions**](BRERuleEngineExpressionsApi.md#get_bre_expressions) | **GET** /bre/expressions | Get a list of supported expressions to use in conditions or actions.
+[**get_bre_expressions**](BRERuleEngineExpressionsApi.md#get_bre_expressions) | **GET** /bre/expressions | Get a list of supported expressions to use in conditions or actions
 [**get_expression_as_text**](BRERuleEngineExpressionsApi.md#get_expression_as_text) | **POST** /bre/expressions | Returns the textual representation of an expression
 
 
@@ -13,6 +13,8 @@ Method | HTTP request | Description
 > ExpressionResource get_bre_expression(type)
 
 Lookup a specific expression
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 
 ### Example 
 ```python
@@ -57,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -65,9 +67,9 @@ Name | Type | Description  | Notes
 # **get_bre_expressions**
 > list[ExpressionResource] get_bre_expressions(filter_type_group=filter_type_group)
 
-Get a list of supported expressions to use in conditions or actions.
+Get a list of supported expressions to use in conditions or actions
 
-Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule.
+Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 
 ### Example 
 ```python
@@ -89,7 +91,7 @@ api_instance = knetik_cloud.BRERuleEngineExpressionsApi(knetik_cloud.ApiClient(c
 filter_type_group = 'filter_type_group_example' # str | Filter for expressions by type group (optional)
 
 try: 
-    # Get a list of supported expressions to use in conditions or actions.
+    # Get a list of supported expressions to use in conditions or actions
     api_response = api_instance.get_bre_expressions(filter_type_group=filter_type_group)
     pprint(api_response)
 except ApiException as e:
@@ -112,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -121,6 +123,8 @@ Name | Type | Description  | Notes
 > StringWrapper get_expression_as_text(expression=expression)
 
 Returns the textual representation of an expression
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER
 
 ### Example 
 ```python

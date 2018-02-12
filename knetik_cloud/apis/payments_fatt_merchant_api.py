@@ -38,7 +38,7 @@ class PaymentsFattMerchantApi(object):
     def create_or_update_fatt_merchant_payment_method(self, **kwargs):
         """
         Create or update a FattMerchant payment method for a user
-        Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints.
+        Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. <br><br><b>Permissions Needed:</b> FATTMERCHANT_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_or_update_fatt_merchant_payment_method(async=True)
@@ -60,7 +60,7 @@ class PaymentsFattMerchantApi(object):
     def create_or_update_fatt_merchant_payment_method_with_http_info(self, **kwargs):
         """
         Create or update a FattMerchant payment method for a user
-        Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints.
+        Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. <br><br><b>Permissions Needed:</b> FATTMERCHANT_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_or_update_fatt_merchant_payment_method_with_http_info(async=True)

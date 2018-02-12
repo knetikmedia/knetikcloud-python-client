@@ -38,6 +38,7 @@ class CategoriesApi(object):
     def create_category(self, **kwargs):
         """
         Create a new category
+        <b>Permissions Needed:</b> CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_category(async=True)
@@ -59,6 +60,7 @@ class CategoriesApi(object):
     def create_category_with_http_info(self, **kwargs):
         """
         Create a new category
+        <b>Permissions Needed:</b> CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_category_with_http_info(async=True)
@@ -131,7 +133,7 @@ class CategoriesApi(object):
     def create_category_template(self, **kwargs):
         """
         Create a category template
-        Templates define a type of category and the properties they have
+        Templates define a type of category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_category_template(async=True)
@@ -153,7 +155,7 @@ class CategoriesApi(object):
     def create_category_template_with_http_info(self, **kwargs):
         """
         Create a category template
-        Templates define a type of category and the properties they have
+        Templates define a type of category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_category_template_with_http_info(async=True)
@@ -226,6 +228,7 @@ class CategoriesApi(object):
     def delete_category(self, id, **kwargs):
         """
         Delete an existing category
+        <b>Permissions Needed:</b> CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_category(id, async=True)
@@ -247,6 +250,7 @@ class CategoriesApi(object):
     def delete_category_with_http_info(self, id, **kwargs):
         """
         Delete an existing category
+        <b>Permissions Needed:</b> CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_category_with_http_info(id, async=True)
@@ -297,10 +301,6 @@ class CategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -322,7 +322,7 @@ class CategoriesApi(object):
     def delete_category_template(self, id, **kwargs):
         """
         Delete a category template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_category_template(id, async=True)
@@ -345,7 +345,7 @@ class CategoriesApi(object):
     def delete_category_template_with_http_info(self, id, **kwargs):
         """
         Delete a category template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_category_template_with_http_info(id, async=True)
@@ -399,10 +399,6 @@ class CategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -424,6 +420,7 @@ class CategoriesApi(object):
     def get_categories(self, **kwargs):
         """
         List and search categories with optional filters
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_categories(async=True)
@@ -449,6 +446,7 @@ class CategoriesApi(object):
     def get_categories_with_http_info(self, **kwargs):
         """
         List and search categories with optional filters
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_categories_with_http_info(async=True)
@@ -508,10 +506,6 @@ class CategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -533,6 +527,7 @@ class CategoriesApi(object):
     def get_category(self, id, **kwargs):
         """
         Get a single category
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_category(id, async=True)
@@ -554,6 +549,7 @@ class CategoriesApi(object):
     def get_category_with_http_info(self, id, **kwargs):
         """
         Get a single category
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_category_with_http_info(id, async=True)
@@ -604,10 +600,6 @@ class CategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -629,6 +621,7 @@ class CategoriesApi(object):
     def get_category_template(self, id, **kwargs):
         """
         Get a single category template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_category_template(id, async=True)
@@ -650,6 +643,7 @@ class CategoriesApi(object):
     def get_category_template_with_http_info(self, id, **kwargs):
         """
         Get a single category template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_category_template_with_http_info(id, async=True)
@@ -700,10 +694,6 @@ class CategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -725,6 +715,7 @@ class CategoriesApi(object):
     def get_category_templates(self, **kwargs):
         """
         List and search category templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_category_templates(async=True)
@@ -748,6 +739,7 @@ class CategoriesApi(object):
     def get_category_templates_with_http_info(self, **kwargs):
         """
         List and search category templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_category_templates_with_http_info(async=True)
@@ -801,10 +793,6 @@ class CategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -826,6 +814,7 @@ class CategoriesApi(object):
     def get_tags(self, **kwargs):
         """
         List all trivia tags in the system
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_tags(async=True)
@@ -848,6 +837,7 @@ class CategoriesApi(object):
     def get_tags_with_http_info(self, **kwargs):
         """
         List all trivia tags in the system
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_tags_with_http_info(async=True)
@@ -898,10 +888,6 @@ class CategoriesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -923,6 +909,7 @@ class CategoriesApi(object):
     def update_category(self, id, **kwargs):
         """
         Update an existing category
+        <b>Permissions Needed:</b> CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_category(id, async=True)
@@ -945,6 +932,7 @@ class CategoriesApi(object):
     def update_category_with_http_info(self, id, **kwargs):
         """
         Update an existing category
+        <b>Permissions Needed:</b> CATEGORIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_category_with_http_info(id, async=True)
@@ -1023,6 +1011,7 @@ class CategoriesApi(object):
     def update_category_template(self, id, **kwargs):
         """
         Update a category template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_category_template(id, async=True)
@@ -1045,6 +1034,7 @@ class CategoriesApi(object):
     def update_category_template_with_http_info(self, id, **kwargs):
         """
         Update a category template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_category_template_with_http_info(id, async=True)

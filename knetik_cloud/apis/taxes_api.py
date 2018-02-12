@@ -38,6 +38,7 @@ class TaxesApi(object):
     def create_country_tax(self, **kwargs):
         """
         Create a country tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_country_tax(async=True)
@@ -59,6 +60,7 @@ class TaxesApi(object):
     def create_country_tax_with_http_info(self, **kwargs):
         """
         Create a country tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_country_tax_with_http_info(async=True)
@@ -131,6 +133,7 @@ class TaxesApi(object):
     def create_state_tax(self, country_code_iso3, **kwargs):
         """
         Create a state tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_state_tax(country_code_iso3, async=True)
@@ -153,6 +156,7 @@ class TaxesApi(object):
     def create_state_tax_with_http_info(self, country_code_iso3, **kwargs):
         """
         Create a state tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_state_tax_with_http_info(country_code_iso3, async=True)
@@ -231,6 +235,7 @@ class TaxesApi(object):
     def delete_country_tax(self, country_code_iso3, **kwargs):
         """
         Delete an existing tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_country_tax(country_code_iso3, async=True)
@@ -252,6 +257,7 @@ class TaxesApi(object):
     def delete_country_tax_with_http_info(self, country_code_iso3, **kwargs):
         """
         Delete an existing tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_country_tax_with_http_info(country_code_iso3, async=True)
@@ -302,10 +308,6 @@ class TaxesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -327,6 +329,7 @@ class TaxesApi(object):
     def delete_state_tax(self, country_code_iso3, state_code, **kwargs):
         """
         Delete an existing state tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_state_tax(country_code_iso3, state_code, async=True)
@@ -349,6 +352,7 @@ class TaxesApi(object):
     def delete_state_tax_with_http_info(self, country_code_iso3, state_code, **kwargs):
         """
         Delete an existing state tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_state_tax_with_http_info(country_code_iso3, state_code, async=True)
@@ -405,10 +409,6 @@ class TaxesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -430,6 +430,7 @@ class TaxesApi(object):
     def get_country_tax(self, country_code_iso3, **kwargs):
         """
         Get a single tax
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_country_tax(country_code_iso3, async=True)
@@ -451,6 +452,7 @@ class TaxesApi(object):
     def get_country_tax_with_http_info(self, country_code_iso3, **kwargs):
         """
         Get a single tax
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_country_tax_with_http_info(country_code_iso3, async=True)
@@ -501,10 +503,6 @@ class TaxesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -526,7 +524,7 @@ class TaxesApi(object):
     def get_country_taxes(self, **kwargs):
         """
         List and search taxes
-        Get a list of taxes
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_country_taxes(async=True)
@@ -550,7 +548,7 @@ class TaxesApi(object):
     def get_country_taxes_with_http_info(self, **kwargs):
         """
         List and search taxes
-        Get a list of taxes
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_country_taxes_with_http_info(async=True)
@@ -604,10 +602,6 @@ class TaxesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -629,6 +623,7 @@ class TaxesApi(object):
     def get_state_tax(self, country_code_iso3, state_code, **kwargs):
         """
         Get a single state tax
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_state_tax(country_code_iso3, state_code, async=True)
@@ -651,6 +646,7 @@ class TaxesApi(object):
     def get_state_tax_with_http_info(self, country_code_iso3, state_code, **kwargs):
         """
         Get a single state tax
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_state_tax_with_http_info(country_code_iso3, state_code, async=True)
@@ -707,10 +703,6 @@ class TaxesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -732,7 +724,7 @@ class TaxesApi(object):
     def get_state_taxes_for_countries(self, **kwargs):
         """
         List and search taxes across all countries
-        Get a list of taxes
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_state_taxes_for_countries(async=True)
@@ -756,7 +748,7 @@ class TaxesApi(object):
     def get_state_taxes_for_countries_with_http_info(self, **kwargs):
         """
         List and search taxes across all countries
-        Get a list of taxes
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_state_taxes_for_countries_with_http_info(async=True)
@@ -810,10 +802,6 @@ class TaxesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -835,7 +823,7 @@ class TaxesApi(object):
     def get_state_taxes_for_country(self, country_code_iso3, **kwargs):
         """
         List and search taxes within a country
-        Get a list of taxes
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_state_taxes_for_country(country_code_iso3, async=True)
@@ -860,7 +848,7 @@ class TaxesApi(object):
     def get_state_taxes_for_country_with_http_info(self, country_code_iso3, **kwargs):
         """
         List and search taxes within a country
-        Get a list of taxes
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_state_taxes_for_country_with_http_info(country_code_iso3, async=True)
@@ -920,10 +908,6 @@ class TaxesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -945,6 +929,7 @@ class TaxesApi(object):
     def update_country_tax(self, country_code_iso3, **kwargs):
         """
         Create or update a tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_country_tax(country_code_iso3, async=True)
@@ -967,6 +952,7 @@ class TaxesApi(object):
     def update_country_tax_with_http_info(self, country_code_iso3, **kwargs):
         """
         Create or update a tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_country_tax_with_http_info(country_code_iso3, async=True)
@@ -1045,6 +1031,7 @@ class TaxesApi(object):
     def update_state_tax(self, country_code_iso3, state_code, **kwargs):
         """
         Create or update a state tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_state_tax(country_code_iso3, state_code, async=True)
@@ -1068,6 +1055,7 @@ class TaxesApi(object):
     def update_state_tax_with_http_info(self, country_code_iso3, state_code, **kwargs):
         """
         Create or update a state tax
+        <b>Permissions Needed:</b> TAX_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_state_tax_with_http_info(country_code_iso3, state_code, async=True)

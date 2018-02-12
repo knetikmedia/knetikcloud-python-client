@@ -1,6 +1,6 @@
 # knetik_cloud.UtilMaintenanceApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,8 @@ Method | HTTP request | Description
 > delete_maintenance()
 
 Delete maintenance info
+
+<b>Permissions Needed:</b> MAINTENANCE_ADMIN
 
 ### Example 
 ```python
@@ -53,7 +55,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -63,7 +65,7 @@ void (empty response body)
 
 Get current maintenance info
 
-Get current maintenance info. 404 if no maintenance.
+Get current maintenance info. 404 if no maintenance. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -104,7 +106,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -113,6 +115,8 @@ This endpoint does not need any parameter.
 > set_maintenance(maintenance=maintenance)
 
 Set current maintenance info
+
+<b>Permissions Needed:</b> MAINTENANCE_ADMIN
 
 ### Example 
 ```python
@@ -165,6 +169,8 @@ void (empty response body)
 > update_maintenance(maintenance=maintenance)
 
 Update current maintenance info
+
+<b>Permissions Needed:</b> MAINTENANCE_ADMIN
 
 ### Example 
 ```python

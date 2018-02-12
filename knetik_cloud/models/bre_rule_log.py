@@ -31,6 +31,7 @@ class BreRuleLog(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'actions': 'list[BreActionLog]',
         'ran': 'bool',
         'reason': 'str',
         'rule_end_date': 'int',
@@ -40,6 +41,7 @@ class BreRuleLog(object):
     }
 
     attribute_map = {
+        'actions': 'actions',
         'ran': 'ran',
         'reason': 'reason',
         'rule_end_date': 'rule_end_date',
@@ -48,11 +50,12 @@ class BreRuleLog(object):
         'rule_start_date': 'rule_start_date'
     }
 
-    def __init__(self, ran=None, reason=None, rule_end_date=None, rule_id=None, rule_name=None, rule_start_date=None):
+    def __init__(self, actions=None, ran=None, reason=None, rule_end_date=None, rule_id=None, rule_name=None, rule_start_date=None):
         """
         BreRuleLog - a model defined in Swagger
         """
 
+        self._actions = None
         self._ran = None
         self._reason = None
         self._rule_end_date = None
@@ -61,6 +64,8 @@ class BreRuleLog(object):
         self._rule_start_date = None
         self.discriminator = None
 
+        if actions is not None:
+          self.actions = actions
         if ran is not None:
           self.ran = ran
         if reason is not None:
@@ -73,6 +78,29 @@ class BreRuleLog(object):
           self.rule_name = rule_name
         if rule_start_date is not None:
           self.rule_start_date = rule_start_date
+
+    @property
+    def actions(self):
+        """
+        Gets the actions of this BreRuleLog.
+        The actions of the BRE rule
+
+        :return: The actions of this BreRuleLog.
+        :rtype: list[BreActionLog]
+        """
+        return self._actions
+
+    @actions.setter
+    def actions(self, actions):
+        """
+        Sets the actions of this BreRuleLog.
+        The actions of the BRE rule
+
+        :param actions: The actions of this BreRuleLog.
+        :type: list[BreActionLog]
+        """
+
+        self._actions = actions
 
     @property
     def ran(self):

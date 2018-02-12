@@ -38,7 +38,7 @@ class InvoicesApi(object):
     def create_invoice(self, **kwargs):
         """
         Create an invoice
-        Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
+        Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor. <br><br><b>Permissions Needed:</b> INVOICES_USER or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_invoice(async=True)
@@ -60,7 +60,7 @@ class InvoicesApi(object):
     def create_invoice_with_http_info(self, **kwargs):
         """
         Create an invoice
-        Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
+        Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor. <br><br><b>Permissions Needed:</b> INVOICES_USER or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_invoice_with_http_info(async=True)
@@ -133,6 +133,7 @@ class InvoicesApi(object):
     def get_ful_fillment_statuses(self, **kwargs):
         """
         Lists available fulfillment statuses
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_ful_fillment_statuses(async=True)
@@ -153,6 +154,7 @@ class InvoicesApi(object):
     def get_ful_fillment_statuses_with_http_info(self, **kwargs):
         """
         Lists available fulfillment statuses
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_ful_fillment_statuses_with_http_info(async=True)
@@ -196,10 +198,6 @@ class InvoicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -221,6 +219,7 @@ class InvoicesApi(object):
     def get_invoice(self, id, **kwargs):
         """
         Retrieve an invoice
+        <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invoice(id, async=True)
@@ -242,6 +241,7 @@ class InvoicesApi(object):
     def get_invoice_with_http_info(self, id, **kwargs):
         """
         Retrieve an invoice
+        <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invoice_with_http_info(id, async=True)
@@ -292,10 +292,6 @@ class InvoicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -317,6 +313,7 @@ class InvoicesApi(object):
     def get_invoice_logs(self, id, **kwargs):
         """
         List invoice logs
+        <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invoice_logs(id, async=True)
@@ -340,6 +337,7 @@ class InvoicesApi(object):
     def get_invoice_logs_with_http_info(self, id, **kwargs):
         """
         List invoice logs
+        <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invoice_logs_with_http_info(id, async=True)
@@ -396,10 +394,6 @@ class InvoicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -421,7 +415,7 @@ class InvoicesApi(object):
     def get_invoices(self, **kwargs):
         """
         Retrieve invoices
-        Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
+        Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices. <br><br><b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invoices(async=True)
@@ -459,7 +453,7 @@ class InvoicesApi(object):
     def get_invoices_with_http_info(self, **kwargs):
         """
         Retrieve invoices
-        Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
+        Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices. <br><br><b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_invoices_with_http_info(async=True)
@@ -555,10 +549,6 @@ class InvoicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -580,6 +570,7 @@ class InvoicesApi(object):
     def get_payment_statuses(self, **kwargs):
         """
         Lists available payment statuses
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_statuses(async=True)
@@ -600,6 +591,7 @@ class InvoicesApi(object):
     def get_payment_statuses_with_http_info(self, **kwargs):
         """
         Lists available payment statuses
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_payment_statuses_with_http_info(async=True)
@@ -643,10 +635,6 @@ class InvoicesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -668,6 +656,7 @@ class InvoicesApi(object):
     def pay_invoice(self, id, **kwargs):
         """
         Pay an invoice using a saved payment method
+        <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.pay_invoice(id, async=True)
@@ -690,6 +679,7 @@ class InvoicesApi(object):
     def pay_invoice_with_http_info(self, id, **kwargs):
         """
         Pay an invoice using a saved payment method
+        <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.pay_invoice_with_http_info(id, async=True)
@@ -768,7 +758,7 @@ class InvoicesApi(object):
     def set_bundled_invoice_item_fulfillment_status(self, id, bundle_sku, sku, status, **kwargs):
         """
         Set the fulfillment status of a bundled invoice item
-        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_bundled_invoice_item_fulfillment_status(id, bundle_sku, sku, status, async=True)
@@ -793,7 +783,7 @@ class InvoicesApi(object):
     def set_bundled_invoice_item_fulfillment_status_with_http_info(self, id, bundle_sku, sku, status, **kwargs):
         """
         Set the fulfillment status of a bundled invoice item
-        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_bundled_invoice_item_fulfillment_status_with_http_info(id, bundle_sku, sku, status, async=True)
@@ -887,6 +877,7 @@ class InvoicesApi(object):
     def set_external_ref(self, id, **kwargs):
         """
         Set the external reference of an invoice
+        <b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_external_ref(id, async=True)
@@ -909,6 +900,7 @@ class InvoicesApi(object):
     def set_external_ref_with_http_info(self, id, **kwargs):
         """
         Set the external reference of an invoice
+        <b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_external_ref_with_http_info(id, async=True)
@@ -987,7 +979,7 @@ class InvoicesApi(object):
     def set_invoice_item_fulfillment_status(self, id, sku, status, **kwargs):
         """
         Set the fulfillment status of an invoice item
-        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_invoice_item_fulfillment_status(id, sku, status, async=True)
@@ -1011,7 +1003,7 @@ class InvoicesApi(object):
     def set_invoice_item_fulfillment_status_with_http_info(self, id, sku, status, **kwargs):
         """
         Set the fulfillment status of an invoice item
-        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+        This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_invoice_item_fulfillment_status_with_http_info(id, sku, status, async=True)
@@ -1099,6 +1091,7 @@ class InvoicesApi(object):
     def set_order_notes(self, id, **kwargs):
         """
         Set the order notes of an invoice
+        <b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_order_notes(id, async=True)
@@ -1121,6 +1114,7 @@ class InvoicesApi(object):
     def set_order_notes_with_http_info(self, id, **kwargs):
         """
         Set the order notes of an invoice
+        <b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_order_notes_with_http_info(id, async=True)
@@ -1199,7 +1193,7 @@ class InvoicesApi(object):
     def set_payment_status(self, id, **kwargs):
         """
         Set the payment status of an invoice
-        This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
+        This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_payment_status(id, async=True)
@@ -1222,7 +1216,7 @@ class InvoicesApi(object):
     def set_payment_status_with_http_info(self, id, **kwargs):
         """
         Set the payment status of an invoice
-        This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
+        This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_payment_status_with_http_info(id, async=True)
@@ -1301,6 +1295,7 @@ class InvoicesApi(object):
     def update_billing_info(self, id, **kwargs):
         """
         Set or update billing info
+        <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_billing_info(id, async=True)
@@ -1323,6 +1318,7 @@ class InvoicesApi(object):
     def update_billing_info_with_http_info(self, id, **kwargs):
         """
         Set or update billing info
+        <b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_billing_info_with_http_info(id, async=True)

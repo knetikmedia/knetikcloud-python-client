@@ -38,7 +38,7 @@ class CampaignsChallengesApi(object):
     def create_challenge(self, **kwargs):
         """
         Create a challenge
-        Challenges do not run on their own.  They must be added to a campaign before events will spawn.
+        Challenges do not run on their own.  They must be added to a campaign before events will spawn. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_challenge(async=True)
@@ -60,7 +60,7 @@ class CampaignsChallengesApi(object):
     def create_challenge_with_http_info(self, **kwargs):
         """
         Create a challenge
-        Challenges do not run on their own.  They must be added to a campaign before events will spawn.
+        Challenges do not run on their own.  They must be added to a campaign before events will spawn. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_challenge_with_http_info(async=True)
@@ -133,6 +133,7 @@ class CampaignsChallengesApi(object):
     def create_challenge_activity(self, challenge_id, **kwargs):
         """
         Create a challenge activity
+        <b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_challenge_activity(challenge_id, async=True)
@@ -156,6 +157,7 @@ class CampaignsChallengesApi(object):
     def create_challenge_activity_with_http_info(self, challenge_id, **kwargs):
         """
         Create a challenge activity
+        <b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_challenge_activity_with_http_info(challenge_id, async=True)
@@ -237,7 +239,7 @@ class CampaignsChallengesApi(object):
     def create_challenge_activity_template(self, **kwargs):
         """
         Create a challenge activity template
-        Challenge Activity Templates define a type of challenge activity and the properties they have
+        Challenge Activity Templates define a type of challenge activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_challenge_activity_template(async=True)
@@ -259,7 +261,7 @@ class CampaignsChallengesApi(object):
     def create_challenge_activity_template_with_http_info(self, **kwargs):
         """
         Create a challenge activity template
-        Challenge Activity Templates define a type of challenge activity and the properties they have
+        Challenge Activity Templates define a type of challenge activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_challenge_activity_template_with_http_info(async=True)
@@ -332,7 +334,7 @@ class CampaignsChallengesApi(object):
     def create_challenge_template(self, **kwargs):
         """
         Create a challenge template
-        Challenge Templates define a type of challenge and the properties they have
+        Challenge Templates define a type of challenge and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_challenge_template(async=True)
@@ -354,7 +356,7 @@ class CampaignsChallengesApi(object):
     def create_challenge_template_with_http_info(self, **kwargs):
         """
         Create a challenge template
-        Challenge Templates define a type of challenge and the properties they have
+        Challenge Templates define a type of challenge and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_challenge_template_with_http_info(async=True)
@@ -427,6 +429,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge(self, id, **kwargs):
         """
         Delete a challenge
+        <b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge(id, async=True)
@@ -448,6 +451,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_with_http_info(self, id, **kwargs):
         """
         Delete a challenge
+        <b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_with_http_info(id, async=True)
@@ -498,10 +502,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -523,7 +523,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_activity(self, id, challenge_id, **kwargs):
         """
         Delete a challenge activity
-        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_activity(id, challenge_id, async=True)
@@ -546,7 +546,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_activity_with_http_info(self, id, challenge_id, **kwargs):
         """
         Delete a challenge activity
-        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_activity_with_http_info(id, challenge_id, async=True)
@@ -603,10 +603,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -628,7 +624,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_activity_template(self, id, **kwargs):
         """
         Delete a challenge activity template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_activity_template(id, async=True)
@@ -651,7 +647,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_activity_template_with_http_info(self, id, **kwargs):
         """
         Delete a challenge activity template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_activity_template_with_http_info(id, async=True)
@@ -705,10 +701,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -730,6 +722,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_event(self, id, **kwargs):
         """
         Delete a challenge event
+        <b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_event(id, async=True)
@@ -751,6 +744,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_event_with_http_info(self, id, **kwargs):
         """
         Delete a challenge event
+        <b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_event_with_http_info(id, async=True)
@@ -801,10 +795,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -826,7 +816,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_template(self, id, **kwargs):
         """
         Delete a challenge template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_template(id, async=True)
@@ -849,7 +839,7 @@ class CampaignsChallengesApi(object):
     def delete_challenge_template_with_http_info(self, id, **kwargs):
         """
         Delete a challenge template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_challenge_template_with_http_info(id, async=True)
@@ -903,10 +893,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -928,6 +914,7 @@ class CampaignsChallengesApi(object):
     def get_challenge(self, id, **kwargs):
         """
         Retrieve a challenge
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge(id, async=True)
@@ -949,6 +936,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_with_http_info(self, id, **kwargs):
         """
         Retrieve a challenge
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_with_http_info(id, async=True)
@@ -999,10 +987,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1024,6 +1008,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_activities(self, challenge_id, **kwargs):
         """
         List and search challenge activities
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_activities(challenge_id, async=True)
@@ -1048,6 +1033,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_activities_with_http_info(self, challenge_id, **kwargs):
         """
         List and search challenge activities
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_activities_with_http_info(challenge_id, async=True)
@@ -1107,10 +1093,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1132,7 +1114,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_activity(self, id, challenge_id, **kwargs):
         """
         Get a single challenge activity
-        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_activity(id, challenge_id, async=True)
@@ -1155,7 +1137,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_activity_with_http_info(self, id, challenge_id, **kwargs):
         """
         Get a single challenge activity
-        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_activity_with_http_info(id, challenge_id, async=True)
@@ -1212,10 +1194,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1237,6 +1215,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_activity_template(self, id, **kwargs):
         """
         Get a single challenge activity template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_activity_template(id, async=True)
@@ -1258,6 +1237,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_activity_template_with_http_info(self, id, **kwargs):
         """
         Get a single challenge activity template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_activity_template_with_http_info(id, async=True)
@@ -1308,10 +1288,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1333,6 +1309,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_activity_templates(self, **kwargs):
         """
         List and search challenge activity templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_activity_templates(async=True)
@@ -1356,6 +1333,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_activity_templates_with_http_info(self, **kwargs):
         """
         List and search challenge activity templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_activity_templates_with_http_info(async=True)
@@ -1409,10 +1387,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1434,6 +1408,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_event(self, id, **kwargs):
         """
         Retrieve a single challenge event details
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_event(id, async=True)
@@ -1455,6 +1430,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_event_with_http_info(self, id, **kwargs):
         """
         Retrieve a single challenge event details
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_event_with_http_info(id, async=True)
@@ -1505,10 +1481,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1530,6 +1502,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_events(self, **kwargs):
         """
         Retrieve a list of challenge events
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_events(async=True)
@@ -1557,6 +1530,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_events_with_http_info(self, **kwargs):
         """
         Retrieve a list of challenge events
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_events_with_http_info(async=True)
@@ -1622,10 +1596,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1647,6 +1617,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_template(self, id, **kwargs):
         """
         Get a single challenge template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_template(id, async=True)
@@ -1668,6 +1639,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_template_with_http_info(self, id, **kwargs):
         """
         Get a single challenge template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_template_with_http_info(id, async=True)
@@ -1718,10 +1690,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1743,6 +1711,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_templates(self, **kwargs):
         """
         List and search challenge templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_templates(async=True)
@@ -1766,6 +1735,7 @@ class CampaignsChallengesApi(object):
     def get_challenge_templates_with_http_info(self, **kwargs):
         """
         List and search challenge templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenge_templates_with_http_info(async=True)
@@ -1819,10 +1789,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1844,6 +1810,7 @@ class CampaignsChallengesApi(object):
     def get_challenges(self, **kwargs):
         """
         Retrieve a list of challenges
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenges(async=True)
@@ -1870,6 +1837,7 @@ class CampaignsChallengesApi(object):
     def get_challenges_with_http_info(self, **kwargs):
         """
         Retrieve a list of challenges
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_challenges_with_http_info(async=True)
@@ -1932,10 +1900,6 @@ class CampaignsChallengesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1957,7 +1921,7 @@ class CampaignsChallengesApi(object):
     def update_challenge(self, id, **kwargs):
         """
         Update a challenge
-        If the challenge is a copy, changes will propagate to all the related challenges
+        If the challenge is a copy, changes will propagate to all the related challenges. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_challenge(id, async=True)
@@ -1980,7 +1944,7 @@ class CampaignsChallengesApi(object):
     def update_challenge_with_http_info(self, id, **kwargs):
         """
         Update a challenge
-        If the challenge is a copy, changes will propagate to all the related challenges
+        If the challenge is a copy, changes will propagate to all the related challenges. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_challenge_with_http_info(id, async=True)
@@ -2059,7 +2023,7 @@ class CampaignsChallengesApi(object):
     def update_challenge_activity(self, id, challenge_id, **kwargs):
         """
         Update a challenge activity
-        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_challenge_activity(id, challenge_id, async=True)
@@ -2084,7 +2048,7 @@ class CampaignsChallengesApi(object):
     def update_challenge_activity_with_http_info(self, id, challenge_id, **kwargs):
         """
         Update a challenge activity
-        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+        A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_challenge_activity_with_http_info(id, challenge_id, async=True)
@@ -2172,6 +2136,7 @@ class CampaignsChallengesApi(object):
     def update_challenge_activity_template(self, id, **kwargs):
         """
         Update an challenge activity template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_challenge_activity_template(id, async=True)
@@ -2194,6 +2159,7 @@ class CampaignsChallengesApi(object):
     def update_challenge_activity_template_with_http_info(self, id, **kwargs):
         """
         Update an challenge activity template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_challenge_activity_template_with_http_info(id, async=True)
@@ -2272,6 +2238,7 @@ class CampaignsChallengesApi(object):
     def update_challenge_template(self, id, **kwargs):
         """
         Update a challenge template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_challenge_template(id, async=True)
@@ -2294,6 +2261,7 @@ class CampaignsChallengesApi(object):
     def update_challenge_template_with_http_info(self, id, **kwargs):
         """
         Update a challenge template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_challenge_template_with_http_info(id, async=True)

@@ -33,7 +33,6 @@ class CustomerConfig(object):
     swagger_types = {
         'aliases': 'str',
         'database': 'DatabaseConfig',
-        'io': 'IOConfig',
         'name': 'str',
         's3_config': 'S3Config'
     }
@@ -41,19 +40,17 @@ class CustomerConfig(object):
     attribute_map = {
         'aliases': 'aliases',
         'database': 'database',
-        'io': 'io',
         'name': 'name',
         's3_config': 's3_config'
     }
 
-    def __init__(self, aliases=None, database=None, io=None, name=None, s3_config=None):
+    def __init__(self, aliases=None, database=None, name=None, s3_config=None):
         """
         CustomerConfig - a model defined in Swagger
         """
 
         self._aliases = None
         self._database = None
-        self._io = None
         self._name = None
         self._s3_config = None
         self.discriminator = None
@@ -62,8 +59,6 @@ class CustomerConfig(object):
           self.aliases = aliases
         if database is not None:
           self.database = database
-        if io is not None:
-          self.io = io
         if name is not None:
           self.name = name
         if s3_config is not None:
@@ -110,27 +105,6 @@ class CustomerConfig(object):
         """
 
         self._database = database
-
-    @property
-    def io(self):
-        """
-        Gets the io of this CustomerConfig.
-
-        :return: The io of this CustomerConfig.
-        :rtype: IOConfig
-        """
-        return self._io
-
-    @io.setter
-    def io(self, io):
-        """
-        Sets the io of this CustomerConfig.
-
-        :param io: The io of this CustomerConfig.
-        :type: IOConfig
-        """
-
-        self._io = io
 
     @property
     def name(self):

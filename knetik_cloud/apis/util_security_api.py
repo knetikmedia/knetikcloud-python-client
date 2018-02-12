@@ -38,7 +38,7 @@ class UtilSecurityApi(object):
     def get_user_location_log(self, **kwargs):
         """
         Returns the authentication log for a user
-        A log entry is recorded everytime a user requests a new token. Standard pagination available
+        A log entry is recorded everytime a user requests a new token. Standard pagination available. <br><br><b>Permissions Needed:</b> SECURITY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_location_log(async=True)
@@ -63,7 +63,7 @@ class UtilSecurityApi(object):
     def get_user_location_log_with_http_info(self, **kwargs):
         """
         Returns the authentication log for a user
-        A log entry is recorded everytime a user requests a new token. Standard pagination available
+        A log entry is recorded everytime a user requests a new token. Standard pagination available. <br><br><b>Permissions Needed:</b> SECURITY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_location_log_with_http_info(async=True)
@@ -120,10 +120,6 @@ class UtilSecurityApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -145,6 +141,7 @@ class UtilSecurityApi(object):
     def get_user_token_details(self, **kwargs):
         """
         Returns the authentication token details. Use /users endpoint for detailed user's info
+        <b>Permissions Needed:</b> SECURITY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_token_details(async=True)
@@ -165,6 +162,7 @@ class UtilSecurityApi(object):
     def get_user_token_details_with_http_info(self, **kwargs):
         """
         Returns the authentication token details. Use /users endpoint for detailed user's info
+        <b>Permissions Needed:</b> SECURITY_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_token_details_with_http_info(async=True)
@@ -207,10 +205,6 @@ class UtilSecurityApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

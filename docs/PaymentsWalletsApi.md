@@ -1,6 +1,6 @@
 # knetik_cloud.PaymentsWalletsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 > SimpleWallet get_user_wallet(user_id, currency_code)
 
 Returns the user's wallet for the given currency code
+
+<b>Permissions Needed:</b> WALLETS_ADMIN or owner
 
 ### Example 
 ```python
@@ -63,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -72,6 +74,8 @@ Name | Type | Description  | Notes
 > PageResourceWalletTransactionResource get_user_wallet_transactions(user_id, currency_code, filter_type=filter_type, filter_max_date=filter_max_date, filter_min_date=filter_min_date, filter_sign=filter_sign, size=size, page=page, order=order)
 
 Retrieve a user's wallet transactions
+
+<b>Permissions Needed:</b> WALLETS_ADMIN or owner
 
 ### Example 
 ```python
@@ -132,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -141,6 +145,8 @@ Name | Type | Description  | Notes
 > list[SimpleWallet] get_user_wallets(user_id)
 
 List all of a user's wallets
+
+<b>Permissions Needed:</b> WALLETS_ADMIN or owner
 
 ### Example 
 ```python
@@ -185,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -194,6 +200,8 @@ Name | Type | Description  | Notes
 > PageResourceWalletTotalResponse get_wallet_balances()
 
 Retrieves a summation of wallet balances by currency code
+
+<b>Permissions Needed:</b> WALLETS_ADMIN
 
 ### Example 
 ```python
@@ -234,7 +242,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -243,6 +251,8 @@ This endpoint does not need any parameter.
 > PageResourceWalletTransactionResource get_wallet_transactions(filter_invoice=filter_invoice, filter_type=filter_type, filter_date=filter_date, filter_sign=filter_sign, filter_user_id=filter_user_id, filter_username=filter_username, filter_details=filter_details, filter_currency_code=filter_currency_code, size=size, page=page, order=order)
 
 Retrieve wallet transactions across the system
+
+<b>Permissions Needed:</b> WALLETS_ADMIN
 
 ### Example 
 ```python
@@ -307,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -316,6 +326,8 @@ Name | Type | Description  | Notes
 > PageResourceSimpleWallet get_wallets(size=size, page=page, order=order)
 
 Retrieve a list of wallets across the system
+
+<b>Permissions Needed:</b> WALLETS_ADMIN
 
 ### Example 
 ```python
@@ -364,7 +376,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -373,6 +385,8 @@ Name | Type | Description  | Notes
 > WalletTransactionResource update_wallet_balance(user_id, currency_code, request=request)
 
 Updates the balance for a user's wallet
+
+<b>Permissions Needed:</b> WALLETS_ADMIN
 
 ### Example 
 ```python

@@ -1,6 +1,6 @@
 # knetik_cloud.BRERuleEngineRulesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create a rule
 
-Rules define which actions to run when a given event verifies the specified condition. Full list of predicates and other type of expressions can be found at GET /bre/expressions/
+Rules define which actions to run when a given event verifies the specified condition. Full list of predicates and other type of expressions can be found at GET /bre/expressions/. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 
 ### Example 
 ```python
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 Delete a rule
 
-May fail if there are existing rules against it. Cannot delete core rules
+May fail if there are existing rules against it. Cannot delete core rules. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 
 ### Example 
 ```python
@@ -117,7 +117,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -126,6 +126,8 @@ void (empty response body)
 > str get_bre_expression_as_string(expression=expression)
 
 Returns a string representation of the provided expression
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 
 ### Example 
 ```python
@@ -180,6 +182,8 @@ Name | Type | Description  | Notes
 
 Get a single rule
 
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -223,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -232,6 +236,8 @@ Name | Type | Description  | Notes
 > PageResourceBreRule get_bre_rules(filter_name=filter_name, filter_enabled=filter_enabled, filter_system=filter_system, filter_trigger=filter_trigger, filter_action=filter_action, filter_condition=filter_condition, size=size, page=page)
 
 List rules
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 
 ### Example 
 ```python
@@ -290,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -300,7 +306,7 @@ Name | Type | Description  | Notes
 
 Enable or disable a rule
 
-This is helpful for turning off systems rules which cannot be deleted or modified otherwise
+This is helpful for turning off systems rules which cannot be deleted or modified otherwise. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 
 ### Example 
 ```python
@@ -356,7 +362,7 @@ void (empty response body)
 
 Update a rule
 
-Cannot update system rules
+Cannot update system rules. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_RULES_ADMIN
 
 ### Example 
 ```python

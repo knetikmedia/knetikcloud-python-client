@@ -38,6 +38,7 @@ class LogsApi(object):
     def add_user_log(self, **kwargs):
         """
         Add a user log entry
+        <b>Permissions Needed:</b> owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_user_log(async=True)
@@ -59,6 +60,7 @@ class LogsApi(object):
     def add_user_log_with_http_info(self, **kwargs):
         """
         Add a user log entry
+        <b>Permissions Needed:</b> owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_user_log_with_http_info(async=True)
@@ -131,6 +133,7 @@ class LogsApi(object):
     def get_bre_event_log(self, id, **kwargs):
         """
         Get an existing BRE event log entry by id
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_event_log(id, async=True)
@@ -152,6 +155,7 @@ class LogsApi(object):
     def get_bre_event_log_with_http_info(self, id, **kwargs):
         """
         Get an existing BRE event log entry by id
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_event_log_with_http_info(id, async=True)
@@ -202,10 +206,6 @@ class LogsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class LogsApi(object):
     def get_bre_event_logs(self, **kwargs):
         """
         Returns a list of BRE event log entries
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_event_logs(async=True)
@@ -239,6 +240,7 @@ class LogsApi(object):
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+        :param str filter_rule_id: Filter event logs by request id
         :return: PageResourceBreEventLog
                  If the method is called asynchronously,
                  returns the request thread.
@@ -253,6 +255,7 @@ class LogsApi(object):
     def get_bre_event_logs_with_http_info(self, **kwargs):
         """
         Returns a list of BRE event log entries
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_event_logs_with_http_info(async=True)
@@ -265,12 +268,13 @@ class LogsApi(object):
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+        :param str filter_rule_id: Filter event logs by request id
         :return: PageResourceBreEventLog
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['filter_start_date', 'filter_event_name', 'filter_event_id', 'size', 'page', 'order']
+        all_params = ['filter_start_date', 'filter_event_name', 'filter_event_id', 'size', 'page', 'order', 'filter_rule_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -304,6 +308,8 @@ class LogsApi(object):
             query_params.append(('page', params['page']))
         if 'order' in params:
             query_params.append(('order', params['order']))
+        if 'filter_rule_id' in params:
+            query_params.append(('filter_rule_id', params['filter_rule_id']))
 
         header_params = {}
 
@@ -314,10 +320,6 @@ class LogsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
@@ -340,6 +342,7 @@ class LogsApi(object):
     def get_bre_forward_log(self, id, **kwargs):
         """
         Get an existing forward log entry by id
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_forward_log(id, async=True)
@@ -361,6 +364,7 @@ class LogsApi(object):
     def get_bre_forward_log_with_http_info(self, id, **kwargs):
         """
         Get an existing forward log entry by id
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_forward_log_with_http_info(id, async=True)
@@ -411,10 +415,6 @@ class LogsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -436,6 +436,7 @@ class LogsApi(object):
     def get_bre_forward_logs(self, **kwargs):
         """
         Returns a list of forward log entries
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_forward_logs(async=True)
@@ -445,6 +446,7 @@ class LogsApi(object):
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param str filter_end_date: A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param int filter_status_code: Filter forward logs by http status code
+        :param int filter_url: Filter forward logs by URL starting with...
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -462,6 +464,7 @@ class LogsApi(object):
     def get_bre_forward_logs_with_http_info(self, **kwargs):
         """
         Returns a list of forward log entries
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_forward_logs_with_http_info(async=True)
@@ -471,6 +474,7 @@ class LogsApi(object):
         :param str filter_start_date: A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param str filter_end_date: A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
         :param int filter_status_code: Filter forward logs by http status code
+        :param int filter_url: Filter forward logs by URL starting with...
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
         :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -479,7 +483,7 @@ class LogsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['filter_start_date', 'filter_end_date', 'filter_status_code', 'size', 'page', 'order']
+        all_params = ['filter_start_date', 'filter_end_date', 'filter_status_code', 'filter_url', 'size', 'page', 'order']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -507,6 +511,8 @@ class LogsApi(object):
             query_params.append(('filter_end_date', params['filter_end_date']))
         if 'filter_status_code' in params:
             query_params.append(('filter_status_code', params['filter_status_code']))
+        if 'filter_url' in params:
+            query_params.append(('filter_url', params['filter_url']))
         if 'size' in params:
             query_params.append(('size', params['size']))
         if 'page' in params:
@@ -523,10 +529,6 @@ class LogsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
@@ -549,6 +551,7 @@ class LogsApi(object):
     def get_user_log(self, id, **kwargs):
         """
         Returns a user log entry by id
+        <b>Permissions Needed:</b> LOGS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_log(id, async=True)
@@ -570,6 +573,7 @@ class LogsApi(object):
     def get_user_log_with_http_info(self, id, **kwargs):
         """
         Returns a user log entry by id
+        <b>Permissions Needed:</b> LOGS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_log_with_http_info(id, async=True)
@@ -620,10 +624,6 @@ class LogsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -645,6 +645,7 @@ class LogsApi(object):
     def get_user_logs(self, **kwargs):
         """
         Returns a page of user logs entries
+        <b>Permissions Needed:</b> LOGS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_logs(async=True)
@@ -670,6 +671,7 @@ class LogsApi(object):
     def get_user_logs_with_http_info(self, **kwargs):
         """
         Returns a page of user logs entries
+        <b>Permissions Needed:</b> LOGS_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_logs_with_http_info(async=True)
@@ -728,10 +730,6 @@ class LogsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

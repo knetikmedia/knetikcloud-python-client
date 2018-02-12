@@ -124,7 +124,7 @@ class GroupResource(object):
     def description(self):
         """
         Gets the description of this GroupResource.
-        A description of the group. Max 250 characters
+        A description of the group
 
         :return: The description of this GroupResource.
         :rtype: str
@@ -135,7 +135,7 @@ class GroupResource(object):
     def description(self, description):
         """
         Sets the description of this GroupResource.
-        A description of the group. Max 250 characters
+        A description of the group
 
         :param description: The description of this GroupResource.
         :type: str

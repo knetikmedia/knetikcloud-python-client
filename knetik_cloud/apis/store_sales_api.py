@@ -38,6 +38,7 @@ class StoreSalesApi(object):
     def create_catalog_sale(self, **kwargs):
         """
         Create a sale
+        <b>Permissions Needed:</b> SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_catalog_sale(async=True)
@@ -59,6 +60,7 @@ class StoreSalesApi(object):
     def create_catalog_sale_with_http_info(self, **kwargs):
         """
         Create a sale
+        <b>Permissions Needed:</b> SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_catalog_sale_with_http_info(async=True)
@@ -131,6 +133,7 @@ class StoreSalesApi(object):
     def delete_catalog_sale(self, id, **kwargs):
         """
         Delete a sale
+        <b>Permissions Needed:</b> SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_catalog_sale(id, async=True)
@@ -152,6 +155,7 @@ class StoreSalesApi(object):
     def delete_catalog_sale_with_http_info(self, id, **kwargs):
         """
         Delete a sale
+        <b>Permissions Needed:</b> SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_catalog_sale_with_http_info(id, async=True)
@@ -202,10 +206,6 @@ class StoreSalesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class StoreSalesApi(object):
     def get_catalog_sale(self, id, **kwargs):
         """
         Get a single sale
+        <b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_catalog_sale(id, async=True)
@@ -248,6 +249,7 @@ class StoreSalesApi(object):
     def get_catalog_sale_with_http_info(self, id, **kwargs):
         """
         Get a single sale
+        <b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_catalog_sale_with_http_info(id, async=True)
@@ -298,10 +300,6 @@ class StoreSalesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -323,6 +321,7 @@ class StoreSalesApi(object):
     def get_catalog_sales(self, **kwargs):
         """
         List and search sales
+        <b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_catalog_sales(async=True)
@@ -346,6 +345,7 @@ class StoreSalesApi(object):
     def get_catalog_sales_with_http_info(self, **kwargs):
         """
         List and search sales
+        <b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_catalog_sales_with_http_info(async=True)
@@ -399,10 +399,6 @@ class StoreSalesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -424,6 +420,7 @@ class StoreSalesApi(object):
     def update_catalog_sale(self, id, **kwargs):
         """
         Update a sale
+        <b>Permissions Needed:</b> SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_catalog_sale(id, async=True)
@@ -446,6 +443,7 @@ class StoreSalesApi(object):
     def update_catalog_sale_with_http_info(self, id, **kwargs):
         """
         Update a sale
+        <b>Permissions Needed:</b> SALES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_catalog_sale_with_http_info(id, async=True)

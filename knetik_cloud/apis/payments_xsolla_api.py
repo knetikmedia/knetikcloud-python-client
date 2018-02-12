@@ -38,6 +38,7 @@ class PaymentsXsollaApi(object):
     def create_xsolla_token_url(self, **kwargs):
         """
         Create a payment token that should be used to forward the user to Xsolla so they can complete payment
+        <b>Permissions Needed:</b> XSOLLA_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_xsolla_token_url(async=True)
@@ -59,6 +60,7 @@ class PaymentsXsollaApi(object):
     def create_xsolla_token_url_with_http_info(self, **kwargs):
         """
         Create a payment token that should be used to forward the user to Xsolla so they can complete payment
+        <b>Permissions Needed:</b> XSOLLA_ADMIN or owner
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_xsolla_token_url_with_http_info(async=True)

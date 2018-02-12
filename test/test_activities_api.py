@@ -31,6 +31,14 @@ class TestActivitiesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_add_user(self):
+        """
+        Test case for add_user
+
+        Add a user to an occurrence
+        """
+        pass
+
     def test_create_activity(self):
         """
         Test case for create_activity
@@ -119,11 +127,35 @@ class TestActivitiesApi(unittest.TestCase):
         """
         pass
 
+    def test_remove_user(self):
+        """
+        Test case for remove_user
+
+        Remove a user from an occurrence
+        """
+        pass
+
     def test_set_activity_occurrence_results(self):
         """
         Test case for set_activity_occurrence_results
 
         Sets the status of an activity occurrence to FINISHED and logs metrics
+        """
+        pass
+
+    def test_set_activity_occurrence_settings(self):
+        """
+        Test case for set_activity_occurrence_settings
+
+        Sets the settings of an activity occurrence
+        """
+        pass
+
+    def test_set_user_status(self):
+        """
+        Test case for set_user_status
+
+        Set a user's status within an occurrence
         """
         pass
 
@@ -135,11 +167,11 @@ class TestActivitiesApi(unittest.TestCase):
         """
         pass
 
-    def test_update_activity_occurrence(self):
+    def test_update_activity_occurrence_status(self):
         """
-        Test case for update_activity_occurrence
+        Test case for update_activity_occurrence_status
 
-        Updated the status of an activity occurrence
+        Update the status of an activity occurrence
         """
         pass
 

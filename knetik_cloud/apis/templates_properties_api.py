@@ -38,6 +38,7 @@ class TemplatesPropertiesApi(object):
     def get_template_property_type(self, type, **kwargs):
         """
         Get details for a template property type
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_template_property_type(type, async=True)
@@ -59,6 +60,7 @@ class TemplatesPropertiesApi(object):
     def get_template_property_type_with_http_info(self, type, **kwargs):
         """
         Get details for a template property type
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_template_property_type_with_http_info(type, async=True)
@@ -109,10 +111,6 @@ class TemplatesPropertiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -134,6 +132,7 @@ class TemplatesPropertiesApi(object):
     def get_template_property_types(self, **kwargs):
         """
         List template property types
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_template_property_types(async=True)
@@ -154,6 +153,7 @@ class TemplatesPropertiesApi(object):
     def get_template_property_types_with_http_info(self, **kwargs):
         """
         List template property types
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_template_property_types_with_http_info(async=True)
@@ -196,10 +196,6 @@ class TemplatesPropertiesApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

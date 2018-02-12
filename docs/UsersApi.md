@@ -1,18 +1,20 @@
 # knetik_cloud.UsersApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_user_tag**](UsersApi.md#add_user_tag) | **POST** /users/{user_id}/tags | Add a tag to a user
 [**create_user_template**](UsersApi.md#create_user_template) | **POST** /users/templates | Create a user template
 [**delete_user_template**](UsersApi.md#delete_user_template) | **DELETE** /users/templates/{id} | Delete a user template
+[**get_direct_messages1**](UsersApi.md#get_direct_messages1) | **GET** /users/users/{recipient_id}/messages | Get a list of direct messages with this user
 [**get_user**](UsersApi.md#get_user) | **GET** /users/{id} | Get a single user
 [**get_user_tags**](UsersApi.md#get_user_tags) | **GET** /users/{user_id}/tags | List tags for a user
 [**get_user_template**](UsersApi.md#get_user_template) | **GET** /users/templates/{id} | Get a single user template
 [**get_user_templates**](UsersApi.md#get_user_templates) | **GET** /users/templates | List and search user templates
 [**get_users**](UsersApi.md#get_users) | **GET** /users | List and search users
 [**password_reset**](UsersApi.md#password_reset) | **PUT** /users/{id}/password-reset | Choose a new password after a reset
+[**post_user_message**](UsersApi.md#post_user_message) | **POST** /users/{recipient_id}/messages | Send a user message
 [**register_user**](UsersApi.md#register_user) | **POST** /users | Register a new user
 [**remove_user_tag**](UsersApi.md#remove_user_tag) | **DELETE** /users/{user_id}/tags/{tag} | Remove a tag from a user
 [**set_password**](UsersApi.md#set_password) | **PUT** /users/{id}/password | Set a user&#39;s password
@@ -26,6 +28,8 @@ Method | HTTP request | Description
 > add_user_tag(user_id, tag)
 
 Add a tag to a user
+
+<b>Permissions Needed:</b> USERS_ADMIN
 
 ### Example 
 ```python
@@ -81,7 +85,7 @@ void (empty response body)
 
 Create a user template
 
-User Templates define a type of user and the properties they have
+User Templates define a type of user and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -136,7 +140,7 @@ Name | Type | Description  | Notes
 
 Delete a user template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python
@@ -182,7 +186,66 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_direct_messages1**
+> PageResourceChatMessageResource get_direct_messages1(recipient_id, size=size, page=page)
+
+Get a list of direct messages with this user
+
+<b>Permissions Needed:</b> ANY
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.UsersApi(knetik_cloud.ApiClient(configuration))
+recipient_id = 56 # int | The user id
+size = 25 # int | The number of objects returned per page (optional) (default to 25)
+page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
+
+try: 
+    # Get a list of direct messages with this user
+    api_response = api_instance.get_direct_messages1(recipient_id, size=size, page=page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_direct_messages1: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recipient_id** | **int**| The user id | 
+ **size** | **int**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
+
+### Return type
+
+[**PageResourceChatMessageResource**](PageResourceChatMessageResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -192,7 +255,7 @@ void (empty response body)
 
 Get a single user
 
-Additional private info is included as USERS_ADMIN
+Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -237,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -246,6 +309,8 @@ Name | Type | Description  | Notes
 > list[str] get_user_tags(user_id)
 
 List tags for a user
+
+<b>Permissions Needed:</b> USERS_ADMIN
 
 ### Example 
 ```python
@@ -290,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -299,6 +364,8 @@ Name | Type | Description  | Notes
 > TemplateResource get_user_template(id)
 
 Get a single user template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
 
 ### Example 
 ```python
@@ -343,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -352,6 +419,8 @@ Name | Type | Description  | Notes
 > PageResourceTemplateResource get_user_templates(size=size, page=page, order=order)
 
 List and search user templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
 
 ### Example 
 ```python
@@ -400,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -410,7 +479,7 @@ Name | Type | Description  | Notes
 
 List and search users
 
-Additional private info is included as USERS_ADMIN
+Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -483,7 +552,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -493,7 +562,7 @@ Name | Type | Description  | Notes
 
 Choose a new password after a reset
 
-Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -544,12 +613,60 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **post_user_message**
+> ChatMessageResource post_user_message(recipient_id, chat_message_request=chat_message_request)
+
+Send a user message
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = knetik_cloud.UsersApi()
+recipient_id = 56 # int | The user id
+chat_message_request = knetik_cloud.ChatMessageRequest() # ChatMessageRequest | The chat message request (optional)
+
+try: 
+    # Send a user message
+    api_response = api_instance.post_user_message(recipient_id, chat_message_request=chat_message_request)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->post_user_message: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recipient_id** | **int**| The user id | 
+ **chat_message_request** | [**ChatMessageRequest**](ChatMessageRequest.md)| The chat message request | [optional] 
+
+### Return type
+
+[**ChatMessageResource**](ChatMessageResource.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **register_user**
 > UserResource register_user(user_resource=user_resource)
 
 Register a new user
 
-Password should be in plain text and will be encrypted on receipt. Use SSL for security
+Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -604,6 +721,8 @@ Name | Type | Description  | Notes
 
 Remove a tag from a user
 
+<b>Permissions Needed:</b> USERS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -648,7 +767,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -658,7 +777,7 @@ void (empty response body)
 
 Set a user's password
 
-Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> USERS_ADMIN or (USERS_USER and owner)
 
 ### Example 
 ```python
@@ -714,7 +833,7 @@ void (empty response body)
 
 Reset a user's password
 
-A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
+A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -768,7 +887,7 @@ void (empty response body)
 
 Reset a user's password without user id
 
-A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
+A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. <br><br><b>Permissions Needed:</b> ANY
 
 ### Example 
 ```python
@@ -822,7 +941,7 @@ void (empty response body)
 
 Update a user
 
-Password will not be edited on this endpoint, use password specific endpoints.
+Password will not be edited on this endpoint, use password specific endpoints. <br><br><b>Permissions Needed:</b> USERS_ADMIN or owner
 
 ### Example 
 ```python
@@ -877,6 +996,8 @@ void (empty response body)
 > TemplateResource update_user_template(id, user_template_resource=user_template_resource)
 
 Update a user template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Example 
 ```python

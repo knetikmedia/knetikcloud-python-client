@@ -1,6 +1,6 @@
 # knetik_cloud.StoreSalesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 > CatalogSale create_catalog_sale(catalog_sale=catalog_sale)
 
 Create a sale
+
+<b>Permissions Needed:</b> SALES_ADMIN
 
 ### Example 
 ```python
@@ -69,6 +71,8 @@ Name | Type | Description  | Notes
 
 Delete a sale
 
+<b>Permissions Needed:</b> SALES_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -111,7 +115,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -120,6 +124,8 @@ void (empty response body)
 > CatalogSale get_catalog_sale(id)
 
 Get a single sale
+
+<b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
 
 ### Example 
 ```python
@@ -164,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -173,6 +179,8 @@ Name | Type | Description  | Notes
 > PageResourceCatalogSale get_catalog_sales(size=size, page=page, order=order)
 
 List and search sales
+
+<b>Permissions Needed:</b> SALES_USER or SALES_ADMIN
 
 ### Example 
 ```python
@@ -221,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -230,6 +238,8 @@ Name | Type | Description  | Notes
 > CatalogSale update_catalog_sale(id, catalog_sale=catalog_sale)
 
 Update a sale
+
+<b>Permissions Needed:</b> SALES_ADMIN
 
 ### Example 
 ```python

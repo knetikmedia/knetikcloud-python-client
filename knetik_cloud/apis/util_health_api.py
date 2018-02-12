@@ -38,6 +38,7 @@ class UtilHealthApi(object):
     def get_health(self, **kwargs):
         """
         Get health info
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_health(async=True)
@@ -58,6 +59,7 @@ class UtilHealthApi(object):
     def get_health_with_http_info(self, **kwargs):
         """
         Get health info
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_health_with_http_info(async=True)
@@ -100,10 +102,6 @@ class UtilHealthApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

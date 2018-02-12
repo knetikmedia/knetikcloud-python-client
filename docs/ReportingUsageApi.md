@@ -1,6 +1,6 @@
 # knetik_cloud.ReportingUsageApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 > PageResourceUsageInfo get_usage_by_day(start_date, end_date, combine_endpoints=combine_endpoints, method=method, url=url, size=size, page=page)
 
 Returns aggregated endpoint usage information by day
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```python
@@ -72,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -81,6 +83,8 @@ Name | Type | Description  | Notes
 > PageResourceUsageInfo get_usage_by_hour(start_date, end_date, combine_endpoints=combine_endpoints, method=method, url=url, size=size, page=page)
 
 Returns aggregated endpoint usage information by hour
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```python
@@ -137,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,6 +150,8 @@ Name | Type | Description  | Notes
 > PageResourceUsageInfo get_usage_by_minute(start_date, end_date, combine_endpoints=combine_endpoints, method=method, url=url, size=size, page=page)
 
 Returns aggregated endpoint usage information by minute
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```python
@@ -202,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -211,6 +217,8 @@ Name | Type | Description  | Notes
 > PageResourceUsageInfo get_usage_by_month(start_date, end_date, combine_endpoints=combine_endpoints, method=method, url=url, size=size, page=page)
 
 Returns aggregated endpoint usage information by month
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```python
@@ -267,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -276,6 +284,8 @@ Name | Type | Description  | Notes
 > PageResourceUsageInfo get_usage_by_year(start_date, end_date, combine_endpoints=combine_endpoints, method=method, url=url, size=size, page=page)
 
 Returns aggregated endpoint usage information by year
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```python
@@ -332,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -341,6 +351,8 @@ Name | Type | Description  | Notes
 > list[str] get_usage_endpoints(start_date, end_date)
 
 Returns list of endpoints called (method and url)
+
+<b>Permissions Needed:</b> USAGE_ADMIN
 
 ### Example 
 ```python
@@ -387,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

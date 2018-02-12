@@ -55,6 +55,14 @@ class TestUsersApi(unittest.TestCase):
         """
         pass
 
+    def test_get_direct_messages1(self):
+        """
+        Test case for get_direct_messages1
+
+        Get a list of direct messages with this user
+        """
+        pass
+
     def test_get_user(self):
         """
         Test case for get_user
@@ -100,6 +108,14 @@ class TestUsersApi(unittest.TestCase):
         Test case for password_reset
 
         Choose a new password after a reset
+        """
+        pass
+
+    def test_post_user_message(self):
+        """
+        Test case for post_user_message
+
+        Send a user message
         """
         pass
 

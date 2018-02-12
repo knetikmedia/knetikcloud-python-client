@@ -38,7 +38,7 @@ class GamificationLeaderboardsApi(object):
     def get_leaderboard(self, context_type, context_id, **kwargs):
         """
         Retrieves leaderboard details and paginated entries
-        The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource.
+        The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_leaderboard(context_type, context_id, async=True)
@@ -64,7 +64,7 @@ class GamificationLeaderboardsApi(object):
     def get_leaderboard_with_http_info(self, context_type, context_id, **kwargs):
         """
         Retrieves leaderboard details and paginated entries
-        The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource.
+        The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_leaderboard_with_http_info(context_type, context_id, async=True)
@@ -130,10 +130,6 @@ class GamificationLeaderboardsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -155,7 +151,7 @@ class GamificationLeaderboardsApi(object):
     def get_leaderboard_rank(self, context_type, context_id, id, **kwargs):
         """
         Retrieves a specific user entry with rank
-        The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
+        The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_leaderboard_rank(context_type, context_id, id, async=True)
@@ -179,7 +175,7 @@ class GamificationLeaderboardsApi(object):
     def get_leaderboard_rank_with_http_info(self, context_type, context_id, id, **kwargs):
         """
         Retrieves a specific user entry with rank
-        The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
+        The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_leaderboard_rank_with_http_info(context_type, context_id, id, async=True)
@@ -242,10 +238,6 @@ class GamificationLeaderboardsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -267,6 +259,7 @@ class GamificationLeaderboardsApi(object):
     def get_leaderboard_strategies(self, **kwargs):
         """
         Get a list of available leaderboard strategy names
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_leaderboard_strategies(async=True)
@@ -287,6 +280,7 @@ class GamificationLeaderboardsApi(object):
     def get_leaderboard_strategies_with_http_info(self, **kwargs):
         """
         Get a list of available leaderboard strategy names
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_leaderboard_strategies_with_http_info(async=True)
@@ -329,10 +323,6 @@ class GamificationLeaderboardsApi(object):
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']

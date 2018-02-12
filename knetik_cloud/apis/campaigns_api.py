@@ -38,6 +38,7 @@ class CampaignsApi(object):
     def add_challenge_to_campaign(self, id, **kwargs):
         """
         Add a challenge to a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_challenge_to_campaign(id, async=True)
@@ -60,6 +61,7 @@ class CampaignsApi(object):
     def add_challenge_to_campaign_with_http_info(self, id, **kwargs):
         """
         Add a challenge to a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.add_challenge_to_campaign_with_http_info(id, async=True)
@@ -138,6 +140,7 @@ class CampaignsApi(object):
     def create_campaign(self, **kwargs):
         """
         Create a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_campaign(async=True)
@@ -159,6 +162,7 @@ class CampaignsApi(object):
     def create_campaign_with_http_info(self, **kwargs):
         """
         Create a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_campaign_with_http_info(async=True)
@@ -231,7 +235,7 @@ class CampaignsApi(object):
     def create_campaign_template(self, **kwargs):
         """
         Create a campaign template
-        Campaign Templates define a type of campaign and the properties they have
+        Campaign Templates define a type of campaign and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_campaign_template(async=True)
@@ -253,7 +257,7 @@ class CampaignsApi(object):
     def create_campaign_template_with_http_info(self, **kwargs):
         """
         Create a campaign template
-        Campaign Templates define a type of campaign and the properties they have
+        Campaign Templates define a type of campaign and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_campaign_template_with_http_info(async=True)
@@ -326,6 +330,7 @@ class CampaignsApi(object):
     def delete_campaign(self, id, **kwargs):
         """
         Delete a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_campaign(id, async=True)
@@ -347,6 +352,7 @@ class CampaignsApi(object):
     def delete_campaign_with_http_info(self, id, **kwargs):
         """
         Delete a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_campaign_with_http_info(id, async=True)
@@ -397,10 +403,6 @@ class CampaignsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -422,7 +424,7 @@ class CampaignsApi(object):
     def delete_campaign_template(self, id, **kwargs):
         """
         Delete a campaign template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_campaign_template(id, async=True)
@@ -445,7 +447,7 @@ class CampaignsApi(object):
     def delete_campaign_template_with_http_info(self, id, **kwargs):
         """
         Delete a campaign template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_campaign_template_with_http_info(id, async=True)
@@ -499,10 +501,6 @@ class CampaignsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -524,6 +522,7 @@ class CampaignsApi(object):
     def get_campaign(self, id, **kwargs):
         """
         Returns a single campaign
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaign(id, async=True)
@@ -545,6 +544,7 @@ class CampaignsApi(object):
     def get_campaign_with_http_info(self, id, **kwargs):
         """
         Returns a single campaign
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaign_with_http_info(id, async=True)
@@ -595,10 +595,6 @@ class CampaignsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -620,6 +616,7 @@ class CampaignsApi(object):
     def get_campaign_challenges(self, id, **kwargs):
         """
         List the challenges associated with a campaign
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaign_challenges(id, async=True)
@@ -646,6 +643,7 @@ class CampaignsApi(object):
     def get_campaign_challenges_with_http_info(self, id, **kwargs):
         """
         List the challenges associated with a campaign
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaign_challenges_with_http_info(id, async=True)
@@ -711,10 +709,6 @@ class CampaignsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -736,6 +730,7 @@ class CampaignsApi(object):
     def get_campaign_template(self, id, **kwargs):
         """
         Get a single campaign template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaign_template(id, async=True)
@@ -757,6 +752,7 @@ class CampaignsApi(object):
     def get_campaign_template_with_http_info(self, id, **kwargs):
         """
         Get a single campaign template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaign_template_with_http_info(id, async=True)
@@ -807,10 +803,6 @@ class CampaignsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -832,6 +824,7 @@ class CampaignsApi(object):
     def get_campaign_templates(self, **kwargs):
         """
         List and search campaign templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaign_templates(async=True)
@@ -855,6 +848,7 @@ class CampaignsApi(object):
     def get_campaign_templates_with_http_info(self, **kwargs):
         """
         List and search campaign templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaign_templates_with_http_info(async=True)
@@ -908,10 +902,6 @@ class CampaignsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -933,6 +923,7 @@ class CampaignsApi(object):
     def get_campaigns(self, **kwargs):
         """
         List and search campaigns
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaigns(async=True)
@@ -957,6 +948,7 @@ class CampaignsApi(object):
     def get_campaigns_with_http_info(self, **kwargs):
         """
         List and search campaigns
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_campaigns_with_http_info(async=True)
@@ -1013,10 +1005,6 @@ class CampaignsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1038,6 +1026,7 @@ class CampaignsApi(object):
     def remove_challenge_from_campaign(self, campaign_id, id, **kwargs):
         """
         Remove a challenge from a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_challenge_from_campaign(campaign_id, id, async=True)
@@ -1060,6 +1049,7 @@ class CampaignsApi(object):
     def remove_challenge_from_campaign_with_http_info(self, campaign_id, id, **kwargs):
         """
         Remove a challenge from a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.remove_challenge_from_campaign_with_http_info(campaign_id, id, async=True)
@@ -1116,10 +1106,6 @@ class CampaignsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1141,6 +1127,7 @@ class CampaignsApi(object):
     def update_campaign(self, id, **kwargs):
         """
         Update a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_campaign(id, async=True)
@@ -1163,6 +1150,7 @@ class CampaignsApi(object):
     def update_campaign_with_http_info(self, id, **kwargs):
         """
         Update a campaign
+        <b>Permissions Needed:</b> CAMPAIGNS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_campaign_with_http_info(id, async=True)
@@ -1241,6 +1229,7 @@ class CampaignsApi(object):
     def update_campaign_template(self, id, **kwargs):
         """
         Update an campaign template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_campaign_template(id, async=True)
@@ -1263,6 +1252,7 @@ class CampaignsApi(object):
     def update_campaign_template_with_http_info(self, id, **kwargs):
         """
         Update an campaign template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_campaign_template_with_http_info(id, async=True)

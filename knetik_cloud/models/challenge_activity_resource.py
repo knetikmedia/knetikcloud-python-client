@@ -34,6 +34,7 @@ class ChallengeActivityResource(object):
         'activity_id': 'int',
         'additional_properties': 'dict(str, ModelProperty)',
         'challenge_id': 'int',
+        'core_settings': 'CoreChallengeActivitySettings',
         'entitlement': 'ActivityEntitlementResource',
         'id': 'int',
         'reward_set': 'RewardSetResource',
@@ -45,6 +46,7 @@ class ChallengeActivityResource(object):
         'activity_id': 'activity_id',
         'additional_properties': 'additional_properties',
         'challenge_id': 'challenge_id',
+        'core_settings': 'core_settings',
         'entitlement': 'entitlement',
         'id': 'id',
         'reward_set': 'reward_set',
@@ -52,7 +54,7 @@ class ChallengeActivityResource(object):
         'template': 'template'
     }
 
-    def __init__(self, activity_id=None, additional_properties=None, challenge_id=None, entitlement=None, id=None, reward_set=None, settings=None, template=None):
+    def __init__(self, activity_id=None, additional_properties=None, challenge_id=None, core_settings=None, entitlement=None, id=None, reward_set=None, settings=None, template=None):
         """
         ChallengeActivityResource - a model defined in Swagger
         """
@@ -60,6 +62,7 @@ class ChallengeActivityResource(object):
         self._activity_id = None
         self._additional_properties = None
         self._challenge_id = None
+        self._core_settings = None
         self._entitlement = None
         self._id = None
         self._reward_set = None
@@ -72,6 +75,8 @@ class ChallengeActivityResource(object):
           self.additional_properties = additional_properties
         if challenge_id is not None:
           self.challenge_id = challenge_id
+        if core_settings is not None:
+          self.core_settings = core_settings
         if entitlement is not None:
           self.entitlement = entitlement
         if id is not None:
@@ -153,6 +158,29 @@ class ChallengeActivityResource(object):
         """
 
         self._challenge_id = challenge_id
+
+    @property
+    def core_settings(self):
+        """
+        Gets the core_settings of this ChallengeActivityResource.
+        Defines core settings about the activity that affect how it can be created/played by users. Values may be left null to inherit from parent activity.
+
+        :return: The core_settings of this ChallengeActivityResource.
+        :rtype: CoreChallengeActivitySettings
+        """
+        return self._core_settings
+
+    @core_settings.setter
+    def core_settings(self, core_settings):
+        """
+        Sets the core_settings of this ChallengeActivityResource.
+        Defines core settings about the activity that affect how it can be created/played by users. Values may be left null to inherit from parent activity.
+
+        :param core_settings: The core_settings of this ChallengeActivityResource.
+        :type: CoreChallengeActivitySettings
+        """
+
+        self._core_settings = core_settings
 
     @property
     def entitlement(self):

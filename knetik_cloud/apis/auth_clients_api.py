@@ -38,6 +38,7 @@ class AuthClientsApi(object):
     def create_client(self, **kwargs):
         """
         Create a new client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_client(async=True)
@@ -59,6 +60,7 @@ class AuthClientsApi(object):
     def create_client_with_http_info(self, **kwargs):
         """
         Create a new client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_client_with_http_info(async=True)
@@ -131,6 +133,7 @@ class AuthClientsApi(object):
     def delete_client(self, client_key, **kwargs):
         """
         Delete a client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_client(client_key, async=True)
@@ -152,6 +155,7 @@ class AuthClientsApi(object):
     def delete_client_with_http_info(self, client_key, **kwargs):
         """
         Delete a client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_client_with_http_info(client_key, async=True)
@@ -202,10 +206,6 @@ class AuthClientsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -227,6 +227,7 @@ class AuthClientsApi(object):
     def get_client(self, client_key, **kwargs):
         """
         Get a single client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_client(client_key, async=True)
@@ -248,6 +249,7 @@ class AuthClientsApi(object):
     def get_client_with_http_info(self, client_key, **kwargs):
         """
         Get a single client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_client_with_http_info(client_key, async=True)
@@ -298,10 +300,6 @@ class AuthClientsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -323,6 +321,7 @@ class AuthClientsApi(object):
     def get_client_grant_types(self, **kwargs):
         """
         List available client grant types
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_client_grant_types(async=True)
@@ -343,6 +342,7 @@ class AuthClientsApi(object):
     def get_client_grant_types_with_http_info(self, **kwargs):
         """
         List available client grant types
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_client_grant_types_with_http_info(async=True)
@@ -386,10 +386,6 @@ class AuthClientsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -411,6 +407,7 @@ class AuthClientsApi(object):
     def get_clients(self, **kwargs):
         """
         List and search clients
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_clients(async=True)
@@ -434,6 +431,7 @@ class AuthClientsApi(object):
     def get_clients_with_http_info(self, **kwargs):
         """
         List and search clients
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_clients_with_http_info(async=True)
@@ -487,10 +485,6 @@ class AuthClientsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -512,6 +506,7 @@ class AuthClientsApi(object):
     def set_client_grant_types(self, client_key, **kwargs):
         """
         Set grant types for a client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_client_grant_types(client_key, async=True)
@@ -534,6 +529,7 @@ class AuthClientsApi(object):
     def set_client_grant_types_with_http_info(self, client_key, **kwargs):
         """
         Set grant types for a client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_client_grant_types_with_http_info(client_key, async=True)
@@ -612,6 +608,7 @@ class AuthClientsApi(object):
     def set_client_redirect_uris(self, client_key, **kwargs):
         """
         Set redirect uris for a client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_client_redirect_uris(client_key, async=True)
@@ -634,6 +631,7 @@ class AuthClientsApi(object):
     def set_client_redirect_uris_with_http_info(self, client_key, **kwargs):
         """
         Set redirect uris for a client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_client_redirect_uris_with_http_info(client_key, async=True)
@@ -712,6 +710,7 @@ class AuthClientsApi(object):
     def update_client(self, client_key, **kwargs):
         """
         Update a client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_client(client_key, async=True)
@@ -734,6 +733,7 @@ class AuthClientsApi(object):
     def update_client_with_http_info(self, client_key, **kwargs):
         """
         Update a client
+        <b>Permissions Needed:</b> CLIENTS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_client_with_http_info(client_key, async=True)

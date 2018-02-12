@@ -38,7 +38,7 @@ class BRERuleEngineTriggersApi(object):
     def create_bre_trigger(self, **kwargs):
         """
         Create a trigger
-        Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
+        Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_bre_trigger(async=True)
@@ -60,7 +60,7 @@ class BRERuleEngineTriggersApi(object):
     def create_bre_trigger_with_http_info(self, **kwargs):
         """
         Create a trigger
-        Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
+        Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_bre_trigger_with_http_info(async=True)
@@ -133,7 +133,7 @@ class BRERuleEngineTriggersApi(object):
     def delete_bre_trigger(self, event_name, **kwargs):
         """
         Delete a trigger
-        May fail if there are existing rules against it. Cannot delete core triggers
+        May fail if there are existing rules against it. Cannot delete core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_bre_trigger(event_name, async=True)
@@ -155,7 +155,7 @@ class BRERuleEngineTriggersApi(object):
     def delete_bre_trigger_with_http_info(self, event_name, **kwargs):
         """
         Delete a trigger
-        May fail if there are existing rules against it. Cannot delete core triggers
+        May fail if there are existing rules against it. Cannot delete core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_bre_trigger_with_http_info(event_name, async=True)
@@ -206,10 +206,6 @@ class BRERuleEngineTriggersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -231,6 +227,7 @@ class BRERuleEngineTriggersApi(object):
     def get_bre_trigger(self, event_name, **kwargs):
         """
         Get a single trigger
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_trigger(event_name, async=True)
@@ -252,6 +249,7 @@ class BRERuleEngineTriggersApi(object):
     def get_bre_trigger_with_http_info(self, event_name, **kwargs):
         """
         Get a single trigger
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_trigger_with_http_info(event_name, async=True)
@@ -302,10 +300,6 @@ class BRERuleEngineTriggersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -327,6 +321,7 @@ class BRERuleEngineTriggersApi(object):
     def get_bre_triggers(self, **kwargs):
         """
         List triggers
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_triggers(async=True)
@@ -354,6 +349,7 @@ class BRERuleEngineTriggersApi(object):
     def get_bre_triggers_with_http_info(self, **kwargs):
         """
         List triggers
+        <b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_bre_triggers_with_http_info(async=True)
@@ -419,10 +415,6 @@ class BRERuleEngineTriggersApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -444,7 +436,7 @@ class BRERuleEngineTriggersApi(object):
     def update_bre_trigger(self, event_name, **kwargs):
         """
         Update a trigger
-        May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
+        May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_trigger(event_name, async=True)
@@ -467,7 +459,7 @@ class BRERuleEngineTriggersApi(object):
     def update_bre_trigger_with_http_info(self, event_name, **kwargs):
         """
         Update a trigger
-        May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
+        May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_bre_trigger_with_http_info(event_name, async=True)

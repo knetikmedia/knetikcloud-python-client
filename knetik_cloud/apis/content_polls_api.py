@@ -38,6 +38,7 @@ class ContentPollsApi(object):
     def answer_poll(self, id, **kwargs):
         """
         Add your vote to a poll
+        <b>Permissions Needed:</b> POLLS_ADMIN or POLLS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.answer_poll(id, async=True)
@@ -60,6 +61,7 @@ class ContentPollsApi(object):
     def answer_poll_with_http_info(self, id, **kwargs):
         """
         Add your vote to a poll
+        <b>Permissions Needed:</b> POLLS_ADMIN or POLLS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.answer_poll_with_http_info(id, async=True)
@@ -138,7 +140,7 @@ class ContentPollsApi(object):
     def create_poll(self, **kwargs):
         """
         Create a new poll
-        Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+        Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end. <br><br><b>Permissions Needed:</b> POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_poll(async=True)
@@ -160,7 +162,7 @@ class ContentPollsApi(object):
     def create_poll_with_http_info(self, **kwargs):
         """
         Create a new poll
-        Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+        Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end. <br><br><b>Permissions Needed:</b> POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_poll_with_http_info(async=True)
@@ -233,7 +235,7 @@ class ContentPollsApi(object):
     def create_poll_template(self, **kwargs):
         """
         Create a poll template
-        Poll templates define a type of poll and the properties they have
+        Poll templates define a type of poll and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_poll_template(async=True)
@@ -255,7 +257,7 @@ class ContentPollsApi(object):
     def create_poll_template_with_http_info(self, **kwargs):
         """
         Create a poll template
-        Poll templates define a type of poll and the properties they have
+        Poll templates define a type of poll and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_poll_template_with_http_info(async=True)
@@ -328,6 +330,7 @@ class ContentPollsApi(object):
     def delete_poll(self, id, **kwargs):
         """
         Delete an existing poll
+        <b>Permissions Needed:</b> POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_poll(id, async=True)
@@ -349,6 +352,7 @@ class ContentPollsApi(object):
     def delete_poll_with_http_info(self, id, **kwargs):
         """
         Delete an existing poll
+        <b>Permissions Needed:</b> POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_poll_with_http_info(id, async=True)
@@ -399,10 +403,6 @@ class ContentPollsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -424,7 +424,7 @@ class ContentPollsApi(object):
     def delete_poll_template(self, id, **kwargs):
         """
         Delete a poll template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_poll_template(id, async=True)
@@ -447,7 +447,7 @@ class ContentPollsApi(object):
     def delete_poll_template_with_http_info(self, id, **kwargs):
         """
         Delete a poll template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_poll_template_with_http_info(id, async=True)
@@ -501,10 +501,6 @@ class ContentPollsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -526,6 +522,7 @@ class ContentPollsApi(object):
     def get_poll(self, id, **kwargs):
         """
         Get a single poll
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_poll(id, async=True)
@@ -547,6 +544,7 @@ class ContentPollsApi(object):
     def get_poll_with_http_info(self, id, **kwargs):
         """
         Get a single poll
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_poll_with_http_info(id, async=True)
@@ -597,10 +595,6 @@ class ContentPollsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -622,6 +616,7 @@ class ContentPollsApi(object):
     def get_poll_answer(self, id, **kwargs):
         """
         Get poll answer
+        <b>Permissions Needed:</b> POLLS_ADMIN or POLLS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_poll_answer(id, async=True)
@@ -643,6 +638,7 @@ class ContentPollsApi(object):
     def get_poll_answer_with_http_info(self, id, **kwargs):
         """
         Get poll answer
+        <b>Permissions Needed:</b> POLLS_ADMIN or POLLS_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_poll_answer_with_http_info(id, async=True)
@@ -693,10 +689,6 @@ class ContentPollsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -718,6 +710,7 @@ class ContentPollsApi(object):
     def get_poll_template(self, id, **kwargs):
         """
         Get a single poll template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_poll_template(id, async=True)
@@ -739,6 +732,7 @@ class ContentPollsApi(object):
     def get_poll_template_with_http_info(self, id, **kwargs):
         """
         Get a single poll template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_poll_template_with_http_info(id, async=True)
@@ -789,10 +783,6 @@ class ContentPollsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -814,6 +804,7 @@ class ContentPollsApi(object):
     def get_poll_templates(self, **kwargs):
         """
         List and search poll templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_poll_templates(async=True)
@@ -837,6 +828,7 @@ class ContentPollsApi(object):
     def get_poll_templates_with_http_info(self, **kwargs):
         """
         List and search poll templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_poll_templates_with_http_info(async=True)
@@ -890,10 +882,6 @@ class ContentPollsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -915,7 +903,7 @@ class ContentPollsApi(object):
     def get_polls(self, **kwargs):
         """
         List and search polls
-        Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+        Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_polls(async=True)
@@ -942,7 +930,7 @@ class ContentPollsApi(object):
     def get_polls_with_http_info(self, **kwargs):
         """
         List and search polls
-        Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
+        Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_polls_with_http_info(async=True)
@@ -1005,10 +993,6 @@ class ContentPollsApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1030,6 +1014,7 @@ class ContentPollsApi(object):
     def update_poll(self, id, **kwargs):
         """
         Update an existing poll
+        <b>Permissions Needed:</b> POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_poll(id, async=True)
@@ -1052,6 +1037,7 @@ class ContentPollsApi(object):
     def update_poll_with_http_info(self, id, **kwargs):
         """
         Update an existing poll
+        <b>Permissions Needed:</b> POLLS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_poll_with_http_info(id, async=True)
@@ -1130,6 +1116,7 @@ class ContentPollsApi(object):
     def update_poll_template(self, id, **kwargs):
         """
         Update a poll template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_poll_template(id, async=True)
@@ -1152,6 +1139,7 @@ class ContentPollsApi(object):
     def update_poll_template_with_http_info(self, id, **kwargs):
         """
         Update a poll template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_poll_template_with_http_info(id, async=True)

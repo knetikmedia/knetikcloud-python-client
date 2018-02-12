@@ -35,9 +35,120 @@ class ActivitiesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def add_user(self, activity_occurrence_id, **kwargs):
+        """
+        Add a user to an occurrence
+        If called with no body, defaults to the user making the call.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_user(activity_occurrence_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int activity_occurrence_id: The id of the activity occurrence (required)
+        :param bool test: if true, indicates that the user should NOT be added. This can be used to test for eligibility
+        :param bool bypass_restrictions: if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN
+        :param IntWrapper user_id: The id of the user, or null for 'caller'
+        :return: ActivityOccurrenceResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.add_user_with_http_info(activity_occurrence_id, **kwargs)
+        else:
+            (data) = self.add_user_with_http_info(activity_occurrence_id, **kwargs)
+            return data
+
+    def add_user_with_http_info(self, activity_occurrence_id, **kwargs):
+        """
+        Add a user to an occurrence
+        If called with no body, defaults to the user making the call.
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.add_user_with_http_info(activity_occurrence_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int activity_occurrence_id: The id of the activity occurrence (required)
+        :param bool test: if true, indicates that the user should NOT be added. This can be used to test for eligibility
+        :param bool bypass_restrictions: if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN
+        :param IntWrapper user_id: The id of the user, or null for 'caller'
+        :return: ActivityOccurrenceResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['activity_occurrence_id', 'test', 'bypass_restrictions', 'user_id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'activity_occurrence_id' is set
+        if ('activity_occurrence_id' not in params) or (params['activity_occurrence_id'] is None):
+            raise ValueError("Missing the required parameter `activity_occurrence_id` when calling `add_user`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'activity_occurrence_id' in params:
+            path_params['activity_occurrence_id'] = params['activity_occurrence_id']
+
+        query_params = []
+        if 'test' in params:
+            query_params.append(('test', params['test']))
+        if 'bypass_restrictions' in params:
+            query_params.append(('bypass_restrictions', params['bypass_restrictions']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'user_id' in params:
+            body_params = params['user_id']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/activity-occurrences/{activity_occurrence_id}/users', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ActivityOccurrenceResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def create_activity(self, **kwargs):
         """
         Create an activity
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_activity(async=True)
@@ -59,6 +170,7 @@ class ActivitiesApi(object):
     def create_activity_with_http_info(self, **kwargs):
         """
         Create an activity
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_activity_with_http_info(async=True)
@@ -131,7 +243,7 @@ class ActivitiesApi(object):
     def create_activity_occurrence(self, **kwargs):
         """
         Create a new activity occurrence. Ex: start a game
-        Has to enforce extra rules if not used as an admin
+        Has to enforce extra rules if not used as an admin. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_activity_occurrence(async=True)
@@ -154,7 +266,7 @@ class ActivitiesApi(object):
     def create_activity_occurrence_with_http_info(self, **kwargs):
         """
         Create a new activity occurrence. Ex: start a game
-        Has to enforce extra rules if not used as an admin
+        Has to enforce extra rules if not used as an admin. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_activity_occurrence_with_http_info(async=True)
@@ -230,7 +342,7 @@ class ActivitiesApi(object):
     def create_activity_template(self, **kwargs):
         """
         Create a activity template
-        Activity Templates define a type of activity and the properties they have
+        Activity Templates define a type of activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_activity_template(async=True)
@@ -252,7 +364,7 @@ class ActivitiesApi(object):
     def create_activity_template_with_http_info(self, **kwargs):
         """
         Create a activity template
-        Activity Templates define a type of activity and the properties they have
+        Activity Templates define a type of activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_activity_template_with_http_info(async=True)
@@ -325,6 +437,7 @@ class ActivitiesApi(object):
     def delete_activity(self, id, **kwargs):
         """
         Delete an activity
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_activity(id, async=True)
@@ -346,6 +459,7 @@ class ActivitiesApi(object):
     def delete_activity_with_http_info(self, id, **kwargs):
         """
         Delete an activity
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_activity_with_http_info(id, async=True)
@@ -396,10 +510,6 @@ class ActivitiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -421,7 +531,7 @@ class ActivitiesApi(object):
     def delete_activity_template(self, id, **kwargs):
         """
         Delete a activity template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_activity_template(id, async=True)
@@ -444,7 +554,7 @@ class ActivitiesApi(object):
     def delete_activity_template_with_http_info(self, id, **kwargs):
         """
         Delete a activity template
-        If cascade = 'detach', it will force delete the template even if it's attached to other objects
+        If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_activity_template_with_http_info(id, async=True)
@@ -498,10 +608,6 @@ class ActivitiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -523,6 +629,7 @@ class ActivitiesApi(object):
     def get_activities(self, **kwargs):
         """
         List activity definitions
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activities(async=True)
@@ -549,6 +656,7 @@ class ActivitiesApi(object):
     def get_activities_with_http_info(self, **kwargs):
         """
         List activity definitions
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activities_with_http_info(async=True)
@@ -611,10 +719,6 @@ class ActivitiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -636,6 +740,7 @@ class ActivitiesApi(object):
     def get_activity(self, id, **kwargs):
         """
         Get a single activity
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity(id, async=True)
@@ -657,6 +762,7 @@ class ActivitiesApi(object):
     def get_activity_with_http_info(self, id, **kwargs):
         """
         Get a single activity
+        <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_with_http_info(id, async=True)
@@ -707,10 +813,6 @@ class ActivitiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -732,6 +834,7 @@ class ActivitiesApi(object):
     def get_activity_occurrence_details(self, activity_occurrence_id, **kwargs):
         """
         Load a single activity occurrence details
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_occurrence_details(activity_occurrence_id, async=True)
@@ -753,6 +856,7 @@ class ActivitiesApi(object):
     def get_activity_occurrence_details_with_http_info(self, activity_occurrence_id, **kwargs):
         """
         Load a single activity occurrence details
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_occurrence_details_with_http_info(activity_occurrence_id, async=True)
@@ -803,10 +907,6 @@ class ActivitiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -828,6 +928,7 @@ class ActivitiesApi(object):
     def get_activity_template(self, id, **kwargs):
         """
         Get a single activity template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_template(id, async=True)
@@ -849,6 +950,7 @@ class ActivitiesApi(object):
     def get_activity_template_with_http_info(self, id, **kwargs):
         """
         Get a single activity template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_template_with_http_info(id, async=True)
@@ -899,10 +1001,6 @@ class ActivitiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -924,6 +1022,7 @@ class ActivitiesApi(object):
     def get_activity_templates(self, **kwargs):
         """
         List and search activity templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_templates(async=True)
@@ -947,6 +1046,7 @@ class ActivitiesApi(object):
     def get_activity_templates_with_http_info(self, **kwargs):
         """
         List and search activity templates
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_templates_with_http_info(async=True)
@@ -1000,10 +1100,6 @@ class ActivitiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1025,6 +1121,7 @@ class ActivitiesApi(object):
     def list_activity_occurrences(self, **kwargs):
         """
         List activity occurrences
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.list_activity_occurrences(async=True)
@@ -1032,7 +1129,7 @@ class ActivitiesApi(object):
 
         :param async bool
         :param str filter_activity: Filter for occurrences of the given activity ID
-        :param str filter_status: Filter for occurrences of the given activity ID
+        :param str filter_status: Filter for occurrences in the given status
         :param int filter_event: Filter for occurrences played during the given event
         :param int filter_challenge: Filter for occurrences played within the given challenge
         :param int size: The number of objects returned per page
@@ -1052,6 +1149,7 @@ class ActivitiesApi(object):
     def list_activity_occurrences_with_http_info(self, **kwargs):
         """
         List activity occurrences
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.list_activity_occurrences_with_http_info(async=True)
@@ -1059,7 +1157,7 @@ class ActivitiesApi(object):
 
         :param async bool
         :param str filter_activity: Filter for occurrences of the given activity ID
-        :param str filter_status: Filter for occurrences of the given activity ID
+        :param str filter_status: Filter for occurrences in the given status
         :param int filter_event: Filter for occurrences played during the given event
         :param int filter_challenge: Filter for occurrences played within the given challenge
         :param int size: The number of objects returned per page
@@ -1117,10 +1215,6 @@ class ActivitiesApi(object):
         header_params['Accept'] = self.api_client.\
             select_header_accept(['application/json'])
 
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
-
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
@@ -1139,9 +1233,117 @@ class ActivitiesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def remove_user(self, activity_occurrence_id, user_id, **kwargs):
+        """
+        Remove a user from an occurrence
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_user(activity_occurrence_id, user_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int activity_occurrence_id: The id of the activity occurrence (required)
+        :param str user_id: The id of the user, or 'me' (required)
+        :param bool ban: if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin
+        :param bool bypass_restrictions: if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.remove_user_with_http_info(activity_occurrence_id, user_id, **kwargs)
+        else:
+            (data) = self.remove_user_with_http_info(activity_occurrence_id, user_id, **kwargs)
+            return data
+
+    def remove_user_with_http_info(self, activity_occurrence_id, user_id, **kwargs):
+        """
+        Remove a user from an occurrence
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.remove_user_with_http_info(activity_occurrence_id, user_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int activity_occurrence_id: The id of the activity occurrence (required)
+        :param str user_id: The id of the user, or 'me' (required)
+        :param bool ban: if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin
+        :param bool bypass_restrictions: if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['activity_occurrence_id', 'user_id', 'ban', 'bypass_restrictions']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_user" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'activity_occurrence_id' is set
+        if ('activity_occurrence_id' not in params) or (params['activity_occurrence_id'] is None):
+            raise ValueError("Missing the required parameter `activity_occurrence_id` when calling `remove_user`")
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `remove_user`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'activity_occurrence_id' in params:
+            path_params['activity_occurrence_id'] = params['activity_occurrence_id']
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = []
+        if 'ban' in params:
+            query_params.append(('ban', params['ban']))
+        if 'bypass_restrictions' in params:
+            query_params.append(('bypass_restrictions', params['bypass_restrictions']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/activity-occurrences/{activity_occurrence_id}/users/{user_id}', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def set_activity_occurrence_results(self, activity_occurrence_id, **kwargs):
         """
         Sets the status of an activity occurrence to FINISHED and logs metrics
+        In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_activity_occurrence_results(activity_occurrence_id, async=True)
@@ -1164,6 +1366,7 @@ class ActivitiesApi(object):
     def set_activity_occurrence_results_with_http_info(self, activity_occurrence_id, **kwargs):
         """
         Sets the status of an activity occurrence to FINISHED and logs metrics
+        In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_activity_occurrence_results_with_http_info(activity_occurrence_id, async=True)
@@ -1239,9 +1442,217 @@ class ActivitiesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def set_activity_occurrence_settings(self, activity_occurrence_id, **kwargs):
+        """
+        Sets the settings of an activity occurrence
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_activity_occurrence_settings(activity_occurrence_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int activity_occurrence_id: The id of the activity occurrence (required)
+        :param ActivityOccurrenceSettingsResource settings: The new settings
+        :return: ActivityOccurrenceResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.set_activity_occurrence_settings_with_http_info(activity_occurrence_id, **kwargs)
+        else:
+            (data) = self.set_activity_occurrence_settings_with_http_info(activity_occurrence_id, **kwargs)
+            return data
+
+    def set_activity_occurrence_settings_with_http_info(self, activity_occurrence_id, **kwargs):
+        """
+        Sets the settings of an activity occurrence
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_activity_occurrence_settings_with_http_info(activity_occurrence_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int activity_occurrence_id: The id of the activity occurrence (required)
+        :param ActivityOccurrenceSettingsResource settings: The new settings
+        :return: ActivityOccurrenceResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['activity_occurrence_id', 'settings']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_activity_occurrence_settings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'activity_occurrence_id' is set
+        if ('activity_occurrence_id' not in params) or (params['activity_occurrence_id'] is None):
+            raise ValueError("Missing the required parameter `activity_occurrence_id` when calling `set_activity_occurrence_settings`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'activity_occurrence_id' in params:
+            path_params['activity_occurrence_id'] = params['activity_occurrence_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'settings' in params:
+            body_params = params['settings']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/activity-occurrences/{activity_occurrence_id}/settings', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ActivityOccurrenceResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def set_user_status(self, activity_occurrence_id, user_id, **kwargs):
+        """
+        Set a user's status within an occurrence
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_user_status(activity_occurrence_id, user_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int activity_occurrence_id: The id of the activity occurrence (required)
+        :param str user_id: The id of the user (required)
+        :param str status: The new status
+        :return: ActivityUserResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.set_user_status_with_http_info(activity_occurrence_id, user_id, **kwargs)
+        else:
+            (data) = self.set_user_status_with_http_info(activity_occurrence_id, user_id, **kwargs)
+            return data
+
+    def set_user_status_with_http_info(self, activity_occurrence_id, user_id, **kwargs):
+        """
+        Set a user's status within an occurrence
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.set_user_status_with_http_info(activity_occurrence_id, user_id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int activity_occurrence_id: The id of the activity occurrence (required)
+        :param str user_id: The id of the user (required)
+        :param str status: The new status
+        :return: ActivityUserResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['activity_occurrence_id', 'user_id', 'status']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_user_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'activity_occurrence_id' is set
+        if ('activity_occurrence_id' not in params) or (params['activity_occurrence_id'] is None):
+            raise ValueError("Missing the required parameter `activity_occurrence_id` when calling `set_user_status`")
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in params) or (params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `set_user_status`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'activity_occurrence_id' in params:
+            path_params['activity_occurrence_id'] = params['activity_occurrence_id']
+        if 'user_id' in params:
+            path_params['user_id'] = params['user_id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'status' in params:
+            body_params = params['status']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/activity-occurrences/{activity_occurrence_id}/users/{user_id}/status', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='ActivityUserResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def update_activity(self, id, **kwargs):
         """
         Update an activity
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_activity(id, async=True)
@@ -1264,6 +1675,7 @@ class ActivitiesApi(object):
     def update_activity_with_http_info(self, id, **kwargs):
         """
         Update an activity
+        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_activity_with_http_info(id, async=True)
@@ -1339,41 +1751,41 @@ class ActivitiesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def update_activity_occurrence(self, activity_occurrence_id, **kwargs):
+    def update_activity_occurrence_status(self, activity_occurrence_id, **kwargs):
         """
-        Updated the status of an activity occurrence
-        If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Aternatively, see results endpoint to finish and record all metrics at once.
+        Update the status of an activity occurrence
+        If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_activity_occurrence(activity_occurrence_id, async=True)
+        >>> thread = api.update_activity_occurrence_status(activity_occurrence_id, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
-        :param str activity_occurrence_status: The activity occurrence status object
+        :param ValueWrapperstring activity_occurrence_status: The activity occurrence status object
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.update_activity_occurrence_with_http_info(activity_occurrence_id, **kwargs)
+            return self.update_activity_occurrence_status_with_http_info(activity_occurrence_id, **kwargs)
         else:
-            (data) = self.update_activity_occurrence_with_http_info(activity_occurrence_id, **kwargs)
+            (data) = self.update_activity_occurrence_status_with_http_info(activity_occurrence_id, **kwargs)
             return data
 
-    def update_activity_occurrence_with_http_info(self, activity_occurrence_id, **kwargs):
+    def update_activity_occurrence_status_with_http_info(self, activity_occurrence_id, **kwargs):
         """
-        Updated the status of an activity occurrence
-        If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Aternatively, see results endpoint to finish and record all metrics at once.
+        Update the status of an activity occurrence
+        If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.update_activity_occurrence_with_http_info(activity_occurrence_id, async=True)
+        >>> thread = api.update_activity_occurrence_status_with_http_info(activity_occurrence_id, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
-        :param str activity_occurrence_status: The activity occurrence status object
+        :param ValueWrapperstring activity_occurrence_status: The activity occurrence status object
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1390,13 +1802,13 @@ class ActivitiesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_activity_occurrence" % key
+                    " to method update_activity_occurrence_status" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'activity_occurrence_id' is set
         if ('activity_occurrence_id' not in params) or (params['activity_occurrence_id'] is None):
-            raise ValueError("Missing the required parameter `activity_occurrence_id` when calling `update_activity_occurrence`")
+            raise ValueError("Missing the required parameter `activity_occurrence_id` when calling `update_activity_occurrence_status`")
 
 
         collection_formats = {}
@@ -1444,6 +1856,7 @@ class ActivitiesApi(object):
     def update_activity_template(self, id, **kwargs):
         """
         Update an activity template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_activity_template(id, async=True)
@@ -1466,6 +1879,7 @@ class ActivitiesApi(object):
     def update_activity_template_with_http_info(self, id, **kwargs):
         """
         Update an activity template
+        <b>Permissions Needed:</b> TEMPLATE_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_activity_template_with_http_info(id, async=True)

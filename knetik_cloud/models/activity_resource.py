@@ -32,6 +32,7 @@ class ActivityResource(object):
     """
     swagger_types = {
         'additional_properties': 'dict(str, ModelProperty)',
+        'core_settings': 'CoreActivitySettings',
         'created_date': 'int',
         'entitlements': 'list[ActivityEntitlementResource]',
         'id': 'int',
@@ -51,6 +52,7 @@ class ActivityResource(object):
 
     attribute_map = {
         'additional_properties': 'additional_properties',
+        'core_settings': 'core_settings',
         'created_date': 'created_date',
         'entitlements': 'entitlements',
         'id': 'id',
@@ -68,12 +70,13 @@ class ActivityResource(object):
         'updated_date': 'updated_date'
     }
 
-    def __init__(self, additional_properties=None, created_date=None, entitlements=None, id=None, launch=None, leaderboard_strategy=None, long_description=None, name=None, reward_set=None, settings=None, short_description=None, template=None, template_id=None, type=None, unique_key=None, updated_date=None):
+    def __init__(self, additional_properties=None, core_settings=None, created_date=None, entitlements=None, id=None, launch=None, leaderboard_strategy=None, long_description=None, name=None, reward_set=None, settings=None, short_description=None, template=None, template_id=None, type=None, unique_key=None, updated_date=None):
         """
         ActivityResource - a model defined in Swagger
         """
 
         self._additional_properties = None
+        self._core_settings = None
         self._created_date = None
         self._entitlements = None
         self._id = None
@@ -93,6 +96,8 @@ class ActivityResource(object):
 
         if additional_properties is not None:
           self.additional_properties = additional_properties
+        if core_settings is not None:
+          self.core_settings = core_settings
         if created_date is not None:
           self.created_date = created_date
         if entitlements is not None:
@@ -116,7 +121,8 @@ class ActivityResource(object):
           self.template = template
         if template_id is not None:
           self.template_id = template_id
-        self.type = type
+        if type is not None:
+          self.type = type
         if unique_key is not None:
           self.unique_key = unique_key
         if updated_date is not None:
@@ -144,6 +150,29 @@ class ActivityResource(object):
         """
 
         self._additional_properties = additional_properties
+
+    @property
+    def core_settings(self):
+        """
+        Gets the core_settings of this ActivityResource.
+        Defines core settings about the activity that affect how it can be created/played by users.
+
+        :return: The core_settings of this ActivityResource.
+        :rtype: CoreActivitySettings
+        """
+        return self._core_settings
+
+    @core_settings.setter
+    def core_settings(self, core_settings):
+        """
+        Sets the core_settings of this ActivityResource.
+        Defines core settings about the activity that affect how it can be created/played by users.
+
+        :param core_settings: The core_settings of this ActivityResource.
+        :type: CoreActivitySettings
+        """
+
+        self._core_settings = core_settings
 
     @property
     def created_date(self):
@@ -443,8 +472,6 @@ class ActivityResource(object):
         :param type: The type of this ActivityResource.
         :type: str
         """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")
 
         self._type = type
 

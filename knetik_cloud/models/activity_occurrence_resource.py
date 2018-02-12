@@ -32,10 +32,13 @@ class ActivityOccurrenceResource(object):
     """
     swagger_types = {
         'activity_id': 'int',
+        'bans': 'list[int]',
         'challenge_activity_id': 'int',
+        'core_settings': 'CoreActivityOccurrenceSettings',
         'created_date': 'int',
         'entitlement': 'ActivityEntitlementResource',
         'event_id': 'int',
+        'host': 'SimpleUserResource',
         'id': 'int',
         'reward_status': 'str',
         'settings': 'list[SelectedSettingResource]',
@@ -48,10 +51,13 @@ class ActivityOccurrenceResource(object):
 
     attribute_map = {
         'activity_id': 'activity_id',
+        'bans': 'bans',
         'challenge_activity_id': 'challenge_activity_id',
+        'core_settings': 'core_settings',
         'created_date': 'created_date',
         'entitlement': 'entitlement',
         'event_id': 'event_id',
+        'host': 'host',
         'id': 'id',
         'reward_status': 'reward_status',
         'settings': 'settings',
@@ -62,16 +68,19 @@ class ActivityOccurrenceResource(object):
         'users': 'users'
     }
 
-    def __init__(self, activity_id=None, challenge_activity_id=None, created_date=None, entitlement=None, event_id=None, id=None, reward_status=None, settings=None, simulated=None, start_date=None, status=None, updated_date=None, users=None):
+    def __init__(self, activity_id=None, bans=None, challenge_activity_id=None, core_settings=None, created_date=None, entitlement=None, event_id=None, host=None, id=None, reward_status=None, settings=None, simulated=None, start_date=None, status=None, updated_date=None, users=None):
         """
         ActivityOccurrenceResource - a model defined in Swagger
         """
 
         self._activity_id = None
+        self._bans = None
         self._challenge_activity_id = None
+        self._core_settings = None
         self._created_date = None
         self._entitlement = None
         self._event_id = None
+        self._host = None
         self._id = None
         self._reward_status = None
         self._settings = None
@@ -83,14 +92,20 @@ class ActivityOccurrenceResource(object):
         self.discriminator = None
 
         self.activity_id = activity_id
+        if bans is not None:
+          self.bans = bans
         if challenge_activity_id is not None:
           self.challenge_activity_id = challenge_activity_id
+        if core_settings is not None:
+          self.core_settings = core_settings
         if created_date is not None:
           self.created_date = created_date
         if entitlement is not None:
           self.entitlement = entitlement
         if event_id is not None:
           self.event_id = event_id
+        if host is not None:
+          self.host = host
         if id is not None:
           self.id = id
         if reward_status is not None:
@@ -134,6 +149,29 @@ class ActivityOccurrenceResource(object):
         self._activity_id = activity_id
 
     @property
+    def bans(self):
+        """
+        Gets the bans of this ActivityOccurrenceResource.
+        The ids of banned users that cannot join the occurrence. See occurrence-user delete endpoint
+
+        :return: The bans of this ActivityOccurrenceResource.
+        :rtype: list[int]
+        """
+        return self._bans
+
+    @bans.setter
+    def bans(self, bans):
+        """
+        Sets the bans of this ActivityOccurrenceResource.
+        The ids of banned users that cannot join the occurrence. See occurrence-user delete endpoint
+
+        :param bans: The bans of this ActivityOccurrenceResource.
+        :type: list[int]
+        """
+
+        self._bans = bans
+
+    @property
     def challenge_activity_id(self):
         """
         Gets the challenge_activity_id of this ActivityOccurrenceResource.
@@ -155,6 +193,29 @@ class ActivityOccurrenceResource(object):
         """
 
         self._challenge_activity_id = challenge_activity_id
+
+    @property
+    def core_settings(self):
+        """
+        Gets the core_settings of this ActivityOccurrenceResource.
+        Defines core settings about the activity occurrence that affect how it behaves in the system. Validated against core settings in activity/challenge-activity.
+
+        :return: The core_settings of this ActivityOccurrenceResource.
+        :rtype: CoreActivityOccurrenceSettings
+        """
+        return self._core_settings
+
+    @core_settings.setter
+    def core_settings(self, core_settings):
+        """
+        Sets the core_settings of this ActivityOccurrenceResource.
+        Defines core settings about the activity occurrence that affect how it behaves in the system. Validated against core settings in activity/challenge-activity.
+
+        :param core_settings: The core_settings of this ActivityOccurrenceResource.
+        :type: CoreActivityOccurrenceSettings
+        """
+
+        self._core_settings = core_settings
 
     @property
     def created_date(self):
@@ -224,6 +285,29 @@ class ActivityOccurrenceResource(object):
         """
 
         self._event_id = event_id
+
+    @property
+    def host(self):
+        """
+        Gets the host of this ActivityOccurrenceResource.
+        The host of the occurrence, if not a participant (will be left out of users array). Must be the caller that creates the occurrence unless admin. Requires activity/challenge to allow host_option of 'non_player' if not admin as well
+
+        :return: The host of this ActivityOccurrenceResource.
+        :rtype: SimpleUserResource
+        """
+        return self._host
+
+    @host.setter
+    def host(self, host):
+        """
+        Sets the host of this ActivityOccurrenceResource.
+        The host of the occurrence, if not a participant (will be left out of users array). Must be the caller that creates the occurrence unless admin. Requires activity/challenge to allow host_option of 'non_player' if not admin as well
+
+        :param host: The host of this ActivityOccurrenceResource.
+        :type: SimpleUserResource
+        """
+
+        self._host = host
 
     @property
     def id(self):
@@ -366,7 +450,7 @@ class ActivityOccurrenceResource(object):
         :param status: The status of this ActivityOccurrenceResource.
         :type: str
         """
-        allowed_values = ["SETUP", "OPEN", "PLAYING", "FINISHED", "ABANDONED"]
+        allowed_values = ["SETUP", "OPEN", "LAUNCHING", "PLAYING", "FINISHED", "ABANDONED"]
         if status not in allowed_values:
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"
