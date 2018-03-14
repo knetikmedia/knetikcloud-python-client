@@ -823,6 +823,7 @@ class UsersGroupsApi(object):
     def disable_group_notification(self, unique_name, user_id, disabled, **kwargs):
         """
         Enable or disable notification of group messages
+        <b>Permissions Needed:</b> TOPICS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.disable_group_notification(unique_name, user_id, disabled, async=True)
@@ -846,6 +847,7 @@ class UsersGroupsApi(object):
     def disable_group_notification_with_http_info(self, unique_name, user_id, disabled, **kwargs):
         """
         Enable or disable notification of group messages
+        <b>Permissions Needed:</b> TOPICS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.disable_group_notification_with_http_info(unique_name, user_id, disabled, async=True)
@@ -2573,7 +2575,7 @@ class UsersGroupsApi(object):
         :param async bool
         :param str unique_name: The group unique name (required)
         :param int user_id: The user id of the member to modify (required)
-        :param str status: The new status for the user (required)
+        :param GroupMemberStatusWrapper status: The new status for the user (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2597,7 +2599,7 @@ class UsersGroupsApi(object):
         :param async bool
         :param str unique_name: The group unique name (required)
         :param int user_id: The user id of the member to modify (required)
-        :param str status: The new status for the user (required)
+        :param GroupMemberStatusWrapper status: The new status for the user (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

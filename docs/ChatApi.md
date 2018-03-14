@@ -1,6 +1,6 @@
 # knetik_cloud.ChatApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**get_thread_messages**](ChatApi.md#get_thread_messages) | **GET** /chat/threads/{id}/messages | List messages in a thread
 [**get_topic_messages**](ChatApi.md#get_topic_messages) | **GET** /chat/topics/{id}/messages | List messages in a topic
 [**remove_chat_blacklist**](ChatApi.md#remove_chat_blacklist) | **DELETE** /chat/users/{id}/blacklist/{blacklisted_user_id} | Remove a user from a blacklist
-[**send_message**](ChatApi.md#send_message) | **POST** /chat/messages | Send a message
+[**send_chat_message**](ChatApi.md#send_chat_message) | **POST** /chat/messages | Send a message
 
 
 # **acknowledge_chat_message**
@@ -648,8 +648,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **send_message**
-> ChatMessageResource send_message(chat_message_resource=chat_message_resource)
+# **send_chat_message**
+> ChatMessageResource send_chat_message(chat_message_resource=chat_message_resource)
 
 Send a message
 
@@ -676,10 +676,10 @@ chat_message_resource = knetik_cloud.ChatMessageResource() # ChatMessageResource
 
 try: 
     # Send a message
-    api_response = api_instance.send_message(chat_message_resource=chat_message_resource)
+    api_response = api_instance.send_chat_message(chat_message_resource=chat_message_resource)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ChatApi->send_message: %s\n" % e)
+    print("Exception when calling ChatApi->send_chat_message: %s\n" % e)
 ```
 
 ### Parameters

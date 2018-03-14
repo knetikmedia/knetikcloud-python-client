@@ -1,6 +1,6 @@
 # knetik_cloud.NotificationsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,6 +21,8 @@ Method | HTTP request | Description
 > NotificationTypeResource create_notification_type(notification_type=notification_type)
 
 Create a notification type
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Example 
 ```python
@@ -75,6 +77,8 @@ Name | Type | Description  | Notes
 
 Delete a notification type
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -126,6 +130,8 @@ void (empty response body)
 > NotificationTypeResource get_notification_type(id)
 
 Get a single notification type
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Example 
 ```python
@@ -180,7 +186,7 @@ Name | Type | Description  | Notes
 
 List and search notification types
 
-Get a list of notification type with optional filtering
+Get a list of notification type with optional filtering. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Example 
 ```python
@@ -239,6 +245,8 @@ Name | Type | Description  | Notes
 
 View a user's notification settings for a type
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -293,6 +301,8 @@ Name | Type | Description  | Notes
 > PageResourceNotificationUserTypeResource get_user_notification_info_list(user_id, size=size, page=page, order=order)
 
 View a user's notification settings
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Example 
 ```python
@@ -352,6 +362,8 @@ Name | Type | Description  | Notes
 > PageResourceUserNotificationResource get_user_notifications(id, filter_status=filter_status, size=size, page=page, order=order)
 
 Get notifications
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Example 
 ```python
@@ -414,6 +426,8 @@ Name | Type | Description  | Notes
 
 Send a notification
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -467,6 +481,8 @@ Name | Type | Description  | Notes
 
 Set notification status
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
+
 ### Example 
 ```python
 from __future__ import print_function
@@ -486,7 +502,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = knetik_cloud.NotificationsApi(knetik_cloud.ApiClient(configuration))
 user_id = 'user_id_example' # str | The id of the user or 'me'
 notification_id = 'notification_id_example' # str | The id of the notification
-notification = knetik_cloud.ValueWrapperstring() # ValueWrapperstring | status (optional)
+notification = knetik_cloud.UserNotificationStatusWrapper() # UserNotificationStatusWrapper | status (optional)
 
 try: 
     # Set notification status
@@ -501,7 +517,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **str**| The id of the user or &#39;me&#39; | 
  **notification_id** | **str**| The id of the notification | 
- **notification** | [**ValueWrapperstring**](ValueWrapperstring.md)| status | [optional] 
+ **notification** | [**UserNotificationStatusWrapper**](UserNotificationStatusWrapper.md)| status | [optional] 
 
 ### Return type
 
@@ -523,7 +539,7 @@ void (empty response body)
 
 Enable or disable direct notifications for a user
 
-Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there.
+Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Example 
 ```python
@@ -580,6 +596,8 @@ void (empty response body)
 > NotificationTypeResource update_notification_type(id, notification_type=notification_type)
 
 Update a notificationType
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Example 
 ```python

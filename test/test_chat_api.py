@@ -119,9 +119,9 @@ class TestChatApi(unittest.TestCase):
         """
         pass
 
-    def test_send_message(self):
+    def test_send_chat_message(self):
         """
-        Test case for send_message
+        Test case for send_chat_message
 
         Send a message
         """

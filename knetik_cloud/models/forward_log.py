@@ -33,40 +33,58 @@ class ForwardLog(object):
     swagger_types = {
         'end_date': 'int',
         'error_msg': 'str',
+        'event_id': 'str',
+        'headers': 'str',
         'http_status_code': 'int',
         'id': 'str',
+        'method': 'str',
         'payload': 'object',
         'response': 'str',
         'retry_count': 'int',
+        'retryable': 'bool',
+        'rule_id': 'str',
         'start_date': 'int',
+        'success': 'bool',
         'url': 'str'
     }
 
     attribute_map = {
         'end_date': 'end_date',
         'error_msg': 'error_msg',
+        'event_id': 'event_id',
+        'headers': 'headers',
         'http_status_code': 'http_status_code',
         'id': 'id',
+        'method': 'method',
         'payload': 'payload',
         'response': 'response',
         'retry_count': 'retry_count',
+        'retryable': 'retryable',
+        'rule_id': 'rule_id',
         'start_date': 'start_date',
+        'success': 'success',
         'url': 'url'
     }
 
-    def __init__(self, end_date=None, error_msg=None, http_status_code=None, id=None, payload=None, response=None, retry_count=None, start_date=None, url=None):
+    def __init__(self, end_date=None, error_msg=None, event_id=None, headers=None, http_status_code=None, id=None, method=None, payload=None, response=None, retry_count=None, retryable=None, rule_id=None, start_date=None, success=None, url=None):
         """
         ForwardLog - a model defined in Swagger
         """
 
         self._end_date = None
         self._error_msg = None
+        self._event_id = None
+        self._headers = None
         self._http_status_code = None
         self._id = None
+        self._method = None
         self._payload = None
         self._response = None
         self._retry_count = None
+        self._retryable = None
+        self._rule_id = None
         self._start_date = None
+        self._success = None
         self._url = None
         self.discriminator = None
 
@@ -74,18 +92,30 @@ class ForwardLog(object):
           self.end_date = end_date
         if error_msg is not None:
           self.error_msg = error_msg
+        if event_id is not None:
+          self.event_id = event_id
+        if headers is not None:
+          self.headers = headers
         if http_status_code is not None:
           self.http_status_code = http_status_code
         if id is not None:
           self.id = id
+        if method is not None:
+          self.method = method
         if payload is not None:
           self.payload = payload
         if response is not None:
           self.response = response
         if retry_count is not None:
           self.retry_count = retry_count
+        if retryable is not None:
+          self.retryable = retryable
+        if rule_id is not None:
+          self.rule_id = rule_id
         if start_date is not None:
           self.start_date = start_date
+        if success is not None:
+          self.success = success
         if url is not None:
           self.url = url
 
@@ -134,6 +164,48 @@ class ForwardLog(object):
         self._error_msg = error_msg
 
     @property
+    def event_id(self):
+        """
+        Gets the event_id of this ForwardLog.
+
+        :return: The event_id of this ForwardLog.
+        :rtype: str
+        """
+        return self._event_id
+
+    @event_id.setter
+    def event_id(self, event_id):
+        """
+        Sets the event_id of this ForwardLog.
+
+        :param event_id: The event_id of this ForwardLog.
+        :type: str
+        """
+
+        self._event_id = event_id
+
+    @property
+    def headers(self):
+        """
+        Gets the headers of this ForwardLog.
+
+        :return: The headers of this ForwardLog.
+        :rtype: str
+        """
+        return self._headers
+
+    @headers.setter
+    def headers(self, headers):
+        """
+        Sets the headers of this ForwardLog.
+
+        :param headers: The headers of this ForwardLog.
+        :type: str
+        """
+
+        self._headers = headers
+
+    @property
     def http_status_code(self):
         """
         Gets the http_status_code of this ForwardLog.
@@ -178,6 +250,27 @@ class ForwardLog(object):
         """
 
         self._id = id
+
+    @property
+    def method(self):
+        """
+        Gets the method of this ForwardLog.
+
+        :return: The method of this ForwardLog.
+        :rtype: str
+        """
+        return self._method
+
+    @method.setter
+    def method(self, method):
+        """
+        Sets the method of this ForwardLog.
+
+        :param method: The method of this ForwardLog.
+        :type: str
+        """
+
+        self._method = method
 
     @property
     def payload(self):
@@ -249,6 +342,48 @@ class ForwardLog(object):
         self._retry_count = retry_count
 
     @property
+    def retryable(self):
+        """
+        Gets the retryable of this ForwardLog.
+
+        :return: The retryable of this ForwardLog.
+        :rtype: bool
+        """
+        return self._retryable
+
+    @retryable.setter
+    def retryable(self, retryable):
+        """
+        Sets the retryable of this ForwardLog.
+
+        :param retryable: The retryable of this ForwardLog.
+        :type: bool
+        """
+
+        self._retryable = retryable
+
+    @property
+    def rule_id(self):
+        """
+        Gets the rule_id of this ForwardLog.
+
+        :return: The rule_id of this ForwardLog.
+        :rtype: str
+        """
+        return self._rule_id
+
+    @rule_id.setter
+    def rule_id(self, rule_id):
+        """
+        Sets the rule_id of this ForwardLog.
+
+        :param rule_id: The rule_id of this ForwardLog.
+        :type: str
+        """
+
+        self._rule_id = rule_id
+
+    @property
     def start_date(self):
         """
         Gets the start_date of this ForwardLog.
@@ -270,6 +405,27 @@ class ForwardLog(object):
         """
 
         self._start_date = start_date
+
+    @property
+    def success(self):
+        """
+        Gets the success of this ForwardLog.
+
+        :return: The success of this ForwardLog.
+        :rtype: bool
+        """
+        return self._success
+
+    @success.setter
+    def success(self, success):
+        """
+        Sets the success of this ForwardLog.
+
+        :param success: The success of this ForwardLog.
+        :type: bool
+        """
+
+        self._success = success
 
     @property
     def url(self):

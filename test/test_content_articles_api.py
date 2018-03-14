@@ -47,6 +47,14 @@ class TestContentArticlesApi(unittest.TestCase):
         """
         pass
 
+    def test_create_template(self):
+        """
+        Test case for create_template
+
+        Create a template
+        """
+        pass
+
     def test_delete_article(self):
         """
         Test case for delete_article
@@ -60,6 +68,14 @@ class TestContentArticlesApi(unittest.TestCase):
         Test case for delete_article_template
 
         Delete an article template
+        """
+        pass
+
+    def test_delete_template(self):
+        """
+        Test case for delete_template
+
+        Delete a template
         """
         pass
 
@@ -95,6 +111,22 @@ class TestContentArticlesApi(unittest.TestCase):
         """
         pass
 
+    def test_get_template(self):
+        """
+        Test case for get_template
+
+        Get a template
+        """
+        pass
+
+    def test_get_templates(self):
+        """
+        Test case for get_templates
+
+        List and search templates
+        """
+        pass
+
     def test_update_article(self):
         """
         Test case for update_article
@@ -108,6 +140,22 @@ class TestContentArticlesApi(unittest.TestCase):
         Test case for update_article_template
 
         Update an article template
+        """
+        pass
+
+    def test_update_template(self):
+        """
+        Test case for update_template
+
+        Update a template
+        """
+        pass
+
+    def test_validate(self):
+        """
+        Test case for validate
+
+        Validate a templated resource
         """
         pass
 

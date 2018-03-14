@@ -1,12 +1,11 @@
 # knetik_cloud.MessagingTopicsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**disable_topic_subscriber**](MessagingTopicsApi.md#disable_topic_subscriber) | **PUT** /messaging/topics/{id}/subscribers/{user_id}/disabled | Enable or disable messages for a user
 [**get_topic_subscriber**](MessagingTopicsApi.md#get_topic_subscriber) | **GET** /messaging/topics/{id}/subscribers/{user_id} | Get a subscriber to a topic
-[**get_topic_subscribers**](MessagingTopicsApi.md#get_topic_subscribers) | **GET** /messaging/topics/{id}/subscribers | Get all subscribers to a topic
 [**get_user_topics**](MessagingTopicsApi.md#get_user_topics) | **GET** /users/{id}/topics | Get all messaging topics for a given user
 
 
@@ -15,7 +14,7 @@ Method | HTTP request | Description
 
 Enable or disable messages for a user
 
-Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options.
+Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options. <br><br><b>Permissions Needed:</b> TOPICS_ADMIN or self
 
 ### Example 
 ```python
@@ -73,7 +72,7 @@ void (empty response body)
 
 Get a subscriber to a topic
 
-<b>Permissions Needed:</b> TOPICS_ADMIN
+<b>Permissions Needed:</b> TOPICS_ADMIN or self
 
 ### Example 
 ```python
@@ -125,67 +124,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_topic_subscribers**
-> PageResourceTopicSubscriberResource get_topic_subscribers(id)
-
-Get all subscribers to a topic
-
-<b>Permissions Needed:</b> TOPICS_ADMIN
-
-### Example 
-```python
-from __future__ import print_function
-import time
-import knetik_cloud
-from knetik_cloud.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-# Configure OAuth2 access token for authorization: oauth2_password_grant
-configuration = knetik_cloud.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# create an instance of the API class
-api_instance = knetik_cloud.MessagingTopicsApi(knetik_cloud.ApiClient(configuration))
-id = 'id_example' # str | The id of the topic
-
-try: 
-    # Get all subscribers to a topic
-    api_response = api_instance.get_topic_subscribers(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MessagingTopicsApi->get_topic_subscribers: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **str**| The id of the topic | 
-
-### Return type
-
-[**PageResourceTopicSubscriberResource**](PageResourceTopicSubscriberResource.md)
-
-### Authorization
-
-[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_user_topics**
 > PageResourceTopicResource get_user_topics(id)
 
 Get all messaging topics for a given user
 
-<b>Permissions Needed:</b> TOPICS_ADMIN
+<b>Permissions Needed:</b> TOPICS_ADMIN or self
 
 ### Example 
 ```python

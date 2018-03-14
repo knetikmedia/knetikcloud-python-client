@@ -572,7 +572,7 @@ class UsersSubscriptionsApi(object):
         :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
-        :param StringWrapper status: The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended') (required)
+        :param SubscriptionStatusWrapper status: The new status for the subscription (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -596,7 +596,7 @@ class UsersSubscriptionsApi(object):
         :param async bool
         :param int user_id: The id of the user (required)
         :param int inventory_id: The id of the user's inventory (required)
-        :param StringWrapper status: The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended') (required)
+        :param SubscriptionStatusWrapper status: The new status for the subscription (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

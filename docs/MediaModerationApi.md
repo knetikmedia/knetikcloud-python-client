@@ -1,6 +1,6 @@
 # knetik_cloud.MediaModerationApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderation_reports**
-> PageResourceFlagReportResource get_moderation_reports(exclude_resolved=exclude_resolved, filter_context=filter_context, filter_context_id=filter_context_id, size=size, page=page)
+> PageResourceFlagReportResource get_moderation_reports(exclude_resolved=exclude_resolved, filter_context=filter_context, filter_context_id=filter_context_id, size=size, page=page, order=order)
 
 Returns a page of flag reports
 
@@ -272,10 +272,11 @@ filter_context = 'filter_context_example' # str | Filter by moderation context (
 filter_context_id = 'filter_context_id_example' # str | Filter by moderation context ID (optional)
 size = 25 # int | The number of objects returned per page (optional) (default to 25)
 page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
+order = 'order_example' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional)
 
 try: 
     # Returns a page of flag reports
-    api_response = api_instance.get_moderation_reports(exclude_resolved=exclude_resolved, filter_context=filter_context, filter_context_id=filter_context_id, size=size, page=page)
+    api_response = api_instance.get_moderation_reports(exclude_resolved=exclude_resolved, filter_context=filter_context, filter_context_id=filter_context_id, size=size, page=page, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling MediaModerationApi->get_moderation_reports: %s\n" % e)
@@ -290,6 +291,7 @@ Name | Type | Description  | Notes
  **filter_context_id** | **str**| Filter by moderation context ID | [optional] 
  **size** | **int**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
 
 ### Return type
 

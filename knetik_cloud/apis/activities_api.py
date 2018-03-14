@@ -834,7 +834,7 @@ class ActivitiesApi(object):
     def get_activity_occurrence_details(self, activity_occurrence_id, **kwargs):
         """
         Load a single activity occurrence details
-        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
+        <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_occurrence_details(activity_occurrence_id, async=True)
@@ -856,7 +856,7 @@ class ActivitiesApi(object):
     def get_activity_occurrence_details_with_http_info(self, activity_occurrence_id, **kwargs):
         """
         Load a single activity occurrence details
-        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
+        <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_activity_occurrence_details_with_http_info(activity_occurrence_id, async=True)
@@ -1121,7 +1121,7 @@ class ActivitiesApi(object):
     def list_activity_occurrences(self, **kwargs):
         """
         List activity occurrences
-        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
+        <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.list_activity_occurrences(async=True)
@@ -1149,7 +1149,7 @@ class ActivitiesApi(object):
     def list_activity_occurrences_with_http_info(self, **kwargs):
         """
         List activity occurrences
-        <b>Permissions Needed:</b> ACTIVITIES_ADMIN
+        <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.list_activity_occurrences_with_http_info(async=True)
@@ -1343,7 +1343,7 @@ class ActivitiesApi(object):
     def set_activity_occurrence_results(self, activity_occurrence_id, **kwargs):
         """
         Sets the status of an activity occurrence to FINISHED and logs metrics
-        In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
+        In addition to user permissions requirements there is security based on the core_settings.results_trust setting. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_activity_occurrence_results(activity_occurrence_id, async=True)
@@ -1366,7 +1366,7 @@ class ActivitiesApi(object):
     def set_activity_occurrence_results_with_http_info(self, activity_occurrence_id, **kwargs):
         """
         Sets the status of an activity occurrence to FINISHED and logs metrics
-        In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
+        In addition to user permissions requirements there is security based on the core_settings.results_trust setting. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_activity_occurrence_results_with_http_info(activity_occurrence_id, async=True)
@@ -1445,6 +1445,7 @@ class ActivitiesApi(object):
     def set_activity_occurrence_settings(self, activity_occurrence_id, **kwargs):
         """
         Sets the settings of an activity occurrence
+        <b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_activity_occurrence_settings(activity_occurrence_id, async=True)
@@ -1467,6 +1468,7 @@ class ActivitiesApi(object):
     def set_activity_occurrence_settings_with_http_info(self, activity_occurrence_id, **kwargs):
         """
         Sets the settings of an activity occurrence
+        <b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_activity_occurrence_settings_with_http_info(activity_occurrence_id, async=True)
@@ -1553,7 +1555,7 @@ class ActivitiesApi(object):
         :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
         :param str user_id: The id of the user (required)
-        :param str status: The new status
+        :param ActivityUserStatusWrapper status: The new status
         :return: ActivityUserResource
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1576,7 +1578,7 @@ class ActivitiesApi(object):
         :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
         :param str user_id: The id of the user (required)
-        :param str status: The new status
+        :param ActivityUserStatusWrapper status: The new status
         :return: ActivityUserResource
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1754,7 +1756,7 @@ class ActivitiesApi(object):
     def update_activity_occurrence_status(self, activity_occurrence_id, **kwargs):
         """
         Update the status of an activity occurrence
-        If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
+        If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_activity_occurrence_status(activity_occurrence_id, async=True)
@@ -1762,7 +1764,7 @@ class ActivitiesApi(object):
 
         :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
-        :param ValueWrapperstring activity_occurrence_status: The activity occurrence status object
+        :param ActivityOccurrenceStatusWrapper activity_occurrence_status: The activity occurrence status object
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1777,7 +1779,7 @@ class ActivitiesApi(object):
     def update_activity_occurrence_status_with_http_info(self, activity_occurrence_id, **kwargs):
         """
         Update the status of an activity occurrence
-        If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
+        If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_activity_occurrence_status_with_http_info(activity_occurrence_id, async=True)
@@ -1785,7 +1787,7 @@ class ActivitiesApi(object):
 
         :param async bool
         :param int activity_occurrence_id: The id of the activity occurrence (required)
-        :param ValueWrapperstring activity_occurrence_status: The activity occurrence status object
+        :param ActivityOccurrenceStatusWrapper activity_occurrence_status: The activity occurrence status object
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

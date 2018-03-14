@@ -1,19 +1,25 @@
 # knetik_cloud.ContentArticlesApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_article**](ContentArticlesApi.md#create_article) | **POST** /content/articles | Create a new article
 [**create_article_template**](ContentArticlesApi.md#create_article_template) | **POST** /content/articles/templates | Create an article template
+[**create_template**](ContentArticlesApi.md#create_template) | **POST** /templates/{type_hint} | Create a template
 [**delete_article**](ContentArticlesApi.md#delete_article) | **DELETE** /content/articles/{id} | Delete an existing article
 [**delete_article_template**](ContentArticlesApi.md#delete_article_template) | **DELETE** /content/articles/templates/{id} | Delete an article template
+[**delete_template**](ContentArticlesApi.md#delete_template) | **DELETE** /templates/{type_hint}/{id} | Delete a template
 [**get_article**](ContentArticlesApi.md#get_article) | **GET** /content/articles/{id} | Get a single article
 [**get_article_template**](ContentArticlesApi.md#get_article_template) | **GET** /content/articles/templates/{id} | Get a single article template
 [**get_article_templates**](ContentArticlesApi.md#get_article_templates) | **GET** /content/articles/templates | List and search article templates
 [**get_articles**](ContentArticlesApi.md#get_articles) | **GET** /content/articles | List and search articles
+[**get_template**](ContentArticlesApi.md#get_template) | **GET** /templates/{type_hint}/{id} | Get a template
+[**get_templates**](ContentArticlesApi.md#get_templates) | **GET** /templates/{type_hint} | List and search templates
 [**update_article**](ContentArticlesApi.md#update_article) | **PUT** /content/articles/{id} | Update an existing article
 [**update_article_template**](ContentArticlesApi.md#update_article_template) | **PUT** /content/articles/templates/{id} | Update an article template
+[**update_template**](ContentArticlesApi.md#update_template) | **PUT** /templates/{type_hint}/{id} | Update a template
+[**validate**](ContentArticlesApi.md#validate) | **POST** /templates/{type_hint}/validate | Validate a templated resource
 
 
 # **create_article**
@@ -126,6 +132,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_template**
+> TemplateResource create_template(type_hint, template=template)
+
+Create a template
+
+<b>Permissions Needed:</b> TEMPLATES_ADMIN
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+type_hint = 'type_hint_example' # str | The type for the resource this template applies to
+template = knetik_cloud.TemplateResource() # TemplateResource | The template (optional)
+
+try: 
+    # Create a template
+    api_response = api_instance.create_template(type_hint, template=template)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContentArticlesApi->create_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_hint** | **str**| The type for the resource this template applies to | 
+ **template** | [**TemplateResource**](TemplateResource.md)| The template | [optional] 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_article**
 > delete_article(id)
 
@@ -220,6 +283,64 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the template | 
  **cascade** | **str**| The value needed to delete used templates | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_template**
+> delete_template(type_hint, id, cascade=cascade)
+
+Delete a template
+
+<b>Permissions Needed:</b> TEMPLATES_ADMIN
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+type_hint = 'type_hint_example' # str | The type for the resource this template applies to
+id = 'id_example' # str | The id of the template
+cascade = 'cascade_example' # str | How to cascade the delete (optional)
+
+try: 
+    # Delete a template
+    api_instance.delete_template(type_hint, id, cascade=cascade)
+except ApiException as e:
+    print("Exception when calling ContentArticlesApi->delete_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_hint** | **str**| The type for the resource this template applies to | 
+ **id** | **str**| The id of the template | 
+ **cascade** | **str**| How to cascade the delete | [optional] 
 
 ### Return type
 
@@ -476,6 +597,124 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_template**
+> TemplateResource get_template(type_hint, id)
+
+Get a template
+
+<b>Permissions Needed:</b> TEMPLATES_ADMIN
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+type_hint = 'type_hint_example' # str | The type for the resource this template applies to
+id = 'id_example' # str | The id of the template
+
+try: 
+    # Get a template
+    api_response = api_instance.get_template(type_hint, id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContentArticlesApi->get_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_hint** | **str**| The type for the resource this template applies to | 
+ **id** | **str**| The id of the template | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_templates**
+> PageResourceTemplateResource get_templates(type_hint, size=size, page=page, order=order)
+
+List and search templates
+
+<b>Permissions Needed:</b> TEMPLATES_ADMIN
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+type_hint = 'type_hint_example' # str | The type for the resource this template applies to
+size = 25 # int | The number of objects returned per page (optional) (default to 25)
+page = 1 # int | The number of the page returned, starting with 1 (optional) (default to 1)
+order = 'id:ASC' # str | A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] (optional) (default to id:ASC)
+
+try: 
+    # List and search templates
+    api_response = api_instance.get_templates(type_hint, size=size, page=page, order=order)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContentArticlesApi->get_templates: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_hint** | **str**| The type for the resource this template applies to | 
+ **size** | **int**| The number of objects returned per page | [optional] [default to 25]
+ **page** | **int**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **order** | **str**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+
+### Return type
+
+[**PageResourceTemplateResource**](PageResourceTemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_article**
 > ArticleResource update_article(id, article_resource=article_resource)
 
@@ -578,6 +817,121 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_template**
+> TemplateResource update_template(type_hint, id, template=template)
+
+Update a template
+
+<b>Permissions Needed:</b> TEMPLATES_ADMIN
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+type_hint = 'type_hint_example' # str | The type for the resource this template applies to
+id = 'id_example' # str | The id of the template
+template = knetik_cloud.TemplateResource() # TemplateResource | The template (optional)
+
+try: 
+    # Update a template
+    api_response = api_instance.update_template(type_hint, id, template=template)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContentArticlesApi->update_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_hint** | **str**| The type for the resource this template applies to | 
+ **id** | **str**| The id of the template | 
+ **template** | [**TemplateResource**](TemplateResource.md)| The template | [optional] 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validate**
+> validate(type_hint, resource=resource)
+
+Validate a templated resource
+
+Error code thrown if invalid.<br><br><b>Permissions Needed:</b> TEMPLATES_ADMIN
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import knetik_cloud
+from knetik_cloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oauth2_client_credentials_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Configure OAuth2 access token for authorization: oauth2_password_grant
+configuration = knetik_cloud.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = knetik_cloud.ContentArticlesApi(knetik_cloud.ApiClient(configuration))
+type_hint = 'type_hint_example' # str | The type for the resource this template applies to
+resource = knetik_cloud.BasicTemplatedResource() # BasicTemplatedResource | The resource to validate (optional)
+
+try: 
+    # Validate a templated resource
+    api_instance.validate(type_hint, resource=resource)
+except ApiException as e:
+    print("Exception when calling ContentArticlesApi->validate: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_hint** | **str**| The type for the resource this template applies to | 
+ **resource** | [**BasicTemplatedResource**](BasicTemplatedResource.md)| The resource to validate | [optional] 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

@@ -1144,13 +1144,13 @@ class ChatApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def send_message(self, **kwargs):
+    def send_chat_message(self, **kwargs):
         """
         Send a message
         <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.send_message(async=True)
+        >>> thread = api.send_chat_message(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1161,18 +1161,18 @@ class ChatApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.send_message_with_http_info(**kwargs)
+            return self.send_chat_message_with_http_info(**kwargs)
         else:
-            (data) = self.send_message_with_http_info(**kwargs)
+            (data) = self.send_chat_message_with_http_info(**kwargs)
             return data
 
-    def send_message_with_http_info(self, **kwargs):
+    def send_chat_message_with_http_info(self, **kwargs):
         """
         Send a message
         <b>Permissions Needed:</b> ANY
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.send_message_with_http_info(async=True)
+        >>> thread = api.send_chat_message_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1193,7 +1193,7 @@ class ChatApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method send_message" % key
+                    " to method send_chat_message" % key
                 )
             params[key] = val
         del params['kwargs']

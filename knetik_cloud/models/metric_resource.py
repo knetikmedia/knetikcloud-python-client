@@ -91,7 +91,7 @@ class MetricResource(object):
     def tags(self):
         """
         Gets the tags of this MetricResource.
-        Any tags for the metric. Each unique tag will translate into a unique leaderboard. Maximum 5 tags and 50 characters each
+        Any tags for the metric. Each unique tag will translate into a unique leaderboard. Maximum 10 tags and 50 characters each
 
         :return: The tags of this MetricResource.
         :rtype: list[str]
@@ -102,7 +102,7 @@ class MetricResource(object):
     def tags(self, tags):
         """
         Sets the tags of this MetricResource.
-        Any tags for the metric. Each unique tag will translate into a unique leaderboard. Maximum 5 tags and 50 characters each
+        Any tags for the metric. Each unique tag will translate into a unique leaderboard. Maximum 10 tags and 50 characters each
 
         :param tags: The tags of this MetricResource.
         :type: list[str]

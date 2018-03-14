@@ -228,7 +228,7 @@ class MessagingApi(object):
     def delete_message_template(self, id, **kwargs):
         """
         Delete an existing message template
-        <b>Permissions Needed:</b> ARTICLES_ADMIN
+        <b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_message_template(id, async=True)
@@ -250,7 +250,7 @@ class MessagingApi(object):
     def delete_message_template_with_http_info(self, id, **kwargs):
         """
         Delete an existing message template
-        <b>Permissions Needed:</b> ARTICLES_ADMIN
+        <b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_message_template_with_http_info(id, async=True)
@@ -322,7 +322,7 @@ class MessagingApi(object):
     def get_message_template(self, id, **kwargs):
         """
         Get a single message template
-        <b>Permissions Needed:</b> ARTICLES_ADMIN
+        <b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_message_template(id, async=True)
@@ -344,7 +344,7 @@ class MessagingApi(object):
     def get_message_template_with_http_info(self, id, **kwargs):
         """
         Get a single message template
-        <b>Permissions Needed:</b> ARTICLES_ADMIN
+        <b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_message_template_with_http_info(id, async=True)
@@ -416,7 +416,7 @@ class MessagingApi(object):
     def get_message_templates(self, **kwargs):
         """
         List and search message templates
-        Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> ARTICLES_ADMIN
+        Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_message_templates(async=True)
@@ -443,7 +443,7 @@ class MessagingApi(object):
     def get_message_templates_with_http_info(self, **kwargs):
         """
         List and search message templates
-        Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> ARTICLES_ADMIN
+        Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_message_templates_with_http_info(async=True)
@@ -524,13 +524,13 @@ class MessagingApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def send_message1(self, **kwargs):
+    def send_message(self, **kwargs):
         """
         Send a message
         Sends a message with one or more formats to one or more users. Fill in any message formats desired (email, sms, websockets) and each user will recieve all valid formats. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.send_message1(async=True)
+        >>> thread = api.send_message(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -541,18 +541,18 @@ class MessagingApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.send_message1_with_http_info(**kwargs)
+            return self.send_message_with_http_info(**kwargs)
         else:
-            (data) = self.send_message1_with_http_info(**kwargs)
+            (data) = self.send_message_with_http_info(**kwargs)
             return data
 
-    def send_message1_with_http_info(self, **kwargs):
+    def send_message_with_http_info(self, **kwargs):
         """
         Send a message
         Sends a message with one or more formats to one or more users. Fill in any message formats desired (email, sms, websockets) and each user will recieve all valid formats. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.send_message1_with_http_info(async=True)
+        >>> thread = api.send_message_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -573,7 +573,7 @@ class MessagingApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method send_message1" % key
+                    " to method send_message" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -1287,7 +1287,7 @@ class MessagingApi(object):
     def update_message_template(self, id, **kwargs):
         """
         Update an existing message template
-        <b>Permissions Needed:</b> ARTICLES_ADMIN
+        <b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_message_template(id, async=True)
@@ -1310,7 +1310,7 @@ class MessagingApi(object):
     def update_message_template_with_http_info(self, id, **kwargs):
         """
         Update an existing message template
-        <b>Permissions Needed:</b> ARTICLES_ADMIN
+        <b>Permissions Needed:</b> MESSAGING_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_message_template_with_http_info(id, async=True)

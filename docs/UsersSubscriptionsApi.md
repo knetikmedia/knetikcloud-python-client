@@ -1,6 +1,6 @@
 # knetik_cloud.UsersSubscriptionsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -327,7 +327,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = knetik_cloud.UsersSubscriptionsApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 inventory_id = 56 # int | The id of the user's inventory
-status = knetik_cloud.StringWrapper() # StringWrapper | The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: ('current', 'canceled', 'stopped', 'payment_failed', 'suspended')
+status = knetik_cloud.SubscriptionStatusWrapper() # SubscriptionStatusWrapper | The new status for the subscription
 
 try: 
     # Set the status of a subscription
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The id of the user | 
  **inventory_id** | **int**| The id of the user&#39;s inventory | 
- **status** | [**StringWrapper**](StringWrapper.md)| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
+ **status** | [**SubscriptionStatusWrapper**](SubscriptionStatusWrapper.md)| The new status for the subscription | 
 
 ### Return type
 

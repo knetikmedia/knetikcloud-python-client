@@ -1,6 +1,6 @@
 # knetik_cloud.FulfillmentApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -258,7 +258,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = knetik_cloud.FulfillmentApi(knetik_cloud.ApiClient(configuration))
-id = 56 # int | The id
+id = 56 # int | The fulfillment id
 fulfillment_type = knetik_cloud.FulfillmentType() # FulfillmentType | The fulfillment type (optional)
 
 try: 
@@ -272,7 +272,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The id | 
+ **id** | **int**| The fulfillment id | 
  **fulfillment_type** | [**FulfillmentType**](FulfillmentType.md)| The fulfillment type | [optional] 
 
 ### Return type

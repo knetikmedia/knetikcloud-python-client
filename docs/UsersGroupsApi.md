@@ -1,6 +1,6 @@
 # knetik_cloud.UsersGroupsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -483,6 +483,8 @@ void (empty response body)
 > disable_group_notification(unique_name, user_id, disabled)
 
 Enable or disable notification of group messages
+
+<b>Permissions Needed:</b> TOPICS_ADMIN or self
 
 ### Example 
 ```python
@@ -1480,7 +1482,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = knetik_cloud.UsersGroupsApi(knetik_cloud.ApiClient(configuration))
 unique_name = 'unique_name_example' # str | The group unique name
 user_id = 56 # int | The user id of the member to modify
-status = 'status_example' # str | The new status for the user
+status = knetik_cloud.GroupMemberStatusWrapper() # GroupMemberStatusWrapper | The new status for the user
 
 try: 
     # Change a user's status
@@ -1495,7 +1497,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unique_name** | **str**| The group unique name | 
  **user_id** | **int**| The user id of the member to modify | 
- **status** | **str**| The new status for the user | 
+ **status** | [**GroupMemberStatusWrapper**](GroupMemberStatusWrapper.md)| The new status for the user | 
 
 ### Return type
 

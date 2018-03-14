@@ -25,8 +25,10 @@ from .activity_occurrence_resource import ActivityOccurrenceResource
 from .activity_occurrence_results import ActivityOccurrenceResults
 from .activity_occurrence_results_resource import ActivityOccurrenceResultsResource
 from .activity_occurrence_settings_resource import ActivityOccurrenceSettingsResource
+from .activity_occurrence_status_wrapper import ActivityOccurrenceStatusWrapper
 from .activity_resource import ActivityResource
 from .activity_user_resource import ActivityUserResource
+from .activity_user_status_wrapper import ActivityUserStatusWrapper
 from .address_resource import AddressResource
 from .aggregate_count_resource import AggregateCountResource
 from .aggregate_invoice_report_resource import AggregateInvoiceReportResource
@@ -39,6 +41,7 @@ from .artist_resource import ArtistResource
 from .available_setting_resource import AvailableSettingResource
 from .bare_activity_resource import BareActivityResource
 from .bare_challenge_activity_resource import BareChallengeActivityResource
+from .basic_templated_resource import BasicTemplatedResource
 from .batch import Batch
 from .batch_request import BatchRequest
 from .batch_result import BatchResult
@@ -48,7 +51,6 @@ from .behavior_definition_resource import BehaviorDefinitionResource
 from .billing_report import BillingReport
 from .boolean_resource import BooleanResource
 from .bre_action_log import BreActionLog
-from .bre_category_resource import BreCategoryResource
 from .bre_event import BreEvent
 from .bre_event_log import BreEventLog
 from .bre_global_resource import BreGlobalResource
@@ -121,16 +123,17 @@ from .forward_log import ForwardLog
 from .fulfillment_type import FulfillmentType
 from .global_check_and_increment_resource import GlobalCheckAndIncrementResource
 from .global_resource import GlobalResource
-from .google_payment_request import GooglePaymentRequest
 from .google_token import GoogleToken
 from .grant_type_resource import GrantTypeResource
 from .group_member_resource import GroupMemberResource
+from .group_member_status_wrapper import GroupMemberStatusWrapper
 from .group_resource import GroupResource
 from .id_ref import IdRef
 from .import_job_output_resource import ImportJobOutputResource
 from .import_job_resource import ImportJobResource
 from .int_wrapper import IntWrapper
 from .integer_operation_resource import IntegerOperationResource
+from .inventory_status_wrapper import InventoryStatusWrapper
 from .inventory_subscription_resource import InventorySubscriptionResource
 from .invoice_create_request import InvoiceCreateRequest
 from .invoice_item_resource import InvoiceItemResource
@@ -179,7 +182,6 @@ from .page_resource_artist_resource import PageResourceArtistResource
 from .page_resource_bare_activity_resource import PageResourceBareActivityResource
 from .page_resource_bare_challenge_activity_resource import PageResourceBareChallengeActivityResource
 from .page_resource_billing_report import PageResourceBillingReport
-from .page_resource_bre_category_resource import PageResourceBreCategoryResource
 from .page_resource_bre_event_log import PageResourceBreEventLog
 from .page_resource_bre_global_resource import PageResourceBreGlobalResource
 from .page_resource_bre_rule import PageResourceBreRule
@@ -238,7 +240,6 @@ from .page_resource_subscription_resource import PageResourceSubscriptionResourc
 from .page_resource_subscription_template_resource import PageResourceSubscriptionTemplateResource
 from .page_resource_template_resource import PageResourceTemplateResource
 from .page_resource_topic_resource import PageResourceTopicResource
-from .page_resource_topic_subscriber_resource import PageResourceTopicSubscriberResource
 from .page_resource_transaction_resource import PageResourceTransactionResource
 from .page_resource_usage_info import PageResourceUsageInfo
 from .page_resource_user_achievement_group_resource import PageResourceUserAchievementGroupResource
@@ -280,6 +281,7 @@ from .raw_sms_resource import RawSMSResource
 from .reactivate_subscription_request import ReactivateSubscriptionRequest
 from .refund_request import RefundRequest
 from .refund_resource import RefundResource
+from .resource_type_description import ResourceTypeDescription
 from .result import Result
 from .revenue_country_report_resource import RevenueCountryReportResource
 from .revenue_product_report_resource import RevenueProductReportResource
@@ -317,6 +319,7 @@ from .subscription_plan import SubscriptionPlan
 from .subscription_plan_resource import SubscriptionPlanResource
 from .subscription_price_override_request import SubscriptionPriceOverrideRequest
 from .subscription_resource import SubscriptionResource
+from .subscription_status_wrapper import SubscriptionStatusWrapper
 from .subscription_template_resource import SubscriptionTemplateResource
 from .template_email_resource import TemplateEmailResource
 from .template_push_resource import TemplatePushResource
@@ -343,12 +346,12 @@ from .user_inventory_resource import UserInventoryResource
 from .user_item_log_resource import UserItemLogResource
 from .user_leveling_resource import UserLevelingResource
 from .user_notification_resource import UserNotificationResource
+from .user_notification_status_wrapper import UserNotificationStatusWrapper
 from .user_relationship_reference_resource import UserRelationshipReferenceResource
 from .user_relationship_resource import UserRelationshipResource
 from .user_resource import UserResource
 from .username_lookup_resource import UsernameLookupResource
 from .value_wrapperboolean import ValueWrapperboolean
-from .value_wrapperstring import ValueWrapperstring
 from .variable_type_resource import VariableTypeResource
 from .vendor_email_lookup_resource import VendorEmailLookupResource
 from .vendor_resource import VendorResource
@@ -395,6 +398,7 @@ from .new_customer_event import NewCustomerEvent
 from .pre_req_entitlement import PreReqEntitlement
 from .price_overridable import PriceOverridable
 from .remove_customer_event import RemoveCustomerEvent
+from .service_deployed_event import ServiceDeployedEvent
 from .spendable import Spendable
 from .store_item import StoreItem
 from .text_property import TextProperty

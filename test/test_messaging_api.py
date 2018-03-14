@@ -71,9 +71,9 @@ class TestMessagingApi(unittest.TestCase):
         """
         pass
 
-    def test_send_message1(self):
+    def test_send_message(self):
         """
-        Test case for send_message1
+        Test case for send_message
 
         Send a message
         """

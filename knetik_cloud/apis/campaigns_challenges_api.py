@@ -2034,7 +2034,7 @@ class CampaignsChallengesApi(object):
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
         :param bool validate_settings: Whether to validate the settings being sent against the available settings on the base activity.
-        :return: ChallengeActivityResource
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2059,7 +2059,7 @@ class CampaignsChallengesApi(object):
         :param int challenge_id: The challenge id (required)
         :param ChallengeActivityResource challenge_activity_resource: The challenge activity resource object
         :param bool validate_settings: Whether to validate the settings being sent against the available settings on the base activity.
-        :return: ChallengeActivityResource
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2125,7 +2125,7 @@ class CampaignsChallengesApi(object):
                                         body=body_params,
                                         post_params=form_params,
                                         files=local_var_files,
-                                        response_type='ChallengeActivityResource',
+                                        response_type=None,
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

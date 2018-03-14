@@ -55,6 +55,7 @@ class BroadcastableEvent(object):
     }
 
     discriminator_value_class_map = {
+        'service_deployed': 'ServiceDeployedEvent',
         'log_level': 'LogLevelEvent',
         'websocket_remove_topic': 'WebsocketRemoveTopicEvent',
         'new_customer': 'NewCustomerEvent',

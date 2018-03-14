@@ -38,7 +38,7 @@ class ConfigsApi(object):
     def create_config(self, **kwargs):
         """
         Create a new config
-        <b>Permissions Needed:</b> TOPICS_ADMIN
+        <b>Permissions Needed:</b> CONFIGS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_config(async=True)
@@ -60,7 +60,7 @@ class ConfigsApi(object):
     def create_config_with_http_info(self, **kwargs):
         """
         Create a new config
-        <b>Permissions Needed:</b> TOPICS_ADMIN
+        <b>Permissions Needed:</b> CONFIGS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_config_with_http_info(async=True)

@@ -1,6 +1,6 @@
 # knetik_cloud.MessagingApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**delete_message_template**](MessagingApi.md#delete_message_template) | **DELETE** /messaging/templates/{id} | Delete an existing message template
 [**get_message_template**](MessagingApi.md#get_message_template) | **GET** /messaging/templates/{id} | Get a single message template
 [**get_message_templates**](MessagingApi.md#get_message_templates) | **GET** /messaging/templates | List and search message templates
-[**send_message1**](MessagingApi.md#send_message1) | **POST** /messaging/message | Send a message
+[**send_message**](MessagingApi.md#send_message) | **POST** /messaging/message | Send a message
 [**send_raw_email**](MessagingApi.md#send_raw_email) | **POST** /messaging/raw-email | Send a raw email to one or more users
 [**send_raw_push**](MessagingApi.md#send_raw_push) | **POST** /messaging/raw-push | Send a raw push notification
 [**send_raw_sms**](MessagingApi.md#send_raw_sms) | **POST** /messaging/raw-sms | Send a raw SMS
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 Delete an existing message template
 
-<b>Permissions Needed:</b> ARTICLES_ADMIN
+<b>Permissions Needed:</b> MESSAGING_ADMIN
 
 ### Example 
 ```python
@@ -189,7 +189,7 @@ void (empty response body)
 
 Get a single message template
 
-<b>Permissions Needed:</b> ARTICLES_ADMIN
+<b>Permissions Needed:</b> MESSAGING_ADMIN
 
 ### Example 
 ```python
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 List and search message templates
 
-Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> ARTICLES_ADMIN
+Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
 
 ### Example 
 ```python
@@ -304,8 +304,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **send_message1**
-> send_message1(message_resource=message_resource)
+# **send_message**
+> send_message(message_resource=message_resource)
 
 Send a message
 
@@ -332,9 +332,9 @@ message_resource = knetik_cloud.MessageResource() # MessageResource | The messag
 
 try: 
     # Send a message
-    api_instance.send_message1(message_resource=message_resource)
+    api_instance.send_message(message_resource=message_resource)
 except ApiException as e:
-    print("Exception when calling MessagingApi->send_message1: %s\n" % e)
+    print("Exception when calling MessagingApi->send_message: %s\n" % e)
 ```
 
 ### Parameters
@@ -741,7 +741,7 @@ void (empty response body)
 
 Update an existing message template
 
-<b>Permissions Needed:</b> ARTICLES_ADMIN
+<b>Permissions Needed:</b> MESSAGING_ADMIN
 
 ### Example 
 ```python

@@ -2016,7 +2016,7 @@ class UsersInventoryApi(object):
         :param async bool
         :param int user_id: The id of the user (required)
         :param int id: The id of the user inventory (required)
-        :param str inventory_status: The inventory status object
+        :param InventoryStatusWrapper inventory_status: The inventory status object
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -2040,7 +2040,7 @@ class UsersInventoryApi(object):
         :param async bool
         :param int user_id: The id of the user (required)
         :param int id: The id of the user inventory (required)
-        :param str inventory_status: The inventory status object
+        :param InventoryStatusWrapper inventory_status: The inventory status object
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

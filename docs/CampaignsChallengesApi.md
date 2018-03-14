@@ -1,6 +1,6 @@
 # knetik_cloud.CampaignsChallengesApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -1175,7 +1175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_challenge_activity**
-> ChallengeActivityResource update_challenge_activity(id, challenge_id, challenge_activity_resource=challenge_activity_resource, validate_settings=validate_settings)
+> update_challenge_activity(id, challenge_id, challenge_activity_resource=challenge_activity_resource, validate_settings=validate_settings)
 
 Update a challenge activity
 
@@ -1205,8 +1205,7 @@ validate_settings = false # bool | Whether to validate the settings being sent a
 
 try: 
     # Update a challenge activity
-    api_response = api_instance.update_challenge_activity(id, challenge_id, challenge_activity_resource=challenge_activity_resource, validate_settings=validate_settings)
-    pprint(api_response)
+    api_instance.update_challenge_activity(id, challenge_id, challenge_activity_resource=challenge_activity_resource, validate_settings=validate_settings)
 except ApiException as e:
     print("Exception when calling CampaignsChallengesApi->update_challenge_activity: %s\n" % e)
 ```
@@ -1222,7 +1221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChallengeActivityResource**](ChallengeActivityResource.md)
+void (empty response body)
 
 ### Authorization
 

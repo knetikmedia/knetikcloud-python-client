@@ -427,7 +427,7 @@ class FulfillmentApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int id: The id (required)
+        :param int id: The fulfillment id (required)
         :param FulfillmentType fulfillment_type: The fulfillment type
         :return: None
                  If the method is called asynchronously,
@@ -450,7 +450,7 @@ class FulfillmentApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param int id: The id (required)
+        :param int id: The fulfillment id (required)
         :param FulfillmentType fulfillment_type: The fulfillment type
         :return: None
                  If the method is called asynchronously,

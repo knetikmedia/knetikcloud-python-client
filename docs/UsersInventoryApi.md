@@ -1,6 +1,6 @@
 # knetik_cloud.UsersInventoryApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -1165,7 +1165,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = knetik_cloud.UsersInventoryApi(knetik_cloud.ApiClient(configuration))
 user_id = 56 # int | The id of the user
 id = 56 # int | The id of the user inventory
-inventory_status = 'inventory_status_example' # str | The inventory status object (optional)
+inventory_status = knetik_cloud.InventoryStatusWrapper() # InventoryStatusWrapper | The inventory status object (optional)
 
 try: 
     # Set the status for an inventory entry
@@ -1180,7 +1180,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The id of the user | 
  **id** | **int**| The id of the user inventory | 
- **inventory_status** | **str**| The inventory status object | [optional] 
+ **inventory_status** | [**InventoryStatusWrapper**](InventoryStatusWrapper.md)| The inventory status object | [optional] 
 
 ### Return type
 

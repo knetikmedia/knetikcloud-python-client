@@ -227,7 +227,7 @@ class GamificationLevelingApi(object):
     def get_level(self, name, **kwargs):
         """
         Retrieve a level
-        <b>Permissions Needed:</b> LEVELING_ADMIN
+        <b>Permissions Needed:</b> LEVELING_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_level(name, async=True)
@@ -249,7 +249,7 @@ class GamificationLevelingApi(object):
     def get_level_with_http_info(self, name, **kwargs):
         """
         Retrieve a level
-        <b>Permissions Needed:</b> LEVELING_ADMIN
+        <b>Permissions Needed:</b> LEVELING_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_level_with_http_info(name, async=True)
@@ -407,7 +407,7 @@ class GamificationLevelingApi(object):
     def get_levels(self, **kwargs):
         """
         List and search levels
-        Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
+        Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_levels(async=True)
@@ -432,7 +432,7 @@ class GamificationLevelingApi(object):
     def get_levels_with_http_info(self, **kwargs):
         """
         List and search levels
-        Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
+        Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_USER
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_levels_with_http_info(async=True)
@@ -510,7 +510,7 @@ class GamificationLevelingApi(object):
     def get_user_level(self, user_id, name, **kwargs):
         """
         Get a user's progress for a given level schema
-        <b>Permissions Needed:</b> LEVELING_ADMIN or self
+        <b>Permissions Needed:</b> LEVELING_USER or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_level(user_id, name, async=True)
@@ -533,7 +533,7 @@ class GamificationLevelingApi(object):
     def get_user_level_with_http_info(self, user_id, name, **kwargs):
         """
         Get a user's progress for a given level schema
-        <b>Permissions Needed:</b> LEVELING_ADMIN or self
+        <b>Permissions Needed:</b> LEVELING_USER or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_level_with_http_info(user_id, name, async=True)
@@ -611,7 +611,7 @@ class GamificationLevelingApi(object):
     def get_user_levels(self, user_id, **kwargs):
         """
         Get a user's progress for all level schemas
-        Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self
+        Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_USER or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_levels(user_id, async=True)
@@ -637,7 +637,7 @@ class GamificationLevelingApi(object):
     def get_user_levels_with_http_info(self, user_id, **kwargs):
         """
         Get a user's progress for all level schemas
-        Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self
+        Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_USER or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_levels_with_http_info(user_id, async=True)

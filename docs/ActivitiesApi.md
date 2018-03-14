@@ -1,6 +1,6 @@
 # knetik_cloud.ActivitiesApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 Load a single activity occurrence details
 
-<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+<b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 
 List activity occurrences
 
-<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+<b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -782,7 +782,7 @@ void (empty response body)
 
 Sets the status of an activity occurrence to FINISHED and logs metrics
 
-In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
+In addition to user permissions requirements there is security based on the core_settings.results_trust setting. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -838,6 +838,8 @@ Name | Type | Description  | Notes
 > ActivityOccurrenceResource set_activity_occurrence_settings(activity_occurrence_id, settings=settings)
 
 Sets the settings of an activity occurrence
+
+<b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -913,7 +915,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = knetik_cloud.ActivitiesApi(knetik_cloud.ApiClient(configuration))
 activity_occurrence_id = 789 # int | The id of the activity occurrence
 user_id = 'user_id_example' # str | The id of the user
-status = 'status_example' # str | The new status (optional)
+status = knetik_cloud.ActivityUserStatusWrapper() # ActivityUserStatusWrapper | The new status (optional)
 
 try: 
     # Set a user's status within an occurrence
@@ -929,7 +931,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activity_occurrence_id** | **int**| The id of the activity occurrence | 
  **user_id** | **str**| The id of the user | 
- **status** | **str**| The new status | [optional] 
+ **status** | [**ActivityUserStatusWrapper**](ActivityUserStatusWrapper.md)| The new status | [optional] 
 
 ### Return type
 
@@ -1008,7 +1010,7 @@ Name | Type | Description  | Notes
 
 Update the status of an activity occurrence
 
-If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
+If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
 
 ### Example 
 ```python
@@ -1028,7 +1030,7 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = knetik_cloud.ActivitiesApi(knetik_cloud.ApiClient(configuration))
 activity_occurrence_id = 789 # int | The id of the activity occurrence
-activity_occurrence_status = knetik_cloud.ValueWrapperstring() # ValueWrapperstring | The activity occurrence status object (optional)
+activity_occurrence_status = knetik_cloud.ActivityOccurrenceStatusWrapper() # ActivityOccurrenceStatusWrapper | The activity occurrence status object (optional)
 
 try: 
     # Update the status of an activity occurrence
@@ -1042,7 +1044,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activity_occurrence_id** | **int**| The id of the activity occurrence | 
- **activity_occurrence_status** | [**ValueWrapperstring**](ValueWrapperstring.md)| The activity occurrence status object | [optional] 
+ **activity_occurrence_status** | [**ActivityOccurrenceStatusWrapper**](ActivityOccurrenceStatusWrapper.md)| The activity occurrence status object | [optional] 
 
 ### Return type
 

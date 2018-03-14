@@ -1,6 +1,6 @@
 # knetik_cloud.GamificationLevelingApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -130,7 +130,7 @@ void (empty response body)
 
 Retrieve a level
 
-<b>Permissions Needed:</b> LEVELING_ADMIN
+<b>Permissions Needed:</b> LEVELING_USER
 
 ### Example 
 ```python
@@ -236,7 +236,7 @@ This endpoint does not need any parameter.
 
 List and search levels
 
-Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN
+Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_USER
 
 ### Example 
 ```python
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 Get a user's progress for a given level schema
 
-<b>Permissions Needed:</b> LEVELING_ADMIN or self
+<b>Permissions Needed:</b> LEVELING_USER or self
 
 ### Example 
 ```python
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 Get a user's progress for all level schemas
 
-Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self
+Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_USER or self
 
 ### Example 
 ```python

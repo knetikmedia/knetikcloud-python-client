@@ -38,7 +38,7 @@ class MessagingTopicsApi(object):
     def disable_topic_subscriber(self, id, user_id, disabled, **kwargs):
         """
         Enable or disable messages for a user
-        Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options.
+        Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options. <br><br><b>Permissions Needed:</b> TOPICS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.disable_topic_subscriber(id, user_id, disabled, async=True)
@@ -62,7 +62,7 @@ class MessagingTopicsApi(object):
     def disable_topic_subscriber_with_http_info(self, id, user_id, disabled, **kwargs):
         """
         Enable or disable messages for a user
-        Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options.
+        Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options. <br><br><b>Permissions Needed:</b> TOPICS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.disable_topic_subscriber_with_http_info(id, user_id, disabled, async=True)
@@ -150,7 +150,7 @@ class MessagingTopicsApi(object):
     def get_topic_subscriber(self, id, user_id, **kwargs):
         """
         Get a subscriber to a topic
-        <b>Permissions Needed:</b> TOPICS_ADMIN
+        <b>Permissions Needed:</b> TOPICS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_topic_subscriber(id, user_id, async=True)
@@ -173,7 +173,7 @@ class MessagingTopicsApi(object):
     def get_topic_subscriber_with_http_info(self, id, user_id, **kwargs):
         """
         Get a subscriber to a topic
-        <b>Permissions Needed:</b> TOPICS_ADMIN
+        <b>Permissions Needed:</b> TOPICS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_topic_subscriber_with_http_info(id, user_id, async=True)
@@ -248,104 +248,10 @@ class MessagingTopicsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def get_topic_subscribers(self, id, **kwargs):
-        """
-        Get all subscribers to a topic
-        <b>Permissions Needed:</b> TOPICS_ADMIN
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_topic_subscribers(id, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str id: The id of the topic (required)
-        :return: PageResourceTopicSubscriberResource
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.get_topic_subscribers_with_http_info(id, **kwargs)
-        else:
-            (data) = self.get_topic_subscribers_with_http_info(id, **kwargs)
-            return data
-
-    def get_topic_subscribers_with_http_info(self, id, **kwargs):
-        """
-        Get all subscribers to a topic
-        <b>Permissions Needed:</b> TOPICS_ADMIN
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_topic_subscribers_with_http_info(id, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str id: The id of the topic (required)
-        :return: PageResourceTopicSubscriberResource
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['id']
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_topic_subscribers" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params) or (params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `get_topic_subscribers`")
-
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in params:
-            path_params['id'] = params['id']
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-
-        # Authentication setting
-        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
-
-        return self.api_client.call_api('/messaging/topics/{id}/subscribers', 'GET',
-                                        path_params,
-                                        query_params,
-                                        header_params,
-                                        body=body_params,
-                                        post_params=form_params,
-                                        files=local_var_files,
-                                        response_type='PageResourceTopicSubscriberResource',
-                                        auth_settings=auth_settings,
-                                        async=params.get('async'),
-                                        _return_http_data_only=params.get('_return_http_data_only'),
-                                        _preload_content=params.get('_preload_content', True),
-                                        _request_timeout=params.get('_request_timeout'),
-                                        collection_formats=collection_formats)
-
     def get_user_topics(self, id, **kwargs):
         """
         Get all messaging topics for a given user
-        <b>Permissions Needed:</b> TOPICS_ADMIN
+        <b>Permissions Needed:</b> TOPICS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_topics(id, async=True)
@@ -367,7 +273,7 @@ class MessagingTopicsApi(object):
     def get_user_topics_with_http_info(self, id, **kwargs):
         """
         Get all messaging topics for a given user
-        <b>Permissions Needed:</b> TOPICS_ADMIN
+        <b>Permissions Needed:</b> TOPICS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_topics_with_http_info(id, async=True)

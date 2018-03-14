@@ -46,7 +46,7 @@ class AmazonWebServicesS3Api(object):
 
         :param async bool
         :param str bucket: S3 bucket name
-        :param str path: The path to the file relative the bucket (the s3 object key)
+        :param str path: The path to the file relative to the bucket (the s3 object key)
         :param int expiration: The number of seconds this URL will be valid. Default to 60
         :return: str
                  If the method is called asynchronously,
@@ -70,7 +70,7 @@ class AmazonWebServicesS3Api(object):
 
         :param async bool
         :param str bucket: S3 bucket name
-        :param str path: The path to the file relative the bucket (the s3 object key)
+        :param str path: The path to the file relative to the bucket (the s3 object key)
         :param int expiration: The number of seconds this URL will be valid. Default to 60
         :return: str
                  If the method is called asynchronously,

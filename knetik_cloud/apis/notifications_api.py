@@ -38,6 +38,7 @@ class NotificationsApi(object):
     def create_notification_type(self, **kwargs):
         """
         Create a notification type
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_notification_type(async=True)
@@ -59,6 +60,7 @@ class NotificationsApi(object):
     def create_notification_type_with_http_info(self, **kwargs):
         """
         Create a notification type
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.create_notification_type_with_http_info(async=True)
@@ -131,6 +133,7 @@ class NotificationsApi(object):
     def delete_notification_type(self, id, **kwargs):
         """
         Delete a notification type
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_notification_type(id, async=True)
@@ -152,6 +155,7 @@ class NotificationsApi(object):
     def delete_notification_type_with_http_info(self, id, **kwargs):
         """
         Delete a notification type
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.delete_notification_type_with_http_info(id, async=True)
@@ -223,6 +227,7 @@ class NotificationsApi(object):
     def get_notification_type(self, id, **kwargs):
         """
         Get a single notification type
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_notification_type(id, async=True)
@@ -244,6 +249,7 @@ class NotificationsApi(object):
     def get_notification_type_with_http_info(self, id, **kwargs):
         """
         Get a single notification type
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_notification_type_with_http_info(id, async=True)
@@ -315,7 +321,7 @@ class NotificationsApi(object):
     def get_notification_types(self, **kwargs):
         """
         List and search notification types
-        Get a list of notification type with optional filtering
+        Get a list of notification type with optional filtering. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_notification_types(async=True)
@@ -339,7 +345,7 @@ class NotificationsApi(object):
     def get_notification_types_with_http_info(self, **kwargs):
         """
         List and search notification types
-        Get a list of notification type with optional filtering
+        Get a list of notification type with optional filtering. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_notification_types_with_http_info(async=True)
@@ -414,6 +420,7 @@ class NotificationsApi(object):
     def get_user_notification_info(self, type_id, user_id, **kwargs):
         """
         View a user's notification settings for a type
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_notification_info(type_id, user_id, async=True)
@@ -436,6 +443,7 @@ class NotificationsApi(object):
     def get_user_notification_info_with_http_info(self, type_id, user_id, **kwargs):
         """
         View a user's notification settings for a type
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_notification_info_with_http_info(type_id, user_id, async=True)
@@ -513,6 +521,7 @@ class NotificationsApi(object):
     def get_user_notification_info_list(self, user_id, **kwargs):
         """
         View a user's notification settings
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_notification_info_list(user_id, async=True)
@@ -537,6 +546,7 @@ class NotificationsApi(object):
     def get_user_notification_info_list_with_http_info(self, user_id, **kwargs):
         """
         View a user's notification settings
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_notification_info_list_with_http_info(user_id, async=True)
@@ -617,6 +627,7 @@ class NotificationsApi(object):
     def get_user_notifications(self, id, **kwargs):
         """
         Get notifications
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_notifications(id, async=True)
@@ -642,6 +653,7 @@ class NotificationsApi(object):
     def get_user_notifications_with_http_info(self, id, **kwargs):
         """
         Get notifications
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.get_user_notifications_with_http_info(id, async=True)
@@ -725,6 +737,7 @@ class NotificationsApi(object):
     def send_notification(self, **kwargs):
         """
         Send a notification
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.send_notification(async=True)
@@ -746,6 +759,7 @@ class NotificationsApi(object):
     def send_notification_with_http_info(self, **kwargs):
         """
         Send a notification
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.send_notification_with_http_info(async=True)
@@ -818,6 +832,7 @@ class NotificationsApi(object):
     def set_user_notification_status(self, user_id, notification_id, **kwargs):
         """
         Set notification status
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_user_notification_status(user_id, notification_id, async=True)
@@ -826,7 +841,7 @@ class NotificationsApi(object):
         :param async bool
         :param str user_id: The id of the user or 'me' (required)
         :param str notification_id: The id of the notification (required)
-        :param ValueWrapperstring notification: status
+        :param UserNotificationStatusWrapper notification: status
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -841,6 +856,7 @@ class NotificationsApi(object):
     def set_user_notification_status_with_http_info(self, user_id, notification_id, **kwargs):
         """
         Set notification status
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.set_user_notification_status_with_http_info(user_id, notification_id, async=True)
@@ -849,7 +865,7 @@ class NotificationsApi(object):
         :param async bool
         :param str user_id: The id of the user or 'me' (required)
         :param str notification_id: The id of the notification (required)
-        :param ValueWrapperstring notification: status
+        :param UserNotificationStatusWrapper notification: status
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -925,7 +941,7 @@ class NotificationsApi(object):
     def silence_direct_notifications(self, type_id, user_id, silenced, **kwargs):
         """
         Enable or disable direct notifications for a user
-        Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there.
+        Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.silence_direct_notifications(type_id, user_id, silenced, async=True)
@@ -949,7 +965,7 @@ class NotificationsApi(object):
     def silence_direct_notifications_with_http_info(self, type_id, user_id, silenced, **kwargs):
         """
         Enable or disable direct notifications for a user
-        Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there.
+        Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.silence_direct_notifications_with_http_info(type_id, user_id, silenced, async=True)
@@ -1037,6 +1053,7 @@ class NotificationsApi(object):
     def update_notification_type(self, id, **kwargs):
         """
         Update a notificationType
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_notification_type(id, async=True)
@@ -1059,6 +1076,7 @@ class NotificationsApi(object):
     def update_notification_type_with_http_info(self, id, **kwargs):
         """
         Update a notificationType
+        <b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
         >>> thread = api.update_notification_type_with_http_info(id, async=True)

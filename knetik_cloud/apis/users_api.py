@@ -420,7 +420,7 @@ class UsersApi(object):
         # Authentication setting
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
-        return self.api_client.call_api('/users/users/{recipient_id}/messages', 'GET',
+        return self.api_client.call_api('/users/{recipient_id}/messages', 'GET',
                                         path_params,
                                         query_params,
                                         header_params,

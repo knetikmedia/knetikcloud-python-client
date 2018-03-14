@@ -225,6 +225,108 @@ class ContentArticlesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def create_template(self, type_hint, **kwargs):
+        """
+        Create a template
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_template(type_hint, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param TemplateResource template: The template
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.create_template_with_http_info(type_hint, **kwargs)
+        else:
+            (data) = self.create_template_with_http_info(type_hint, **kwargs)
+            return data
+
+    def create_template_with_http_info(self, type_hint, **kwargs):
+        """
+        Create a template
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.create_template_with_http_info(type_hint, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param TemplateResource template: The template
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type_hint', 'template']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type_hint' is set
+        if ('type_hint' not in params) or (params['type_hint'] is None):
+            raise ValueError("Missing the required parameter `type_hint` when calling `create_template`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type_hint' in params:
+            path_params['type_hint'] = params['type_hint']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'template' in params:
+            body_params = params['template']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/templates/{type_hint}', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TemplateResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def delete_article(self, id, **kwargs):
         """
         Delete an existing article
@@ -403,6 +505,111 @@ class ContentArticlesApi(object):
         auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
 
         return self.api_client.call_api('/content/articles/templates/{id}', 'DELETE',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def delete_template(self, type_hint, id, **kwargs):
+        """
+        Delete a template
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_template(type_hint, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param str id: The id of the template (required)
+        :param str cascade: How to cascade the delete
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.delete_template_with_http_info(type_hint, id, **kwargs)
+        else:
+            (data) = self.delete_template_with_http_info(type_hint, id, **kwargs)
+            return data
+
+    def delete_template_with_http_info(self, type_hint, id, **kwargs):
+        """
+        Delete a template
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.delete_template_with_http_info(type_hint, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param str id: The id of the template (required)
+        :param str cascade: How to cascade the delete
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type_hint', 'id', 'cascade']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type_hint' is set
+        if ('type_hint' not in params) or (params['type_hint'] is None):
+            raise ValueError("Missing the required parameter `type_hint` when calling `delete_template`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `delete_template`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type_hint' in params:
+            path_params['type_hint'] = params['type_hint']
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'cascade' in params:
+            body_params = params['cascade']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/templates/{type_hint}/{id}', 'DELETE',
                                         path_params,
                                         query_params,
                                         header_params,
@@ -827,6 +1034,213 @@ class ContentArticlesApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
+    def get_template(self, type_hint, id, **kwargs):
+        """
+        Get a template
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_template(type_hint, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param str id: The id of the template (required)
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_template_with_http_info(type_hint, id, **kwargs)
+        else:
+            (data) = self.get_template_with_http_info(type_hint, id, **kwargs)
+            return data
+
+    def get_template_with_http_info(self, type_hint, id, **kwargs):
+        """
+        Get a template
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_template_with_http_info(type_hint, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param str id: The id of the template (required)
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type_hint', 'id']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type_hint' is set
+        if ('type_hint' not in params) or (params['type_hint'] is None):
+            raise ValueError("Missing the required parameter `type_hint` when calling `get_template`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_template`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type_hint' in params:
+            path_params['type_hint'] = params['type_hint']
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/templates/{type_hint}/{id}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TemplateResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def get_templates(self, type_hint, **kwargs):
+        """
+        List and search templates
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_templates(type_hint, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param int size: The number of objects returned per page
+        :param int page: The number of the page returned, starting with 1
+        :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+        :return: PageResourceTemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.get_templates_with_http_info(type_hint, **kwargs)
+        else:
+            (data) = self.get_templates_with_http_info(type_hint, **kwargs)
+            return data
+
+    def get_templates_with_http_info(self, type_hint, **kwargs):
+        """
+        List and search templates
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.get_templates_with_http_info(type_hint, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param int size: The number of objects returned per page
+        :param int page: The number of the page returned, starting with 1
+        :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+        :return: PageResourceTemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type_hint', 'size', 'page', 'order']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_templates" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type_hint' is set
+        if ('type_hint' not in params) or (params['type_hint'] is None):
+            raise ValueError("Missing the required parameter `type_hint` when calling `get_templates`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type_hint' in params:
+            path_params['type_hint'] = params['type_hint']
+
+        query_params = []
+        if 'size' in params:
+            query_params.append(('size', params['size']))
+        if 'page' in params:
+            query_params.append(('page', params['page']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/templates/{type_hint}', 'GET',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='PageResourceTemplateResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
     def update_article(self, id, **kwargs):
         """
         Update an existing article
@@ -1024,6 +1438,217 @@ class ContentArticlesApi(object):
                                         post_params=form_params,
                                         files=local_var_files,
                                         response_type='TemplateResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def update_template(self, type_hint, id, **kwargs):
+        """
+        Update a template
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_template(type_hint, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param str id: The id of the template (required)
+        :param TemplateResource template: The template
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.update_template_with_http_info(type_hint, id, **kwargs)
+        else:
+            (data) = self.update_template_with_http_info(type_hint, id, **kwargs)
+            return data
+
+    def update_template_with_http_info(self, type_hint, id, **kwargs):
+        """
+        Update a template
+        <b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.update_template_with_http_info(type_hint, id, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param str id: The id of the template (required)
+        :param TemplateResource template: The template
+        :return: TemplateResource
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type_hint', 'id', 'template']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_template" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type_hint' is set
+        if ('type_hint' not in params) or (params['type_hint'] is None):
+            raise ValueError("Missing the required parameter `type_hint` when calling `update_template`")
+        # verify the required parameter 'id' is set
+        if ('id' not in params) or (params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `update_template`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type_hint' in params:
+            path_params['type_hint'] = params['type_hint']
+        if 'id' in params:
+            path_params['id'] = params['id']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'template' in params:
+            body_params = params['template']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/templates/{type_hint}/{id}', 'PUT',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type='TemplateResource',
+                                        auth_settings=auth_settings,
+                                        async=params.get('async'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'),
+                                        collection_formats=collection_formats)
+
+    def validate(self, type_hint, **kwargs):
+        """
+        Validate a templated resource
+        Error code thrown if invalid.<br><br><b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.validate(type_hint, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param BasicTemplatedResource resource: The resource to validate
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.validate_with_http_info(type_hint, **kwargs)
+        else:
+            (data) = self.validate_with_http_info(type_hint, **kwargs)
+            return data
+
+    def validate_with_http_info(self, type_hint, **kwargs):
+        """
+        Validate a templated resource
+        Error code thrown if invalid.<br><br><b>Permissions Needed:</b> TEMPLATES_ADMIN
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.validate_with_http_info(type_hint, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str type_hint: The type for the resource this template applies to (required)
+        :param BasicTemplatedResource resource: The resource to validate
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['type_hint', 'resource']
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method validate" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'type_hint' is set
+        if ('type_hint' not in params) or (params['type_hint'] is None):
+            raise ValueError("Missing the required parameter `type_hint` when calling `validate`")
+
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'type_hint' in params:
+            path_params['type_hint'] = params['type_hint']
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'resource' in params:
+            body_params = params['resource']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = ['oauth2_client_credentials_grant', 'oauth2_password_grant']
+
+        return self.api_client.call_api('/templates/{type_hint}/validate', 'POST',
+                                        path_params,
+                                        query_params,
+                                        header_params,
+                                        body=body_params,
+                                        post_params=form_params,
+                                        files=local_var_files,
+                                        response_type=None,
                                         auth_settings=auth_settings,
                                         async=params.get('async'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

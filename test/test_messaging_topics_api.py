@@ -47,14 +47,6 @@ class TestMessagingTopicsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_topic_subscribers(self):
-        """
-        Test case for get_topic_subscribers
-
-        Get all subscribers to a topic
-        """
-        pass
-
     def test_get_user_topics(self):
         """
         Test case for get_user_topics

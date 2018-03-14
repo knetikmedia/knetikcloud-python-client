@@ -445,6 +445,7 @@ class MediaModerationApi(object):
         :param str filter_context_id: Filter by moderation context ID
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
+        :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
         :return: PageResourceFlagReportResource
                  If the method is called asynchronously,
                  returns the request thread.
@@ -471,12 +472,13 @@ class MediaModerationApi(object):
         :param str filter_context_id: Filter by moderation context ID
         :param int size: The number of objects returned per page
         :param int page: The number of the page returned, starting with 1
+        :param str order: A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
         :return: PageResourceFlagReportResource
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['exclude_resolved', 'filter_context', 'filter_context_id', 'size', 'page']
+        all_params = ['exclude_resolved', 'filter_context', 'filter_context_id', 'size', 'page', 'order']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -508,6 +510,8 @@ class MediaModerationApi(object):
             query_params.append(('size', params['size']))
         if 'page' in params:
             query_params.append(('page', params['page']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
